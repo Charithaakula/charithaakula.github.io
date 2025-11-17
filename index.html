@@ -14,22 +14,63 @@
     h1 { margin: 0 0 4px 0; }
     .muted { color: #666; }
     .section { margin: 28px 0; }
+    .list { padding-left: 20px; }
     .list li { margin: 6px 0; }
     .right { text-align: right; }
-    .pill { display:inline-block; padding:2px 8px; border:1px solid #ddd; border-radius:999px; font-size: 12px; margin-left:6px; }
+    .linkbar a { margin-right: 8px; text-decoration: none; }
+
+    /* project + publication layout */
+    .projects, .pubs { list-style: none; padding-left: 0; }
+    .project, .pub {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: start;
+    }
+    .project img, .pub img {
+      width: 130px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 4px;
+      background: #eee; /* placeholder background */
+    }
+    .project-title, .pub-title { font-weight: bold; }
+    .project-meta, .pub-meta { font-size: 14px; color: #666; }
   </style>
 </head>
 <body>
   <div class="top">
     <div>
       <h1>Sai Charitha Akula</h1>
-      <p>
-        Research Scientist — Multimodal Understanding & Generative AI<br/>
-        <a href="mailto:sca321@nyu.edu">sca321@nyu.edu</a> · <a href="https://github.com/Charithaakula">GitHub</a> ·
+      <!-- <p>
+        Research Scientist, Meta AI
+      </p> -->
+      <p class="linkbar">
+        <a href="mailto:sca321@nyu.edu">Email</a> /
+        <a href="saicharitha_akula_resume.pdf">CV</a> /
+        <a href="https://github.com/Charithaakula">GitHub</a> /
         <a href="https://www.linkedin.com/in/sai-charitha-akula-32574887/">LinkedIn</a>
       </p>
       <p class="muted">
-        I build data-centric and evaluation-centric pipelines for multimodal LLMs: captioners for billion-scale image/video pretraining, rubric-based auto-evaluation, and retrieval/agent systems that measurably improve model quality and product reliability.
+        I am a Research Scientist at Meta Superintelligence Labs, where I drive improvements to multi modal large language models via post training, focusing on improving reasoning and understanding across text, image, and video.
+        Before Meta, I built enterprise-grade RAG systems and agentic workflows at Millennium and conducted research on retrieval relevance. Prior to that, I did research on
+        vision-centric multimodal models and diffusion models at NYU's CILVR Lab with Prof. Saining Xie.
+        I previously spent six years as a Quantitative Researcher at Goldman Sachs' Interest Rates desk,
+        building ML models for automated trading, pricing, and risk management.
+
+        I am a Research Scientist at Meta Superintelligence Labs, where I advance multimodal large language models through post-training techniques, with a focus on enhancing reasoning and understanding across text, image, and video modalities.
+
+Prior to Meta, I developed enterprise-scale RAG systems and agentic workflows at Millennium while conducting research on retrieval relevance. Before that, I researched vision-centric multimodal models and diffusion models at NYU's CILVR Lab under Prof. Saining Xie.
+
+I previously spent six years as a Quantitative Researcher at Goldman Sachs' Interest Rates desk, where I built machine learning models for automated trading, pricing, and risk management.
+
+        <!-- Before Meta, I developed enterprise-grade retrieval and agent systems at Millennium and worked on vision-centric
+        multimodal models at NYU’s CILVR Lab with Prof. Saining Xie. I previously spent six years as a Quantitative
+        Researcher and Developer on Goldman Sachs’ Interest Rates desk, building machine learning models for automated trading and pricing & risk modeling. -->
+      </p>
+      <p class="muted">
+        I completed my master's in Computer Science from NYU (Courant, https://cims.nyu.edu/dynamic/) and bachelor's in Computer Science (Honours) from Indian Institute of Technology, Bombay (https://www.iitb.ac.in/).
       </p>
     </div>
     <div class="right">
@@ -39,28 +80,150 @@
   </div>
 
   <div class="section">
+    <!-- <h2>Research</h2>
+
+    <p>
+
+      xnMy research focuses on building reliable and capable multimodal AI systems. I work on end-to-end development
+      of large-scale foundation models, with emphasis on post-training techniques including supervised fine-tuning
+      and reinforcement learning, data-centric learning through synthetic data generation and curation, and robust
+      evaluation methodologies. I'm particularly interested in improving model faithfulness, reasoning capabilities, and tool-use integration
+      to enable AI systems that are both powerful and trustworthy in real-world applications.
+
+      My research focuses on building reliable and adaptive AI systems, spanning multimodal foundation models,
+      with an emphasis on robust and efficient post-training (across text, image, video modalities), data-centric learning, interpretable and faithful evaluation.
+       tool-use, that help models reason, interpret, and improve safely.
+
+      My work spans both research and deployment, from improving model reasoning and perception
+      at Meta, to retrieval-augmented workflows and agentic systems used in high-stakes financial environments.
+    </p> -->
+    <!-- <p>
+
+      At Meta, Post-training stack (SFT, RLHF/PPO, DPO/GRPO) for Llama’s multimodal understanding,
+      coupled with lightweight expert captioners that annotate billions of images/videos and
+      rubric-based auto-evaluation that improves fine-grained perception and reasoning.
+
+      My research focuses on building reliable, adaptive AI systems — spanning multimodal foundation models,
+      post-training and alignment, data-centric learning, and evaluation. I work across text, image, and video
+      modalities, with an emphasis on robust post-training (SFT, RLHF, DPO/GRPO), tool-use, and rubric-based
+      auto-evaluation frameworks that help models reason, interpret, and improve safely.
+    </p>
+    <p>
+      More broadly, I’m interested in how AI systems can generalize across domains (e.g., vision, language,
+      finance, and healthcare), adapt to real-world constraints, and solve complex reasoning tasks with fidelity
+      and traceability. My work bridges research and deployment — from improving model reasoning and perception
+      at Meta, to retrieval-augmented workflows and agentic systems used in high-stakes financial environments.
+    </p> -->
+  </div>
+
+  <!-- <div class="section">
     <h2>News</h2>
     <ul class="list">
-      <li>Dec 2024 — <em>Cambrian‑1</em> accepted to NeurIPS (Oral).</li>
-      <li>Mar 2025 — Joined Meta Superintelligence Labs as Research Scientist (Multimedia Understanding).</li>
+      <li>Mar 2025 — Joined Meta Superintelligence Labs as Research Scientist (Llama Multimodal Reasoning &amp; Post-Training).</li>
+      <li>Dec 2024 — <em>Cambrian-1</em> accepted as an Oral at NeurIPS 2024.</li>
+      <li>Jun 2024 — Joined Millennium as AI Research Engineer (AI infra &amp; RAG for finance).</li>
+    </ul>
+  </div> -->
+
+  <div class="section">
+    <h2>Publications</h2>
+    <ul class="pubs">
+      <li class="pub">
+        <!-- replace with an actual image, e.g., images/cambrian1_pub.jpg -->
+        <img src="images/cambrian1_pub.jpg" alt="Cambrian-1" />
+        <div>
+          <div class="pub-title">
+            <a href="https://arxiv.org/abs/2406.16860">
+              Cambrian-1: A fully open, vision-centric exploration of multimodal LLMs
+            </a>
+          </div>
+          <div class="pub-meta">NeurIPS (Oral), 2024</div>
+          <!-- <p>
+            Vision-centric multimodal LLM with a four-encoder vision stack (CLIP, SigLIP, OpenCLIP, DINOv2) fused via
+            a Spatial Vision Aggregator, achieving strong performance on OCR, chart, and fine-grained visual reasoning
+            with 5× fewer training tokens than comparable baselines. Includes CV-Bench, a benchmark for 2D spatial
+            relations, counting, and 3D depth in VQA format.
+          </p> -->
+          <p class="muted">
+            Shengbang Tong, Ellis Brown, Penghao Wu, Sanghyun Woo, Manoj Middepogu,
+            <u>Sai Charitha Akula</u>, Jihan Yang, Shusheng Yang, Adithya Iyer, Xichen Pan,
+            Austin Wang, Rob Fergus, Yann LeCun, Saining Xie.
+          </p>
+        </div>
+      </li>
+
+      <li class="pub">
+        <!-- replace with an actual image, e.g., images/adv_tokens_vit.jpg -->
+        <img src="images/adv_tokens_vit.jpg" alt="Adversarial Tokens on ViTs" />
+        <div>
+          <div class="pub-title">
+            <a href="https://robustart.github.io/long_paper/31.pdf">
+              A Few Adversarial Tokens Can Break Vision Transformers
+            </a>
+          </div>
+          <div class="pub-meta">CVPR Workshop on Adversarial ML in CV, 2023</div>
+          <!-- <p>
+            Shows that a small number of adversarial tokens can severely degrade the performance of
+            Vision Transformers, revealing vulnerabilities in token-based architectures and highlighting the need for
+            more robust training and evaluation for vision models.
+            Also, proposes a architectural operation to improve robustnesss.
+          </p> -->
+          <p class="muted">
+            <u>Sai Charitha Akula*</u>, Ameya Joshi*, Gauri Jagatap, Chinmay Hegde.
+          </p>
+        </div>
+      </li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>Publications</h2>
-    <ul class="list">
-      <li>
-        <strong>Cambrian‑1: A fully open, vision‑centric exploration of multimodal LLMs</strong>.
-        <span class="muted">NeurIPS (Oral), 2024.</span>
-        <br/>
-        Shengbang Tong, Ellis Brown, Penghao Wu, Sanghyun Woo, Manoj Middepogu, <u>Sai Charitha Akula</u>, Jihan Yang, Shusheng Yang, Adithya Iyer, Xichen Pan, Austin Wang, Rob Fergus, Yann LeCun, Saining Xie.
-        [<a href="https://arxiv.org/abs/2406.16860">arXiv</a>]
+    <h2>Selected Projects</h2>
+
+      <li class="project">
+        <!-- replace with an actual image file, e.g., images/market_flux_finder.jpg -->
+        <img src="images/market_flux_finder.jpg" alt="Market Flux Finder" />
+        <div>
+          <div class="project-title">
+            <a href="https://github.com/ChanukyaVardhan/cloud-and-ml-RAG">Market Flux Finder</a>
+          </div>
+          <div class="project-meta">RAG, agents, financial research</div>
+          <p>
+            A financial browser that uses retrieval-augmented generation and LLMs for query-specific extraction and summarization
+            over large-scale firm research, built on GCP (Cloud SQL with pgvector, GKE with GPU nodes, microservices with gRPC).
+          </p>
+        </div>
       </li>
-      <li>
-        <strong>A Few Adversarial Tokens Can Break Vision Transformers</strong>.
-        <span class="muted">CVPR Workshop on Adversarial ML in CV, 2023.</span>
-        <br/>
-        <u>Sai Charitha Akula*</u>, Ameya Joshi*, Gauri Jagatap, Chinmay Hegde. [<a href="https://robustart.github.io/long_paper/31.pdf">pdf</a>]
+
+      <li class="project">
+        <!-- replace with an actual image file, e.g., images/perceiver_captioning.jpg -->
+        <img src="images/perceiver_captioning.jpg" alt="Perceiver-Resampler Captioning" />
+        <div>
+          <div class="project-title">
+            <a href="https://github.com/shan18/Perceiver-Resampler-XAttn-Captioning">
+              Perceiver-Resampler Cross-Attention Captioning
+            </a>
+          </div>
+          <div class="project-meta">Image captioning, CLIP + GPT-2, Perceiver-IO</div>
+          <p>
+            Bridges CLIP and GPT-2 via Perceiver-IO and gated cross-attention, achieving strong captioning performance on COCO-val
+            with a modular frozen-backbone design and a trainable Perceiver bridge and mapping network.
+          </p>
+        </div>
+      </li>
+
+      <li class="project">
+        <!-- replace with an actual image file, e.g., images/video_moment_localization.jpg -->
+        <img src="images/video_moment_localization.jpg" alt="Video Moment Localization" />
+        <div>
+          <div class="project-title">
+            <a href="https://github.com/ChanukyaVardhan/Video-Moment-Localization">Video Moment Localization</a>
+          </div>
+          <div class="project-meta">Temporal grounding, cross-modal attention</div>
+          <p>
+            Temporal grounding system with iterative attention and multi-level cross-modal interactions, improving R@1 IoU=0.5
+            on Charades-STA over strong baselines and providing interpretable grounding of language in video.
+          </p>
+        </div>
       </li>
     </ul>
   </div>
@@ -68,63 +231,12 @@
   <div class="section">
     <h2>Experience</h2>
     <ul class="list">
-      <li>
-        <strong>Meta Superintelligence Labs</strong>, Research Scientist — Multimedia Understanding <span class="muted">(Mar 2025–Present)</span>
-        <ul class="list">
-          <li>Improved multimodal model quality via advanced post‑training (<span class="pill">SFT</span> <span class="pill">RL</span>) and reward modeling, coupled with dataset/benchmark curation and robust auto/human eval pipelines.</li>
-          <li>Led <em>Understanding for Generation</em>: trained lightweight expert captioners via distillation to annotate billions of images/videos; emphasized attributes, spatial relations, style, camera, lighting, and motion with timestamps; delivered strong human‑eval gains.</li>
-          <li>Launched rubric‑based auto‑evaluation framework adopted for Llama pretraining; increased benchmark difficulty and discriminative power vs. prior internal baselines.</li>
-          <li>Piloted tool‑calling for MLLMs with reasoning‑trace data; defined Tool‑Need Precision/Recall and improved landmark recognition accuracy.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Millennium</strong>, AI Research Engineer <span class="muted">(Jun 2024–Mar 2025)</span>
-        <ul class="list">
-          <li>Shipped scalable enterprise AI systems (production RAG, 3rd‑party API integrations, custom LLM workflows); adopted by &gt;50% of the firm.</li>
-          <li>Improved retrieval & generation through query understanding/routing, reranking, and graph‑based knowledge; +6–46% context precision and +13–52% context recall on internal evals.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>CILVR Lab, NYU</strong>, Deep Learning Researcher (advised by Saining Xie & Mengye Ren) <span class="muted">(Apr 2023–Jun 2024)</span>
-        <ul class="list">
-          <li>Co‑developed data engine for <em>Cambrian‑1</em>; generated knowledge‑based visual instruction data using targeted retrieval and LLM‑assisted parsing.</li>
-          <li>Built CV‑Bench to evaluate 2D spatial relations, counting, and 3D depth in a VQA format.</li>
-          <li>Explored diffusion‑model efficiency (masking/contrastive learning) and joint generative‑discriminative pretraining.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Goldman Sachs — Interest Rates Desk</strong>, VP/Associate/Analyst, Quant Research & Engineering <span class="muted">(Sep 2017–Sep 2023)</span>
-        <ul class="list">
-          <li>Led 4‑person team in the firm‑wide LIBOR→RFR transition; delivered pricing/risk model updates and data pipelines across desks.</li>
-          <li>Cut pricing time 10× by optimizing input‑curve construction using Bayesian ML and convex optimization (Innovation of the Year, 2nd runner‑up).</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Selected Projects</h2>
-    <ul class="list">
-      <li><strong>Market Flux Finder</strong> — financial browser with RAG + LLMs for query‑specific extraction/summarization; CloudSQL, GKE, GPU nodes, gRPC, Prometheus. [<a href="https://github.com/ChanukyaVardhan/cloud-and-ml-RAG">code</a>]</li>
-      <li><strong>Efficient Group Preference Alignment</strong> — two‑stage aligners/adapters for group‑specific tuning (RLHF/DPO/PPO). [paper]</li>
-      <li><strong>Perceiver‑Resampler Cross‑Attention Captioning</strong> — CLIP+GPT‑2 bridged with Perceiver‑IO and gated x‑attn; 31.21 BLEU‑4 on COCO‑val. [<a href="https://github.com/shan18/Perceiver-Resampler-XAttn-Captioning">code</a>]</li>
-      <li><strong>Video Moment Localization</strong> — iterative attention and multi‑level cross‑modal interactions for temporal grounding. [<a href="https://github.com/ChanukyaVardhan/Video-Moment-Localization">code</a>]</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Education</h2>
-    <ul class="list">
-      <li><strong>New York University (Courant)</strong> — M.S. Computer Science, 4.0/4.0 <span class="muted">(Jan 2022–May 2024)</span></li>
-      <li><strong>IIT Bombay</strong> — B.Tech. Computer Science (Honours); Minor in Electrical Engineering <span class="muted">(2013–2017)</span></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Service & Misc</h2>
-    <ul class="list">
-      <li>Founder, NGO: built WhatsApp triage chatbot mitigating COVID bed surge; scaled to 100k+ concurrent requests.</li>
-      <li>Skills: Python, C/C++, SQL; PyTorch/Lightning, JAX, TensorFlow; Docker, Kubernetes, GCP; Ray; gRPC; microservices.</li>
+      <li><strong>Meta AI (Superintelligence Labs)</strong> — Senior Research Scientist, Llama Multimodal Reasoning &amp; Post-Training <span class="muted">(2025–Present)</span></li>
+      <li><strong>Millennium</strong> — AI Research Engineer <span class="muted">(2024–2025)</span></li>
+      <li><strong>CILVR Lab, NYU</strong> — Deep Learning Researcher <span class="muted">(2023–2024)</span></li>
+      <li><strong>Goldman Sachs — Interest Rates Desk</strong> — Quantitative Research &amp; Engineering <span class="muted">(2017–2023)</span></li>
+      <!-- <li><strong>NYU (Courant)</strong> — M.S. Computer Science <span class="muted">(2022–2024)</span></li>
+      <li><strong>IIT Bombay</strong> — B.Tech. Computer Science (Honours); Minor in Electrical Eng. <span class="muted">(2013–2017)</span></li> -->
     </ul>
   </div>
 
