@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,37 +9,144 @@
   <link rel="stylesheet" href="stylesheet.css" />
   <style>
     /* minimal fixes if stylesheet.css differs */
-    body { max-width: 900px; margin: 40px auto; padding: 0 16px; }
-    .top { display: grid; grid-template-columns: 1fr 160px; gap: 24px; align-items: center; }
-    img.headshot { width: 160px; height: 160px; object-fit: cover; border-radius: 8px; }
-    h1 { margin: 0 0 4px 0; }
-    .muted { color: #666; }
-    .section { margin: 28px 0; }
-    .list { padding-left: 20px; }
-    .list li { margin: 6px 0; }
-    .right { text-align: right; }
-    .linkbar a { margin-right: 8px; text-decoration: none; }
+    body {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: 70fr 30fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .headshot-container {
+      width: 100%;
+      padding-bottom: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    img.headshot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.4);
+      object-position: center left;
+    }
+
+    h1 {
+      margin: 0 0 4px 0;
+    }
+
+    .muted {
+      color: #666;
+    }
+
+    .section {
+      margin: 28px 0;
+    }
+
+    .list {
+      padding-left: 20px;
+    }
+
+    .list li {
+      margin: 6px 0;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .linkbar a {
+      margin-right: 8px;
+      text-decoration: none;
+    }
 
     /* project + publication layout */
-    .projects, .pubs { list-style: none; padding-left: 0; }
-    .project, .pub {
+    .projects,
+    .pubs {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .project,
+    .pub {
       display: grid;
-      grid-template-columns: 130px 1fr;
+      grid-template-columns: 180px 1fr;
       gap: 16px;
       margin-bottom: 18px;
       align-items: start;
     }
-    .project img, .pub img {
-      width: 130px;
-      height: 90px;
-      object-fit: cover;
+
+    .project img,
+    .pub img {
+      width: 180px;
+      height: 160px;
+      object-fit: contain;
       border-radius: 4px;
-      background: #eee; /* placeholder background */
+      background: #eee;
+      /* placeholder background */
     }
-    .project-title, .pub-title { font-weight: bold; }
-    .project-meta, .pub-meta { font-size: 14px; color: #666; }
+
+    .project-title,
+    .pub-title {
+      font-weight: bold;
+    }
+
+    .project-meta,
+    .pub-meta {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Project buttons */
+    .project-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 4px 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 11px;
+      color: #333;
+      background: transparent;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      background: #f5f5f5;
+      border-color: #999;
+      transform: translateY(-1px);
+    }
+
+    .btn-oral {
+      background: rgba(255, 153, 85, 0.3);
+      border-color: #ff9955;
+      color: #333;
+    }
+
+    .btn-oral:hover {
+      background: rgba(255, 136, 68, 0.4);
+      border-color: #ff8844;
+    }
   </style>
 </head>
+
 <body>
   <div class="top">
     <div>
@@ -47,11 +155,19 @@
         Research Scientist, Meta AI
       </p> -->
       <p class="linkbar">
-        <a href="mailto:sca321@nyu.edu">Email</a> /
-        <a href="saicharitha_akula_resume.pdf">CV</a> /
-        <a href="https://github.com/Charithaakula">GitHub</a> /
-        <a href="https://www.linkedin.com/in/sai-charitha-akula-32574887/">LinkedIn</a>
+        <a href="mailto:saicharitha21@gmail.com">Email</a> /
+        <a href="#" id="github-link">GitHub</a> /
+        <a href="#" id="linkedin-link">LinkedIn</a> /
+        <a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&hl=en">Google Scholar</a>
       </p>
+      <script>
+        (function () {
+          var g = ['h', 't', 't', 'p', 's', ':', '/', '/', 'g', 'i', 't', 'h', 'u', 'b', '.', 'c', 'o', 'm', '/', 'C', 'h', 'a', 'r', 'i', 't', 'h', 'a', 'a', 'k', 'u', 'l', 'a'];
+          var l = ['h', 't', 't', 'p', 's', ':', '/', '/', 'w', 'w', 'w', '.', 'l', 'i', 'n', 'k', 'e', 'd', 'i', 'n', '.', 'c', 'o', 'm', '/', 'i', 'n', '/', 's', 'a', 'i', '-', 'c', 'h', 'a', 'r', 'i', 't', 'h', 'a', '-', 'a', 'k', 'u', 'l', 'a', '-', '3', '2', '5', '7', '4', '8', '8', '7', '/'];
+          document.getElementById('github-link').href = g.join('');
+          document.getElementById('linkedin-link').href = l.join('');
+        })();
+      </script>
       <p class="muted">
         <!-- I am a Research Scientist at Meta Superintelligence Labs, where I drive improvements to multi modal large language models via post training, focusing on improving reasoning and understanding across text, image, and video.
         Before Meta, I built enterprise-grade RAG systems and agentic workflows at Millennium and conducted research on retrieval relevance. Prior to that, I did research on
@@ -59,30 +175,56 @@
         I previously spent six years as a Quantitative Researcher at Goldman Sachs' Interest Rates desk,
         building ML models for automated trading, pricing, and risk management. -->
 
-        I am a Research Scientist at Meta Superintelligence Labs, where I advance multimodal large language models through post-training techniques, with a focus on enhancing reasoning and understanding across text, image, and video modalities.
+        I am a Research Scientist at <a href="https://ai.meta.com/">Meta</a> Superintelligence Labs, where I advance
+        multimodal large language models
+        through post-training techniques, with a focus on enhancing reasoning and understanding across text, image, and
+        video modalities.
 
-Prior to Meta, I developed enterprise-scale RAG systems and agentic workflows at Millennium while conducting research on retrieval relevance. Before that, I researched vision-centric multimodal models and diffusion models at NYU's CILVR Lab under Prof. Saining Xie.
+        Prior to Meta, I developed enterprise-scale RAG systems and agentic workflows at <a
+          href="https://www.mlp.com/">Millennium</a> while conducting
+        research on retrieval relevance. Before that, I researched vision-centric multimodal models and diffusion models
+        at <a href="https://cilvr.nyu.edu/">NYU's CILVR Lab</a> under <a href="https://www.sainingxie.com/">Prof.
+          Saining Xie</a>.
 
-I previously spent six years as a Quantitative Researcher at Goldman Sachs' Interest Rates desk, where I built models for automated trading, pricing, and risk management.
+        I previously spent six years as a Quantitative Researcher at <a href="https://www.goldmansachs.com/">Goldman
+          Sachs</a>' Interest Rates desk, where I built
+        models for automated trading, pricing, and risk management.
 
         <!-- Before Meta, I developed enterprise-grade retrieval and agent systems at Millennium and worked on vision-centric
         multimodal models at NYU’s CILVR Lab with Prof. Saining Xie. I previously spent six years as a Quantitative
         Researcher and Developer on Goldman Sachs’ Interest Rates desk, building machine learning models for automated trading and pricing & risk modeling. -->
       </p>
       <p class="muted">
-        I completed my master's in Computer Science from NYU (Courant, https://cims.nyu.edu/dynamic/) and bachelor's in Computer Science (Honours) from Indian Institute of Technology, Bombay (https://www.iitb.ac.in/).
+        I completed my master's in Computer Science from <a href="https://cims.nyu.edu/dynamic/">NYU (Courant)</a> and
+        bachelor's in Computer Science (Honours) from <a href="https://www.iitb.ac.in/">Indian Institute of Technology,
+          Bombay</a>.
       </p>
     </div>
     <div class="right">
       <!-- Replace images/headshot.jpg with your own file placed in the repo's images/ folder -->
-      <img class="headshot" src="images/headshot.jpg" alt="Sai Charitha Akula" />
+      <div class="headshot-container">
+        <img class="headshot" src="images/sai/headshot.jpg" alt="Sai Charitha Akula" />
+      </div>
     </div>
   </div>
 
   <div class="section">
-    <!-- <h2>Research</h2>
+    <h2>Research</h2>
 
-    <p>
+    <p class="muted">
+
+      Broadly, my research interests lie in developing adaptive AI systems that can solve problems across diverse
+      domains under real-world constraints.
+      Currently, I focus on vision-language models (VLMs) and large language models (LLMs),
+      with emphasis on efficient and scalable post-training methods across text, image, and video (RLHF, preference
+      alignment),
+      data-centric approaches that enhance perception and reasoning, and interpretable evaluation frameworks.
+      I'm also excited about extending these models toward agentic behaviors through tool use and grounded interaction
+      with structured knowledge.
+
+    </p>
+
+    <!-- <p>
 
       xnMy research focuses on building reliable and capable multimodal AI systems. I work on end-to-end development
       of large-scale foundation models, with emphasis on post-training techniques including supervised fine-tuning
@@ -130,7 +272,7 @@ I previously spent six years as a Quantitative Researcher at Goldman Sachs' Inte
     <ul class="pubs">
       <li class="pub">
         <!-- replace with an actual image, e.g., images/cambrian1_pub.jpg -->
-        <img src="images/cambrian1_pub.jpg" alt="Cambrian-1" />
+        <img src="images/sai/cambrian.png" alt="Cambrian-1" />
         <div>
           <div class="pub-title">
             <a href="https://arxiv.org/abs/2406.16860">
@@ -149,12 +291,22 @@ I previously spent six years as a Quantitative Researcher at Goldman Sachs' Inte
             <u>Sai Charitha Akula</u>, Jihan Yang, Shusheng Yang, Adithya Iyer, Xichen Pan,
             Austin Wang, Rob Fergus, Yann LeCun, Saining Xie.
           </p>
+          <div class="project-buttons">
+            <a href="#" class="btn btn-oral">Oral</a>
+            <a href="https://cambrian-mllm.github.io/" class="btn">Website</a>
+            <a href="https://arxiv.org/pdf/2406.16860.pdf" class="btn">Paper</a>
+            <a href="https://github.com/cambrian-mllm/cambrian" class="btn">Code</a>
+            <a href="https://huggingface.co/collections/nyu-visionx/cambrian-data" class="btn">Datasets</a>
+            <a href="https://huggingface.co/datasets/nyu-visionx/CV-Bench" class="btn">Benchmark</a>
+
+
+          </div>
         </div>
       </li>
 
       <li class="pub">
         <!-- replace with an actual image, e.g., images/adv_tokens_vit.jpg -->
-        <img src="images/adv_tokens_vit.jpg" alt="Adversarial Tokens on ViTs" />
+        <img src="images/sai/adv.png" alt="Adversarial Tokens on ViTs" />
         <div>
           <div class="pub-title">
             <a href="https://robustart.github.io/long_paper/31.pdf">
@@ -171,6 +323,10 @@ I previously spent six years as a Quantitative Researcher at Goldman Sachs' Inte
           <p class="muted">
             <u>Sai Charitha Akula*</u>, Ameya Joshi*, Gauri Jagatap, Chinmay Hegde.
           </p>
+          <div class="project-buttons">
+            <a href="https://arxiv.org/pdf/2304.10938.pdf" class="btn">Paper</a>
+            <a href="https://github.com/ameya98/AdversarialTokenAttack" class="btn">Code</a>
+          </div>
         </div>
       </li>
     </ul>
@@ -178,51 +334,112 @@ I previously spent six years as a Quantitative Researcher at Goldman Sachs' Inte
 
   <div class="section">
     <h2>Selected Projects</h2>
-
+    <ul class="projects">
       <li class="project">
-        <!-- replace with an actual image file, e.g., images/market_flux_finder.jpg -->
-        <img src="images/market_flux_finder.jpg" alt="Market Flux Finder" />
+        <img src="images/sai/aligner.png" alt="Group Preference Alignment" />
         <div>
-          <div class="project-title">
-            <a href="https://github.com/ChanukyaVardhan/cloud-and-ml-RAG">Market Flux Finder</a>
-          </div>
-          <div class="project-meta">RAG, agents, financial research</div>
-          <p>
-            A financial browser that uses retrieval-augmented generation and LLMs for query-specific extraction and summarization
-            over large-scale firm research, built on GCP (Cloud SQL with pgvector, GKE with GPU nodes, microservices with gRPC).
+          <div class="project-title">Efficient Group Preference Alignment in LLMs</div>
+          <div class="project-meta">Deep Reinforcement Learning, NLP, DPO, PPO</div>
+          <p class="muted">
+            Developing a <strong>two-stage alignment</strong> framework for <strong>LLMs</strong>, exploring
+            methodologies like "Model-agnostic <strong>Aligners</strong> + <strong>Adapters</strong>" and
+            "<strong>PPO</strong> + <strong>DPO</strong>" to address common preferences initially, then fine-tune for
+            group-specific preferences efficiently.
           </p>
+          <div class="project-buttons">
+            <a href="https://chanukyavardhan.github.io/group-aligner.html" class="btn">Paper</a>
+            <a href="https://github.com/ChanukyaVardhan/Group-Preference-Alignment" class="btn">Code</a>
+          </div>
         </div>
       </li>
 
       <li class="project">
-        <!-- replace with an actual image file, e.g., images/perceiver_captioning.jpg -->
-        <img src="images/perceiver_captioning.jpg" alt="Perceiver-Resampler Captioning" />
+        <img src="images/sai/vml.png" alt="Video Moment Localization" />
         <div>
-          <div class="project-title">
-            <a href="https://github.com/shan18/Perceiver-Resampler-XAttn-Captioning">
-              Perceiver-Resampler Cross-Attention Captioning
-            </a>
-          </div>
-          <div class="project-meta">Image captioning, CLIP + GPT-2, Perceiver-IO</div>
-          <p>
-            Bridges CLIP and GPT-2 via Perceiver-IO and gated cross-attention, achieving strong captioning performance on COCO-val
-            with a modular frozen-backbone design and a trainable Perceiver bridge and mapping network.
+          <div class="project-title">Video Moment Localization</div>
+          <div class="project-meta">NLP, CV, Temporal Video Understanding</div>
+          <p class="muted">
+            Added iterative attention to enhance <strong>query &amp; video representation integration</strong>,
+            alongside multi-level cross-modal interaction and content-boundary-moment interaction. Achieved a 3% R@1
+            IOU=0.5 improvement on Charades-STA over our baseline, SMIN.
           </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1yGPCEFN2TCwxim_h08fT9CfTlfq74-4S/view?usp=drive_link"
+              class="btn">Paper</a>
+            <a href="https://github.com/ChanukyaVardhan/Video-Moment-Localization" class="btn">Code</a>
+          </div>
         </div>
       </li>
 
       <li class="project">
-        <!-- replace with an actual image file, e.g., images/video_moment_localization.jpg -->
-        <img src="images/video_moment_localization.jpg" alt="Video Moment Localization" />
+        <img src="images/sai/percieve.png" alt="Perceiver-Resampler Captioning" />
         <div>
-          <div class="project-title">
-            <a href="https://github.com/ChanukyaVardhan/Video-Moment-Localization">Video Moment Localization</a>
-          </div>
-          <div class="project-meta">Temporal grounding, cross-modal attention</div>
-          <p>
-            Temporal grounding system with iterative attention and multi-level cross-modal interactions, improving R@1 IoU=0.5
-            on Charades-STA over strong baselines and providing interpretable grounding of language in video.
+          <div class="project-title">Perceiver-Resampler Cross-Attention Captioning</div>
+          <div class="project-meta">Natural Language Processing, Computer Vision</div>
+          <p class="muted">
+            Developed <strong>3-module architecture</strong>: frozen <strong>CLIP</strong> &amp; <strong>GPT2
+              LLM</strong>, and trainable bridge with <strong>Perceiver IO</strong> (generates context for LLM fed via
+            gated cross attention) &amp; mapping network (aligns CLIP-LLM). Achieved 31.21 BLEU-4 score on COCO val set.
           </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1XJaFjxdbyTSjliLcVXtJJ-ahoaokju66/view?usp=drive_link"
+              class="btn">Paper</a>
+            <a href="https://github.com/shan18/Perceiver-Resampler-XAttn-Captioning" class="btn">Code</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <img src="images/sai/hc.png" alt="Multi-Modal Federated Learning" />
+        <div>
+          <div class="project-title">Multi-Modal Federated Learning in Health Care</div>
+          <div class="project-meta">Medical Image Processing, TensorFlow, PyTorch Lightning</div>
+          <p class="muted">
+            Dual-encoder model using ResNet-50 and ClinicalBERT, pretrained on MIMIC-CXR image–report pairs to learn
+            aligned visual-text features, then finetuned on CheXpert for chest disease classification via Federated
+            Learning. Evaluated the effect of varying client counts and IID/non-IID data distributions (volume,
+            features, and labels).
+          </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1fAgaFL-bILtPhEwGKlGccUcYTXlpFcEU/view?usp=drive_link"
+              class="btn">Paper</a>
+            <a href="https://github.com/tjdevWorks/ConVIRT-Federated" class="btn">Code</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <img src="images/sai/mff.png" alt="Market Flux Finder" />
+        <div>
+          <div class="project-title">Market Flux Finder</div>
+          <div class="project-meta">Cloud and Machine Learning, LLMs, RAG, Docker, Kubernetes, GCP, gRPC</div>
+          <p class="muted">
+            Built a financial RAG browser using LLMs to extract query-specific data and summarize insights. Used Cloud
+            SQL with PostgreSQL (pgvector extension)
+            for data storage and deployed microservices on <strong>GKE</strong> cluster for scalable serving; improved
+            latency with GPU nodes and <strong>gRPC</strong>, and employed <strong>Prometheus</strong> for monitoring.
+          </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1DjFqH9cT_JLHEsUpNeEMIz678JzoL93C/view?usp=drive_link"
+              class="btn">Paper</a>
+            <a href="https://github.com/ChanukyaVardhan/cloud-and-ml-RAG" class="btn">Code</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <img src="images/sai/ssoo.png" alt="Semi-Supervised Object Detection" />
+        <div>
+          <div class="project-title">Semi-Supervised Object Detection</div>
+          <div class="project-meta">Computer Vision, Semi Supervised Learning, Distributed Training, HPC</div>
+          <p class="muted">
+            Pretrained ResNet-50 with Barlow Twins on <strong>512k</strong> unlabeled data, used as FasterRCNN backbone,
+            finetuned on 30k labeled data.
+          </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1zZ6mtVvXORPweQ8PRbFcAelmCuFSGIAp/view?usp=drive_link"
+              class="btn">Paper</a>
+          </div>
         </div>
       </li>
     </ul>
@@ -231,17 +448,24 @@ I previously spent six years as a Quantitative Researcher at Goldman Sachs' Inte
   <div class="section">
     <h2>Experience</h2>
     <ul class="list">
-      <li><strong>Meta AI (Superintelligence Labs)</strong> — Senior Research Scientist, Llama Multimodal Reasoning &amp; Post-Training <span class="muted">(2025–Present)</span></li>
-      <li><strong>Millennium</strong> — AI Research Engineer <span class="muted">(2024–2025)</span></li>
-      <li><strong>CILVR Lab, NYU</strong> — Deep Learning Researcher <span class="muted">(2023–2024)</span></li>
-      <li><strong>Goldman Sachs — Interest Rates Desk</strong> — Quantitative Research &amp; Engineering <span class="muted">(2017–2023)</span></li>
+      <li><strong><a href="https://ai.meta.com/">Meta AI</a> (Superintelligence Labs)</strong> — Senior Research
+        Scientist, Llama Multimodal Reasoning
+        &amp; Post-Training <span class="muted">(2025–Present)</span></li>
+      <li><strong><a href="https://www.mlp.com/">Millennium</a></strong> — AI Research Engineer <span
+          class="muted">(2024–2025)</span></li>
+      <li><strong><a href="https://cilvr.nyu.edu/">CILVR Lab, NYU</a></strong> — Deep Learning Researcher <span
+          class="muted">(2023–2024)</span></li>
+      <li><strong><a href="https://www.goldmansachs.com/">Goldman Sachs</a> — Interest Rates Desk</strong> —
+        Quantitative Research &amp; Engineering <span class="muted">(2017–2023)</span></li>
       <!-- <li><strong>NYU (Courant)</strong> — M.S. Computer Science <span class="muted">(2022–2024)</span></li>
       <li><strong>IIT Bombay</strong> — B.Tech. Computer Science (Honours); Minor in Electrical Eng. <span class="muted">(2013–2017)</span></li> -->
     </ul>
   </div>
 
   <div class="section muted">
-    <p>Last updated: Nov 2025 · Template adapted from <a href="https://github.com/jonbarron/jonbarron.github.io">jonbarron.github.io</a>.</p>
+    <p>Last updated: Nov 2025 · Template adapted from <a
+        href="https://github.com/jonbarron/jonbarron.github.io">jonbarron.github.io</a>.</p>
   </div>
 </body>
+
 </html>
