@@ -147,6 +147,36 @@
       background: rgba(255, 136, 68, 0.4);
       border-color: #ff8844;
     }
+
+    /* Oral description */
+    .oral-description {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      background: rgba(255, 153, 85, 0.1);
+      border-left: 3px solid #ff9955;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .oral-description.visible {
+      display: block;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 
@@ -170,6 +200,16 @@
           document.getElementById('github-link').href = g.join('');
           document.getElementById('linkedin-link').href = l.join('');
         })();
+
+        function toggleOralDescription(event) {
+          event.preventDefault();
+          const description = document.getElementById('oralDescription');
+          if (description.classList.contains('visible')) {
+            description.classList.remove('visible');
+          } else {
+            description.classList.add('visible');
+          }
+        }
       </script>
       <p class="muted">
         <!-- I am a Research Scientist at Meta Superintelligence Labs, where I drive improvements to multi modal large language models via post training, focusing on improving reasoning and understanding across text, image, and video.
@@ -295,14 +335,15 @@
             Austin Wang, Rob Fergus, Yann LeCun, Saining Xie.
           </p>
           <div class="project-buttons">
-            <a href="#" class="btn btn-oral">Oral</a>
+            <a href="#" class="btn btn-oral" onclick="toggleOralDescription(event)">Oral</a>
             <a href="https://cambrian-mllm.github.io/" class="btn">Website</a>
             <a href="https://arxiv.org/pdf/2406.16860.pdf" class="btn">Paper</a>
             <a href="https://github.com/cambrian-mllm/cambrian" class="btn">Code</a>
             <a href="https://huggingface.co/collections/nyu-visionx/cambrian-data" class="btn">Datasets</a>
             <a href="https://huggingface.co/datasets/nyu-visionx/CV-Bench" class="btn">Benchmark</a>
-
-
+          </div>
+          <div class="oral-description" id="oralDescription">
+            Selected for Oral Presentation (1.8%) at NeurIPS 2024
           </div>
         </div>
       </li>
@@ -328,7 +369,7 @@
           </p>
           <div class="project-buttons">
             <a href="https://arxiv.org/pdf/2304.10938.pdf" class="btn">Paper</a>
-            <a href="https://github.com/ameya98/AdversarialTokenAttack" class="btn">Code</a>
+            <a href="https://github.com/Charithaakula/Patchattacks_Shiftedwindowanalysis" class="btn">Code</a>
           </div>
         </div>
       </li>
