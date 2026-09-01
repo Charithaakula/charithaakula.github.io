@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="studio">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Life OS — turn good advice into a life you can actually follow</title>
+  <meta name="description"
+    content="Life OS figures out what matters for you, how often it matters, and fits it into your actual week." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Caveat:wght@500;600&amp;display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="lifeos">
+
+  <!-- Line-art icon sprite. Stroke is currentColor so an icon takes the colour
+       of whatever contains it; every symbol id matches a domain key. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <g id="ico-defaults" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round" stroke-linejoin="round"></g>
+    </defs>
+    <symbol id="i-nutrition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.5 11h17a8.5 8.5 0 0 1-17 0Z" /><path d="M12 11c0-3.3 2.4-5.6 5.5-5.6C17.5 8.7 15.1 11 12 11Z" /><path d="M2 20.5h20" />
+    </symbol>
+    <symbol id="i-strength" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.5 7.5v9M3.5 10v4M17.5 7.5v9M20.5 10v4M6.5 12h11" />
+    </symbol>
+    <symbol id="i-cardio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12h4l2.5-6.5L12 18l2.5-6H22" />
+    </symbol>
+    <symbol id="i-mobility" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="4.3" r="2.1" /><path d="M12 6.8v6.4m0 0-3.6 5.4M12 13.2l3.6 5.4M6 9.6l6 1.1 6-1.1" />
+    </symbol>
+    <symbol id="i-sleep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.4 14.3A8.5 8.5 0 1 1 9.7 3.6a6.8 6.8 0 0 0 10.7 10.7Z" /><path d="M17.2 2.6v2.8M15.8 4h2.8" />
+    </symbol>
+    <symbol id="i-preventive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2.8 4.8 5.6v5.7c0 4.7 3 8.1 7.2 9.6 4.2-1.5 7.2-4.9 7.2-9.6V5.6Z" /><path d="M12 8.6v5.2M9.4 11.2h5.2" />
+    </symbol>
+    <symbol id="i-money" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.6" /><path d="M12 6.8v10.4" /><path d="M14.6 9.4c-.5-.9-1.4-1.4-2.6-1.4-1.5 0-2.6.8-2.6 2s1 1.7 2.6 2.1c1.7.4 2.8.9 2.8 2.1s-1.2 2-2.8 2c-1.2 0-2.2-.5-2.7-1.5" />
+    </symbol>
+    <symbol id="i-career" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.8" y="7" width="18.4" height="12.4" rx="2" /><path d="M8.6 7V5.4a1.8 1.8 0 0 1 1.8-1.8h3.2a1.8 1.8 0 0 1 1.8 1.8V7M2.8 12.6h18.4" />
+    </symbol>
+    <symbol id="i-relationships" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="8" r="3.1" /><path d="M3.4 19.6a5.6 5.6 0 0 1 11.2 0" /><path d="M16.2 5.4a3.1 3.1 0 0 1 0 5.2M17.8 14.2a5.6 5.6 0 0 1 3 5.4" />
+    </symbol>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.4 10.4 12 3.4l8.6 7v9.2a1 1 0 0 1-1 1H4.4a1 1 0 0 1-1-1Z" /><path d="M9.5 20.6v-6.4h5v6.4" />
+    </symbol>
+    <symbol id="i-admin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4.6" y="4" width="14.8" height="16.6" rx="2" /><path d="M9 4V2.9h6V4" /><path d="M8.6 10h6.8M8.6 13.8h6.8M8.6 17.4h4" />
+    </symbol>
+    <symbol id="i-hobby" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3.2 14.4 9l6.3.5-4.8 4.2 1.5 6.1-5.4-3.3-5.4 3.3 1.5-6.1L3.3 9.5 9.6 9Z" />
+    </symbol>
+    <symbol id="i-learning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 6.6v13.2" /><path d="M12 6.6C10.6 5.1 8.6 4.3 5.5 4.3a1 1 0 0 0-1 1v11.4a1 1 0 0 0 1 1c3.1 0 5.1.8 6.5 2.3" /><path d="M12 6.6c1.4-1.5 3.4-2.3 6.5-2.3a1 1 0 0 1 1 1v11.4a1 1 0 0 1-1 1c-3.1 0-5.1.8-6.5 2.3" />
+    </symbol>
+    <symbol id="i-grooming" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3.2s5.6 5.7 5.6 9.5a5.6 5.6 0 0 1-11.2 0C6.4 8.9 12 3.2 12 3.2Z" /><path d="M9.4 13.6a2.7 2.7 0 0 0 2.5 2.7" />
+    </symbol>
+    <symbol id="i-desk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1.8 12S5.6 5.4 12 5.4 22.2 12 22.2 12 18.4 18.6 12 18.6 1.8 12 1.8 12Z" /><circle cx="12" cy="12" r="3.1" />
+    </symbol>
+    <symbol id="i-events" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.2 9V6.6a1.2 1.2 0 0 1 1.2-1.2h15.2a1.2 1.2 0 0 1 1.2 1.2V9a2.6 2.6 0 0 0 0 5.2v2.4a1.2 1.2 0 0 1-1.2 1.2H4.4a1.2 1.2 0 0 1-1.2-1.2v-2.4a2.6 2.6 0 0 0 0-5.2Z" /><path d="M14.2 5.6v1.8M14.2 10.8v2.4M14.2 16.6v1.4" />
+    </symbol>
+    <symbol id="i-mind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.6" /><path d="M7.2 13.6c1.6-2.2 3.2-2.2 4.8 0s3.2 2.2 4.8 0" /><path d="M9.2 9.2h.01M14.8 9.2h.01" />
+    </symbol>
+    <symbol id="i-digital" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4.4" width="18" height="12.2" rx="1.8" /><path d="M1.8 19.6h20.4" />
+    </symbol>
+    <symbol id="i-travel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21.2 3 3.4 10.6l7 2.9L21.2 3Z" /><path d="M21.2 3 10.4 13.5l2.9 7.1L21.2 3Z" />
+    </symbol>
+    <symbol id="i-pets" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="7.6" cy="8.2" r="1.9" /><circle cx="13.4" cy="6.4" r="1.9" /><circle cx="18.2" cy="10.6" r="1.7" /><circle cx="5" cy="13.4" r="1.7" />
+      <path d="M12.4 12.4c2.5 0 4.6 2 4.6 4.4 0 1.9-1.4 3.2-3.2 3.2-1 0-1.6-.4-2.4-.4s-1.4.4-2.4.4c-1.8 0-3.2-1.3-3.2-3.2 0-2.4 2.1-4.4 4.6-4.4Z" />
+    </symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="./">Life<span>OS</span></a>
+      <nav>
+        <a href="#week" class="hide-sm">My week</a>
+        <a href="#domain" class="hide-sm">By domain</a>
+        <a href="#customize" class="hide-sm">Customise</a>
+        <a href="../">← Sai Charitha Akula</a>
+        <span id="theme-switch" role="group" aria-label="Pick a theme"></span>
+        <span id="ai-status" class="status status-off">Demo mode</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ------------------------------------------------------------- hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">A personal operating system</span>
+        <h1>Turn good advice into a life <span class="hl">you can actually follow.</span></h1>
+        <p class="lead">
+          There is endless advice about health, food, money, work and life. It is not that you don't know —
+          it's that nobody tells you what your <em>actual Tuesday</em> should look like.
+        </p>
+        <div class="cta-row">
+          <button class="btn btn-primary" data-chat-open type="button">Build my Life OS</button>
+          <button class="btn btn-ghost" data-example type="button">See an example first</button>
+        </div>
+      </div>
+
+      <figure class="hero-figure">
+      <svg class="hero-art" viewBox="0 0 1200 430" role="img" aria-label="Scattered advice on the left, funnelled through Life OS in the middle, coming out as an organised week on the right.">
+        <g class="art-chips">
+          <g>
+            <rect x="10" y="38" width="94" height="40" rx="11" fill="var(--c-lime-bg)" />
+            <use href="#i-nutrition" x="23" y="50" width="15" height="15" color="var(--c-lime-fg)" />
+            <text x="45" y="62" class="art-label" fill="var(--c-lime-fg)">Protein</text>
+          </g>
+          <g>
+            <rect x="150" y="12" width="114" height="40" rx="11" fill="var(--c-indigo-bg)" />
+            <use href="#i-sleep" x="163" y="24" width="15" height="15" color="var(--c-indigo-fg)" />
+            <text x="185" y="36" class="art-label" fill="var(--c-indigo-fg)">Sleep 7–8h</text>
+          </g>
+          <g>
+            <rect x="12" y="108" width="88" height="40" rx="11" fill="var(--c-mint-bg)" />
+            <use href="#i-money" x="25" y="120" width="15" height="15" color="var(--c-mint-fg)" />
+            <text x="47" y="132" class="art-label" fill="var(--c-mint-fg)">401(k)</text>
+          </g>
+          <g>
+            <rect x="162" y="92" width="101" height="40" rx="11" fill="var(--c-violet-bg)" />
+            <use href="#i-mobility" x="175" y="104" width="15" height="15" color="var(--c-violet-fg)" />
+            <text x="197" y="116" class="art-label" fill="var(--c-violet-fg)">Mobility</text>
+          </g>
+          <g>
+            <rect x="0" y="186" width="107" height="40" rx="11" fill="var(--c-pink-bg)" />
+            <use href="#i-grooming" x="13" y="198" width="15" height="15" color="var(--c-pink-fg)" />
+            <text x="35" y="210" class="art-label" fill="var(--c-pink-fg)">Skin care</text>
+          </g>
+          <g>
+            <rect x="168" y="176" width="81" height="40" rx="11" fill="var(--c-clay-bg)" />
+            <use href="#i-admin" x="181" y="188" width="15" height="15" color="var(--c-clay-fg)" />
+            <text x="203" y="200" class="art-label" fill="var(--c-clay-fg)">Taxes</text>
+          </g>
+          <g>
+            <rect x="16" y="266" width="107" height="40" rx="11" fill="var(--c-lime-bg)" />
+            <use href="#i-nutrition" x="29" y="278" width="15" height="15" color="var(--c-lime-fg)" />
+            <text x="51" y="290" class="art-label" fill="var(--c-lime-fg)">Meal prep</text>
+          </g>
+          <g>
+            <rect x="158" y="256" width="107" height="40" rx="11" fill="var(--c-ocean-bg)" />
+            <use href="#i-career" x="171" y="268" width="15" height="15" color="var(--c-ocean-fg)" />
+            <text x="193" y="280" class="art-label" fill="var(--c-ocean-fg)">Deep work</text>
+          </g>
+          <g>
+            <rect x="4" y="346" width="121" height="40" rx="11" fill="var(--c-rose-bg)" />
+            <use href="#i-relationships" x="17" y="358" width="15" height="15" color="var(--c-rose-fg)" />
+            <text x="39" y="370" class="art-label" fill="var(--c-rose-fg)">Call family</text>
+          </g>
+          <g>
+            <rect x="150" y="336" width="121" height="40" rx="11" fill="var(--c-plum-bg)" />
+            <use href="#i-events" x="163" y="348" width="15" height="15" color="var(--c-plum-fg)" />
+            <text x="185" y="360" class="art-label" fill="var(--c-plum-fg)">Luma invite</text>
+          </g>
+        </g>
+        <g class="art-flow">
+          <path d="M104 58 C305 58 305 215 505 215" />
+          <path d="M264 32 C384 32 384 215 505 215" />
+          <path d="M100 128 C302 128 302 215 505 215" />
+          <path d="M263 112 C384 112 384 215 505 215" />
+          <path d="M107 206 C306 206 306 215 505 215" />
+          <path d="M249 196 C377 196 377 215 505 215" />
+          <path d="M123 286 C314 286 314 215 505 215" />
+          <path d="M265 276 C385 276 385 215 505 215" />
+          <path d="M125 366 C315 366 315 215 505 215" />
+          <path d="M271 356 C388 356 388 215 505 215" />
+        </g>
+        <g class="art-core">
+          <rect x="505" y="118" width="190" height="194" rx="18" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.5" />
+          <text x="600" y="170" class="art-mark" text-anchor="middle" fill="var(--ink)">Life OS</text>
+          <text x="527" y="206" class="art-key" fill="var(--ink)">Domain</text>
+          <text x="527" y="220" class="art-sub" fill="var(--ink-faint)">what part of life</text>
+          <text x="527" y="242" class="art-key" fill="var(--ink)">Cadence</text>
+          <text x="527" y="256" class="art-sub" fill="var(--ink-faint)">how often it matters</text>
+          <text x="527" y="278" class="art-key" fill="var(--ink)">Mode</text>
+          <text x="527" y="292" class="art-sub" fill="var(--ink-faint)">how much you can take on</text>
+        </g>
+        <g class="art-flow">
+          <path d="M695 215 C742 215 742 105 790 105" />
+          <path d="M695 215 C742 215 742 177 790 177" />
+          <path d="M695 215 C742 215 742 249 790 249" />
+          <path d="M695 215 C742 215 742 321 790 321" />
+        </g>
+        <g class="art-grid">
+          <rect x="772" y="30" width="410" height="360" rx="16" fill="var(--panel)" stroke="var(--line)" />
+          <text x="812" y="62" class="art-day" text-anchor="middle" fill="var(--ink-faint)">M</text>
+          <text x="862" y="62" class="art-day" text-anchor="middle" fill="var(--ink-faint)">T</text>
+          <text x="912" y="62" class="art-day" text-anchor="middle" fill="var(--ink-faint)">W</text>
+          <text x="962" y="62" class="art-day" text-anchor="middle" fill="var(--ink-faint)">T</text>
+          <text x="1012" y="62" class="art-day" text-anchor="middle" fill="var(--ink-faint)">F</text>
+          <text x="1062" y="62" class="art-day" text-anchor="middle" fill="var(--ink-faint)">S</text>
+          <text x="1112" y="62" class="art-day" text-anchor="middle" fill="var(--ink-faint)">S</text>
+          <use href="#i-nutrition" x="774" y="97" width="16" height="16" color="var(--c-lime-fg)" opacity="0" />
+            <rect x="790" y="90" width="44" height="30" rx="7" fill="var(--c-lime-bg)" />
+            <rect x="840" y="90" width="44" height="30" rx="7" fill="var(--c-lime-bg)" />
+            <rect x="890" y="90" width="44" height="30" rx="7" fill="var(--c-lime-bg)" />
+            <rect x="940" y="90" width="44" height="30" rx="7" fill="var(--c-lime-bg)" />
+            <rect x="990" y="90" width="44" height="30" rx="7" fill="var(--c-lime-bg)" />
+            <rect x="1040" y="90" width="44" height="30" rx="7" fill="var(--c-lime-bg)" />
+            <rect x="1090" y="90" width="44" height="30" rx="7" fill="var(--c-lime-bg)" />
+          <use href="#i-strength" x="774" y="133" width="16" height="16" color="var(--c-coral-fg)" opacity="0" />
+            <rect x="790" y="126" width="44" height="30" rx="7" fill="var(--c-coral-bg)" />
+            <rect x="858" y="140" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="908" y="140" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="940" y="126" width="44" height="30" rx="7" fill="var(--c-coral-bg)" />
+            <rect x="1008" y="140" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1058" y="140" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1108" y="140" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+          <use href="#i-cardio" x="774" y="169" width="16" height="16" color="var(--c-sky-fg)" opacity="0" />
+            <rect x="808" y="176" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="840" y="162" width="44" height="30" rx="7" fill="var(--c-sky-bg)" />
+            <rect x="908" y="176" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="958" y="176" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="990" y="162" width="44" height="30" rx="7" fill="var(--c-sky-bg)" />
+            <rect x="1058" y="176" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1090" y="162" width="44" height="30" rx="7" fill="var(--c-sky-bg)" />
+          <use href="#i-career" x="774" y="205" width="16" height="16" color="var(--c-ocean-fg)" opacity="0" />
+            <rect x="790" y="198" width="44" height="30" rx="7" fill="var(--c-ocean-bg)" />
+            <rect x="840" y="198" width="44" height="30" rx="7" fill="var(--c-ocean-bg)" />
+            <rect x="890" y="198" width="44" height="30" rx="7" fill="var(--c-ocean-bg)" />
+            <rect x="940" y="198" width="44" height="30" rx="7" fill="var(--c-ocean-bg)" />
+            <rect x="990" y="198" width="44" height="30" rx="7" fill="var(--c-ocean-bg)" />
+            <rect x="1058" y="212" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1108" y="212" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+          <use href="#i-money" x="774" y="241" width="16" height="16" color="var(--c-mint-fg)" opacity="0" />
+            <rect x="808" y="248" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="840" y="234" width="44" height="30" rx="7" fill="var(--c-mint-bg)" />
+            <rect x="908" y="248" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="958" y="248" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1008" y="248" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1058" y="248" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1108" y="248" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+          <use href="#i-relationships" x="774" y="277" width="16" height="16" color="var(--c-rose-fg)" opacity="0" />
+            <rect x="808" y="284" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="858" y="284" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="890" y="270" width="44" height="30" rx="7" fill="var(--c-rose-bg)" />
+            <rect x="940" y="270" width="44" height="30" rx="7" fill="var(--c-rose-bg)" />
+            <rect x="1008" y="284" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1058" y="284" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1108" y="284" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+          <use href="#i-grooming" x="774" y="313" width="16" height="16" color="var(--c-pink-fg)" opacity="0" />
+            <rect x="790" y="306" width="44" height="30" rx="7" fill="var(--c-pink-bg)" />
+            <rect x="840" y="306" width="44" height="30" rx="7" fill="var(--c-pink-bg)" />
+            <rect x="890" y="306" width="44" height="30" rx="7" fill="var(--c-pink-bg)" />
+            <rect x="940" y="306" width="44" height="30" rx="7" fill="var(--c-pink-bg)" />
+            <rect x="990" y="306" width="44" height="30" rx="7" fill="var(--c-pink-bg)" />
+            <rect x="1040" y="306" width="44" height="30" rx="7" fill="var(--c-pink-bg)" />
+            <rect x="1090" y="306" width="44" height="30" rx="7" fill="var(--c-pink-bg)" />
+          <use href="#i-events" x="774" y="349" width="16" height="16" color="var(--c-plum-fg)" opacity="0" />
+            <rect x="808" y="356" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="858" y="356" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="890" y="342" width="44" height="30" rx="7" fill="var(--c-plum-bg)" />
+            <rect x="958" y="356" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="990" y="342" width="44" height="30" rx="7" fill="var(--c-plum-bg)" />
+            <rect x="1058" y="356" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+            <rect x="1108" y="356" width="8" height="2" rx="1" fill="var(--ink-faint)" opacity=".3" />
+        </g>
+        <text x="120" y="422" class="art-cap" text-anchor="middle" fill="var(--ink-faint)">Advice, everywhere</text>
+        <text x="600" y="422" class="art-cap" text-anchor="middle" fill="var(--ink-faint)">One system</text>
+        <text x="962" y="422" class="art-cap" text-anchor="middle" fill="var(--ink-faint)">Your actual week</text>
+      </svg>
+        <figcaption class="scribble">
+          <svg class="doodle-arrow" viewBox="0 0 120 60" aria-hidden="true">
+            <path d="M4 52C22 50 48 42 66 26M66 26l-14 3M66 26l1 14" />
+          </svg>
+          same life. one system.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------- 0. the research -->
+  <section id="research">
+    <div class="wrap">
+      <span class="slash">the research</span>
+      <h2>Everything it suggests, and <span class="hl">how sure anyone actually is.</span></h2>
+      <p class="muted lead-sm">
+        Some of this rests on a named guideline from a major body. Some is sensible convention with
+        no trial behind it. Some is purely your call. Presenting all three in the same confident
+        voice would be the dishonest thing — so every recommendation carries a grade.
+      </p>
+      <div id="research-body"></div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------- 1. the week grid -->
+  <section id="week">
+    <div class="wrap">
+      <span class="slash">your week</span>
+      <div class="stage-head">
+        <h2>Everything, on one grid.</h2>
+        <span id="mode-chip">Base Mode</span>
+        <button class="btn btn-ghost btn-small" id="reset-btn" type="button">Reset</button>
+      </div>
+      <p class="muted lead-sm">
+        Every part of your life down the side, the week across the top. Not a to-do list —
+        a picture of where your week actually goes, and what it never touches.
+      </p>
+
+      <p id="empty-hint" class="empty-hint">
+        <button class="btn btn-primary btn-small" data-chat-open type="button">Answer five questions</button>
+        <span class="muted">or</span>
+        <button class="btn btn-ghost btn-small" data-example type="button">load an example</button>
+      </p>
+
+      <div id="plan-stage" hidden>
+        <p class="drag-hint">
+          <span class="scribble scribble-tight">drag anything to another day ↓</span>
+          <span class="hint-actions">
+            <button class="btn btn-ghost btn-small" id="toggle-group" type="button">Show all</button>
+            <button class="btn btn-ghost btn-small" id="clear-moves" type="button">Undo all my moves</button>
+            <button class="btn btn-ghost btn-small" id="export-ics" type="button">↓ Add to my calendar</button>
+          </span>
+        </p>
+        <div class="scroll-x">
+          <div id="matrix-body"></div>
+        </div>
+        <div id="plan-priorities"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------ 2. domain / month -->
+  <section id="domain" class="stage-only" hidden>
+    <div class="wrap">
+      <span class="slash">zoom in</span>
+      <h2>One area, a whole month.</h2>
+      <p class="muted lead-sm">
+        The grid is the week. This is the month — pick an area and see how it actually
+        distributes, so variety is designed rather than remembered.
+      </p>
+      <div id="domain-tabs"></div>
+      <div id="domain-body"></div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------ 3. customise -->
+  <section id="customize" class="stage-only" hidden>
+    <div class="wrap">
+      <div class="customise">
+        <div>
+          <span class="slash">make it yours</span>
+          <h2>Life changed? Just say so.</h2>
+          <p class="muted">
+            No settings screens. Tell Life OS what happened and the grid rearranges around it —
+            and it remembers, so you only say it once.
+          </p>
+          <div class="say-list">
+            <button class="say" type="button" data-say="Tuesday is suddenly busy">“Tuesday is suddenly busy”</button>
+            <button class="say" type="button" data-say="I don't like morning workouts">“I don't like morning workouts”</button>
+            <button class="say" type="button" data-say="I'm travelling next week">“I'm travelling next week”</button>
+            <button class="say" type="button" data-say="I want the bare minimum for two weeks">“Bare minimum for two weeks”</button>
+            <button class="say" type="button" data-say="Why strength session?">“Why strength session?”</button>
+          </div>
+          <p class="fine">Tap one to try it — or say several at once.</p>
+        </div>
+        <aside class="customise-side">
+          <span class="scribble scribble-tight">it replans in place ↓</span>
+          <button class="btn btn-primary" data-chat-open type="button">Open Ask Life OS</button>
+          <button class="btn btn-ghost" id="brain-dump" type="button" hidden>🎙 Tell it everything at once</button>
+          <p class="fine" id="voice-note" hidden>
+            One long sentence works: <em>“I’m in London, Tuesdays are busy, no morning workouts,
+              and I’m travelling next week.”</em> It picks apart every clause it recognises.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------- 4. week / month / year -->
+  <section id="schedule" class="stage-only" hidden>
+    <div class="wrap">
+      <span class="slash">the schedule</span>
+      <h2>Zoom out. <span class="hl">Same plan, three distances.</span></h2>
+      <p class="muted lead-sm">
+        These are generated from the grid above — move something up there and all three
+        rearrange with it. No saving, no syncing, no second place to keep in step.
+      </p>
+
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" data-tab="ribbon" type="button">Week · load</button>
+        <button class="tab" data-tab="quilt" type="button">Month · rhythm</button>
+        <button class="tab" data-tab="year" type="button">Year · horizon</button>
+      </div>
+
+      <div class="tabpanel" data-panel="ribbon">
+        <p class="fine">How your week's hours actually distribute. A tick in a grid says
+          <em>something happens</em>; this says <em>how much</em>.</p>
+        <div id="ribbon-body"></div>
+      </div>
+
+      <div class="tabpanel" data-panel="quilt" hidden>
+        <p class="fine">Every day of the month as a stack of stripes — one per area of life
+          touched. The repeating pattern is your week; the labelled days break it.</p>
+        <div class="scroll-x">
+          <div id="quilt-body"></div>
+        </div>
+      </div>
+
+      <div class="tabpanel" data-panel="year" hidden>
+        <p class="fine">Twelve months from this one, clockwise. Everything slow enough that
+          you shouldn't be carrying it in your head — dental, taxes, insurance, renewals.</p>
+        <div id="year-body"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------- validation -->
+  <section id="validate">
+    <div class="wrap narrow">
+      <span class="slash">tell me</span>
+      <h2>Would you use this?</h2>
+      <p class="muted">A prototype built to answer one question. Three taps and a sentence would help enormously.</p>
+
+      <form id="feedback-form">
+        <fieldset class="fb-block">
+          <legend>Would you use it?</legend>
+          <div class="fb-opts">
+            <label><input type="radio" name="woulduse" value="yes" /> Yes</label>
+            <label><input type="radio" name="woulduse" value="maybe" /> Maybe</label>
+            <label><input type="radio" name="woulduse" value="no" /> No</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fb-block">
+          <legend>Most useful</legend>
+          <div class="fb-opts">
+            <label><input type="checkbox" name="useful" value="grid" /> The week grid</label>
+            <label><input type="checkbox" name="useful" value="health" /> Nutrition &amp; fitness integration</label>
+            <label><input type="checkbox" name="useful" value="admin" /> Remembering life admin</label>
+            <label><input type="checkbox" name="useful" value="ai" /> Replanning by just saying it</label>
+            <label><input type="checkbox" name="useful" value="all" /> All of the above</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fb-block">
+          <legend>What worries you</legend>
+          <div class="fb-opts">
+            <label><input type="checkbox" name="worry" value="toomuch" /> Too much information</label>
+            <label><input type="checkbox" name="worry" value="privacy" /> Privacy</label>
+            <label><input type="checkbox" name="worry" value="wrong" /> Recommendations may be wrong</label>
+            <label><input type="checkbox" name="worry" value="effort" /> Too much effort to maintain</label>
+            <label><input type="checkbox" name="worry" value="nothing" /> Nothing</label>
+          </div>
+        </fieldset>
+
+        <label for="feedback-text" class="fb-label">What would make this useful enough to use every week?</label>
+        <textarea id="feedback-text" placeholder="Be blunt — that's the useful kind."></textarea>
+
+        <div class="cta-row" style="margin-top:14px">
+          <button class="btn btn-primary" type="submit">Send feedback</button>
+          <span id="feedback-status"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------------- appendix -->
+  <section class="appendix stage-only" hidden>
+    <div class="wrap">
+      <details id="appendix">
+        <summary><span class="slash">appendix</span> Other ways to look at the same plan</summary>
+        <p class="fine">
+          The grid above is the daily driver. These are the same plan sliced differently — kept here
+          rather than on the front page, because most weeks you don't need them.
+        </p>
+
+        <h3 class="app-h">Life coverage — the same grid as a table</h3>
+        <div class="cov-head">
+          <div>Domain</div>
+          <div>Minimum</div>
+          <div>Current</div>
+          <div>Next</div>
+        </div>
+        <div id="coverage-body"></div>
+
+        <h3 class="app-h">Today · This week · This month · Not now</h3>
+        <div id="plan-columns"></div>
+
+        <h3 class="app-h">The week by time of day</h3>
+        <div class="cal-layout">
+          <div class="scroll-x">
+            <div id="calendar-body"></div>
+          </div>
+          <div id="calendar-side"></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap narrow">
+      <div class="disclaimer">
+        <strong>What this is.</strong> An organising prototype — not medical, dietary, financial or legal
+        advice. The numbers are illustrative defaults meant to be edited. Everything you enter stays in your
+        browser: no account, no server, nothing stored anywhere but here.
+      </div>
+      <p>
+        A prototype by <a href="../">Sai Charitha Akula</a> ·
+        <a href="https://nutritionfacts.org/daily-dozen/" target="_blank" rel="noopener noreferrer">Nutrition
+          template inspiration</a> ·
+        <span id="year"></span>
+      </p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <button class="chat-fab" data-chat-open type="button">Ask Life OS</button>
+
+  <div class="chat-panel" id="chat-panel" aria-hidden="true" role="dialog" aria-label="Ask Life OS">
+    <div class="chat-head">
+      <strong>Ask Life OS</strong>
+      <button id="chat-close" type="button" aria-label="Close">×</button>
+    </div>
+    <div id="chat-log"></div>
+    <form id="chat-form">
+      <button id="mic-btn" class="mic" type="button" title="Speak instead of typing" aria-label="Speak">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3.5a3 3 0 0 1 3 3v5.4a3 3 0 0 1-6 0V6.5a3 3 0 0 1 3-3Z" />
+          <path d="M5.5 11.4a6.5 6.5 0 0 0 13 0M12 17.9v2.6" />
+        </svg>
+      </button>
+      <input id="chat-input" type="text" placeholder="Say or type — “Tuesdays are busy, I’m in London”" autocomplete="off" />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    // Point this at your deployed endpoint to switch on the language model.
+    // Leave it null and Life OS runs entirely on-device. See backend/README.md.
+    window.LifeOS = window.LifeOS || {};
+    window.LifeOS.CONFIG = {
+      endpoint: null,          // e.g. 'https://life-os-api.<you>.workers.dev/chat'
+      feedbackEndpoint: null   // e.g. 'https://life-os-api.<you>.workers.dev/feedback'
+    };
+  </script>
+
+  <script src="data/catalog.js"></script>
+  <script src="data/nutrition.js"></script>
+  <script src="data/evidence.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/model.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/ics.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "life-os-api-vercel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.70.0"
+  }
+}

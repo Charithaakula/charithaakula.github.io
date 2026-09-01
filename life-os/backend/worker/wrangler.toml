@@ -1,0 +1,17 @@
+name = "life-os-api"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Lock this to your Pages origin once you have tested it.
+# [vars]
+# ALLOWED_ORIGIN = "https://charithaakula.github.io"
+
+# Optional: durable rate limiting and feedback storage.
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "<kv-namespace-id>"
+#
+# [[kv_namespaces]]
+# binding = "FEEDBACK"
+# id = "<kv-namespace-id>"
