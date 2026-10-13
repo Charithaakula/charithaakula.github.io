@@ -110,6 +110,23 @@
       color: #666;
     }
 
+    .pub .pub-figure {
+      box-sizing: border-box;
+      padding: 8px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+    }
+
+    .pub-summary {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .pub-authors {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
     /* Project buttons */
     .project-buttons {
       display: flex;
@@ -135,6 +152,20 @@
       background: #f5f5f5;
       border-color: #999;
       transform: translateY(-1px);
+    }
+
+    .btn-soon,
+    .btn-soon:hover {
+      border-color: #e5e7eb;
+      background: #f7f7f7;
+      color: #666;
+      transform: none;
+    }
+
+    .btn-soon small {
+      margin-left: 4px;
+      font-size: inherit;
+      text-transform: none;
     }
 
     .btn-oral {
@@ -177,6 +208,28 @@
         transform: translateY(0);
       }
     }
+
+    @media (max-width: 600px) {
+      body {
+        margin: 24px auto;
+      }
+
+      .top {
+        grid-template-columns: 1fr;
+      }
+
+      .top > .right {
+        grid-row: 1;
+        width: 150px;
+      }
+
+      .project,
+      .pub {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+    }
   </style>
 </head>
 
@@ -192,13 +245,13 @@
         Research Scientist, Meta AI
       </p> -->
       <!-- <p class="linkbar">
-        <a href="mailto:saicharitha21@gmail.com">Email</a> /
+        <a href="mailto:saicharithaakula21@gmail.com">Email</a> /
         <a href="#" id="github-link">GitHub</a> /
         <a href="#" id="linkedin-link">LinkedIn</a> /
         <a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&hl=en">Google Scholar</a>
       </p> -->
       <p class="linkbar">
-        <a href="mailto:saicharitha21@gmail.com">Email</a> /
+        <a href="mailto:saicharithaakula21@gmail.com">Email</a> /
         <a href="#" id="github-link">GitHub</a> /
         <a href="#" id="linkedin-link">LinkedIn</a> /
         <a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&hl=en">Google Scholar</a> /
@@ -213,14 +266,11 @@
           document.getElementById('linkedin-link').href = l.join('');
         })();
 
-        function toggleOralDescription(event) {
+        function toggleOralDescription(event, descriptionId = 'oralDescription') {
           event.preventDefault();
-          const description = document.getElementById('oralDescription');
-          if (description.classList.contains('visible')) {
-            description.classList.remove('visible');
-          } else {
-            description.classList.add('visible');
-          }
+          const description = document.getElementById(descriptionId);
+          const isVisible = description.classList.toggle('visible');
+          event.currentTarget.setAttribute('aria-expanded', String(isVisible));
         }
       </script>
       <p class="muted">
@@ -230,10 +280,9 @@
         I previously spent six years as a Quantitative Researcher at Goldman Sachs' Interest Rates desk,
         building ML models for automated trading, pricing, and risk management. -->
 
-        I am a Senior Research Scientist at <a href="https://ai.meta.com/">Meta</a> Superintelligence Labs, where I advance
-        multimodal large language models
-        through post-training techniques, with a focus on enhancing reasoning and understanding across text, image, and
-        video modalities.
+        I am a Senior Research Scientist at <a href="https://ai.meta.com/">Meta</a> Superintelligence Labs, where I work
+        on multimodal AI systems for visual perception, reasoning, and reliable assistance. My research spans data
+        curation, visual representations, post-training, and evaluation across text, images, and video.
         
         Prior to Meta, I was part of <a
           href="https://www.mlp.com/">Millennium's</a> four-person core AI team, reporting to the Head of AI. 
@@ -261,7 +310,7 @@
       </p>
       
       <p class="muted">
-        Outside of research, you'll usually find me exploring new cafés and nature spots, dancing, staying active, or
+        Outside of research, you'll usually find me exploring new cafés, nature spots, and scents, dancing, staying active, or
         trying out something new!
       </p>
     </div>
@@ -271,56 +320,6 @@
         <img class="headshot" src="images/sai/dp.jpg" alt="Sai Charitha Akula" />
       </div>
     </div>
-  </div>
-
-  <div class="section">
-    <h2>Research</h2>
-
-    <p class="muted">
-
-      Broadly, my research interests lie in developing adaptive AI systems that can solve problems across diverse
-      domains under real-world constraints.
-      Currently, I focus on vision-language models (VLMs) and large language models (LLMs),
-      with emphasis on efficient and scalable post-training methods across text, image, and video (RLHF, preference
-      alignment),
-      data-centric approaches that enhance perception and reasoning, and interpretable evaluation frameworks.
-      I'm also excited about extending these models toward agentic behaviors through tool use and grounded interaction
-      with structured knowledge.
-
-    </p>
-
-    <!-- <p>
-
-      xnMy research focuses on building reliable and capable multimodal AI systems. I work on end-to-end development
-      of large-scale foundation models, with emphasis on post-training techniques including supervised fine-tuning
-      and reinforcement learning, data-centric learning through synthetic data generation and curation, and robust
-      evaluation methodologies. I'm particularly interested in improving model faithfulness, reasoning capabilities, and tool-use integration
-      to enable AI systems that are both powerful and trustworthy in real-world applications.
-
-      My research focuses on building reliable and adaptive AI systems, spanning multimodal foundation models,
-      with an emphasis on robust and efficient post-training (across text, image, video modalities), data-centric learning, interpretable and faithful evaluation.
-       tool-use, that help models reason, interpret, and improve safely.
-
-      My work spans both research and deployment, from improving model reasoning and perception
-      at Meta, to retrieval-augmented workflows and agentic systems used in high-stakes financial environments.
-    </p> -->
-    <!-- <p>
-
-      At Meta, Post-training stack (SFT, RLHF/PPO, DPO/GRPO) for Llama’s multimodal understanding,
-      coupled with lightweight expert captioners that annotate billions of images/videos and
-      rubric-based auto-evaluation that improves fine-grained perception and reasoning.
-
-      My research focuses on building reliable, adaptive AI systems — spanning multimodal foundation models,
-      post-training and alignment, data-centric learning, and evaluation. I work across text, image, and video
-      modalities, with an emphasis on robust post-training (SFT, RLHF, DPO/GRPO), tool-use, and rubric-based
-      auto-evaluation frameworks that help models reason, interpret, and improve safely.
-    </p>
-    <p>
-      More broadly, I’m interested in how AI systems can generalize across domains (e.g., vision, language,
-      finance, and healthcare), adapt to real-world constraints, and solve complex reasoning tasks with fidelity
-      and traceability. My work bridges research and deployment — from improving model reasoning and perception
-      at Meta, to retrieval-augmented workflows and agentic systems used in high-stakes financial environments.
-    </p> -->
   </div>
 
   <!-- <div class="section">
@@ -335,6 +334,71 @@
   <div class="section">
     <h2>Publications</h2>
     <ul class="pubs">
+      <li class="pub" id="reconcilebench">
+        <a href="images/sai/reconcilebench-figure2.png" target="_blank" rel="noopener noreferrer" title="View Figure 2 from the paper">
+          <img class="pub-figure" src="images/sai/reconcilebench-figure2.png"
+            alt="ReconcileBench Figure 2: benchmark workflow and a policy-revision example, with repaired workspaces checked against a hidden reference" />
+        </a>
+        <div>
+          <div class="pub-title">
+            <a href="https://openreview.net/forum?id=4xdgvEUHI3">
+              ReconcileBench: Benchmarking State Reconciliation in Persistent Scientific Agents
+            </a>
+          </div>
+          <div class="pub-meta">NeurIPS 2026 Workshop on Agentic AI for Biological Discovery</div>
+          <p class="muted pub-authors">
+            <u>Sai Charitha Akula</u>, Chanukya Vardhan Gujjula.
+          </p>
+          <p class="muted pub-summary">
+            A benchmark for whether persistent scientific agents can keep their workspaces consistent after
+            evidence or analysis policies change. It tests reconciliation across data, code, figures, reports,
+            and decisions in analytical, health, and RNA-seq projects, revealing how local repairs can leave
+            downstream scientific records stale.
+          </p>
+          <div class="project-buttons">
+            <a href="#reconcilebenchOralDescription" class="btn btn-oral"
+              onclick="toggleOralDescription(event, 'reconcilebenchOralDescription')"
+              aria-expanded="false" aria-controls="reconcilebenchOralDescription">Oral</a>
+            <a href="https://openreview.net/forum?id=4xdgvEUHI3" class="btn">Paper</a>
+            <a href="data/reconcilebench.pdf" class="btn" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a href="https://github.com/Charithaakula/ReconcileBench" class="btn">Code</a>
+            <span class="btn btn-soon" aria-disabled="true">Benchmark &amp; data <small>Coming soon</small></span>
+          </div>
+          <div class="oral-description" id="reconcilebenchOralDescription">
+            Selected for Oral Presentation at the NeurIPS 2026 Workshop on Agentic AI for Biological Discovery.
+            <a href="https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/AgenticLS#tab-accepted-oral-papers">View accepted oral papers</a>.
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" id="logt">
+        <img class="pub-figure" src="images/sai/logt.png"
+          alt="LogT generates logic-chain-guided reasoning traces for visual search with a zoom-in tool" />
+        <div>
+          <div class="pub-title">
+            <a href="https://neurips.cc/virtual/2026/loc/atlanta/poster/155728">
+              LogT: Logically Think with Images for Visual Search
+            </a>
+          </div>
+          <div class="pub-meta">NeurIPS, 2026</div>
+          <p class="muted pub-authors">
+            Yanjun Fu, Quanzeng You, Jiadong Guo, Yujie Lu, <u>Sai Charitha Akula</u>,
+            Haiping Wu, Miao Liu, Sanghamitra Dutta, Lu Yuan.
+          </p>
+          <p class="muted pub-summary">
+            An automated data engine that teaches vision-language models to reason logically and use a zoom-in
+            tool for visual search. LogT's supervised fine-tuning alone outperforms prior SFT + RL methods
+            with 3.1&times; less data and over 120&times; fewer GPU hours; a simple RL stage extends the lead
+            to 9.59 points across seven test sets.
+          </p>
+          <div class="project-buttons">
+            <a href="https://neurips.cc/virtual/2026/loc/atlanta/poster/155728" class="btn">Paper</a>
+            <a href="data/logt.pdf" class="btn" target="_blank" rel="noopener noreferrer">PDF</a>
+            <span class="btn btn-soon" aria-disabled="true">Code <small>Coming soon</small></span>
+          </div>
+        </div>
+      </li>
+
       <li class="pub">
         <!-- replace with an actual image, e.g., images/cambrian1_pub.jpg -->
         <img src="images/sai/cambrian.png" alt="Cambrian-1" />
@@ -357,7 +421,8 @@
             Austin Wang, Rob Fergus, Yann LeCun, Saining Xie.
           </p>
           <div class="project-buttons">
-            <a href="#" class="btn btn-oral" onclick="toggleOralDescription(event)">Oral</a>
+            <a href="#oralDescription" class="btn btn-oral" onclick="toggleOralDescription(event)"
+              aria-expanded="false" aria-controls="oralDescription">Oral</a>
             <a href="https://cambrian-mllm.github.io/" class="btn">Website</a>
             <a href="https://arxiv.org/pdf/2406.16860.pdf" class="btn">Paper</a>
             <a href="https://github.com/cambrian-mllm/cambrian" class="btn">Code</a>
@@ -390,7 +455,7 @@
             <u>Sai Charitha Akula*</u>, Ameya Joshi*, Gauri Jagatap, Chinmay Hegde.
           </p>
           <div class="project-buttons">
-            <a href="https://arxiv.org/pdf/2304.10938.pdf" class="btn">Paper</a>
+            <a href="https://robustart.github.io/long_paper/31.pdf" class="btn">Paper</a>
             <a href="https://github.com/Charithaakula/Patchattacks_Shiftedwindowanalysis" class="btn">Code</a>
           </div>
         </div>
@@ -432,9 +497,10 @@
 
   </div>
 
-  <div class="section">
+  <div class="section" id="selected-projects">
     <h2>Selected Projects</h2>
     <ul class="projects">
+      <!-- Life OS is temporarily hidden. Remove these comment markers to restore this project.
       <li class="project">
         <div
           style="width:180px;height:160px;border-radius:4px;background:#faf7f0;border:1px solid #e6ded0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;">
@@ -460,6 +526,7 @@
           </div>
         </div>
       </li>
+      -->
 
       <li class="project">
         <img src="images/sai/aligner.png" alt="Group Preference Alignment" />
