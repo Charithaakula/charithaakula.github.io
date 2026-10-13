@@ -110,6 +110,35 @@
       color: #666;
     }
 
+    .pub .pub-figure {
+      box-sizing: border-box;
+      padding: 8px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+    }
+
+    .pub-summary {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .pub-authors {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    .pub-badge {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 3px 8px;
+      border: 1px solid #ff9955;
+      border-radius: 4px;
+      background: rgba(255, 153, 85, 0.15);
+      color: #713b17;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
     /* Project buttons */
     .project-buttons {
       display: flex;
@@ -135,6 +164,20 @@
       background: #f5f5f5;
       border-color: #999;
       transform: translateY(-1px);
+    }
+
+    .btn-soon,
+    .btn-soon:hover {
+      border-color: #e5e7eb;
+      background: #f7f7f7;
+      color: #666;
+      transform: none;
+    }
+
+    .btn-soon small {
+      margin-left: 4px;
+      font-size: inherit;
+      text-transform: none;
     }
 
     .btn-oral {
@@ -177,6 +220,28 @@
         transform: translateY(0);
       }
     }
+
+    @media (max-width: 600px) {
+      body {
+        margin: 24px auto;
+      }
+
+      .top {
+        grid-template-columns: 1fr;
+      }
+
+      .top > .right {
+        grid-row: 1;
+        width: 150px;
+      }
+
+      .project,
+      .pub {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+    }
   </style>
 </head>
 
@@ -192,13 +257,13 @@
         Research Scientist, Meta AI
       </p> -->
       <!-- <p class="linkbar">
-        <a href="mailto:saicharitha21@gmail.com">Email</a> /
+        <a href="mailto:saicharithaakula21@gmail.com">Email</a> /
         <a href="#" id="github-link">GitHub</a> /
         <a href="#" id="linkedin-link">LinkedIn</a> /
         <a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&hl=en">Google Scholar</a>
       </p> -->
       <p class="linkbar">
-        <a href="mailto:saicharitha21@gmail.com">Email</a> /
+        <a href="mailto:saicharithaakula21@gmail.com">Email</a> /
         <a href="#" id="github-link">GitHub</a> /
         <a href="#" id="linkedin-link">LinkedIn</a> /
         <a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&hl=en">Google Scholar</a> /
@@ -335,6 +400,64 @@
   <div class="section">
     <h2>Publications</h2>
     <ul class="pubs">
+      <li class="pub" id="reconcilebench">
+        <img class="pub-figure" src="images/sai/reconcilebench.svg"
+          alt="ReconcileBench: reconciling evidence, analysis, records, and decisions in persistent scientific agents" />
+        <div>
+          <div class="pub-title">
+            <a href="https://openreview.net/forum?id=4xdgvEUHI3">
+              ReconcileBench: Benchmarking State Reconciliation in Persistent Scientific Agents
+            </a>
+          </div>
+          <div class="pub-meta">NeurIPS 2026 Workshop on Agentic AI for Biological Discovery</div>
+          <a class="pub-badge"
+            href="https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/AgenticLS#tab-accepted-oral-papers">Oral presentation</a>
+          <p class="muted pub-authors">
+            <u>Sai Charitha Akula</u>, Chanukya Vardhan Gujjula.
+          </p>
+          <p class="muted pub-summary">
+            A benchmark for whether persistent scientific agents can keep their workspaces consistent after
+            evidence or analysis policies change. It tests reconciliation across data, code, figures, reports,
+            and decisions in analytical, health, and RNA-seq projects, revealing how local repairs can leave
+            downstream scientific records stale.
+          </p>
+          <div class="project-buttons">
+            <a href="https://openreview.net/forum?id=4xdgvEUHI3" class="btn">Paper</a>
+            <a href="data/reconcilebench.pdf" class="btn" target="_blank" rel="noopener noreferrer">PDF</a>
+            <span class="btn btn-soon" aria-disabled="true">Code <small>Coming soon</small></span>
+            <span class="btn btn-soon" aria-disabled="true">Benchmark &amp; data <small>Coming soon</small></span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" id="logt">
+        <img class="pub-figure" src="images/sai/logt.png"
+          alt="LogT generates logic-chain-guided reasoning traces for visual search with a zoom-in tool" />
+        <div>
+          <div class="pub-title">
+            <a href="https://neurips.cc/virtual/2026/loc/atlanta/poster/155728">
+              LogT: Logically Think with Images for Visual Search
+            </a>
+          </div>
+          <div class="pub-meta">NeurIPS, 2026</div>
+          <p class="muted pub-authors">
+            Yanjun Fu, Quanzeng You, Jiadong Guo, Yujie Lu, <u>Sai Charitha Akula</u>,
+            Haiping Wu, Miao Liu, Sanghamitra Dutta, Lu Yuan.
+          </p>
+          <p class="muted pub-summary">
+            An automated data engine that teaches vision-language models to reason logically and use a zoom-in
+            tool for visual search. LogT's supervised fine-tuning alone outperforms prior SFT + RL methods
+            with 3.1&times; less data and over 120&times; fewer GPU hours; a simple RL stage extends the lead
+            to 9.59 points across seven test sets.
+          </p>
+          <div class="project-buttons">
+            <a href="https://neurips.cc/virtual/2026/loc/atlanta/poster/155728" class="btn">Paper</a>
+            <a href="data/logt.pdf" class="btn" target="_blank" rel="noopener noreferrer">PDF</a>
+            <span class="btn btn-soon" aria-disabled="true">Code <small>Coming soon</small></span>
+          </div>
+        </div>
+      </li>
+
       <li class="pub">
         <!-- replace with an actual image, e.g., images/cambrian1_pub.jpg -->
         <img src="images/sai/cambrian.png" alt="Cambrian-1" />
