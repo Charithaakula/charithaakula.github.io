@@ -127,18 +127,6 @@
       line-height: 1.5;
     }
 
-    .pub-badge {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 3px 8px;
-      border: 1px solid #ff9955;
-      border-radius: 4px;
-      background: rgba(255, 153, 85, 0.15);
-      color: #713b17;
-      font-size: 11px;
-      font-weight: bold;
-    }
-
     /* Project buttons */
     .project-buttons {
       display: flex;
@@ -278,14 +266,11 @@
           document.getElementById('linkedin-link').href = l.join('');
         })();
 
-        function toggleOralDescription(event) {
+        function toggleOralDescription(event, descriptionId = 'oralDescription') {
           event.preventDefault();
-          const description = document.getElementById('oralDescription');
-          if (description.classList.contains('visible')) {
-            description.classList.remove('visible');
-          } else {
-            description.classList.add('visible');
-          }
+          const description = document.getElementById(descriptionId);
+          const isVisible = description.classList.toggle('visible');
+          event.currentTarget.setAttribute('aria-expanded', String(isVisible));
         }
       </script>
       <p class="muted">
@@ -412,8 +397,6 @@
             </a>
           </div>
           <div class="pub-meta">NeurIPS 2026 Workshop on Agentic AI for Biological Discovery</div>
-          <a class="pub-badge"
-            href="https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/AgenticLS#tab-accepted-oral-papers">Oral presentation</a>
           <p class="muted pub-authors">
             <u>Sai Charitha Akula</u>, Chanukya Vardhan Gujjula.
           </p>
@@ -424,10 +407,17 @@
             downstream scientific records stale.
           </p>
           <div class="project-buttons">
+            <a href="#reconcilebenchOralDescription" class="btn btn-oral"
+              onclick="toggleOralDescription(event, 'reconcilebenchOralDescription')"
+              aria-expanded="false" aria-controls="reconcilebenchOralDescription">Oral</a>
             <a href="https://openreview.net/forum?id=4xdgvEUHI3" class="btn">Paper</a>
             <a href="data/reconcilebench.pdf" class="btn" target="_blank" rel="noopener noreferrer">PDF</a>
-            <span class="btn btn-soon" aria-disabled="true">Code <small>Coming soon</small></span>
+            <a href="https://github.com/Charithaakula/ReconcileBench" class="btn">Code</a>
             <span class="btn btn-soon" aria-disabled="true">Benchmark &amp; data <small>Coming soon</small></span>
+          </div>
+          <div class="oral-description" id="reconcilebenchOralDescription">
+            Selected for Oral Presentation at the NeurIPS 2026 Workshop on Agentic AI for Biological Discovery.
+            <a href="https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/AgenticLS#tab-accepted-oral-papers">View accepted oral papers</a>.
           </div>
         </div>
       </li>
@@ -482,7 +472,8 @@
             Austin Wang, Rob Fergus, Yann LeCun, Saining Xie.
           </p>
           <div class="project-buttons">
-            <a href="#" class="btn btn-oral" onclick="toggleOralDescription(event)">Oral</a>
+            <a href="#oralDescription" class="btn btn-oral" onclick="toggleOralDescription(event)"
+              aria-expanded="false" aria-controls="oralDescription">Oral</a>
             <a href="https://cambrian-mllm.github.io/" class="btn">Website</a>
             <a href="https://arxiv.org/pdf/2406.16860.pdf" class="btn">Paper</a>
             <a href="https://github.com/cambrian-mllm/cambrian" class="btn">Code</a>
@@ -515,7 +506,7 @@
             <u>Sai Charitha Akula*</u>, Ameya Joshi*, Gauri Jagatap, Chinmay Hegde.
           </p>
           <div class="project-buttons">
-            <a href="https://arxiv.org/pdf/2304.10938.pdf" class="btn">Paper</a>
+            <a href="https://robustart.github.io/long_paper/31.pdf" class="btn">Paper</a>
             <a href="https://github.com/Charithaakula/Patchattacks_Shiftedwindowanalysis" class="btn">Code</a>
           </div>
         </div>
