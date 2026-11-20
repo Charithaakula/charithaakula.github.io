@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" class="hero-art" viewBox="0 0 1200 430" role="img" aria-label="Scattered advice on the left, funnelled through Life OS in the middle, coming out as an organised week on the right."><defs><symbol id="i-nutrition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.5 11h17a8.5 8.5 0 0 1-17 0Z" /><path d="M12 11c0-3.3 2.4-5.6 5.5-5.6C17.5 8.7 15.1 11 12 11Z" /><path d="M2 20.5h20" />
+    </symbol><symbol id="i-strength" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.5 7.5v9M3.5 10v4M17.5 7.5v9M20.5 10v4M6.5 12h11" />
+    </symbol><symbol id="i-cardio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12h4l2.5-6.5L12 18l2.5-6H22" />
+    </symbol><symbol id="i-mobility" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="4.3" r="2.1" /><path d="M12 6.8v6.4m0 0-3.6 5.4M12 13.2l3.6 5.4M6 9.6l6 1.1 6-1.1" />
+    </symbol><symbol id="i-sleep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.4 14.3A8.5 8.5 0 1 1 9.7 3.6a6.8 6.8 0 0 0 10.7 10.7Z" /><path d="M17.2 2.6v2.8M15.8 4h2.8" />
+    </symbol><symbol id="i-preventive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2.8 4.8 5.6v5.7c0 4.7 3 8.1 7.2 9.6 4.2-1.5 7.2-4.9 7.2-9.6V5.6Z" /><path d="M12 8.6v5.2M9.4 11.2h5.2" />
+    </symbol><symbol id="i-money" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.6" /><path d="M12 6.8v10.4" /><path d="M14.6 9.4c-.5-.9-1.4-1.4-2.6-1.4-1.5 0-2.6.8-2.6 2s1 1.7 2.6 2.1c1.7.4 2.8.9 2.8 2.1s-1.2 2-2.8 2c-1.2 0-2.2-.5-2.7-1.5" />
+    </symbol><symbol id="i-career" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.8" y="7" width="18.4" height="12.4" rx="2" /><path d="M8.6 7V5.4a1.8 1.8 0 0 1 1.8-1.8h3.2a1.8 1.8 0 0 1 1.8 1.8V7M2.8 12.6h18.4" />
+    </symbol><symbol id="i-relationships" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="8" r="3.1" /><path d="M3.4 19.6a5.6 5.6 0 0 1 11.2 0" /><path d="M16.2 5.4a3.1 3.1 0 0 1 0 5.2M17.8 14.2a5.6 5.6 0 0 1 3 5.4" />
+    </symbol><symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.4 10.4 12 3.4l8.6 7v9.2a1 1 0 0 1-1 1H4.4a1 1 0 0 1-1-1Z" /><path d="M9.5 20.6v-6.4h5v6.4" />
+    </symbol><symbol id="i-admin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4.6" y="4" width="14.8" height="16.6" rx="2" /><path d="M9 4V2.9h6V4" /><path d="M8.6 10h6.8M8.6 13.8h6.8M8.6 17.4h4" />
+    </symbol><symbol id="i-hobby" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3.2 14.4 9l6.3.5-4.8 4.2 1.5 6.1-5.4-3.3-5.4 3.3 1.5-6.1L3.3 9.5 9.6 9Z" />
+    </symbol><symbol id="i-learning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 6.6v13.2" /><path d="M12 6.6C10.6 5.1 8.6 4.3 5.5 4.3a1 1 0 0 0-1 1v11.4a1 1 0 0 0 1 1c3.1 0 5.1.8 6.5 2.3" /><path d="M12 6.6c1.4-1.5 3.4-2.3 6.5-2.3a1 1 0 0 1 1 1v11.4a1 1 0 0 1-1 1c-3.1 0-5.1.8-6.5 2.3" />
+    </symbol><symbol id="i-grooming" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3.2s5.6 5.7 5.6 9.5a5.6 5.6 0 0 1-11.2 0C6.4 8.9 12 3.2 12 3.2Z" /><path d="M9.4 13.6a2.7 2.7 0 0 0 2.5 2.7" />
+    </symbol><symbol id="i-desk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1.8 12S5.6 5.4 12 5.4 22.2 12 22.2 12 18.4 18.6 12 18.6 1.8 12 1.8 12Z" /><circle cx="12" cy="12" r="3.1" />
+    </symbol><symbol id="i-events" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.2 9V6.6a1.2 1.2 0 0 1 1.2-1.2h15.2a1.2 1.2 0 0 1 1.2 1.2V9a2.6 2.6 0 0 0 0 5.2v2.4a1.2 1.2 0 0 1-1.2 1.2H4.4a1.2 1.2 0 0 1-1.2-1.2v-2.4a2.6 2.6 0 0 0 0-5.2Z" /><path d="M14.2 5.6v1.8M14.2 10.8v2.4M14.2 16.6v1.4" />
+    </symbol><symbol id="i-mind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.6" /><path d="M7.2 13.6c1.6-2.2 3.2-2.2 4.8 0s3.2 2.2 4.8 0" /><path d="M9.2 9.2h.01M14.8 9.2h.01" />
+    </symbol><symbol id="i-digital" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4.4" width="18" height="12.2" rx="1.8" /><path d="M1.8 19.6h20.4" />
+    </symbol><symbol id="i-travel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21.2 3 3.4 10.6l7 2.9L21.2 3Z" /><path d="M21.2 3 10.4 13.5l2.9 7.1L21.2 3Z" />
+    </symbol><symbol id="i-pets" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="7.6" cy="8.2" r="1.9" /><circle cx="13.4" cy="6.4" r="1.9" /><circle cx="18.2" cy="10.6" r="1.7" /><circle cx="5" cy="13.4" r="1.7" />
+      <path d="M12.4 12.4c2.5 0 4.6 2 4.6 4.4 0 1.9-1.4 3.2-3.2 3.2-1 0-1.6-.4-2.4-.4s-1.4.4-2.4.4c-1.8 0-3.2-1.3-3.2-3.2 0-2.4 2.1-4.4 4.6-4.4Z" />
+    </symbol></defs><style>.art-chips rect { transition: none; }.art-label { font-family: 'Plus Jakarta Sans', ui-sans-serif, -apple-system, 'Segoe UI', sans-serif; font-size: 12.5px; font-weight: 600; }.art-mark  { font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif; font-size: 26px; font-weight: 700; letter-spacing: -.02em; }.art-key   { font-family: 'Plus Jakarta Sans', ui-sans-serif, -apple-system, 'Segoe UI', sans-serif; font-size: 12.5px; font-weight: 700; }.art-sub   { font-family: 'Plus Jakarta Sans', ui-sans-serif, -apple-system, 'Segoe UI', sans-serif; font-size: 11px; }.art-day   { font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 10.5px; letter-spacing: .1em; }.art-cap   { font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; }.art-flow path { fill: none; stroke: #99A0B0; stroke-width: 1.1;
+                 stroke-dasharray: 3 5; opacity: .45; }</style>
+        <g class="art-chips">
+          <g>
+            <rect x="10" y="38" width="94" height="40" rx="11" fill="#E8F1E4" />
+            <use href="#i-nutrition" x="23" y="50" width="15" height="15" color="#4A7C50" />
+            <text x="45" y="62" class="art-label" fill="#4A7C50">Protein</text>
+          </g>
+          <g>
+            <rect x="150" y="12" width="114" height="40" rx="11" fill="#E7E8F6" />
+            <use href="#i-sleep" x="163" y="24" width="15" height="15" color="#444A96" />
+            <text x="185" y="36" class="art-label" fill="#444A96">Sleep 7–8h</text>
+          </g>
+          <g>
+            <rect x="12" y="108" width="88" height="40" rx="11" fill="#E1F1EA" />
+            <use href="#i-money" x="25" y="120" width="15" height="15" color="#2C7A63" />
+            <text x="47" y="132" class="art-label" fill="#2C7A63">401(k)</text>
+          </g>
+          <g>
+            <rect x="162" y="92" width="101" height="40" rx="11" fill="#EDE9F7" />
+            <use href="#i-mobility" x="175" y="104" width="15" height="15" color="#5C4E9E" />
+            <text x="197" y="116" class="art-label" fill="#5C4E9E">Mobility</text>
+          </g>
+          <g>
+            <rect x="0" y="186" width="107" height="40" rx="11" fill="#F8E8EF" />
+            <use href="#i-grooming" x="13" y="198" width="15" height="15" color="#9C4A72" />
+            <text x="35" y="210" class="art-label" fill="#9C4A72">Skin care</text>
+          </g>
+          <g>
+            <rect x="168" y="176" width="81" height="40" rx="11" fill="#F1EAE1" />
+            <use href="#i-admin" x="181" y="188" width="15" height="15" color="#7A6650" />
+            <text x="203" y="200" class="art-label" fill="#7A6650">Taxes</text>
+          </g>
+          <g>
+            <rect x="16" y="266" width="107" height="40" rx="11" fill="#E8F1E4" />
+            <use href="#i-nutrition" x="29" y="278" width="15" height="15" color="#4A7C50" />
+            <text x="51" y="290" class="art-label" fill="#4A7C50">Meal prep</text>
+          </g>
+          <g>
+            <rect x="158" y="256" width="107" height="40" rx="11" fill="#E2EDF3" />
+            <use href="#i-career" x="171" y="268" width="15" height="15" color="#2A6382" />
+            <text x="193" y="280" class="art-label" fill="#2A6382">Deep work</text>
+          </g>
+          <g>
+            <rect x="4" y="346" width="121" height="40" rx="11" fill="#FBE7E7" />
+            <use href="#i-relationships" x="17" y="358" width="15" height="15" color="#A8555C" />
+            <text x="39" y="370" class="art-label" fill="#A8555C">Call family</text>
+          </g>
+          <g>
+            <rect x="150" y="336" width="121" height="40" rx="11" fill="#F0E7F3" />
+            <use href="#i-events" x="163" y="348" width="15" height="15" color="#75468A" />
+            <text x="185" y="360" class="art-label" fill="#75468A">Luma invite</text>
+          </g>
+        </g>
+        <g class="art-flow">
+          <path d="M104 58 C305 58 305 215 505 215" />
+          <path d="M264 32 C384 32 384 215 505 215" />
+          <path d="M100 128 C302 128 302 215 505 215" />
+          <path d="M263 112 C384 112 384 215 505 215" />
+          <path d="M107 206 C306 206 306 215 505 215" />
+          <path d="M249 196 C377 196 377 215 505 215" />
+          <path d="M123 286 C314 286 314 215 505 215" />
+          <path d="M265 276 C385 276 385 215 505 215" />
+          <path d="M125 366 C315 366 315 215 505 215" />
+          <path d="M271 356 C388 356 388 215 505 215" />
+        </g>
+        <g class="art-core">
+          <rect x="505" y="118" width="190" height="194" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5" />
+          <text x="600" y="170" class="art-mark" text-anchor="middle" fill="#14213D">Life OS</text>
+          <text x="527" y="206" class="art-key" fill="#14213D">Domain</text>
+          <text x="527" y="220" class="art-sub" fill="#99A0B0">what part of life</text>
+          <text x="527" y="242" class="art-key" fill="#14213D">Cadence</text>
+          <text x="527" y="256" class="art-sub" fill="#99A0B0">how often it matters</text>
+          <text x="527" y="278" class="art-key" fill="#14213D">Mode</text>
+          <text x="527" y="292" class="art-sub" fill="#99A0B0">how much you can take on</text>
+        </g>
+        <g class="art-flow">
+          <path d="M695 215 C742 215 742 105 790 105" />
+          <path d="M695 215 C742 215 742 177 790 177" />
+          <path d="M695 215 C742 215 742 249 790 249" />
+          <path d="M695 215 C742 215 742 321 790 321" />
+        </g>
+        <g class="art-grid">
+          <rect x="772" y="30" width="410" height="360" rx="16" fill="#FFFFFF" stroke="#EAE4D7" />
+          <text x="812" y="62" class="art-day" text-anchor="middle" fill="#99A0B0">M</text>
+          <text x="862" y="62" class="art-day" text-anchor="middle" fill="#99A0B0">T</text>
+          <text x="912" y="62" class="art-day" text-anchor="middle" fill="#99A0B0">W</text>
+          <text x="962" y="62" class="art-day" text-anchor="middle" fill="#99A0B0">T</text>
+          <text x="1012" y="62" class="art-day" text-anchor="middle" fill="#99A0B0">F</text>
+          <text x="1062" y="62" class="art-day" text-anchor="middle" fill="#99A0B0">S</text>
+          <text x="1112" y="62" class="art-day" text-anchor="middle" fill="#99A0B0">S</text>
+          <use href="#i-nutrition" x="774" y="97" width="16" height="16" color="#4A7C50" opacity="0" />
+            <rect x="790" y="90" width="44" height="30" rx="7" fill="#E8F1E4" />
+            <rect x="840" y="90" width="44" height="30" rx="7" fill="#E8F1E4" />
+            <rect x="890" y="90" width="44" height="30" rx="7" fill="#E8F1E4" />
+            <rect x="940" y="90" width="44" height="30" rx="7" fill="#E8F1E4" />
+            <rect x="990" y="90" width="44" height="30" rx="7" fill="#E8F1E4" />
+            <rect x="1040" y="90" width="44" height="30" rx="7" fill="#E8F1E4" />
+            <rect x="1090" y="90" width="44" height="30" rx="7" fill="#E8F1E4" />
+          <use href="#i-strength" x="774" y="133" width="16" height="16" color="#B3663A" opacity="0" />
+            <rect x="790" y="126" width="44" height="30" rx="7" fill="#FBEADC" />
+            <rect x="858" y="140" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="908" y="140" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="940" y="126" width="44" height="30" rx="7" fill="#FBEADC" />
+            <rect x="1008" y="140" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1058" y="140" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1108" y="140" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+          <use href="#i-cardio" x="774" y="169" width="16" height="16" color="#35618F" opacity="0" />
+            <rect x="808" y="176" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="840" y="162" width="44" height="30" rx="7" fill="#E6EEF8" />
+            <rect x="908" y="176" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="958" y="176" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="990" y="162" width="44" height="30" rx="7" fill="#E6EEF8" />
+            <rect x="1058" y="176" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1090" y="162" width="44" height="30" rx="7" fill="#E6EEF8" />
+          <use href="#i-career" x="774" y="205" width="16" height="16" color="#2A6382" opacity="0" />
+            <rect x="790" y="198" width="44" height="30" rx="7" fill="#E2EDF3" />
+            <rect x="840" y="198" width="44" height="30" rx="7" fill="#E2EDF3" />
+            <rect x="890" y="198" width="44" height="30" rx="7" fill="#E2EDF3" />
+            <rect x="940" y="198" width="44" height="30" rx="7" fill="#E2EDF3" />
+            <rect x="990" y="198" width="44" height="30" rx="7" fill="#E2EDF3" />
+            <rect x="1058" y="212" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1108" y="212" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+          <use href="#i-money" x="774" y="241" width="16" height="16" color="#2C7A63" opacity="0" />
+            <rect x="808" y="248" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="840" y="234" width="44" height="30" rx="7" fill="#E1F1EA" />
+            <rect x="908" y="248" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="958" y="248" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1008" y="248" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1058" y="248" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1108" y="248" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+          <use href="#i-relationships" x="774" y="277" width="16" height="16" color="#A8555C" opacity="0" />
+            <rect x="808" y="284" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="858" y="284" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="890" y="270" width="44" height="30" rx="7" fill="#FBE7E7" />
+            <rect x="940" y="270" width="44" height="30" rx="7" fill="#FBE7E7" />
+            <rect x="1008" y="284" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1058" y="284" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1108" y="284" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+          <use href="#i-grooming" x="774" y="313" width="16" height="16" color="#9C4A72" opacity="0" />
+            <rect x="790" y="306" width="44" height="30" rx="7" fill="#F8E8EF" />
+            <rect x="840" y="306" width="44" height="30" rx="7" fill="#F8E8EF" />
+            <rect x="890" y="306" width="44" height="30" rx="7" fill="#F8E8EF" />
+            <rect x="940" y="306" width="44" height="30" rx="7" fill="#F8E8EF" />
+            <rect x="990" y="306" width="44" height="30" rx="7" fill="#F8E8EF" />
+            <rect x="1040" y="306" width="44" height="30" rx="7" fill="#F8E8EF" />
+            <rect x="1090" y="306" width="44" height="30" rx="7" fill="#F8E8EF" />
+          <use href="#i-events" x="774" y="349" width="16" height="16" color="#75468A" opacity="0" />
+            <rect x="808" y="356" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="858" y="356" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="890" y="342" width="44" height="30" rx="7" fill="#F0E7F3" />
+            <rect x="958" y="356" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="990" y="342" width="44" height="30" rx="7" fill="#F0E7F3" />
+            <rect x="1058" y="356" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+            <rect x="1108" y="356" width="8" height="2" rx="1" fill="#99A0B0" opacity=".3" />
+        </g>
+        <text x="120" y="422" class="art-cap" text-anchor="middle" fill="#99A0B0">Advice, everywhere</text>
+        <text x="600" y="422" class="art-cap" text-anchor="middle" fill="#99A0B0">One system</text>
+        <text x="962" y="422" class="art-cap" text-anchor="middle" fill="#99A0B0">Your actual week</text>
+      </svg>
