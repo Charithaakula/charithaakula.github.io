@@ -186,6 +186,12 @@
 
     /* Blog divider, Nov 20 2026: separate Blog from Press with a line */
     .writing-section{border-top:1px solid var(--line)}
+
+    /* Publication cards, Nov 20 2026: fit images, even out cards */
+    #reconcilebench-paper .paper-art img{object-fit:contain}
+    .paper-row:nth-child(3) .paper-art img{object-position:50% 70%}
+    .paper-row>div:last-child{display:flex;flex-direction:column}
+    .paper-row .paper-more{margin-top:auto;padding-top:12px}
   </style>
   <link rel="stylesheet" href="/assets/site-header.css">
 </head>
@@ -228,7 +234,7 @@
       <div class="paper-list">
         <article class="paper-row" id="reconcilebench-paper">
           <div class="paper-art"><img src="/images/sai/reconcilebench-figure2.png" alt="ReconcileBench scientific agent reconciliation workflow" loading="lazy"></div>
-          <div><div class="paper-top"><span class="eyebrow">NeurIPS 2026 Workshop on Agentic AI for Biological Discovery (AgenticLS)</span><span class="badge">Oral</span></div><h3>ReconcileBench: Benchmarking State Reconciliation in Persistent Scientific Agents</h3><p class="paper-authors"><strong>Sai Charitha Akula</strong>, Chanukya Vardhan Gujjula.</p>
+          <div><div class="paper-top"><span class="eyebrow">NeurIPS 2026 AgenticLS Workshop</span><span class="badge">Oral</span></div><h3>ReconcileBench: Benchmarking State Reconciliation in Persistent Scientific Agents</h3><p class="paper-authors"><strong>Sai Charitha Akula</strong>, Chanukya Vardhan Gujjula.</p>
             <div class="paper-links"><a href="https://openreview.net/forum?id=4xdgvEUHI3" target="_blank" rel="noopener">Paper</a><a href="/data/reconcilebench.pdf" target="_blank" rel="noopener">PDF</a><a href="https://github.com/Charithaakula/ReconcileBench" target="_blank" rel="noopener">Code</a><a href="https://github.com/Charithaakula/ReconcileBench#episodes" target="_blank" rel="noopener">Benchmark tasks</a></div><button type="button" class="paper-more" data-project="paper-reconcile" aria-haspopup="dialog" aria-controls="build-dialog">Read more</button></div>
         </article>
         <article class="paper-row">
