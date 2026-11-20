@@ -138,7 +138,7 @@
     .build-dialog{width:min(940px,calc(100% - 30px));max-height:90vh;padding:20px;border:1px solid var(--line);border-radius:12px;color:var(--ink);background:var(--paper);overflow:auto}.build-dialog::backdrop{background:#14273588;backdrop-filter:blur(3px)}.dialog-toolbar{display:flex;justify-content:flex-end;margin-bottom:14px}.build-dialog .project-feature{margin:0;border:0;grid-template-columns:1fr 1fr}.build-dialog .project-visual{min-height:250px;padding:15px}.build-dialog .project-visual img{object-fit:contain;max-height:400px}.build-dialog .project-detail{padding:20px}.build-dialog .project-detail h3{font-size:2rem}
     .speaking-layout{grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px;align-items:center;max-width:none}.panel-speaking-photo{width:100%}.panel-photo-focus{display:block;position:relative;overflow:hidden;aspect-ratio:16/10;border-radius:6px;background:#ece9ee}.speaking-layout .panel-photo-focus img{position:absolute;width:100%;height:100%;max-width:none;left:0;top:0;object-fit:cover;object-position:center 63%;border-radius:0}.speaking-layout figcaption{text-align:left}.speaking-layout .panel-speaking-photo figcaption{margin-top:9px}.speaking-copy h3{font-size:1.7rem}.speaking-copy p{font-size:.975rem}.service-line{display:flex;gap:22px;align-items:baseline;margin:24px 0 0;padding:17px 20px;background:linear-gradient(90deg,#eee5ef,#f6edf2);border-left:3px solid #a8708b;border-radius:3px;color:#44515a}.service-line strong{white-space:nowrap;color:#70475e;font-size:.95rem}.service-line span{font-size:.975rem;line-height:1.65}
     .press-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}.press-item{text-decoration:none}.press-item img{width:100%;height:210px;object-fit:contain;background:#f6f7f8}.press-item>span{display:block;color:var(--muted);font-size:.875rem;margin:15px 0 10px}.press-item h3{font-size:1.35rem;line-height:1.5;margin:0}.press-item:hover h3{text-decoration:underline;text-underline-offset:4px}
-    .creative-teasers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}.creative-teasers>a{text-decoration:none}.creative-teasers img{width:100%;height:230px;object-fit:cover;border-radius:5px}.creative-teasers>a:first-child img{object-position:center 12%}.creative-teasers h3{font-size:1.5rem;margin:14px 0 0}.creative-teaser-links{display:flex;gap:25px;flex-wrap:wrap;margin-top:25px}.creative-teaser-links a{color:var(--accent-dark);text-decoration:underline;text-underline-offset:4px;font-size:.9rem}
+    .creative-teasers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}.creative-teasers>a{text-decoration:none}.creative-teasers img{width:100%;height:230px;object-fit:cover;border-radius:5px}.creative-teasers>a:first-child img{object-position:center 30%}.creative-teasers h3{font-size:1.5rem;margin:14px 0 0}.creative-teaser-links{display:flex;gap:25px;flex-wrap:wrap;margin-top:25px}.creative-teaser-links a{color:var(--accent-dark);text-decoration:underline;text-underline-offset:4px;font-size:.9rem}
     @media(max-width:900px){.project-menu{grid-template-columns:repeat(2,minmax(0,1fr))}.project-menu button img{height:120px}}
     @media(max-width:700px){.builds-intro{grid-template-columns:1fr}.builds-candid{max-width:480px;min-height:0}.builds-candid img{height:auto;mask-image:none}.build-dialog .project-feature{grid-template-columns:1fr}.build-dialog .project-visual{min-height:170px}.press-grid{grid-template-columns:1fr}.creative-teasers{gap:15px}.creative-teasers img{height:175px}}
     @media(max-width:650px){.speaking-layout{grid-template-columns:1fr;gap:24px}.speaking-layout .panel-speaking-photo{max-width:none}.panel-photo-focus{aspect-ratio:16/10}.speaking-copy{max-width:none}.speaking-layout{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:20px}.panel-photo-focus{aspect-ratio:16/10}.service-line{display:block}.service-line span{display:block;margin-top:6px}}
@@ -205,7 +205,16 @@
     .paper-row .paper-authors{font-size:1rem}
     .paper-row .paper-more{margin-top:12px;padding-top:0}
     @media(max-width:570px){.paper-row{gap:16px}.paper-row .paper-art{height:190px}}
-  </style>
+  
+    /* Publications: Ellis-style clean list (Nov 20 2026) — year groups, small cover thumbnails */
+    .pub-year{font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:30px 0 2px}
+    .paper-list>.pub-year:first-child{margin-top:8px}
+    .paper-row{grid-template-columns:150px 1fr;gap:24px;padding:22px 0;align-items:start}
+    .paper-row .paper-art{height:105px;padding:0;border-radius:6px}
+    .paper-row .paper-art img{width:100%;height:100%;object-fit:cover;object-position:center}
+    #cambrian-paper .paper-art img{width:160%;height:160%;object-position:25% 70%}
+    @media(max-width:570px){.paper-row{grid-template-columns:1fr;gap:14px}.paper-row .paper-art{height:150px}}
+</style>
   <link rel="stylesheet" href="/assets/site-header.css">
 </head>
 <body>
@@ -245,17 +254,19 @@
       <div class="section-heading"><div><span class="eyebrow">Research</span><h2>Selected Publications</h2></div></div>
       <div class="build-gallery-controls"><button type="button" data-scroll-papers="left" aria-label="Previous publications">Previous</button><button type="button" data-scroll-papers="right" aria-label="Next publications">Next</button></div>
       <div class="paper-list">
-        <article class="paper-row" id="reconcilebench-paper">
+        <h3 class="pub-year">2026</h3>
+<article class="paper-row" id="reconcilebench-paper">
           <div class="paper-art"><img src="/images/sai/reconcilebench-figure2.png" alt="ReconcileBench scientific agent reconciliation workflow" loading="lazy"></div>
           <div><div class="paper-top"><span class="eyebrow">NeurIPS 2026 AgenticLS Workshop</span><span class="badge">Oral</span></div><h3>ReconcileBench: Benchmarking State Reconciliation in Persistent Scientific Agents</h3><p class="paper-authors"><strong>Sai Charitha Akula</strong>, Chanukya Vardhan Gujjula.</p>
             <div class="paper-links"><a href="https://openreview.net/forum?id=4xdgvEUHI3" target="_blank" rel="noopener">Paper</a><a href="/data/reconcilebench.pdf" target="_blank" rel="noopener">PDF</a><a href="https://github.com/Charithaakula/ReconcileBench" target="_blank" rel="noopener">Code</a><a href="https://github.com/Charithaakula/ReconcileBench#episodes" target="_blank" rel="noopener">Benchmark tasks</a></div><button type="button" class="paper-more" data-project="paper-reconcile" aria-haspopup="dialog" aria-controls="build-dialog">Read more</button></div>
         </article>
-        <article class="paper-row">
+        <article class="paper-row" id="logt-paper">
           <div class="paper-art"><img src="/images/sai/logt.png" alt="LogT logical visual search pipeline" loading="lazy"></div>
           <div><div class="paper-top"><span class="eyebrow">NeurIPS 2026</span></div><h3>LogT: Logically Think with Images for Visual Search</h3><p class="paper-authors">Yanjun Fu, Quanzeng You, Jiadong Guo, Yujie Lu, <strong>Sai Charitha Akula</strong>, Haiping Wu, Miao Liu, Sanghamitra Dutta, Lu Yuan.</p>
             <div class="paper-links"><a href="https://arxiv.org/abs/2611.19200" target="_blank" rel="noopener">Paper</a><a href="/data/logt.pdf" target="_blank" rel="noopener">PDF</a><span>Code coming soon</span></div><button type="button" class="paper-more" data-project="paper-logt" aria-haspopup="dialog" aria-controls="build-dialog">Read more</button></div>
         </article>
-        <article class="paper-row">
+        <h3 class="pub-year">2024</h3>
+<article class="paper-row" id="cambrian-paper">
           <div class="paper-art"><img src="/images/sai/cambrian.png" alt="Cambrian-1 vision-centric multimodal model artwork" loading="lazy"></div>
           <div><div class="paper-top"><span class="eyebrow">NeurIPS 2024</span><span class="badge">Oral</span></div><h3>Cambrian-1: A Fully Open, Vision-Centric Exploration of Multimodal LLMs</h3><p class="paper-authors">Shengbang Tong, Ellis Brown, Penghao Wu, Sanghyun Woo, Manoj Middepogu, <strong>Sai Charitha Akula</strong>, Jihan Yang, Shusheng Yang, Adithya Iyer, Xichen Pan, Austin Wang, Rob Fergus, Yann LeCun, Saining Xie.</p>
             <div class="paper-links"><a href="https://cambrian-mllm.github.io/" target="_blank" rel="noopener">Website</a><a href="https://arxiv.org/pdf/2406.16860.pdf" target="_blank" rel="noopener">Paper</a><a href="https://github.com/cambrian-mllm/cambrian" target="_blank" rel="noopener">Code</a><a href="https://huggingface.co/collections/nyu-visionx/cambrian-data" target="_blank" rel="noopener">Datasets</a><a href="https://huggingface.co/datasets/nyu-visionx/CV-Bench" target="_blank" rel="noopener">Benchmark</a></div><button type="button" class="paper-more" data-project="paper-cambrian" aria-haspopup="dialog" aria-controls="build-dialog">Read more</button></div>
@@ -285,7 +296,7 @@
     </div></section>
     <section class="section tinted" id="projects"><div class="wrap">
       <div class="section-heading"><div><h2>Independent Builds</h2></div></div>
-      <div class="builds-intro"><div><p>From state reconciliation in <a href="#reconcilebench-paper">ReconcileBench</a> to personal AI in Life OS and TonyShark, I’m exploring how AI systems perceive, reason, retain context, adapt to change, and help with work and everyday life — like an assistant.</p></div><figure class="builds-candid"><img src="/assets/creative/at-the-keyboard.png" width="1536" height="1024" loading="lazy" alt="Sai Charitha working at her laptop."></figure></div>
+      <div class="builds-intro"><div><p>From state reconciliation in <a href="#reconcilebench-paper">ReconcileBench</a> to personal AI in Life OS and TonyShark, I’m exploring how AI systems perceive, reason, retain context, adapt to change, and help with work and everyday life, like an assistant.</p></div><figure class="builds-candid"><img src="/assets/creative/at-the-keyboard.png" width="1536" height="1024" loading="lazy" alt="Sai Charitha working at her laptop."></figure></div>
 
       <div class="project-explorer"><div class="build-gallery-controls"><button type="button" data-scroll-gallery="left" aria-label="Previous builds">Previous</button><button type="button" data-scroll-gallery="right" aria-label="Next builds">Next</button></div>
         <div class="project-menu" role="group" aria-label="Choose a build" tabindex="0">
@@ -308,7 +319,7 @@
     </div></div></section>
     <section class="section writing-section" id="blog"><div class="wrap"><div class="section-heading"><h2>Blog</h2></div><p class="writing-wip">Research notes, conference summaries, and visual mindmaps.</p><p><a class="blog-link" href="/blog/">Visit the blog</a></p></div></section>
     <section class="section beyond" id="beyond"><div class="wrap"><div class="section-heading"><h2>Creative side</h2><p>Dance, AI visual stories, scents, and everyday favorites.</p></div><div class="creative-teasers">
-      <a href="/creative/#dance"><img src="/assets/creative/dance-main.jpg" width="360" height="640" loading="lazy" alt="Sai Charitha’s dance reel."><h3>Dance</h3></a>
+      <a href="/creative/#dance"><img src="/assets/creative/dance-blue-skirt.jpg" width="360" height="640" loading="lazy" alt="Sai Charitha’s dance reel."><h3>Dance</h3></a>
       <a href="/creative/#films"><img src="/assets/creative/cdreams-sky.jpg" width="360" height="640" loading="lazy" alt="A dreamlike city terrace from C Dreams in Colors."><h3>Visual stories</h3></a>
       <a href="/creative/#making"><img src="/assets/creative/scents-concept.png" width="1536" height="1024" loading="lazy" alt="Concept artwork of perfume and a scented candle."><h3>Scents</h3></a>
     </div><div class="creative-teaser-links"><a href="/creative/">Explore my creative side</a><a href="/creative/#fun">Food, places &amp; friends</a></div></div></section>

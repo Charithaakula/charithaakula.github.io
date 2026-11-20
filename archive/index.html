@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sai Charitha Akula</title>
+  <!-- This file is meant to drop into the jonbarron.github.io template repo. It relies on the existing stylesheet.css -->
+  <link rel="stylesheet" href="/stylesheet.css" />
+  <style>
+    /* minimal fixes if stylesheet.css differs */
+    body {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: 70fr 30fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .headshot-container {
+      width: 100%;
+      padding-bottom: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+
+    img.headshot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      object-position: center;
+    }
+
+    h1 {
+      margin: 0 0 4px 0;
+    }
+
+    .muted {
+      color: #666;
+    }
+
+    .section {
+      margin: 28px 0;
+    }
+
+    .list {
+      padding-left: 20px;
+    }
+
+    .list li {
+      margin: 6px 0;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .linkbar {
+      line-height: 1.6;
+    }
+
+    .linkbar a {
+      text-decoration: none;
+    }
+
+    /* project + publication layout */
+    .projects,
+    .pubs {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .project,
+    .pub {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: start;
+    }
+
+    .project img,
+    .pub img {
+      width: 180px;
+      height: 160px;
+      object-fit: contain;
+      border-radius: 4px;
+      background: #eee;
+      /* placeholder background */
+    }
+
+    .project-title,
+    .pub-title {
+      font-weight: bold;
+    }
+
+    .project-meta,
+    .pub-meta {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .pub .pub-figure {
+      box-sizing: border-box;
+      padding: 8px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+    }
+
+    .pub-summary {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .pub-authors {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    /* Project buttons */
+    .project-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 4px 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 11px;
+      color: #333;
+      background: transparent;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      background: #f5f5f5;
+      border-color: #999;
+      transform: translateY(-1px);
+    }
+
+    .btn-soon,
+    .btn-soon:hover {
+      border-color: #e5e7eb;
+      background: #f7f7f7;
+      color: #666;
+      transform: none;
+    }
+
+    .btn-soon small {
+      margin-left: 4px;
+      font-size: inherit;
+      text-transform: none;
+    }
+
+    .btn-oral {
+      background: rgba(255, 153, 85, 0.3);
+      border-color: #ff9955;
+      color: #333;
+    }
+
+    .btn-oral:hover {
+      background: rgba(255, 136, 68, 0.4);
+      border-color: #ff8844;
+    }
+
+    /* Oral description */
+    .oral-description {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      background: rgba(255, 153, 85, 0.1);
+      border-left: 3px solid #ff9955;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .oral-description.visible {
+      display: block;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        margin: 24px auto;
+      }
+
+      .top {
+        grid-template-columns: 1fr;
+      }
+
+      .top > .right {
+        grid-row: 1;
+        width: 150px;
+      }
+
+      .project,
+      .pub {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <div>
+      <h1>Sai Charitha Akula</h1>
+
+    <!-- <p style="margin-top:6px; color:#666;">
+    Senior Research Scientist @ Meta Superintelligence Labs
+    </p> -->
+      <!-- <p>
+        Research Scientist, Meta AI
+      </p> -->
+      <!-- <p class="linkbar">
+        <a href="mailto:saicharithaakula21@gmail.com">Email</a> /
+        <a href="#" id="github-link">GitHub</a> /
+        <a href="#" id="linkedin-link">LinkedIn</a> /
+        <a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&hl=en">Google Scholar</a>
+      </p> -->
+      <p class="linkbar">
+        <a href="mailto:saicharithaakula21@gmail.com">Email</a> /
+        <a href="#" id="github-link">GitHub</a> /
+        <a href="#" id="linkedin-link">LinkedIn</a> /
+        <a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&hl=en">Google Scholar</a> /
+        <a href="https://www.instagram.com/charitha_2103/" target="_blank" rel="noopener noreferrer">Beyond AI</a> /
+        <a href="/life-os/">Life OS</a>
+      </p>
+      <script>
+        (function () {
+          var g = ['h', 't', 't', 'p', 's', ':', '/', '/', 'g', 'i', 't', 'h', 'u', 'b', '.', 'c', 'o', 'm', '/', 'C', 'h', 'a', 'r', 'i', 't', 'h', 'a', 'a', 'k', 'u', 'l', 'a'];
+          var l = ['h', 't', 't', 'p', 's', ':', '/', '/', 'w', 'w', 'w', '.', 'l', 'i', 'n', 'k', 'e', 'd', 'i', 'n', '.', 'c', 'o', 'm', '/', 'i', 'n', '/', 's', 'a', 'i', '-', 'c', 'h', 'a', 'r', 'i', 't', 'h', 'a', '-', 'a', 'k', 'u', 'l', 'a', '-', '3', '2', '5', '7', '4', '8', '8', '7', '/'];
+          document.getElementById('github-link').href = g.join('');
+          document.getElementById('linkedin-link').href = l.join('');
+        })();
+
+        function toggleOralDescription(event, descriptionId = 'oralDescription') {
+          event.preventDefault();
+          const description = document.getElementById(descriptionId);
+          const isVisible = description.classList.toggle('visible');
+          event.currentTarget.setAttribute('aria-expanded', String(isVisible));
+        }
+      </script>
+      <p class="muted">
+        <!-- I am a Research Scientist at Meta Superintelligence Labs, where I drive improvements to multi modal large language models via post training, focusing on improving reasoning and understanding across text, image, and video.
+        Before Meta, I was part of Millennium’s four-person core AI team, reporting to the Head of AI. There, I built enterprise-grade RAG systems and agentic workflows from the ground up and conducted research on retrieval relevance.
+        Prior to that, I did research on vision-centric multimodal models and diffusion models at NYU's CILVR Lab with Prof. Saining Xie.
+        I previously spent six years as a Quantitative Researcher at Goldman Sachs' Interest Rates desk,
+        building ML models for automated trading, pricing, and risk management. -->
+
+        I am a Senior Research Scientist at <a href="https://ai.meta.com/">Meta</a> Superintelligence Labs, where I develop
+        and train multimodal models for visual and spatial understanding, reasoning, and personalized, context-aware
+        assistance. My work brings together visual representations, data development, post-training, and evaluation
+        across text, images, and video to improve generalization and reliability.
+      </p>
+      <p class="muted">
+        Across my work, I have identified overlooked capability gaps and built efficient, reusable methods to address
+        them, often uncovering new possibilities in existing data and tools. I carry ideas from early experiments
+        through model training, distillation, and deployment at scale.
+      </p>
+      <p class="muted">
+        Prior to Meta, I was part of <a href="https://www.mlp.com/">Millennium</a>’s four-person core AI team,
+        reporting to the Head of AI, where I built enterprise-grade RAG systems and agentic workflows and researched
+        retrieval relevance.
+        Before that, I researched vision-centric multimodal models and diffusion models
+        at <a href="https://cilvr.nyu.edu/">NYU’s CILVR Lab</a> with <a href="https://www.sainingxie.com/">Prof.
+          Saining Xie</a>.
+        I previously spent six years as a Quantitative Researcher on <a href="https://www.goldmansachs.com/">Goldman
+          Sachs</a>’ Interest Rates desk, building
+        models for automated trading, pricing, and risk management.
+
+        <!-- Before Meta, I developed enterprise-grade retrieval and agent systems at Millennium and worked on vision-centric
+        multimodal models at NYU’s CILVR Lab with Prof. Saining Xie. I previously spent six years as a Quantitative
+        Researcher and Developer on Goldman Sachs’ Interest Rates desk, building machine learning models for automated trading and pricing & risk modeling. -->
+      </p>
+      <p class="muted">
+        I completed my master's in Computer Science from <a href="https://cims.nyu.edu/dynamic/">NYU (Courant)</a> and
+        bachelor's in Computer Science (Honours) from <a href="https://www.iitb.ac.in/">Indian Institute of Technology,
+          Bombay</a>.
+      </p>
+
+      <p class="muted">
+        I have served as a reviewer for NeurIPS, CVPR, and ECCV.
+      </p>
+      
+      <p class="muted">
+        Outside of research, you'll usually find me exploring new cafés, nature spots, and scents, dancing, staying active, or
+        trying out something new!
+      </p>
+    </div>
+    <div class="right">
+      <!-- Replace images/headshot.jpg with your own file placed in the repo's images/ folder -->
+      <div class="headshot-container">
+        <img class="headshot" src="/images/sai/dp.jpg" alt="Sai Charitha Akula" />
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="section">
+    <h2>News</h2>
+    <ul class="list">
+      <li>Mar 2025 — Joined Meta Superintelligence Labs as Research Scientist (Llama Multimodal Reasoning &amp; Post-Training).</li>
+      <li>Dec 2024 — <em>Cambrian-1</em> accepted as an Oral at NeurIPS 2024.</li>
+      <li>Jun 2024 — Joined Millennium as AI Research Engineer (AI infra &amp; RAG for finance).</li>
+    </ul>
+  </div> -->
+
+  <div class="section">
+    <h2>Publications</h2>
+    <ul class="pubs">
+      <li class="pub" id="reconcilebench">
+        <a href="/images/sai/reconcilebench-figure2.png" target="_blank" rel="noopener noreferrer" title="View Figure 2 from the paper">
+          <img class="pub-figure" src="/images/sai/reconcilebench-figure2.png"
+            alt="ReconcileBench Figure 2: benchmark workflow and a policy-revision example, with repaired workspaces checked against a hidden reference" />
+        </a>
+        <div>
+          <div class="pub-title">
+            <a href="https://openreview.net/forum?id=4xdgvEUHI3">
+              ReconcileBench: Benchmarking State Reconciliation in Persistent Scientific Agents
+            </a>
+          </div>
+          <div class="pub-meta">NeurIPS 2026 Workshop on Agentic AI for Biological Discovery</div>
+          <p class="muted pub-authors">
+            <u>Sai Charitha Akula</u>, Chanukya Vardhan Gujjula.
+          </p>
+          <p class="muted pub-summary">
+            A benchmark for whether persistent scientific agents can keep their workspaces consistent after
+            evidence or analysis policies change. It tests reconciliation across data, code, figures, reports,
+            and decisions in analytical, health, and RNA-seq projects, revealing how local repairs can leave
+            downstream scientific records stale.
+          </p>
+          <div class="project-buttons">
+            <a href="#reconcilebenchOralDescription" class="btn btn-oral"
+              onclick="toggleOralDescription(event, 'reconcilebenchOralDescription')"
+              aria-expanded="false" aria-controls="reconcilebenchOralDescription">Oral</a>
+            <a href="https://openreview.net/forum?id=4xdgvEUHI3" class="btn">Paper</a>
+            <a href="/data/reconcilebench.pdf" class="btn" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a href="https://github.com/Charithaakula/ReconcileBench" class="btn">Code</a>
+            <span class="btn btn-soon" aria-disabled="true">Benchmark &amp; data <small>Coming soon</small></span>
+          </div>
+          <div class="oral-description" id="reconcilebenchOralDescription">
+            Selected for Oral Presentation at the NeurIPS 2026 Workshop on Agentic AI for Biological Discovery.
+            <a href="https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/AgenticLS#tab-accepted-oral-papers">View accepted oral papers</a>.
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" id="logt">
+        <img class="pub-figure" src="/images/sai/logt.png"
+          alt="LogT generates logic-chain-guided reasoning traces for visual search with a zoom-in tool" />
+        <div>
+          <div class="pub-title">
+            <a href="https://neurips.cc/virtual/2026/loc/atlanta/poster/155728">
+              LogT: Logically Think with Images for Visual Search
+            </a>
+          </div>
+          <div class="pub-meta">NeurIPS, 2026</div>
+          <p class="muted pub-authors">
+            Yanjun Fu, Quanzeng You, Jiadong Guo, Yujie Lu, <u>Sai Charitha Akula</u>,
+            Haiping Wu, Miao Liu, Sanghamitra Dutta, Lu Yuan.
+          </p>
+          <p class="muted pub-summary">
+            An automated data engine that teaches vision-language models to reason logically and use a zoom-in
+            tool for visual search. LogT's supervised fine-tuning alone outperforms prior SFT + RL methods
+            with 3.1&times; less data and over 120&times; fewer GPU hours; a simple RL stage extends the lead
+            to 9.59 points across seven test sets.
+          </p>
+          <div class="project-buttons">
+            <a href="https://neurips.cc/virtual/2026/loc/atlanta/poster/155728" class="btn">Paper</a>
+            <a href="/data/logt.pdf" class="btn" target="_blank" rel="noopener noreferrer">PDF</a>
+            <span class="btn btn-soon" aria-disabled="true">Code <small>Coming soon</small></span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub">
+        <!-- replace with an actual image, e.g., images/cambrian1_pub.jpg -->
+        <img src="/images/sai/cambrian.png" alt="Cambrian-1" />
+        <div>
+          <div class="pub-title">
+            <a href="https://arxiv.org/abs/2406.16860">
+              Cambrian-1: A fully open, vision-centric exploration of multimodal LLMs
+            </a>
+          </div>
+          <div class="pub-meta">NeurIPS, 2024</div>
+          <!-- <p>
+            Vision-centric multimodal LLM with a four-encoder vision stack (CLIP, SigLIP, OpenCLIP, DINOv2) fused via
+            a Spatial Vision Aggregator, achieving strong performance on OCR, chart, and fine-grained visual reasoning
+            with 5× fewer training tokens than comparable baselines. Includes CV-Bench, a benchmark for 2D spatial
+            relations, counting, and 3D depth in VQA format.
+          </p> -->
+          <p class="muted">
+            Shengbang Tong, Ellis Brown, Penghao Wu, Sanghyun Woo, Manoj Middepogu,
+            <u>Sai Charitha Akula</u>, Jihan Yang, Shusheng Yang, Adithya Iyer, Xichen Pan,
+            Austin Wang, Rob Fergus, Yann LeCun, Saining Xie.
+          </p>
+          <div class="project-buttons">
+            <a href="#oralDescription" class="btn btn-oral" onclick="toggleOralDescription(event)"
+              aria-expanded="false" aria-controls="oralDescription">Oral</a>
+            <a href="https://cambrian-mllm.github.io/" class="btn">Website</a>
+            <a href="https://arxiv.org/pdf/2406.16860.pdf" class="btn">Paper</a>
+            <a href="https://github.com/cambrian-mllm/cambrian" class="btn">Code</a>
+            <a href="https://huggingface.co/collections/nyu-visionx/cambrian-data" class="btn">Datasets</a>
+            <a href="https://huggingface.co/datasets/nyu-visionx/CV-Bench" class="btn">Benchmark</a>
+          </div>
+          <div class="oral-description" id="oralDescription">
+            Selected for Oral Presentation (1.8%) at NeurIPS 2024
+          </div>
+        </div>
+      </li>
+
+      <li class="pub">
+        <!-- replace with an actual image, e.g., images/adv_tokens_vit.jpg -->
+        <img src="/images/sai/adv.png" alt="Adversarial Tokens on ViTs" />
+        <div>
+          <div class="pub-title">
+            <a href="https://robustart.github.io/long_paper/31.pdf">
+              A Few Adversarial Tokens Can Break Vision Transformers
+            </a>
+          </div>
+          <div class="pub-meta">CVPR Workshop on Adversarial ML in CV, 2023</div>
+          <!-- <p>
+            Shows that a small number of adversarial tokens can severely degrade the performance of
+            Vision Transformers, revealing vulnerabilities in token-based architectures and highlighting the need for
+            more robust training and evaluation for vision models.
+            Also, proposes a architectural operation to improve robustnesss.
+          </p> -->
+          <p class="muted">
+            <u>Sai Charitha Akula*</u>, Ameya Joshi*, Gauri Jagatap, Chinmay Hegde.
+          </p>
+          <div class="project-buttons">
+            <a href="https://robustart.github.io/long_paper/31.pdf" class="btn">Paper</a>
+            <a href="https://github.com/Charithaakula/Patchattacks_Shiftedwindowanalysis" class="btn">Code</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+
+    <h2>Experience</h2>
+
+    <ul class="list">
+      <li>
+        <strong><a href="https://ai.meta.com/">Meta AI</a></strong>
+        — Senior Research Scientist, Superintelligence Labs
+        <span class="muted">(2025–Present)</span>
+      </li>
+    
+      <li>
+        <strong><a href="https://www.mlp.com/">Millennium</a></strong>
+        — AI Research Engineer, Core AI
+        <span class="muted">(Founding team of 4 · 0→1 AI initiatives · Reported to Head of AI)</span>
+        <span class="muted">(2024–2025)</span>
+      </li>
+    
+      <li>
+        <strong><a href="https://cilvr.nyu.edu/">CILVR Lab, NYU</a></strong>
+        — Deep Learning Researcher
+        <span class="muted">(2023–2024)</span>
+      </li>
+    
+      <li>
+        <strong><a href="https://www.goldmansachs.com/">Goldman Sachs</a></strong>
+        — Quantitative Research & Engineering
+        <span class="muted">(Analyst → Associate → Vice President, Interest Rates)</span>
+        <span class="muted">(2017–2023)</span>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="section" id="selected-projects">
+    <h2>Selected Projects</h2>
+    <ul class="projects">
+      <!-- Life OS is temporarily hidden. Remove these comment markers to restore this project.
+      <li class="project">
+        <div
+          style="width:180px;height:160px;border-radius:4px;background:#faf7f0;border:1px solid #e6ded0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;">
+          <span style="font-family:Georgia,serif;font-size:26px;color:#16233d;line-height:1;">Life<span
+              style="color:#b8724a;">OS</span></span>
+          <span style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#8a93a6;">Prototype</span>
+        </div>
+        <div>
+          <div class="project-title">Life OS &mdash; a personal operating system</div>
+          <div class="project-meta">Interactive prototype, LLM planning, on-device fallback</div>
+          <p class="muted">
+            There is no shortage of advice about health, food, money and work &mdash; it is just fragmented, so
+            nobody can tell you what your actual Tuesday should look like. Life OS organises recommendations by
+            <strong>domain</strong>, <strong>cadence</strong> and <strong>life mode</strong>, then shows only
+            <em>Today</em>, <em>This Week</em>, <em>This Month</em> and <em>Not Now</em>. A
+            <strong>deterministic planner</strong> generates the plan in-browser; the language model only
+            interprets what you say and replans, so plans stay reproducible and the page still works with no
+            backend at all.
+          </p>
+          <div class="project-buttons">
+            <a href="/life-os/" class="btn">Try it</a>
+            <a href="/life-os/README.md" class="btn">How it works</a>
+          </div>
+        </div>
+      </li>
+      -->
+
+      <li class="project">
+        <img src="/images/sai/aligner.png" alt="Group Preference Alignment" />
+        <div>
+          <div class="project-title">Efficient Group Preference Alignment in LLMs</div>
+          <div class="project-meta">Deep Reinforcement Learning, NLP, DPO, PPO</div>
+          <p class="muted">
+            Developing a <strong>two-stage alignment</strong> framework for <strong>LLMs</strong>, exploring
+            methodologies like "Model-agnostic <strong>Aligners</strong> + <strong>Adapters</strong>" and
+            "<strong>PPO</strong> + <strong>DPO</strong>" to address common preferences initially, then fine-tune for
+            group-specific preferences efficiently.
+          </p>
+          <div class="project-buttons">
+            <a href="https://chanukyavardhan.github.io/group-aligner.html" class="btn">Paper</a>
+            <a href="https://github.com/ChanukyaVardhan/Group-Preference-Alignment" class="btn">Code</a>
+            <a href="https://docs.google.com/presentation/d/1Zj2u1um0YzT6MUadGyZi6WtKU9iHERd4iYcCp832kO0/edit?slide=id.g1ed3b141f85_0_113#slide=id.g1ed3b141f85_0_113"
+              class="btn">Slides</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <img src="/images/sai/vml.png" alt="Video Moment Localization" />
+        <div>
+          <div class="project-title">Video Moment Localization</div>
+          <div class="project-meta">NLP, CV, Temporal Video Understanding</div>
+          <p class="muted">
+            Added iterative attention to enhance <strong>query &amp; video representation integration</strong>,
+            alongside multi-level cross-modal interaction and content-boundary-moment interaction. Achieved a 3% R@1
+            IOU=0.5 improvement on Charades-STA over our baseline, SMIN.
+          </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1yGPCEFN2TCwxim_h08fT9CfTlfq74-4S/view?usp=drive_link"
+              class="btn">Paper</a>
+            <a href="https://github.com/ChanukyaVardhan/Video-Moment-Localization" class="btn">Code</a>
+            <a href="https://docs.google.com/presentation/d/1p-RIIN69sHLHj113Ixi6PwXKrrGrwTiDJ82xcyoFoOA/edit?slide=id.g1e213ba057b_1_579#slide=id.g1e213ba057b_1_579"
+              class="btn">Slides</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <img src="/images/sai/percieve.png" alt="Perceiver-Resampler Captioning" />
+        <div>
+          <div class="project-title">Perceiver-Resampler Cross-Attention Captioning</div>
+          <div class="project-meta">Natural Language Processing, Computer Vision</div>
+          <p class="muted">
+            Developed <strong>3-module architecture</strong>: frozen <strong>CLIP</strong> &amp; <strong>GPT2
+              LLM</strong>, and trainable bridge with <strong>Perceiver IO</strong> (generates context for LLM fed via
+            gated cross attention) &amp; mapping network (aligns CLIP-LLM). Achieved 31.21 BLEU-4 score on COCO val set.
+          </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1XJaFjxdbyTSjliLcVXtJJ-ahoaokju66/view?usp=drive_link"
+              class="btn">Paper</a>
+            <a href="https://github.com/shan18/Perceiver-Resampler-XAttn-Captioning" class="btn">Code</a>
+            <a href="https://docs.google.com/presentation/d/1wQDWTWD1yaOZBnrq_-q1U1V-CvgqIN5jJsE2FM-RlCc/edit?slide=id.g1bad171598b_0_0#slide=id.g1bad171598b_0_0"
+              class="btn">Slides</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <img src="/images/sai/hc.png" alt="Multi-Modal Federated Learning" />
+        <div>
+          <div class="project-title">Multi-Modal Federated Learning in Health Care</div>
+          <div class="project-meta">Medical Image Processing, TensorFlow, PyTorch Lightning</div>
+          <p class="muted">
+            Dual-encoder model using ResNet-50 and <strong>ClinicalBERT</strong>, pretrained on
+            <strong>MIMIC-CXR</strong> image–report pairs to learn
+            aligned visual-text features, then finetuned on CheXpert for <strong>chest disease</strong> classification
+            via Federated
+            Learning. Evaluated the effect of varying client counts and <strong>IID/non-IID</strong> data distributions
+            (volume,
+            features, and labels).
+          </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1fAgaFL-bILtPhEwGKlGccUcYTXlpFcEU/view?usp=drive_link"
+              class="btn">Paper</a>
+            <a href="https://github.com/tjdevWorks/ConVIRT-Federated" class="btn">Code</a>
+            <a href="https://docs.google.com/presentation/d/1cVNkq-kuKR85QapWf1qp_8Ns9IyGPyFkBJh28t_6hS4/edit?slide=id.p#slide=id.p"
+              class="btn">Slides</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <img src="/images/sai/mff.png" alt="Market Flux Finder" />
+        <div>
+          <div class="project-title">Market Flux Finder</div>
+          <div class="project-meta">Cloud and Machine Learning, LLMs, RAG, Docker, Kubernetes, GCP, gRPC</div>
+          <p class="muted">
+            Built a financial RAG browser using LLMs to extract query-specific data and summarize insights. Used Cloud
+            SQL with PostgreSQL (pgvector extension)
+            for data storage and deployed microservices on <strong>GKE</strong> cluster for scalable serving; improved
+            latency with GPU nodes and <strong>gRPC</strong>, and employed <strong>Prometheus</strong> for monitoring.
+          </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1DjFqH9cT_JLHEsUpNeEMIz678JzoL93C/view?usp=drive_link"
+              class="btn">Paper</a>
+            <a href="https://github.com/ChanukyaVardhan/cloud-and-ml-RAG" class="btn">Code</a>
+            <a href="https://docs.google.com/presentation/d/1dklkZLIOIezgJFfGRrbsCz_JPSeZd7IRBBSbnhZAKYk/edit?slide=id.g1ed3b141f85_0_113#slide=id.g1ed3b141f85_0_113"
+              class="btn">Slides</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="project">
+        <img src="/images/sai/ssoo.png" alt="Semi-Supervised Object Detection" />
+        <div>
+          <div class="project-title">Semi-Supervised Object Detection</div>
+          <div class="project-meta">Computer Vision, Semi Supervised Learning, Distributed Training, HPC</div>
+          <p class="muted">
+            Pretrained ResNet-50 with Barlow Twins on <strong>512k</strong> unlabeled data, used as FasterRCNN backbone,
+            finetuned on 30k labeled data.
+          </p>
+          <div class="project-buttons">
+            <a href="https://drive.google.com/file/d/1zZ6mtVvXORPweQ8PRbFcAelmCuFSGIAp/view?usp=drive_link"
+              class="btn">Paper</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  
+
+
+
+  <div style="margin-top:40px; padding-top:20px; border-top:1px solid #eee; font-size:13px; color:#777; text-align:center;">
+    Website based on <a href="https://jonbarron.info/" target="_blank">Jon Barron's academic website template</a>,
+    with personal modifications.
+  </div>
+
+</body>
+
+</html>
