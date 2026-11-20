@@ -193,6 +193,18 @@
     .paper-row .paper-art{flex-shrink:0}
     .paper-row>div:last-child{flex:1;min-height:0;display:flex;flex-direction:column}
     .paper-row .paper-more{margin-top:auto;padding-top:12px}
+
+    /* Publications vertical, Nov 20 2026: one after another, like the original */
+    .paper-list{display:block;overflow:visible;scroll-snap-type:none;padding:0;border-top:1px solid var(--line)}
+    .paper-row{display:grid;gap:32px;padding:30px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;overflow:visible;flex:none;min-width:0;background:transparent}
+    .paper-row .paper-art{height:156px;padding:10px;border-radius:10px}
+    .paper-row .paper-art img{width:100%;height:100%;object-fit:contain;object-position:center}
+    .paper-row:nth-child(3) .paper-art img{width:100%;height:100%;object-fit:contain;object-position:center}
+    .paper-row>div:last-child{display:block;flex:none;min-height:auto;padding:0}
+    .paper-row h3{font-size:1.8rem;line-height:1.3}
+    .paper-row .paper-authors{font-size:1rem}
+    .paper-row .paper-more{margin-top:12px;padding-top:0}
+    @media(max-width:570px){.paper-row{gap:16px}.paper-row .paper-art{height:190px}}
   </style>
   <link rel="stylesheet" href="/assets/site-header.css">
 </head>
