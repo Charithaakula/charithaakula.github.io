@@ -1,0 +1,11 @@
+
+.portfolio-header,.portfolio-header *,.portfolio-contact,.portfolio-contact *{box-sizing:border-box}
+.portfolio-header{position:sticky;top:0;z-index:80;background:#fffdfef5;border-bottom:1px solid #e4dce1;backdrop-filter:blur(12px);color:#33313a}
+.portfolio-header-inner{width:min(1140px,calc(100% - 48px));min-height:76px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:30px;position:relative}
+.portfolio-brand{font:400 1.4rem/1.3 Georgia,serif;letter-spacing:-.025em;color:#33313a;text-decoration:none;white-space:nowrap}
+.portfolio-nav{display:flex;align-items:center;gap:25px}.portfolio-nav a{font:400 .9rem/1.5 'Helvetica Neue',Arial,sans-serif;color:#68616a;text-decoration:none;white-space:nowrap}.portfolio-nav a:hover,.portfolio-nav a[aria-current]{color:#78445e}.portfolio-nav a[aria-current]{text-decoration:underline;text-underline-offset:7px}
+.portfolio-menu{display:none;border:1px solid #d9c8d3;border-radius:24px;padding:8px 15px;background:white;color:#78445e;font:400 .875rem 'Helvetica Neue',Arial,sans-serif;cursor:pointer}
+.portfolio-contact{background:#fffdfd;border-bottom:1px solid #e8e0e5}.portfolio-contact-inner{width:min(1140px,calc(100% - 48px));margin:auto;min-height:43px;display:flex;align-items:center;gap:23px;flex-wrap:wrap;padding:10px 0}.portfolio-contact a{font:400 .8rem/1.5 'Helvetica Neue',Arial,sans-serif;text-decoration:none;color:#78445e}.portfolio-contact a:hover{text-decoration:underline;text-underline-offset:4px}
+.portfolio-header a:focus-visible,.portfolio-header button:focus-visible,.portfolio-contact a:focus-visible{outline:2px solid #a06687;outline-offset:5px}
+@media(max-width:900px){.portfolio-header-inner{width:calc(100% - 36px);min-height:68px;gap:15px}.portfolio-brand{font-size:1.25rem}.portfolio-menu{display:block}.portfolio-nav{display:none;position:absolute;top:100%;left:-18px;right:-18px;gap:0;align-items:stretch;flex-direction:column;padding:12px 18px 18px;border-bottom:1px solid #e4dce1;background:#fffdfd;box-shadow:0 12px 20px #3929360a}.portfolio-nav.is-open{display:flex}.portfolio-nav a{padding:10px 0;font-size:1rem}.portfolio-contact-inner{width:calc(100% - 36px);gap:10px 20px}}
+@media(prefers-reduced-motion:reduce){.portfolio-header *{scroll-behavior:auto}}
