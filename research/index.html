@@ -19,7 +19,7 @@
     .hero{position:relative;isolation:isolate;overflow:hidden;padding:84px 0 74px}.hero:before{content:"";position:absolute;z-index:-1;right:-110px;top:-190px;width:730px;height:670px;background:radial-gradient(ellipse at 50% 50%,var(--wash),transparent 70%);filter:blur(10px)}
     .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:65px;align-items:center}.hero-copy-wrap{padding:24px 0}.hero-eyebrow{display:flex;align-items:center;gap:12px}.hero-eyebrow:before{content:"";width:29px;height:1px;background:var(--accent)}
     h1{font-size:clamp(4.35rem,6.4vw,6.3rem);line-height:.96;margin:31px 0 22px}h1 em{font-weight:400;color:var(--accent);font-style:italic;display:block}
-    .hero-statement{font:500 clamp(1.35rem,2.3vw,1.85rem)/1.36 Georgia,serif;max-width:560px;margin-bottom:20px}.hero-desc{color:var(--muted);line-height:1.82;max-width:490px;font-size:.98rem}.hero-desc strong{color:var(--ink)}
+    .hero-statement{font:500 clamp(1.02rem,1.5vw,1.25rem)/1.4 Georgia,serif;max-width:560px;margin-bottom:20px}.hero-desc{color:var(--muted);line-height:1.82;max-width:490px;font-size:.98rem}.hero-desc strong{color:var(--ink)}
     .actions{display:flex;flex-wrap:wrap;gap:12px;margin:29px 0 22px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 20px;font-weight:700;font-size:.84rem;border:1px solid var(--accent-dark);border-radius:100px;transition:transform .2s,background .2s}.button:hover{transform:translateY(-2px)}.primary{color:white;background:var(--accent-dark)}.secondary{color:var(--accent-dark);background:transparent}
     .socials{display:flex;flex-wrap:wrap;gap:17px;margin-top:24px}.socials a{font-size:.78rem;font-weight:700;color:var(--accent-dark);border-bottom:1px solid color-mix(in srgb,var(--accent) 48%,transparent);padding-bottom:2px}
     .portrait-stage{position:relative;width:min(100%,493px);margin-left:auto;padding:30px 22px 33px 22px}.portrait-stage:before{content:"";position:absolute;inset:20px 0 14px 45px;background:radial-gradient(ellipse at 35% 52%,var(--soft),transparent 70%);border-radius:47% 46% 12% 14%}
@@ -158,7 +158,7 @@
   <link rel="stylesheet" href="/assets/site-header.css">
 </head>
 <body>
-  <header class="portfolio-header"><div class="portfolio-header-inner"><a class="portfolio-brand" href="./">Sai Charitha Akula</a><button class="portfolio-menu" type="button" aria-expanded="false" aria-controls="portfolio-nav">Menu</button><nav id="portfolio-nav" class="portfolio-nav" aria-label="Main navigation"><a href="./#publications" aria-current="page">Research</a><a href="./#experience">Experience</a><a href="./#community">Speaking</a><a href="./#projects">Builds</a><a href="./#coverage">Press</a><a href="/blog/">Blog</a><a href="/creative/">Creative side</a></nav></div></header><div class="portfolio-contact"><div class="portfolio-contact-inner"><a href="mailto:saicharithaakula21@gmail.com">Email</a><a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><a href="https://github.com/Charithaakula" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/sai-charitha-akula-32574887/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/charitha_akula" target="_blank" rel="noopener">X</a></div></div>
+  <header class="portfolio-header"><div class="portfolio-header-inner"><a class="portfolio-brand" href="./">Sai Charitha Akula</a><button class="portfolio-menu" type="button" aria-expanded="false" aria-controls="portfolio-nav">Menu</button><nav id="portfolio-nav" class="portfolio-nav" aria-label="Main navigation"><a href="./#publications" aria-current="page">Research</a><a href="./#experience">Experience</a><a href="./#community">Speaking</a><a href="./#projects">Builds</a><a href="./#coverage">Press</a><a href="./#blog">Blog</a><a href="./#beyond">Creative side</a></nav></div></header><div class="portfolio-contact"><div class="portfolio-contact-inner"><a href="mailto:saicharithaakula21@gmail.com">Email</a><a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><a href="https://github.com/Charithaakula" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/sai-charitha-akula-32574887/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/charitha_akula" target="_blank" rel="noopener">X</a></div></div>
   <main id="home">
     <section class="hero"><div class="wrap hero-grid">
       <div class="hero-copy-wrap">
@@ -180,8 +180,19 @@
       <div class="stripe-item"><div><strong>From research to systems</strong><span>Representations, data, training, evaluation &amp; deployment</span></div></div>
       <div class="stripe-item"><div><strong>Independent builds</strong><span>Prototypes, tools &amp; benchmarks</span></div></div>
     </div></div>
+    <section class="section" id="about"><div class="wrap about-grid">
+      <div class="about-side"><span class="eyebrow">Introduction</span><h2>About me</h2>
+
+      </div>
+      <div class="about-text">
+        <p>At <a href="https://ai.meta.com/" target="_blank" rel="noopener">Meta Superintelligence Labs</a>, I develop and train multimodal models for visual and spatial understanding, reasoning, and personalized, context-aware assistance. My work brings together <strong>visual representations, data development, post-training, and evaluation</strong> across text, images, and video to improve generalization and reliability.</p>
+        <p>I have identified overlooked capability gaps and built efficient, reusable methods to address them, often uncovering new possibilities in existing data and tools. I carry ideas from early experiments through model training, distillation, and deployment at scale.</p>
+        <p>Before Meta, I was on <a href="https://www.mlp.com/" target="_blank" rel="noopener">Millennium</a>'s four-person core AI team, reporting to the Head of AI, building enterprise RAG systems and agentic workflows and researching retrieval relevance. Earlier, I studied vision-centric multimodal models and diffusion models at <a href="https://cilvr.nyu.edu/" target="_blank" rel="noopener">NYU's CILVR Lab</a> with <a href="https://sainingxie.com/" target="_blank" rel="noopener">Prof. Saining Xie</a>. Before that, I spent six years as a quantitative researcher on <a href="https://www.goldmansachs.com/" target="_blank" rel="noopener">Goldman Sachs</a>' Interest Rates desk, developing trading, pricing, and risk models.</p>
+        <p>I hold an M.S. in Computer Science from <a href="https://cims.nyu.edu/dynamic/" target="_blank" rel="noopener">NYU Courant</a> and a B.Tech. in Computer Science (Honours) from <a href="https://www.iitb.ac.in/" target="_blank" rel="noopener">IIT Bombay</a>, with a minor in Electrical Engineering.</p>
+      </div>
+    </div></section>
     <section class="section tinted" id="publications"><div class="wrap">
-      <div class="section-heading"><div><span class="eyebrow">Research</span><h2>Selected Publications</h2></div><p>My research asks how machines understand and reason about the visual world — across images, video, and space.</p></div>
+      <div class="section-heading"><div><span class="eyebrow">Research</span><h2>Selected Publications</h2></div></div>
       <div class="paper-list">
         <article class="paper-row" id="reconcilebench-paper">
           <div class="paper-art"><img src="/images/sai/reconcilebench-figure2.png" alt="ReconcileBench scientific agent reconciliation workflow" loading="lazy"></div>
@@ -200,17 +211,6 @@
         </article>
       </div>
 
-    <section class="section" id="about"><div class="wrap about-grid">
-      <div class="about-side"><span class="eyebrow">Introduction</span><h2>About me</h2>
-
-      </div>
-      <div class="about-text">
-        <p>At <a href="https://ai.meta.com/" target="_blank" rel="noopener">Meta Superintelligence Labs</a>, I develop and train multimodal models for visual and spatial understanding, reasoning, and personalized, context-aware assistance. My work brings together <strong>visual representations, data development, post-training, and evaluation</strong> across text, images, and video to improve generalization and reliability.</p>
-        <p>I have identified overlooked capability gaps and built efficient, reusable methods to address them, often uncovering new possibilities in existing data and tools. I carry ideas from early experiments through model training, distillation, and deployment at scale.</p>
-        <p>Before Meta, I was on <a href="https://www.mlp.com/" target="_blank" rel="noopener">Millennium</a>'s four-person core AI team, reporting to the Head of AI, building enterprise RAG systems and agentic workflows and researching retrieval relevance. Earlier, I studied vision-centric multimodal models and diffusion models at <a href="https://cilvr.nyu.edu/" target="_blank" rel="noopener">NYU's CILVR Lab</a> with <a href="https://sainingxie.com/" target="_blank" rel="noopener">Prof. Saining Xie</a>. Before that, I spent six years as a quantitative researcher on <a href="https://www.goldmansachs.com/" target="_blank" rel="noopener">Goldman Sachs</a>' Interest Rates desk, developing trading, pricing, and risk models.</p>
-        <p>I hold an M.S. in Computer Science from <a href="https://cims.nyu.edu/dynamic/" target="_blank" rel="noopener">NYU Courant</a> and a B.Tech. in Computer Science (Honours) from <a href="https://www.iitb.ac.in/" target="_blank" rel="noopener">IIT Bombay</a>, with a minor in Electrical Engineering.</p>
-      </div>
-    </div></section>
     </div></section>
     <section class="section" id="experience"><div class="wrap experience-grid">
       <div><span class="eyebrow">Career &amp; education</span><h2>Experience</h2><p class="experience-copy">My path spans quantitative finance, academic research, and building multimodal AI systems at scale.</p></div>
@@ -234,7 +234,7 @@
     </div></section>
     <section class="section tinted" id="projects"><div class="wrap">
       <div class="section-heading"><div><h2>Builds</h2></div></div>
-      <div class="builds-intro"><div><p>From state reconciliation in <a href="#reconcilebench-paper">ReconcileBench</a> to personal AI in Life OS and TonyShark, I’m exploring how AI systems can retain context, adapt to change, and help with work and everyday life — across scientific agents, personal AI, video and vision-language models, healthcare, and cloud systems.</p></div><figure class="builds-candid"><img src="/assets/creative/at-the-keyboard.png" width="1536" height="1024" loading="lazy" alt="Sai Charitha working at her laptop."></figure></div>
+      <div class="builds-intro"><div><p>From state reconciliation in <a href="#reconcilebench-paper">ReconcileBench</a> to personal AI in Life OS and TonyShark, I’m exploring how AI systems can retain context, adapt to change, and help with work and everyday life.</p></div><figure class="builds-candid"><img src="/assets/creative/at-the-keyboard.png" width="1536" height="1024" loading="lazy" alt="Sai Charitha working at her laptop."></figure></div>
 
       <div class="project-explorer"><div class="build-gallery-controls"><button type="button" data-scroll-gallery="left" aria-label="Previous builds">Previous</button><button type="button" data-scroll-gallery="right" aria-label="Next builds">Next</button></div>
         <div class="project-menu" role="group" aria-label="Choose a build" tabindex="0">
@@ -267,7 +267,7 @@
           <div class="project-visual"><img id="project-image" src="/assets/builds/reconcilebench.png" alt="ReconcileBench workflow for evaluating changes across a scientific workspace."></div>
           <div class="project-detail"><span id="project-category" class="eyebrow">Scientific agents &amp; evaluation</span><h3 id="project-title">ReconcileBench</h3><p id="project-description">What happens when a persistent scientific agent has to revise its work after the evidence or analysis policy changes? I explored that question with Chanukya Vardhan Gujjula through ReconcileBench, a benchmark for keeping data, code, figures, reports, and decisions consistent. The work was selected for an oral presentation.</p><div id="project-tags" class="tag-row"><span>State reconciliation</span><span>Persistent agents</span><span>Benchmark</span></div><div id="project-links" class="detail-links"><a href="#reconcilebench-paper">Publication</a><a href="https://openreview.net/forum?id=4xdgvEUHI3" target="_blank" rel="noopener">Paper</a><a href="https://github.com/Charithaakula/ReconcileBench" target="_blank" rel="noopener">Code</a></div></div>
         </article></dialog>
-  <footer class="footer"><div class="wrap footer-inner"><p>© 2026 Sai Charitha Akula · Designed &amp; built by Sai · Menlo Park, CA</p><div class="footer-links"><a href="mailto:saicharithaakula21@gmail.com">Email</a><a href="https://github.com/Charithaakula" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/sai-charitha-akula-32574887/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/charitha_akula" target="_blank" rel="noopener">X</a><a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a><a href="/creative/">Creative side</a><a href="https://www.instagram.com/charitha_2103/" target="_blank" rel="noopener">Instagram</a></div></div></footer>
+  <footer class="footer"><div class="wrap footer-inner"><p>© 2026 Sai Charitha Akula · Designed &amp; built by Sai · Menlo Park, CA</p><div class="footer-links"><a href="mailto:saicharithaakula21@gmail.com">Email</a><a href="https://github.com/Charithaakula" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/sai-charitha-akula-32574887/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/charitha_akula" target="_blank" rel="noopener">X</a><a href="https://scholar.google.com/citations?user=q8CkshQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a><a href="./#beyond">Creative side</a><a href="https://www.instagram.com/charitha_2103/" target="_blank" rel="noopener">Instagram</a></div></div></footer>
   <script>
     (function(){
       var base="/images/sai/";
