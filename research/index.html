@@ -189,8 +189,9 @@
 
     /* Publication cards, Nov 20 2026: fit images, even out cards */
     #reconcilebench-paper .paper-art img{object-fit:contain}
-    .paper-row:nth-child(3) .paper-art img{object-position:50% 70%}
-    .paper-row>div:last-child{display:flex;flex-direction:column}
+    .paper-row:nth-child(3) .paper-art img{width:160%;height:160%;object-position:25% 70%}
+    .paper-row .paper-art{flex-shrink:0}
+    .paper-row>div:last-child{flex:1;min-height:0;display:flex;flex-direction:column}
     .paper-row .paper-more{margin-top:auto;padding-top:12px}
   </style>
   <link rel="stylesheet" href="/assets/site-header.css">
