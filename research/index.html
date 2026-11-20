@@ -172,6 +172,13 @@
     .creative-teasers>a:first-child img{object-position:center top}
     .builds-intro{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:center}
     @media(max-width:800px){.section{padding:52px 0}.builds-intro{grid-template-columns:1fr}.paper-row{flex-basis:min(320px,88%)}}
+  
+    /* Photos round, Nov 20 2026: About portrait + Experience graduation photo */
+    .about-side figure{margin:30px 0 0}
+    .about-side figure img{width:100%;max-width:300px;height:auto;border-radius:6px;display:block}
+    .experience-photo{margin:30px 0 0;max-width:300px}
+    .experience-photo img{width:100%;height:auto;border-radius:6px;display:block}
+    .experience-photo figcaption{font-size:.8rem;color:var(--muted);margin-top:10px}
   </style>
   <link rel="stylesheet" href="/assets/site-header.css">
 </head>
@@ -199,7 +206,7 @@
       <div class="stripe-item"><div><strong>Independent Builds</strong><span>Prototypes, tools &amp; benchmarks</span></div></div>
     </div></div>
     <section class="section" id="about"><div class="wrap about-grid">
-      <div class="about-side"><span class="eyebrow">Introduction</span><h2>About me</h2>
+      <div class="about-side"><span class="eyebrow">Introduction</span><h2>About me</h2><figure class="about-portrait"><img src="/assets/creative/sai-headshot.jpg" width="399" height="399" loading="lazy" alt="Portrait of Sai Charitha Akula." onerror="this.closest('figure').remove()"></figure>
 
       </div>
       <div class="about-text">
@@ -232,7 +239,7 @@
 
     </div></section>
     <section class="section" id="experience"><div class="wrap experience-grid">
-      <div><span class="eyebrow">Career &amp; education</span><h2>Experience</h2><p class="experience-copy">My path spans quantitative finance, academic research, and building multimodal AI systems at scale.</p></div>
+      <div><span class="eyebrow">Career &amp; education</span><h2>Experience</h2><p class="experience-copy">My path spans quantitative finance, academic research, and building multimodal AI systems at scale.</p><figure class="experience-photo"><img src="/assets/creative/nyu-graduation.jpg" width="999" height="1200" loading="lazy" alt="Sai Charitha in her graduation gown at NYU, holding her cap." onerror="this.closest('figure').remove()"><figcaption>NYU Courant · 2024</figcaption></figure></div>
       <div class="timeline">
         <div class="moment"><span class="period">2025–Present</span><strong>Meta · Senior Research Scientist</strong><p>Post-training, data, and evaluation for visual and spatial understanding, reasoning, and context-aware assistance across Superintelligence Labs and Reality Labs.</p></div>
         <div class="moment"><span class="period">2024–2025</span><strong>Millennium · AI Research Engineer</strong><p>Founding core AI team of four, reporting to Head of AI. Built and scaled enterprise RAG systems and agentic workflows across large financial document collections.</p></div>
@@ -244,7 +251,7 @@
     <section class="section tinted" id="community"><div class="wrap">
       <div class="section-heading"><h2>Speaking &amp; Service</h2></div>
       <div class="speaking-layout">
-        <figure class="panel-speaking-photo"><a class="panel-photo-focus" href="/assets/creative/panel.jpg"><img src="/assets/creative/panel.jpg" width="768" height="1024" loading="lazy" alt="Sai Charitha speaking into a microphone at the Physical AI × Data panel in Austin."></a><figcaption><a href="https://x.com/ishanator13/status/2123091362488758705/photo/1" target="_blank" rel="noopener" title="Photo shared by @ishanator13">Physical AI × Data · Austin</a></figcaption></figure>
+        <figure class="panel-speaking-photo"><a class="panel-photo-focus" href="/assets/creative/panel.jpg"><img src="/assets/creative/panel.jpg" width="1536" height="2048" loading="lazy" alt="Sai Charitha speaking into a microphone at the Physical AI × Data panel in Austin."></a><figcaption><a href="https://x.com/ishanator13/status/2123091362488758705/photo/1" target="_blank" rel="noopener" title="Photo shared by @ishanator13">Physical AI × Data · Austin</a></figcaption></figure>
         <div class="speaking-copy">
           <article><span class="eyebrow">November 11, 2026 · Austin</span><h3>Physical AI × Data</h3><p>Panelist on scaling physical AI, robot-learning data, and real-world deployment. Hosted by Sieve and Uncork Capital during CoRL 2026.</p><div class="speaking-links"><a href="https://luma.com/f0941tp1" target="_blank" rel="noopener">Event details</a><a href="https://www.linkedin.com/posts/sai-charitha-akula-32574887_corl2026-activity-7527790287927234560-l7IF" target="_blank" rel="noopener">Reflections</a></div></article>
         </div>

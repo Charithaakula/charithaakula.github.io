@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "file": "desert-sunset.jpg",
+    "alt": "Sai Charitha sitting on desert dunes at sunset, letting sand run through her hands.",
+    "caption": "Desert sunset, sand running through my hands."
+  },
+  {
+    "file": "night-out.jpg",
+    "alt": "Sai Charitha in a floral dress on a night out, waving under street lights.",
+    "caption": "A night out, under the lights."
+  },
+  {
+    "file": "deer-mural.jpg",
+    "alt": "Sai Charitha posing beside a large chalk drawing of a deer made of words.",
+    "caption": "With the chalk deer."
+  }
+]
