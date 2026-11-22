@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440" viewBox="0 0 640 440" fill="none" role="img" aria-labelledby="cell-title cell-desc">
+  <title id="cell-title">Subtle computational cell texture</title>
+  <desc id="cell-desc">A fine gray square grid with a few faint shaded cells, fading toward the edges and concentrated slightly above and to the right of center.</desc>
+  <defs>
+    <pattern id="cells" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0V38" stroke="#4F4F4F" stroke-width=".7" stroke-opacity=".055"/>
+    </pattern>
+    <radialGradient id="cell-fade" cx="64%" cy="36%" r="65%">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".34" stop-color="#FFFFFF" stop-opacity=".85"/>
+      <stop offset=".7" stop-color="#FFFFFF" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="cell-edges" x="0" y="0" width="640" height="440" maskUnits="userSpaceOnUse">
+      <rect width="640" height="440" fill="url(#cell-fade)"/>
+    </mask>
+  </defs>
+  <g mask="url(#cell-edges)">
+    <rect width="640" height="440" fill="url(#cells)"/>
+    <g fill="#737373" fill-opacity=".045">
+      <rect x="342" y="76" width="38" height="38"/>
+      <rect x="456" y="114" width="38" height="38"/>
+      <rect x="380" y="190" width="38" height="38"/>
+      <rect x="532" y="228" width="38" height="38"/>
+      <rect x="266" y="266" width="38" height="38"/>
+    </g>
+  </g>
+</svg>
