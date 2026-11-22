@@ -1,0 +1,2571 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-22",
+  "title": "CoRL26 connected research atlas",
+  "source_policy": "Concepts connect the available original CoRL talk transcripts with reviewed primary project pages and indexed paper sections. Each reference records reading depth; unread pointers remain visibly distinct. Company and empirical results remain attributed to their original authors. Social posts are not cited as research evidence.",
+  "nodes": [
+    {
+      "id": "direct-policy",
+      "title": "Direct action policies",
+      "stage": "Act",
+      "summary": "A learned policy turns observation and instruction into executable action. Reasoning, language supervision and temporal context can live inside this policy; none alone makes it an autonomous learning agent.",
+      "examples": [
+        {
+          "talk_id": "d1-1",
+          "note": "MolmoAct2 combines visual understanding, physical reasoning and an action expert in an open training recipe.",
+          "evidence": {
+            "talk_id": "d1-1",
+            "time": "00:52:51",
+            "quote": "connecting vision language models with an action expert preaching visual understanding and body reasoning and action generation together. Building on this foundation, Molmo 2 think act explicit depth uh reasoning to keep this efficient and updates the depth information in an adaptive manner rather than regenerating every token every time step. So how does this capability actually translates to real world pe",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-11",
+          "note": "π0.7 treats task and quality metadata as part of learning from a broad, mixed-quality training set.",
+          "evidence": {
+            "talk_id": "d1-11",
+            "time": "02:21:32",
+            "quote": "key insight was that rewriting a broadly specified task into a much more detailed prompt led to higher quality generated images. Analogously, we find that expanding a broadly specified robot task such as put food on the table to a multimodal prompt which includes one subgoal images to achieve to complete the task. Two, detailed subtask instructions describing how to perform the task. And three, additional m",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-2",
+          "note": "Semantic Anchoring separates transferable semantic features from physical execution details.",
+          "evidence": {
+            "talk_id": "d1-2",
+            "time": "00:56:12",
+            "quote": "A se a shure semantic representation to align with embedding of a frozen vision language model and a private one to preserve the execution details. And we discussed all the models when inferenced in simulation. We test on two benchmarks with three distinct three distinct VLAs with PI zero spatial VLA and the group and our method improves all of them consistently and for real robots we fine-tune PI zero on f",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-4",
+          "note": "PRTS adds instruction-conditioned goal reachability supervision before downstream behavior cloning.",
+          "evidence": {
+            "talk_id": "d1-4",
+            "time": "01:01:31",
+            "quote": "given goal. Our insight is to reformulate general proposed foundation policy preing as learning goal reachability. So state action representation capture progress towards the instruction goal. We implementate this insight with language condition contrast I for placing a cup on a tray approaching the cup is a positive grasping and placing are also positives because they share the same",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-16",
+          "note": "TEMPO asks how a compact motion history changes dynamic manipulation.",
+          "evidence": {
+            "talk_id": "d1-16",
+            "time": "03:17:26",
+            "quote": "Hi everyone. Today we are here to present our work tempo which solves dynamic tests using temporal context. I'm Jim and this is Daniel. Generalist policies such as VLAs are getting better at our day-to-day tasks. For example, this is PI 0.5. It can make your bed, fold your clothes, or clean up your kitchen counters. However, notice one thing. Everything in the room stays still while the robot acts. I think",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-51",
+          "note": "OpenDexGrasp selects a grasp for the requested downstream use, rather than only stability.",
+          "evidence": {
+            "talk_id": "d2-51",
+            "time": "02:34:08",
+            "quote": "Uh hello everyone. Today I'll present open dex grasp uh teach robot dctor's hand to grasp objects for task disc in everyday language. So in our daily manipulation when we pick pick up an object we usually have task in mind. We might we might pick up a brush to wash it or scoop to use it. Then um the way we hold the object should help us to compare the tasks. Using a tool both need grasping and moving it. Th",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-42",
+          "note": "KP-Grasp predicts dexterous-hand keypoints, then uses inverse kinematics to recover executable commands. This separates transferable grasp structure from robot-specific joint control.",
+          "evidence": {
+            "talk_id": "d2-42",
+            "time": "00:41:33",
+            "quote": ">> I'm going to present KP grasp scalable keypoint flow matching for dexterous grasp generation. dexterous grasp generation often has two paradigms. Analytical methods use physics prior and offline optimization to produce large-scale grasp data sets. Learning based methods then extract these priors into a network by modeling the grasp distribution directly from data. But in practice, existing learning pipel",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Does the model follow a new instruction when the visual scene stays fixed?",
+        "How much of a long task is solved by internal context rather than an external planner?",
+        "What are the action latency, chunk length and control feedback assumptions?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "diffusion-policy",
+        "octo",
+        "gr00t2",
+        "dreamzero",
+        "pi07",
+        "ode-policy"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "control-timescales",
+      "title": "Control across different clocks",
+      "stage": "Act",
+      "summary": "Task reasoning, manipulation and contact response operate on different physical clocks. A useful hierarchy sends intent downward and failure, force and progress feedback upward.",
+      "examples": [
+        {
+          "talk_id": "d1-10",
+          "note": "Hang Zhao compares coding, orchestrated, direct and tool-using policies with a real wall-clock budget; rankings change when thought takes time.",
+          "evidence": {
+            "talk_id": "d1-10",
+            "time": "01:28:32",
+            "quote": "45% success rate, all the other methods have success rate higher than 60%. And then what if we have a real clock? Basically the clock runs and the stop stepby-step policy could fail because of exceeding the time limit. Then the result is totally different. We find that the step-by-step policy fails",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-25",
+          "note": "EagleVLA couples anticipation with asynchronous scheduling so inference remains aligned with recent observations.",
+          "evidence": {
+            "talk_id": "d1-25",
+            "time": "06:37:31",
+            "quote": "long reaction time by scheduling optimization and system designs. First for the asynchronous correction we predict VM heading state at T plus delta from current observation and committed actions and the action expert directly predicts from T plus data. And for this scheduling optimization we use the confidence of the future prediction as a scheduleuler for the VM action expert. When the competence is higher",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-24",
+          "note": "BitVLA explores low-bit deployment when memory, power and latency constrain onboard policy inference.",
+          "evidence": {
+            "talk_id": "d1-24",
+            "time": "06:33:01",
+            "quote": "simulation benchmarks. So, how do we achieve this? The key is beta linear. It consides with to 1.58 bits and activations to 88 then rescales",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-27",
+          "note": "TARC learns when another expensive policy update is necessary.",
+          "evidence": {
+            "talk_id": "d1-27",
+            "time": "06:42:28",
+            "quote": "at the same frequency as when it's pushed. VLA's like pi zero face the same trade-off. Each control update here is a full replan through a 3 billion parameter model and replanning rarely happens open loop making it robust but wasteful. So we ask ourselves when do we really need to send new control updates.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-26",
+          "note": "REACT refreshes action chunks with rolling denoising; the name does not indicate an agent that learns new skills.",
+          "evidence": {
+            "talk_id": "d1-26",
+            "time": "06:39:11",
+            "quote": "Hi everyone. I'm my name is Ryan Chen. I'm from Primebot and today we're going to introduce the React. It focused on the uh resolving the trade-off between the trajectories consistencies and the policy responsibility in UI models. Current action policy typically use action chunkings to predict the uh models predict actions. This help maintains coherent motions but when the target moves the robot may keep ex",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-28",
+          "note": "Diffusion ReRoll revises temporal denoising rather than permanently committing to an early motion prefix.",
+          "evidence": {
+            "talk_id": "d1-28",
+            "time": "06:45:25",
+            "quote": "improving robotic sequence prediction with structured noising process. Full sequence diffusion uses same noise level across the horizon. It can commit to a wrong decision and just make it cleaner rather than reconsidering it. Causal denoising with diffusion forcing as temporal order. However, once an early prefix becomes low noise information at later part cannot revise it. Our method diffusion reroll keeps",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d3-85",
+          "note": "The Fei-Fei Li–Lisa Su fireside connects training compute with the distinct power and latency constraints at deployment.",
+          "evidence": {
+            "talk_id": "d3-85",
+            "time": "01:23:24",
+            "quote": "What do you think will power the future of robotics? Will it still be, you know, sort of hierarchical components worked on separately? Or are foundation models going to end to end, get us there all by themselves? Are they going to solve robotics? Well, I'll start. Let's be intellectually honest. I mean, the results that's coming out of the frontier labs and some of the results are announced in this very con",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Does reported success include time spent waiting for a model?",
+        "Which observations can become stale before the robot acts?",
+        "Can the lower layer stop, recover and explain a failed handoff?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "drivevlm",
+        "fast-wam",
+        "dreamzero",
+        "ode-policy"
+      ],
+      "limitations": "The System 0/1/2 labels in the keynote denote clocks, not a universal partition of cognition. A shared model with experts at different rates can implement the same idea.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "agentic-execution",
+      "title": "Agentic execution and orchestration",
+      "stage": "Act",
+      "summary": "An agent chooses skills, calls tools, checks progress and recovers while carrying out a task. This can extend a fixed robot policy without changing its weights or accumulating new skills.",
+      "examples": [
+        {
+          "talk_id": "d1-22",
+          "note": "Jim Fan describes a slower supervisory model that monitors GR00T 2 and intervenes when it loses track of repetitions.",
+          "evidence": {
+            "talk_id": "d1-22",
+            "time": "05:52:40",
+            "quote": "You know for the system one model sometimes it loses track of the repetitive motions and here Astra correctly intervenes on the proprioception and stops the dip at two dips specified by our system prompt and then we also connect Astra to the microscope view then it's able to here here it comes it turns on the microscope Astra is connected to the microscope and it instructs the robot hand to rotate rotate at",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-10",
+          "note": "The orchestrated-policy experiment calls learned skills instead of asking a slow frontier model for every motor action.",
+          "evidence": {
+            "talk_id": "d1-10",
+            "time": "01:27:35",
+            "quote": "to finish each episode on average it it calls the frontier model once and the next method is called orchestrated policy. Basically the frontier model will call different skills to finish the task. And during this process we found that for each episode the frontier model is called four times. And the next one is direct policy that we have just talked about. The last method is called agentic policy. is basica",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-59",
+          "note": "Gemini Robotics studies the meeting point between general reasoning and whole-body dexterity; the action model and the research agent play different roles.",
+          "evidence": {
+            "talk_id": "d2-59",
+            "time": "05:23:05",
+            "quote": "with Gemini. So one of the core fundamental problems still facing robotics is how do we combine this general purpose reasoning with very very dexterous whole body control. And I would argue that we can do both ends of the spectrum quite well. We can do very high level reasoning but with low dexterity. And we can create some very very agile very dexterous behaviors which are not very general. So the key prob",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-80",
+          "note": "Tedrake proposes treating robot execution as a tool call within broader office or factory workflows.",
+          "evidence": {
+            "talk_id": "d2-80",
+            "time": "08:15:14",
+            "quote": "can build higher level harnesses for work around the office work around a factory where robots are a tool call that fit into that and I think the opportunities if you think about a robot um as doing you know the same motions or the physical work that a human has been doing that's actually just scratching the surface of what's possible when you start putting robots into these applications. So think about",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-60",
+          "note": "Boston Dynamics Atlas uses a single onboard action model and an Orbit-hosted job harness with Gemini ER in the cloud. The harness consumes factory task APIs and exception rules, then generates the conditioning for the physical action model.",
+          "evidence": {
+            "talk_id": "d2-60",
+            "time": "05:38:21",
+            "quote": "connect with the API of the factory and understand its language. Um it connects with BLM reasoning model in this case Gemini ER that we've been partnering with GDM. um and ultimately it steers atlas to do the actual job through uh generating the conditioning that has to go into the action model. All right. So um a little bit more details right it's the same system two system one architecture um very common",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Does the orchestrator observe actual completion or assume a successful skill call?",
+        "Can it recover without unsafe repeated attempts?",
+        "What changes after a successful episode: task state, memory, skill library, or model weights?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "saycan",
+        "gr00t2",
+        "gemini25",
+        "argon"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "code-policy",
+      "title": "Agent-written code and reusable skills",
+      "stage": "Act",
+      "summary": "A model can write the policy as executable code, then let that program run on the robot. A second loop can test, repair and retain the code, creating a skill library without gradient updates to the foundation model.",
+      "examples": [
+        {
+          "talk_id": "d1-10",
+          "note": "A coding policy runs without calling the frontier model at deployment; the coding-plus-ask variant calls for help on failure.",
+          "evidence": {
+            "talk_id": "d1-10",
+            "time": "01:26:40",
+            "quote": "finish. And how should the frontier model control the robot? I tried five ways. The first one is called coding policy. Basically, we ask a frontier model to uh understand the task and write a piece of code and at deployment time the code the program just runs without calling the foundation model. And the second method is called coding",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-22",
+          "note": "ASPIRE combines GR00T 2 with code skills authored through trial and error, and switches to a recovery skill when the action model fails.",
+          "evidence": {
+            "talk_id": "d1-22",
+            "time": "05:53:30",
+            "quote": "harness we developed in house called Aspire that combines GR00T 2 native GR00T 2 with codebased skills authored by trial and error and Aspire can switch seamlessly from GR00T 2 to code as policy for error recovery or monitor safety like a guardian angel. Here's how it works. We first construct a sim environment and have Astra explore with it. You can think of it as fine-tuning or priming Astra in code space",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-59",
+          "note": "The DeepMind speaker distinguishes current code-writing and slow-action modes from a future fast closed-loop agent.",
+          "evidence": {
+            "talk_id": "d2-59",
+            "time": "05:33:22",
+            "quote": "think we'll see right now these these models are still pretty slow and heavy. So they either write code to control the robot or they output actions very slowly but this will get faster and we'll see things like agentic robot control where they can perceive, reason and act all in closed loop uh with you know uh in real time. So I think maybe next year core will look quite different where I think robotics wil",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Is the generated program tested before physical execution?",
+        "Does a stored skill generalize beyond the simulator where it was repaired?",
+        "How are preconditions, failure signals and rollback recorded for each skill?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "code-as-policies",
+        "voyager",
+        "gr00t2",
+        "argon"
+      ],
+      "limitations": "Code is an implementation of a policy. Calling a model an agent does not establish that it learns, and modifying code does not establish recursive improvement of the learning procedure.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "agentic-learning",
+      "title": "Agents that run learning experiments",
+      "stage": "Improve",
+      "summary": "Agents can assist a team’s experimentation workflow by suggesting fixes, exploring code skills or generating simulation data. The agent’s role and the team’s role depend on the specific source.",
+      "examples": [
+        {
+          "talk_id": "d2-59",
+          "note": "The Argon example inspects real rollouts, proposes fixes, trains better models and tests them on hardware. The cornhole example combines video retargeting, simulation practice and adjustment after real throws.",
+          "evidence": {
+            "talk_id": "d2-59",
+            "time": "05:31:29",
+            "quote": "researcher. Uh it will look at real world rollouts and see what's you know what might be wrong. It'll create hypotheses about how to fix them and then we'll you know train better models and then test them in the real world. So all of these loops, you know, that agents can do are improving how we develop robotics. I think one of the coolest uh let me just pause this quick. One of the coolest things that we s",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-22",
+          "note": "ASPIRE explores a constructed simulation to author a skill library in code space, without gradient descent.",
+          "evidence": {
+            "talk_id": "d1-22",
+            "time": "05:53:30",
+            "quote": "environment and have Astra explore with it. You can think of it as fine-tuning or priming Astra in code space without gradient descent. So this is still in sim and we can transfer this type of skills directly to the real world and GR00T 2 is part of the skill library. And here GR00T actually makes a mistake. It got the upper side of the wind upside down and Aspire executes a",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-49",
+          "note": "Roberto Martín-Martín frames useful prior knowledge by how much new capability it enables from a small amount of new experience.",
+          "evidence": {
+            "talk_id": "d2-49",
+            "time": "01:33:11",
+            "quote": "data into new capabilities. The difference between the capabilities before and after learning is the learning potential of a robot. Two robots may have the similar capabilities today, but different capabilities uh for the same amount of demonstrations or real world experiences tomorrow. So the question at the center of this talk, what should a robot learn or be equipped with to expand its learning potential",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-55",
+          "note": "Disco illustrates a separate algorithmic search–learn loop: search results train the policy and critic that guide the next search.",
+          "evidence": {
+            "talk_id": "d2-55",
+            "time": "03:26:19",
+            "quote": "So every few search iterations we will distill the uh tree back into the policy. First, we will compute the value targets where we will back propagate all the successes and failures back up the tree. We'll train a value function to predict these targets so it can guide the next search iterations. And we'll take all the feasible edges from the search tree and retrain the policy on these edges. Now that we ha",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "What is the hypothesis, and what observation could falsify it?",
+        "Are held-out real tasks protected from repeated trial-and-error selection?",
+        "Does improvement persist on old tasks as well as the newly optimized task?",
+        "Is the agent improving a policy, or also improving how improvements are proposed and evaluated?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "eureka",
+        "dr-eureka",
+        "gemini25",
+        "voyager",
+        "argon",
+        "vlrla"
+      ],
+      "limitations": "The Argon talk describes assistance with hypotheses followed by team model training and testing. It does not by itself demonstrate autonomous neural-weight training or recursive self-improvement.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "runtime-memory",
+      "title": "Memory and adaptation within an episode",
+      "stage": "Act",
+      "summary": "The same observation can demand different actions depending on what happened earlier. A robot may store compressed video, textual summaries, spatial maps or fast-weight state instead of retaining every raw frame.",
+      "examples": [
+        {
+          "talk_id": "d1-3",
+          "note": "MEM combines compressed short-term visual memory with recurrent long-term text summaries.",
+          "evidence": {
+            "talk_id": "d1-3",
+            "time": "00:59:49",
+            "quote": "will be compressed with a new video encoder and will be sent to the low-level VLA. And then we'll have long-term textual memory. Texting is a much more compressed representation. So, it might hold like much longer context. The way this works is that we'll make our VLM predict the summary of whatever happened before and this will be fed back into the VLM recurrently. So with this system, MEM can achieve",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-13",
+          "note": "RoboTTT writes the sequence into fast weights that act as fixed-size recurrent state; slow weights and fast weights have different roles.",
+          "evidence": {
+            "talk_id": "d1-13",
+            "time": "02:43:25",
+            "quote": "fast weights that keep being trained by gradient descent during training and at inference. TTT can be used for sequence modeling. Given the sequence of tokens, it performs gradient steps, write incoming tokens into the fast weights and then it applies the updated model and maps the tokens to the outputs. Such process happen at both training and test times. The fast weights are the hidden state fixed size so",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-15",
+          "note": "Mem-World retrieves spatial history conditioned on a prospective action.",
+          "evidence": {
+            "talk_id": "d1-15",
+            "time": "03:06:55",
+            "quote": "goes smoothly. Um, so this particular world, uh, this particular work, memor world, explores utilizing memory to help world models sustain long horizon robot interactions. A policy often sees an object and needs to return to it later, but between the two sightings, that object may be temporarily out of view as the wrist camera moves due to arm motion. Oh well. When a policy is rolled out through a world mod",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-76",
+          "note": "SERF maintains a spatiotemporal scene-feature map for multistep mobile manipulation.",
+          "evidence": {
+            "talk_id": "d2-76",
+            "time": "06:43:07",
+            "quote": "In this paper, we show that conditioning a mobile manipulation policy on a special temporal feature map enables long horizon reasoning. We start by representing the scene using",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-16",
+          "note": "TEMPO uses compact history for timing-sensitive manipulation.",
+          "evidence": {
+            "talk_id": "d1-16",
+            "time": "03:17:26",
+            "quote": "Hi everyone. Today we are here to present our work tempo which solves dynamic tests using temporal context. I'm Jim and this is Daniel. Generalist policies such as VLAs are getting better at our day-to-day tasks. For example, this is PI 0.5. It can make your bed, fold your clothes, or clean up your kitchen counters. However, notice one thing. Everything in the room stays still while the robot acts. I think",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "What is retained across steps, and what is reset across episodes?",
+        "Can a memory mechanism learn from a mistake without repeating it?",
+        "Does it remember completion, object location and task order under partial observability?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "robottt",
+        "vlrla",
+        "dual-stream-memory"
+      ],
+      "limitations": "RoboTTT fast weights are described as recurrent state at inference. A gradient update inside an episode does not by itself show persistent continual learning across deployments.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "world-representation",
+      "title": "World models as representations",
+      "stage": "Learn",
+      "summary": "A model of the world can represent geometry, articulation, contact or hidden state without running an explicit planner. Visual consistency, physical prediction and action utility are separate criteria.",
+      "examples": [
+        {
+          "talk_id": "d3-84",
+          "note": "Atlas unifies viewpoint-conditioned generation and reconstruction. Robotics simulation is an application direction; Atlas is not presented as an established general-purpose action policy.",
+          "evidence": {
+            "talk_id": "d3-84",
+            "time": "00:55:26",
+            "quote": "about Atlas. And that's a new model we just proposed. And for most part, Atlas focused on solving the rendering and the simulation problem, especially simulating the geometry of the world as well as 3D-4D dynamics. So, in a nutshell, Atlas is an auto-aggressive foundation model trained from scratch.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-77",
+          "note": "Articulated 3D Scene Graphs stores semantic identity together with kinematic constraints for mobile manipulation.",
+          "evidence": {
+            "talk_id": "d2-77",
+            "time": "06:46:09",
+            "quote": "with an object. In this work, we present Mom SG as a scalable method for understanding articulation kinematics and pairing this with object level semantics. To do so, we leverage in the wild ego exo or robotentric RGBD in order to build a semantic kinematic 3D scene graph. First, we segment object interactions using an interaction prior by detecting humans as well as encoding scene dynamics via depth warpin",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-43",
+          "note": "WM-Craftnet uses recurrent visual, tactile and proprioceptive state for dexterous contact control.",
+          "evidence": {
+            "talk_id": "d2-43",
+            "time": "00:44:47",
+            "quote": "and robust theories in hand manipulation. Our work targets the challenging problem of robust visual tactile manipulation on a human sized 20 degree of freedom robotic hand. As shown in this video, a single closed loop policy can robustly rotate diverse objects smoothly adapting to changing contact states and unexpected external disturbances without dropping the objects. Methodologically we train the dreamer",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-15",
+          "note": "Mem-World uses action-conditioned retrieval of multi-view spatial history.",
+          "evidence": {
+            "talk_id": "d1-15",
+            "time": "03:06:55",
+            "quote": "particular work, memor world, explores utilizing memory to help world models sustain long horizon robot interactions. A policy often sees an object and needs to return to it later, but between the two sightings, that object may be temporarily out of view as the wrist camera moves due to arm motion. Oh well. When a policy is rolled out through a world model, that object could become distorted when it re-ente",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-75",
+          "note": "NICE learns spatial features robust to corrupted depth rather than assuming every depth pixel is reliable.",
+          "evidence": {
+            "talk_id": "d2-75",
+            "time": "06:40:01",
+            "quote": "introduce nice noise environment special encoding. How reliable is the geometry? Robots is positive use depths to understand object geometry. It is yet transparent and recalled out can appear incomplete or distorted in the depth observations crosses five task. and color reveals the objects while raw dips misses or disform their surfaces. The policy must still act using this imperfect geometry. It therefore",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Is the world model judged by attractive pixels, accurate state, or downstream action success?",
+        "Does it encode contact, force and uncertainty as well as geometry?",
+        "How does it respond when observations disagree with its prior?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "mujoco-playground",
+        "dual-stream-memory"
+      ],
+      "limitations": "Atlas and Boston Dynamics Atlas share a name but describe different objects: a world model and a humanoid robot. Keep their records separate.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "world-planning",
+      "title": "Explicit planning with predicted futures",
+      "stage": "Act",
+      "summary": "Test-time planning predicts the consequences of candidate actions and chooses among them. This differs from training with world models or directly generating action and video together.",
+      "examples": [
+        {
+          "talk_id": "d2-73",
+          "note": "Cloth simulator-in-the-loop reconstructs a mesh, refines action sequences through parallel simulation, executes the first action and replans.",
+          "evidence": {
+            "talk_id": "d2-73",
+            "time": "06:34:18",
+            "quote": "afternoon everyone. Today I'll introduce our work on enabling robust cloth manipulation via inference time simulator in the loop refinement. Learned policies can't easily fix their own mistakes and uncloth small errors add up. So we ask can a simulator itself be the foreign model at test time. That needs three things. a faithful fast simulator, an accurate cloth state, and enough parallel rowouts. Offline f",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-74",
+          "note": "Robustness without Wrinkles uses differentiable deformable simulation with robust model-predictive control.",
+          "evidence": {
+            "talk_id": "d2-74",
+            "time": "06:37:50",
+            "quote": "We frame the problem as robust output feedback optimization where an online controller handles both model uncertainty and processor noise. GPU system level synthesis uses the GPU to solve highdimensional state feedback efficiency by splitting the robust optimization into two parts on non- trajectory and a robust controller. H SLS extends this pipeline by adding common recursions enabling efficient output fe",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-14",
+          "note": "DreamZero generates video and action jointly as a policy; this should not automatically be labeled rollout search.",
+          "evidence": {
+            "talk_id": "d1-14",
+            "time": "02:57:08",
+            "quote": "explain why we do this in the next slide. And third, instead of just denoising the video frames, we jointly denoise both",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-78",
+          "note": "RAM provides learned reachability queries, a feasibility tool rather than a complete inverse-kinematics solution.",
+          "evidence": {
+            "talk_id": "d2-78",
+            "time": "06:49:18",
+            "quote": "Hi everyone, I'm Tim and I'm here to present our work on reachability across morphologies. Since so prices have turned random access memory into a luxury good, we took advantage of the newly vacant acronym to recone RAM as reachability across morphologies. So what can RAM do for you? Rem can answer the question can this morphology reach this pose. So far this has been answered by solving inverse kinematics",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-29",
+          "note": "MoRE routes across specialized motion dynamics; its interrupted talk does not support a full empirical comparison.",
+          "evidence": {
+            "talk_id": "d1-29",
+            "time": "06:48:45",
+            "quote": "mixture of experts for multifysic robotic world models. A war model helps robots in three ways like uh model based planning and control and it can also serves as an interactive and for reinforcement learning. However, uh existing models fall short. Video model predict 2D pixels and are hard to act on. Inversed physics methods need long observation and slow system ID. And uh uh existing 3D dynamics models on",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Does online search beat the direct policy at the same wall-clock and observation budget?",
+        "Which prediction errors change the selected action?",
+        "Can a simpler feasibility query remove bad candidates before expensive rollouts?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "diffusion-policy",
+        "dreamzero"
+      ],
+      "limitations": "A world model can help control without explicit test-time search. Classify it by its actual role: representation, data generator, direct world-action policy, training optimizer or online planner.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "synthetic-experience",
+      "title": "Generated experience and physical grounding",
+      "stage": "Learn",
+      "summary": "Generated video can supply motion and interaction priors at scale. To become robot training data, it must survive reconstruction, embodiment retargeting, contact constraints and physical execution checks.",
+      "examples": [
+        {
+          "talk_id": "d2-56",
+          "note": "GRAIL generates human-object interaction video, uses known scene geometry to reconstruct it, and grounds retargeted motion with a whole-body tracker.",
+          "evidence": {
+            "talk_id": "d2-56",
+            "time": "03:34:41",
+            "quote": "build a scene and terrain aware whole body checker based on Sonic, turning every motion we generate into physically valid robot data. Because every step of this pipeline is automatic, we can scale it up with more compute. With grill, we generate over 35k physically valid motions covering",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-18",
+          "note": "MolmoB0T examines how simulation-trained manipulation transfers to real robot setups.",
+          "evidence": {
+            "talk_id": "d1-18",
+            "time": "03:37:40",
+            "quote": "scale simulation enables zeros short manipulation. Hi uh I'm Rose this is a and Maya and we're excited to present our latest workobot large scale simulation enables zeroot manipulation. MolmoB0T is a family of VLA trained exclusively on simulation data that transfer zero shot to the real world. Trained on extremely diverse large-scale simulation data, Momobbot generalizes robustly to novel environments, obj",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-21",
+          "note": "Lightwheel presents calibration and physical validation around its data-to-simulation pipeline; this is a company presentation.",
+          "evidence": {
+            "talk_id": "d1-21",
+            "time": "05:32:08",
+            "quote": "calibration, we have an asset generation pipeline and from there we're able to pretty much reproduce physics validated assets um so that the robots can interact with because it's one thing to create a physics validated asset but you need to",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-83",
+          "note": "Tesla uses world models and counterfactual simulation to probe rare events; the speaker does not present detailed new Optimus-policy results.",
+          "evidence": {
+            "talk_id": "d2-83",
+            "time": "08:48:51",
+            "quote": "really the three motivations of why we train these models. Uh the first of all we want to evaluate the counterfactual and this is very important for you know both driving but also for optimus right. So clearly we don't want to cause any harm. These are actually physical things that can cause people harm or like property damage. So in our data set for both driving and Optimus, we're going to intervene before",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-30",
+          "note": "The world-model security paper illustrates how compromised inputs can propagate through generated training material.",
+          "evidence": {
+            "talk_id": "d1-30",
+            "time": "06:51:15",
+            "quote": "the like what happens when this data provider is malicious. Uh could you poison a robot policy just by attacking the world model. Uh in particular we're considering cases where the attacker just perturbs image frames uh of useful demonstrations. So like they give you safe looking data but then when you pass it to the world model something bad happens. Uh so first we're going to look at attacks against behav",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Does generated motion remain feasible after changing robot morphology?",
+        "Are contact and force validated independently of visual plausibility?",
+        "Which unseen real conditions are represented in the evaluation set?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "grail",
+        "gr00t2"
+      ],
+      "limitations": "A generated demonstration is a proposal for useful experience, not a measurement from the real world. Sim-to-real success is task- and hardware-dependent.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "simulation-transfer",
+      "title": "Simulation, calibration and real transfer",
+      "stage": "Learn",
+      "summary": "Useful simulation approximates the physical variables that decide a task, then measures the remaining gap on hardware. Rendering fidelity alone cannot certify contact or dynamics.",
+      "examples": [
+        {
+          "talk_id": "d2-59",
+          "note": "The DeepMind talk describes an agent iterating on the visual and physical fit of a simulator from a real log, and connects this to MuJoCo tools.",
+          "evidence": {
+            "talk_id": "d2-59",
+            "time": "05:29:36",
+            "quote": "accelerate the other one and we find a few very interesting use cases here where it's very good at like this real to sim tore cycle where it will just look at a real log and then you know argon is a very good agent decoder. It has multimodal understanding and it will just build the simulator and it will keep iterating iterating on it until it's happy with the visual and the physics and tutorial and then you",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-21",
+          "note": "Lightwheel emphasizes checking whether simulated interactions reproduce real behavior.",
+          "evidence": {
+            "talk_id": "d1-21",
+            "time": "05:32:08",
+            "quote": "calibration, we have an asset generation pipeline and from there we're able to pretty much reproduce physics validated assets um so that the robots can interact with because it's one thing to create a physics validated asset but you need to",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-69",
+          "note": "TAM adjusts torque using recent history to compensate for payload, friction and hardware changes.",
+          "evidence": {
+            "talk_id": "d2-69",
+            "time": "06:22:29",
+            "quote": "share a common torque interface. They may produce different type of actions but ultimately this are converted into torque command by rollback controllers. However, real robot have unknown dynamics such as variation in rink mass, joint friction and payload. So even if we apply the same torque command to the real robot and the ideal load in simulation, they move differently. To address this, we introduce TAM.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-71",
+          "note": "Physics-Guided Residual Dynamics combines approximate deformable simulation with a learned correction.",
+          "evidence": {
+            "talk_id": "d2-71",
+            "time": "06:28:03",
+            "quote": "Learning physicsguided residual dynamics for deformable object simulation. Deformable object manipulation is essential for robotics. Yet accurately predicting their dynamics remain challenging due to complex behaviors. Accurate simulation of deformable objects is therefore crucial for enabling robots to predict object behaviors and plan manipulation strategies. So predominantly there are two ways to simulat",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-72",
+          "note": "WireCraft standardizes wire manipulation tasks and compares methods under shared simulated conditions.",
+          "evidence": {
+            "talk_id": "d2-72",
+            "time": "06:31:11",
+            "quote": "name is Shongu from University of Toronto. So today I'm so excited to present our paper assimulation benchmark for industrial wire manipulation. You see in Y manipulation nowadays research pretty much everyone has their own test bed with different setups. So the robots are different the fixture changes and the uh evaluation matrix varies. So it's almost impossible to do a fair comparison across algorithms.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-52",
+          "note": "Play2Perfect fine-tunes a shared play-pretrained policy for precise assembly, then uses object-pose estimates at deployment.",
+          "evidence": {
+            "talk_id": "d2-52",
+            "time": "02:44:53",
+            "quote": "goalpost reaching. We train a single policy with RL to move random objects to random 60 goalp poses. This play pre-training teaches general dexterity and the same checkpoint is used for all downstream tasks. Then we can perfect precise assembly. We fine-tune the pre-trained checkpoint with RL using just a sparse reward which is defined by a CAD model of the of the assembly. With play pre-training, play to p",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-34",
+          "note": "GM uses fast self-play simulation to expose policies to rare and adversarial events, while acknowledging simplified sensor input and mismatch with the actual road distribution. These limits are useful when comparing synthetic experience with real driving logs.",
+          "evidence": {
+            "talk_id": "d1-34",
+            "time": "08:24:28",
+            "quote": "get out of because in simulation you can explore the full state space. Some challenges of selfplay though. The first is that it doesn't necessarily match the real world distribution, which means that you might spend time optimizing for situations that are not very common on the road. You also don't have any guarantees that the trajectory you get is is a natural humanlike one and people want the products to",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Which parameters were identified from real data, and which were randomized?",
+        "Does a policy fail because of geometry, perception, actuation or contact mismatch?",
+        "Can a lightweight residual fix the gap while preserving reusable policy behavior?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "mujoco-playground",
+        "dr-eureka",
+        "argon"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "human-transfer",
+      "title": "Human data and cross-embodiment transfer",
+      "stage": "Learn",
+      "summary": "Human video offers abundant interaction experience, but human intent, visual appearance and action coordinates transfer differently. A common representation can matter as much as dataset size.",
+      "examples": [
+        {
+          "talk_id": "d1-12",
+          "note": "Being-H0.5 uses human-centric priors and shared action slots across human and robot data.",
+          "evidence": {
+            "talk_id": "d1-12",
+            "time": "02:32:02",
+            "quote": "uh uh every robot has its own action space. So if we simply mix them, they may interfere. But for the human data on the right, it's drawing exactly where the robot data is work. It's abundant uh because we collect it from our everyday interaction in the open world scenes and it's consistent because it will come from one unified environment is our hand. And the human hand can be viewed as a universal templat",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-37",
+          "note": "Ego2Robot aligns hand actions and appearance to synthesize robot-oriented demonstrations from egocentric activity.",
+          "evidence": {
+            "talk_id": "d2-37",
+            "time": "00:25:50",
+            "quote": "Hi everyone. Today I introduce Ego2Robot human video. Okay. [clears throat] Oh, human videos are easy to collect at locals and curate diverse diverse object s and tasks. But using this data for robot learning is not easy. With Ego2Robot, we align actions and the vision appearance to bridge the human to robot gap. Uh we we we use and we use ant pose or estimate them from video. Uh for action alignment, we th",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-38",
+          "note": "Learning Human Intention uses gaze and hand cues to transfer intended subgoals rather than exact human motion.",
+          "evidence": {
+            "talk_id": "d2-38",
+            "time": "00:29:05",
+            "quote": ">> Hi everyone, I'm Trayi and I'm excited to share our work learning human intention for robotic manipulation. Robot data is still scale and expensive to collect. Human data on the other hand can be collected at scale and including egocentric video, hand movements and gaze. Several reason work treat human as other embodiment and use them to scale up the robot training data. However, there is embodiment gap",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-50",
+          "note": "EgoScale asks what information transfers from large-scale egocentric human video to robot policies.",
+          "evidence": {
+            "talk_id": "d2-50",
+            "time": "02:23:43",
+            "quote": "present our work eoscale scaling dexterous manipulation with diverse egocentric human data. So as we all know that scaling the robot teleoperation data is so expensive where we have abundant human video data. So the key question we want to ask in this work is whether we can use human egocentric video to serve as the primary source for robot model pre-training. So to this end we curate this large scale egoce",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-7",
+          "note": "ZETA separates strict zero-shot transfer from pretraining-exposed target robots and studies gripper-relative coordinates.",
+          "evidence": {
+            "talk_id": "d1-7",
+            "time": "01:11:02",
+            "quote": "that actually work? First let's pin down what zero shot means since prior work often blurs it under strict zero shot the target robot never appears in training under pre-training post the target robot is seen in pre training in bone setting post training uses only source robot demos and we test on the target robot prior work uses the term for bone settings so the reporting numbers of aren't comparable secon",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-8",
+          "note": "EmbodiSteer keeps a shared Cartesian policy frozen while guiding samples through the target robot joint space.",
+          "evidence": {
+            "talk_id": "d1-8",
+            "time": "01:14:39",
+            "quote": "awareness in body steer answers this by separating learning from execution the learned cartition policy stays frozen sampling moves into the target robots joint space let's follow the loop forward kinematics maps the joint samples into the target robots in into cartition space the policy noises and the Jacobi maps it update back to the joints. Den noising in joint space does work. The plots below show",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Is the transferable unit intent, geometry, motion, or an action token?",
+        "Has the target robot appeared anywhere in training?",
+        "At fixed total data, does adding embodiments reduce useful examples per embodiment?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "open-x",
+        "droid",
+        "dreamzero",
+        "pi07"
+      ],
+      "limitations": "Disclose the held-out axis. The GR00T 2 project calls tasks unseen when they were absent from the target robot data but may exist in human or other-robot data. DreamZero new-embodiment adaptation uses target play data before novel-task evaluation. These are different from ZETA strict no-target-exposure tests.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "representation-data",
+      "title": "Data coverage and representation design",
+      "stage": "Learn",
+      "summary": "More trajectories do not guarantee more useful coverage. Dataset composition, instruction diversity, action coordinates, quality labels and sensor features determine what a policy can learn.",
+      "examples": [
+        {
+          "talk_id": "d1-17",
+          "note": "Diversity You Can Actually Measure treats data coverage as a measurable quantity rather than equating diversity with trajectory count.",
+          "evidence": {
+            "talk_id": "d1-17",
+            "time": "03:28:23",
+            "quote": "paper is called diversity. You can actually measure a fast model free diversity metric for robotics data sets. >> All right, let's get started. Hi everyone, I'm Van and I'll be presenting our work diversity you can actually measure a fast model free diversity metric for robotic data sets. Okay, let's jump straight into the motivation. So I asked Chad GPT how many times the word diversity appears at the pape",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-2",
+          "note": "Semantic Anchoring probes representational drift during narrow robot fine-tuning.",
+          "evidence": {
+            "talk_id": "d1-2",
+            "time": "00:55:26",
+            "quote": "representations match the vision action embeddings and how it related with models performance and we find that the alignment drops when fine tuning and created with all the success and individual roll out success. Then we propose our method to align the action representations with a semantic reference. However, we find that",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-9",
+          "note": "Diagnosing Compositional Generalization separates missing training combinations from failures to follow instructions.",
+          "evidence": {
+            "talk_id": "d1-9",
+            "time": "01:17:47",
+            "quote": "generalization gap for the three terms. First is marginal instruction shift. The second is instruction and compositional shift and the third is the context action shift. These three turns leads to three questions. The first is is the full coverage necessary? So we fix the total demonstrations budget and the train on B tasks and test on the head tasks and starting from the zero success rate with more task th",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-11",
+          "note": "π0.7 uses task and quality information to learn from a broad mixture.",
+          "evidence": {
+            "talk_id": "d1-11",
+            "time": "02:21:32",
+            "quote": "key insight was that rewriting a broadly specified task into a much more detailed prompt led to higher quality generated images. Analogously, we find that expanding a broadly specified robot task such as put food on the table to a multimodal prompt which includes one subgoal images to achieve to complete the task. Two, detailed subtask instructions describing how to perform the task. And three, additional m",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-32",
+          "note": "FedGuide addresses heterogeneous robot clients without assuming straightforward policy averaging preserves useful specialization.",
+          "evidence": {
+            "talk_id": "d1-32",
+            "time": "06:57:35",
+            "quote": "a shared global prior along the yellow arrow. So policy can stay local. Next, an online critic with a st stay only dice value baseline shown by the green arrow further reduce the v variance and stabilize the return policy improvements. We test two abations. Fedu A test a policy average. Fed guide P isolate the dice value by the baseline uh compared to fed guide. In the bandit toit FedGuide fails collapsing",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-82",
+          "note": "AGIBOT describes trajectory data, fleet feedback and standardized evaluation as a company ecosystem.",
+          "evidence": {
+            "talk_id": "d2-82",
+            "time": "08:35:16",
+            "quote": "vice president of manyformer. Today I'll share with you guys that what we are learning as we connect data models and benchmarks for physical AI and many knows AI bot for its robots. In the past three years, we have produced over 20,000 general purpose robots. But it's deployment that really teaches us a",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-6",
+          "note": "When Vision Overrides Language tests counterfactual instructions in familiar scenes and uses inference-time guidance to strengthen language conditioning.",
+          "evidence": {
+            "talk_id": "d1-6",
+            "time": "01:07:54",
+            "quote": ">> Um, hi. I'm Euan. Today I'm glad to present our paper when vision overrides language evaluating and mitigating counterfactual failures in vision language action models. Although VLAs perform well on familiar tasks, they often struggle to follow language instructions. Uh due to modality imbalance, VLAs may rely heavily on visual cues and repeat well-learned tasks even when instructed otherwise. We call th",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Are coverage gains caused by more samples or by better distribution across tasks and robots?",
+        "Which labels or coordinates explain an observed generalization gain?",
+        "Can the same task split hide a different object, scene or embodiment overlap?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "open-x",
+        "droid",
+        "octo",
+        "pi07",
+        "floweval"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "weight-adaptation",
+      "title": "Targeted learning and policy adaptation",
+      "stage": "Learn",
+      "summary": "Improvement can update a language feedback policy, a latent adapter, a compact reinforcement-learning head or the full robot policy. These choices change both sample efficiency and what behavior remains available.",
+      "examples": [
+        {
+          "talk_id": "d2-46",
+          "note": "RL Token learns a compact reinforcement-learning component around pretrained visual features and the base policy suggestion.",
+          "evidence": {
+            "talk_id": "d2-46",
+            "time": "00:56:36",
+            "quote": "Okay, good morning everyone. My name is Charles. I'll be presenting RL token bootstrapping online RL with vision language action models. This is work done at physical intelligence with my amazing collaborators Toby, Michael, Ali, Adnan, Sergey, and K. Over the past two years, VLA capabilities have improved dramatically and can do many challenging tasks out of the box. Here's π0.7 making coffee and assemblin",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-40",
+          "note": "FlowDAgger maps human corrections into latent noise space and learns a small module around a frozen policy.",
+          "evidence": {
+            "talk_id": "d2-40",
+            "time": "00:37:20",
+            "quote": "forgets almost everything else. And FlowDAgger is compute efficient since we only train the small latent policy and never back prop through the large VLA or world action model. It can be done on a small consumer GPU. We hope FlowDAgger will be a useful tool for practitioners adapting",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-5",
+          "note": "Learning What to Say updates a language feedback policy while the downstream VLA stays frozen.",
+          "evidence": {
+            "talk_id": "d1-5",
+            "time": "01:06:22",
+            "quote": "sequence that we generate, we interact closed loop with a frozen VALA to estimate its downstream outcome and whether it elicits the desired behavior. Given the language sequence that elicits the highest improvement, we distill this into the BLM via rejection fine-tuning and we regress the improvement score onto an improvement head that determines whether the BLA should be closed steer closed loop or not. We",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-47",
+          "note": "FPO++ modifies trust regions to stabilize reinforcement learning of flow policies and separates training exploration from deployment sampling.",
+          "evidence": {
+            "talk_id": "d2-47",
+            "time": "01:08:13",
+            "quote": "eventually collapsed. So to fix this uh FPO+ make two changes to FPO. First we introduce per sample trust regions. uh it applies the trust region to each noise time pair ratio which is uh effectively applying binary range trust region and second is asymmetric trust region uh it keeps PO for positive advantages and it uses SPO for negative advantages to regularize the posterior gap. So first per sample trust",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-49",
+          "note": "The banging-to-hammering example shows that freezing a prior can speed learning while also limiting what can later be changed.",
+          "evidence": {
+            "talk_id": "d2-49",
+            "time": "01:32:14",
+            "quote": "we count the time to learn to bank. The other variant freezes the banking behavior and learns to use it to apply it to different locations for hamry that learns super fast but it plateaus because it cannot learn how to change the hitting motion. So what is the lesson of this small experiment? Prior learning helps but the form with which we reuse it determines what the learner can change and learn later. We",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Exactly which parameters or interfaces are updated?",
+        "What is gained per robot-hour and per human correction?",
+        "Which previous capabilities are preserved after adaptation?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "eureka",
+        "dr-eureka",
+        "octo",
+        "floweval",
+        "vlrla"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "search-distillation",
+      "title": "Search that teaches a fast policy",
+      "stage": "Learn",
+      "summary": "Powerful search can generate supervision for a controller that later runs without search. This moves computation from deployment into learning, while retaining an iterative feedback loop between policy and planner.",
+      "examples": [
+        {
+          "talk_id": "d2-55",
+          "note": "Disco uses progressive widening in continuous-action tree search, then distills the tree into a policy and value function. Its test policies deploy without search.",
+          "evidence": {
+            "talk_id": "d2-55",
+            "time": "03:27:14",
+            "quote": "policies, we can deploy them directly on the uh test set without using any search at test time. We compared to a beam search baseline which does not have value backups. We compare to MPPI which is a sampling based baseline. We compare to a reinforcement learning baseline and we also ablate um the policy where disco searches uniformly and we ablate progressive widening where we keep the branching factor fixe",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-57",
+          "note": "SuperMimic improves a motion-tracking policy through a learned differentiable model, distinguishing training imagination from execution.",
+          "evidence": {
+            "talk_id": "d2-57",
+            "time": "03:45:00",
+            "quote": "with policy in the simulator. We fit one wall models to this data and we improve the policy by imaging within the models and learn by propagations through it. A critic cover the rest. The loop repeats and is very simp is very simple, very cute idea but it's very efficient. Why does it work? First, when one models are amotized across motions, so the arrows stay flat as the data grows.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-31",
+          "note": "Chunk-wise Model-based Policy Optimization predicts a future latent chunk to reduce recursively accumulated model error.",
+          "evidence": {
+            "talk_id": "d1-31",
+            "time": "06:53:41",
+            "quote": "poster number 54. [applause] We now present our chunk wise model based policy optimization. In typical MBI roll out each future state depends on the previous prediction. That means an Fstep imagine trajectory usually require O model course. One step prediction arrow recursively propagates through future latence biasing prediction as the roll out horizon grows and the policy gradients are propagated through",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-70",
+          "note": "Constrained sampling supplies physically useful states so reinforcement learning spends less effort on irrelevant exploration.",
+          "evidence": {
+            "talk_id": "d2-70",
+            "time": "06:24:02",
+            "quote": "[applause] Hi, my name is Mark Tong. It's great to be here and I'm going to present work today on constraint sampling for robotic manipulation. So I'm going to start right away with showing you a demonstration of behavior that we train. So you see a panda arm here manipulating a sphere towards the goal that is indicated in green and what you see is a single goal condition policy that can transport the spher",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Is a reported gain due to stronger search, a better learned prior, or a larger compute budget?",
+        "Which training-time search costs are hidden by a fast deployment policy?",
+        "How does the distilled policy behave outside the states explored during training?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "supermimic",
+        "ode-policy"
+      ],
+      "limitations": "The location of compute matters: training-time search or imagination is different from online planning. SuperMimic’s project page explicitly qualifies its benchmark motion failures as training-set coverage, not generalization.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "humanoid-control",
+      "title": "Whole-body skills and embodiment design",
+      "stage": "Act",
+      "summary": "Whole-body motion must remain balanced, contact-aware and executable on a particular morphology. A reusable tracker, a task curriculum and a hardware design search solve different parts of this problem.",
+      "examples": [
+        {
+          "talk_id": "d2-57",
+          "note": "SuperMimic amortizes learned dynamics across many motions to train a general tracker.",
+          "evidence": {
+            "talk_id": "d2-57",
+            "time": "03:43:06",
+            "quote": "dots are large scale diverse human motions and they differ a lot but the body does not. They share the same dynamics. So the idea is if we learn the dynamic ones with one",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-56",
+          "note": "GRAIL grounds generated interactions through a scene-aware whole-body tracker.",
+          "evidence": {
+            "talk_id": "d2-56",
+            "time": "03:31:54",
+            "quote": "across video like this generated by video w models and I was surprised. The contact, the balance and whole body motion all looks amazingly good. Video model today already capture the essence of human physical intuition. So what if we can use this video model of videos for humanoid robot learning with no hardware, no physical setup and no human in the loop. We could scale robot data far beyond what we can re",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-58",
+          "note": "RoboNaldo stages soccer learning from reference motion to accurate contact and motion toward the ball.",
+          "evidence": {
+            "talk_id": "d2-58",
+            "time": "03:52:01",
+            "quote": "RoboNaldo uh accurate, stable and powerful humanoid software shooting by uh introducing the uh motion guided curriculum three stage framework. So uh this is a joint effort by the Hong Kong University and also CHK and Archon robotics. So why is accurate shooting hard for uh humanoids uh in the first place? So we have three desiraables. Uh the first one is a precision of the football contact and also we want",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-60",
+          "note": "Boston Dynamics reports a single model controlling the whole physical skill set on Atlas, coupled to a reasoning harness; it describes targeted open-loop, antagonistic and intervention data for reliable sequencing.",
+          "evidence": {
+            "talk_id": "d2-60",
+            "time": "05:39:18",
+            "quote": "physically runs on the head of Atlas in a in an Nvidia Thor and it's a single model that runs the entire physical skill and then system two is the job hardness that at the core contains means a BLM that runs in the cloud. Um now the BLM itself um we've uplated almost all of Frontier models to understand where the precision reliability is and um none of them actually are at the level of uh reliability that i",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-79",
+          "note": "Shape Your Body uses a frozen value function to optimize morphology rather than retraining a controller for every candidate design.",
+          "evidence": {
+            "talk_id": "d2-79",
+            "time": "06:53:10",
+            "quote": "it with gradients. We do this until it converges. And we can do this with every robot embodiment the morphology that we have in the training set. Humanoids, quadripets, sexopetss and so on. In a single robot training case, we can",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-78",
+          "note": "RAM estimates pose reachability conditioned on robot morphology.",
+          "evidence": {
+            "talk_id": "d2-78",
+            "time": "06:49:18",
+            "quote": "as reachability across morphologies. So what can RAM do for you? Rem can answer the question can this morphology reach this pose. So far this has been answered by solving inverse kinematics which for numeric which for arbitrary morphologies means numerically solving a nonlinear system of equations that is expensive and when we iteratively optimize a morphology to cover a workspace or follow a desired trajec",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-10",
+          "note": "The keynote places contact-aware tracking on the fastest clock, below intent-level reasoning.",
+          "evidence": {
+            "talk_id": "d1-10",
+            "time": "01:22:26",
+            "quote": "he'll ask how we should organize the robot's intelligence when reasoning takes seconds and physical contact on foes in milliseconds. Please join me in welcoming Hanjao for his keynote organizing physical AI across time scales. [applause]",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Does the controller preserve contact and force goals after retargeting?",
+        "How much is task success determined by the controller versus hardware geometry?",
+        "Can a general tracker handle new interaction forces, not just unseen reference motion?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "supermimic",
+        "grail"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "contact-control",
+      "title": "Touch, force and compliant execution",
+      "stage": "Act",
+      "summary": "Contact can make visual state ambiguous: correct geometry may still hide slipping, obstruction or excessive force. Sensing representation and fast feedback determine whether a policy can recover.",
+      "examples": [
+        {
+          "talk_id": "d2-53",
+          "note": "FACTR 2 estimates external joint torque from existing motor signals and free-space calibration.",
+          "evidence": {
+            "talk_id": "d2-53",
+            "time": "02:54:20",
+            "quote": "be quite expensive. You will either need to rely on high-end robot arms that already come with joint torque sensors or you have to equip an additional dedicated force torque sensor, sometimes costing more than a lot of robot arms themselves. In fact, in recent years, we've seen these lowcost robot arms growing in popularity as they can be used to achieve some very impressive results. But these arms don't co",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-54",
+          "note": "PACE gives sustained, abrupt and predicted tactile information different temporal roles during insertion.",
+          "evidence": {
+            "talk_id": "d2-54",
+            "time": "03:05:27",
+            "quote": "touch can help robots do the same. So how should the policy use tactail? Existing methods often fuse tactile and fusion features through contagnation or attention. Our idea is to give a tactile information different rules. Persistent contact tells us about the current state. Sudden uh changes tells us when to create an action. So here is a phase framework. Organizing one tactile stream into three pathways.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-65",
+          "note": "Visible Touch overlays tactile cues on images so visual policies can consume them.",
+          "evidence": {
+            "talk_id": "d2-65",
+            "time": "06:09:03",
+            "quote": "from images, but images alone cannot tell us when contact happens. Without touch, contact is hidden, visual states are ambiguous, and recovering from errors becomes difficult. However, tactile integration usually requires specialized hardware and new encoders, making it difficult to integrate into pre-trained vision based policies. Our solution is simple. We build a lowcost magnetic tactile sensor, project",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-67",
+          "note": "Never Too Late for Force adds force-aware corrections to a pretrained visual policy during post-training.",
+          "evidence": {
+            "talk_id": "d2-67",
+            "time": "06:15:33",
+            "quote": "Hi, I'm Wendy Chen and this is never too late for force. So visual data sets are easy to scale and prin already provides useful manipulation skills. However, force force data require dedicated sensing system and existing data set are much fewer. So um can we add force awareness to a printer VLA? Our method lift adds force awareness to a printer VLA. This here is an example of timely contact response. Uh in",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-68",
+          "note": "Constraint-Decomposed Impedance Control shapes stiffness along feasible versus constrained motion directions.",
+          "evidence": {
+            "talk_id": "d2-68",
+            "time": "06:18:29",
+            "quote": "a small violation can cause a large contact force and impedance control gives us compliance through stiffness and damping but their gains are uh typically set as isotropic gains. So the high gain can produce the large force and the low gain may not complete",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-62",
+          "note": "DeTac separates marker/force information from appearance in vision-based tactile sensing.",
+          "evidence": {
+            "talk_id": "d2-62",
+            "time": "05:59:39",
+            "quote": "dual branch generative framework to decouple texture and force signals in vision based active sensors. Markers vision based active sensors capture shading images to perceive the surface texture but they lack special reference for force estimation. While marker based sensors enable force sensing via embedded markers. This design couples the two signals as the markers obstruct the surface beneath them and alt",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-63",
+          "note": "FingerEye observes approach and near-contact interaction through fingertip cameras.",
+          "evidence": {
+            "talk_id": "d2-63",
+            "time": "06:03:21",
+            "quote": "issues through careful design of both the sensing and learning interfaces. On the sensing side, two cameras sit behind a transparent plate in a compact fingertip. The root view covers approach and the tip view captures close contact. Their complimentary perspectives provide implicit depth cues for alignment. Post tracking stays robust as contact and lighting changing using redundant corners from visible tex",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-64",
+          "note": "DAVATaR combines perception and sensing hardware for the air–water interface.",
+          "evidence": {
+            "talk_id": "d2-64",
+            "time": "06:05:47",
+            "quote": "today I will be presenting Dvatar. So many household and field robotics tasks require us to reach into water and interact with objects and water will introduce reflection waves, floating materials and refraction. Therefore we study submerged manipulation where the robot still operates in air with any factor reaching to water. This task regime will introduce some new challenges. First is vision airwater inte",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-66",
+          "note": "The contact-rich failure study asks what feedback and control assumptions current VLAs are missing.",
+          "evidence": {
+            "talk_id": "d2-66",
+            "time": "06:12:27",
+            "quote": "Hello. Today I'm presenting demystifying when and why VLA's failed in contact with task and how to fix them. VLAs have achieved strong performance across a wide range of manipulation tasks from folding laundry to assembling boxes. Yet they continue to struggle with contact-rich task such as cutting a zucchini which requires precise physical interaction. In this work, we study why do fail to with contrib. We",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Is the failure perceptual, force-related, compliance-related or caused by a stale action chunk?",
+        "Can the sensor signal reach the controller quickly enough to change contact?",
+        "Does sensor augmentation preserve broad visual generalization?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "diffusion-policy"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "coordination",
+      "title": "Interaction, intent and multiple robots",
+      "stage": "Act",
+      "summary": "The environment includes other decision makers. Coordinated behavior requires predicting intent, exposing policies to each other’s timing and leaving states that remain useful to the next actor.",
+      "examples": [
+        {
+          "talk_id": "d1-23",
+          "note": "Negar Mehr focuses on interaction with other decision-making agents rather than only passive environments.",
+          "evidence": {
+            "talk_id": "d1-23",
+            "time": "06:03:51",
+            "quote": "object. What's hard about this is that I want my policies to be decentralized. I want every robot to make decisions based on its own local observations. But there is some coupling which is implicit that both of them should agree on how to do a task to succeed. What are our approaches? What are the recipes out there for learning these policies? One approach is through imitation learning. One is through reinf",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-44",
+          "note": "Sequential Asymmetric Imitation trains one robot alongside the other’s frozen policy and then corrects interaction errors.",
+          "evidence": {
+            "talk_id": "d2-44",
+            "time": "00:49:02",
+            "quote": "helpful human partner and train A through behavior cloning. Uh next A runs its frozen policy while we collect demonstrations by teleoperating B alongside it. Uh then we can by doing so we train B to respond to A's uh actual training timings and mistakes. Um but A only has learned human support. So, we deploy both policies and correct a uh when it needs to wait, yield or recover, and we fine-tune a using the",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-45",
+          "note": "Leave It Better Than Found guides a leader using the follower’s value estimate with out-of-distribution checks.",
+          "evidence": {
+            "talk_id": "d2-45",
+            "time": "00:51:16",
+            "quote": "In this example, a leader robot pushes aside a box to clean the dirt under it. Um, subsequently, the follower robot, because the leader pushed this box into a choke point, cannot navigate the environment successfully. We call this problem sequential task continuation. The follower inherits the state that the leader leaves behind. Um, common approaches to solve this problem would be to jointly train both of",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-41",
+          "note": "BiDexGrasp couples the hands and uses object-relative structure instead of predicting two independent grasps.",
+          "evidence": {
+            "talk_id": "d2-41",
+            "time": "00:38:34",
+            "quote": "bimanual dexterous grasps across object geometries and size. Large or irregular objects often require two texture hand for stable grasps. But to make this useful across different shapes and size, the two hands need to work together. To learn this ability, a common approach is to synthesize grasp data through optimization, then train generated models on that data. But bimanual grasping is still at an early s",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-38",
+          "note": "Learning Human Intention predicts subgoals from human gaze and hand cues.",
+          "evidence": {
+            "talk_id": "d2-38",
+            "time": "00:29:05",
+            "quote": ">> Hi everyone, I'm Trayi and I'm excited to share our work learning human intention for robotic manipulation. Robot data is still scale and expensive to collect. Human data on the other hand can be collected at scale and including egocentric video, hand movements and gaze. Several reason work treat human as other embodiment and use them to scale up the robot training data. However, there is embodiment gap",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-48",
+          "note": "Neuro-symbolic motion prediction uses a learned gate because actual road users do not always obey formal rules.",
+          "evidence": {
+            "talk_id": "d2-48",
+            "time": "01:23:28",
+            "quote": "when they follow rules um helps uh in this tail end. What was necessary for this was this contextual um trust. So we learned when the rules need to be applied and to verify that everything is going right and the neural network that predicts the trust ratio isn't um cheating in a way. We said okay let's always use let's always apply rules and that does not work. So this um because some agents just do not fol",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-59",
+          "note": "The Gemini presentation shows two physical agents collaborating, while attributing capability claims to the team.",
+          "evidence": {
+            "talk_id": "d2-59",
+            "time": "05:24:55",
+            "quote": "some more precise manipulation with grippers as well. And then we also showed how we can do multi-root collaboration here. So just like your digital agents are collaborating now to get work done. We showed the exact same principles uh can be used to have physical agents collaborate to do a task. So here you know the Apollo and the duo are trying to empty and uh fix a bin together and they communicate just l",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Does each robot see the timing and errors of the other during training?",
+        "Can achieving one task make the next actor’s task impossible?",
+        "When should an explicit rule or prediction be ignored because reality disagrees?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "gemini25"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "evaluation-validity",
+      "title": "Evaluation that resists shortcuts",
+      "stage": "Improve",
+      "summary": "A benchmark score is meaningful only with its task definition, exposure, physical timing and failure model. Research should separate generalization, precision, reliability and useful production throughput.",
+      "examples": [
+        {
+          "talk_id": "d1-19",
+          "note": "What Are We Actually Benchmarking questions whether manipulation benchmarks reward shortcuts rather than intended task understanding.",
+          "evidence": {
+            "talk_id": "d1-19",
+            "time": "03:48:03",
+            "quote": "Do you need the notes? Hello. >> Okay. So, I think we're all set up. So, this is what are we actually benchmarking in robot manipulation.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-7",
+          "note": "ZETA shows why strict zero-shot and target-exposed transfer must be reported separately.",
+          "evidence": {
+            "talk_id": "d1-7",
+            "time": "01:12:34",
+            "quote": "training data with target robot data. The Google robot jumps from 51 to 69 and the UR 5E from 69 to 79. So target exposure changes the",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-33",
+          "note": "Burgard connects demonstrated intelligence to uncertainty and robust physical autonomy.",
+          "evidence": {
+            "talk_id": "d1-33",
+            "time": "07:18:00",
+            "quote": "is not maybe well suited for anything on the low-level robot control side and realized that handling uncertainty, handling sensor noise and all of that is actually really crucial if you want to build robust robotic systems and all of that of course led then to probabilistic robotics which had quite some impact on",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-72",
+          "note": "WireCraft supplies common task conditions for deformable linear-object comparisons.",
+          "evidence": {
+            "talk_id": "d2-72",
+            "time": "06:31:11",
+            "quote": "name is Shongu from University of Toronto. So today I'm so excited to present our paper assimulation benchmark for industrial wire manipulation. You see in Y manipulation nowadays research pretty much everyone has their own test bed with different setups. So the robots are different the fixture changes and the uh evaluation matrix varies. So it's almost impossible to do a fair comparison across algorithms.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-35",
+          "note": "RoboColosseum is presented as external physical evaluation; company scale claims remain attributed.",
+          "evidence": {
+            "talk_id": "d1-35",
+            "time": "08:37:59",
+            "quote": "instruments. So with that in mind, I think we like to introduce robot colossium which is a large scale open evaluation effort that's founded by my group uh big robots Singapore embodi center and hugging face. We actually brought together over a fleet of hundreds of robots across different embodiment and it's actually supported",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d3-86",
+          "note": "The generalist-robot debate exposes how competing definitions of generality change the conclusion. Sides were assigned rather than fixed personal positions.",
+          "evidence": {
+            "talk_id": "d3-86",
+            "time": "02:39:08",
+            "quote": "that's when it can zero short anything. I was trying it really hard for the fight not to be about the definitions. Language is so simple, it's so clear, there's no ambiguity in language. That's right, that's right. Maybe we should have written it in code, which is failing us again.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-10",
+          "note": "The wall-clock ablation demonstrates why thought time belongs in robotic evaluation.",
+          "evidence": {
+            "talk_id": "d1-10",
+            "time": "01:28:32",
+            "quote": "45% success rate, all the other methods have success rate higher than 60%. And then what if we have a real clock? Basically the clock runs and the stop stepby-step policy could fail because of exceeding the time limit. Then the result is totally different. We find that the step-by-step policy fails",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "What was held out: task wording, object, scene, robot, dynamics, or all of them?",
+        "Does success include completion verification, recovery and total elapsed time?",
+        "Are failures clustered by root cause, and are intervention durations reported?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "droid",
+        "open-x",
+        "pi07",
+        "floweval",
+        "dual-stream-memory"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "recovery-learning",
+      "title": "Failures, interventions and retained improvement",
+      "stage": "Improve",
+      "summary": "Failure handling has two loops: recover now, then explain why the failure happened and improve future behavior. Training only on the rescue action can miss the upstream cause.",
+      "examples": [
+        {
+          "talk_id": "d2-80",
+          "note": "Tedrake distinguishes on-the-job interventions from later root-cause analysis and targeted collection.",
+          "evidence": {
+            "talk_id": "d2-80",
+            "time": "08:04:04",
+            "quote": "done, keeps things moving, but if you only train on intervention data, then you're going to miss the root cause of why that that failure happened in the first place. So there's a deeper second step which is right in the the the books in some sense um about going back and asking why maybe doing some targeted data collection to fill it out. Getting this whole pipeline working is extremely powerful extremely p",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-40",
+          "note": "FlowDAgger turns sparse human corrections into a small latent adaptation module.",
+          "evidence": {
+            "talk_id": "d2-40",
+            "time": "00:35:29",
+            "quote": "watches the policy run and intervenes with a space mouse when needed. Our goal is to learn from these corrections that the policy improves. And in this work, we consider pre-trained noise condition policies that map from noise to an action distribution. Our method applies to the range of models that follow this structure, including pre-trained VLAs like π0.5, world action models like Cosmos policy, and vani",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-22",
+          "note": "ASPIRE switches to a code recovery skill and then returns control to GR00T 2.",
+          "evidence": {
+            "talk_id": "d1-22",
+            "time": "05:53:30",
+            "quote": "authored by trial and error and Aspire can switch seamlessly from GR00T 2 to code as policy for error recovery or monitor safety like a guardian angel. Here's how it works. We first construct a sim environment and have Astra explore with it. You can think of it as fine-tuning or priming Astra in code space without gradient descent. So this is still in sim and we can transfer this type of skills directly to",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-3",
+          "note": "MEM changes behavior after a remembered failure instead of blindly repeating it.",
+          "evidence": {
+            "talk_id": "d1-3",
+            "time": "01:00:30",
+            "quote": "adaptation. On the left, you can see a policy that has no memory and it will just keep making the same mistake over and over. However, when we",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-39",
+          "note": "A residual teleoperation copilot supports low-level precision while a human retains high-level intent.",
+          "evidence": {
+            "talk_id": "d2-39",
+            "time": "00:32:16",
+            "quote": "misalignment can stall the insertion and lead to the nuts dropping. Our key insight is a mismatch of roles. Humans are great at providing high-level intent, but not so with low-level forces. Whereas RL is great for robust low-level control, but not with high-level intentions. So we combined them using shared autonomy allowing the human operator to focus on high-level motion",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-49",
+          "note": "Learning potential measures how effectively experience expands capability, not only current zero-shot success.",
+          "evidence": {
+            "talk_id": "d2-49",
+            "time": "01:33:11",
+            "quote": "data into new capabilities. The difference between the capabilities before and after learning is the learning potential of a robot. Two robots may have the similar capabilities today, but different capabilities uh for the same amount of demonstrations or real world experiences tomorrow. So the question at the center of this talk, what should a robot learn or be equipped with to expand its learning potential",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Does the robot know it has failed before a human intervenes?",
+        "What data explains the cause, as opposed to only showing the recovery?",
+        "Does the new skill reduce future intervention time without losing previous capabilities?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "gemini25",
+        "gr00t2"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "deployment-economics",
+      "title": "Deployment, reliability and economics",
+      "stage": "Improve",
+      "summary": "A useful robot must complete valuable work repeatedly, recognize when to ask for help and fit a sustainable human-support and hardware operation. Broad capability and profitable deployment need different evidence.",
+      "examples": [
+        {
+          "talk_id": "d2-80",
+          "note": "Walden’s manufacturing approach emphasizes useful field experience, human support allocation and mean time between interventions for stronger models.",
+          "evidence": {
+            "talk_id": "d2-80",
+            "time": "07:41:42",
+            "quote": "recovery data and we'd see how it played out. Okay, so our first model showed up. We started to this is mean time between interventions. So, so a natural metric is is just like how long until a human needs to come in and intervene in seconds. It's log plot. Okay. So, so we started off reasonable uh success, you know, success rate, very relatively few interventions. When we did get the interventions, pulled",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d3-86",
+          "note": "The assigned-side debate asks whether in-domain learning can lead to commercially useful generalist robots and exposes disagreement over what generality means.",
+          "evidence": {
+            "talk_id": "d3-86",
+            "time": "01:56:36",
+            "quote": "the pro side that you believe that the current recipe that we are chasing is what is going to deliver commercially viable generous robots. Oh, no. All right. All right. All right. And who is on the con side?",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-60",
+          "note": "Boston Dynamics describes an Orbit-hosted job harness with Gemini ER reasoning in the cloud and a single physical-action model onboard Atlas. The talk identifies completion verification and precise steering as reliability bottlenecks.",
+          "evidence": {
+            "talk_id": "d2-60",
+            "time": "05:37:26",
+            "quote": "the range of reasoning behavior um equally quite complex, this is the job hardness um uh that is hosted in orbit which is like Boston Dynamics gateway for everything robots that runs in the cloud. And on one hand it needs to consume the job description. Literally it's consumed in text, right? It's a prompt that says the classical things. You are an dynamics humanoid robot and you're doing a sequencing task",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-61",
+          "note": "Franka discusses force-sensitive research hardware and reproducible controller interfaces, rather than a new foundation model.",
+          "evidence": {
+            "talk_id": "d2-61",
+            "time": "05:52:32",
+            "quote": "to provide that to everybody um to be able to control the systems um and to attach it to their own um controllers and um being part of uh of this of the lab environment of the systems putting that all in a framework that actually um it's really well um connected with Python with SC++",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-34",
+          "note": "GM contrasts simulation self-play, which covers rare events but uses simplified perception and can diverge from real distributions, with imitation learning, which inherits real behavior but depends on captured coverage. Product dates are company plans.",
+          "evidence": {
+            "talk_id": "d1-34",
+            "time": "08:24:28",
+            "quote": "get out of because in simulation you can explore the full state space. Some challenges of selfplay though. The first is that it doesn't necessarily match the real world distribution, which means that you might spend time optimizing for situations that are not very common on the road. You also don't have any guarantees that the trajectory you get is is a natural humanlike one and people want the products to",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d3-85",
+          "note": "The fireside connects hardware/software design, power budgets and accessible research infrastructure.",
+          "evidence": {
+            "talk_id": "d3-85",
+            "time": "01:19:18",
+            "quote": "we say she's a superstar? Absolutely. Kind of. But in our business, when you think about optimizing hardware over many, many years, the more you understand about the workload, the more you understand about where things are going,",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "What is the useful throughput including waiting, reset and recovery time?",
+        "How many robots can one operator support at the observed intervention duration?",
+        "What is the cost of adding the next task or moving to a new factory?",
+        "Does reliable specialization actually improve transfer to unfamiliar tasks?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "floweval"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    },
+    {
+      "id": "data-provenance",
+      "title": "Data provenance and trustworthy evidence",
+      "stage": "Improve",
+      "summary": "A knowledge graph should preserve the path from a claim to the original evidence. Robot-learning pipelines need the same discipline because data can pass through capture, generation, curation and training before a failure becomes visible.",
+      "examples": [
+        {
+          "talk_id": "d1-30",
+          "note": "The security study traces a pipeline in which manipulated inputs influence generated data and downstream robot learning.",
+          "evidence": {
+            "talk_id": "d1-30",
+            "time": "06:50:44",
+            "quote": "All right. Hey everyone, I'm Ethan Rathbun and I'm going to tell you how world models can be targeted to compromise robot learning. And we're going to start with stuff you already know. World models are s or sorry, robotics is super cool. It's super useful, but it's also really data hungry. And one way you can solve this data problem is just to get more data. In particular, in this case, we consider where y",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-1",
+          "note": "MolmoAct2 emphasizes open models, code, data and evaluation plus external testing.",
+          "evidence": {
+            "talk_id": "d1-1",
+            "time": "00:52:12",
+            "quote": "deployment and physical reasoning. First, we need open models, codes, data and evaluation so that researchers like myself can reproduce and build on top of each other. Second, we want our robots to be able to deploy out of the box rather than require constraint fine-tuning. And lastly, we need models that can reason about the physical world, understand spatial uh relations, and turn understanding into actio",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-36",
+          "note": "Max Insights presents collection and monitoring infrastructure; these are vendor-described capabilities.",
+          "evidence": {
+            "talk_id": "d1-36",
+            "time": "08:42:25",
+            "quote": "co-founder and CTE of Max Insights. Our headquarter is in Santa Clara in California. Uh we are building data infrastructure for physical AI. and just play a video.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-35",
+          "note": "BitRobot combines capture tooling and external evaluation, requiring separate records for data supply and results.",
+          "evidence": {
+            "talk_id": "d1-35",
+            "time": "08:31:26",
+            "quote": "that we do actually we see through that lens anyway. Okay. So let's start with RoboCap. So this is a data um collection device that we design and we manufacture in-house. So it's got six cameras, got two IMUs. Uh the crowd sourcing version we sell it for 600 bucks. Uh but we also have an enterprise version that we sell to labs and other data collection companies. And here I really want to give a big shout o",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d1-20",
+          "note": "Sharpa argues video alone omits contact, force and recovery; this is an industrial synthesis rather than a controlled comparison.",
+          "evidence": {
+            "talk_id": "d1-20",
+            "time": "05:14:57",
+            "quote": "training data must capture not only how hands and objects move, but also where contacts occurs, how forces evolve and how robots uh recover from failures. So today's main bottlenecks are concentrated in this data pipeline.",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        },
+        {
+          "talk_id": "d2-81",
+          "note": "Meta Robotics Studio discusses infrastructure surrounding physical-AI research. The conference recording is the public evidence used here.",
+          "evidence": {
+            "talk_id": "d2-81",
+            "time": "08:25:22",
+            "quote": "that's a fun act to follow. Uh hi everyone. I'm Jonathan Thompson. Uh I'm the modeling lead at Meta Robotics Studio uh in reality labs uh at Meta. Uh today I'm going to talk about some of the cool stuff we're have cooking at Meta. Um [clears throat] so what is the team up to? Uh this is for the most part our sort of team goal. Um we are building a humanoid robot for the home that is useful and delightful. U",
+            "source": "Local auto-caption transcript; wording and names may contain caption errors."
+          }
+        }
+      ],
+      "questions": [
+        "Can a reader trace every specific claim to a recording or primary research source?",
+        "What transformations occur between captured experience and training data?",
+        "Which information is an announcement, a measured result, an editorial hypothesis, or a pointer awaiting review?"
+      ],
+      "related": [],
+      "reference_ids": [
+        "droid",
+        "argon"
+      ],
+      "limitations": "The examples describe the recorded presentations. This synthesis does not establish a ranking across different datasets, robots or evaluation budgets.",
+      "grouping_basis": "Curated display location, not an exclusive classification."
+    }
+  ],
+  "references": [
+    {
+      "id": "code-as-policies",
+      "title": "Code as Policies: Language Model Programs for Embodied Control",
+      "url": "https://arxiv.org/abs/2209.07753v3",
+      "kind": "Foundational paper",
+      "year": 2022,
+      "summary": "A useful antecedent for the code-written policy branch. Read alongside Hang Zhao’s coding-policy comparison and ASPIRE’s retained code skills. This link is a reading pointer, not a newly reviewed result.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-10",
+        "d1-22",
+        "d2-59"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "saycan",
+      "title": "SayCan: Grounding Language in Robotic Affordances",
+      "url": "https://say-can.github.io/",
+      "kind": "Foundational project",
+      "year": 2022,
+      "summary": "A starting point for understanding the interface between high-level language decisions and grounded robot skills. Compare its skill-selection problem with modern supervisory agents.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-10",
+        "d1-22"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "voyager",
+      "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+      "url": "https://arxiv.org/abs/2305.16291v2",
+      "kind": "Related paper",
+      "year": 2023,
+      "summary": "Context for accumulating a reusable code skill library. Its environment differs from a physical robot; use the connection as an architectural comparison rather than evidence of real-world reliability.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-22"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "eureka",
+      "title": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+      "url": "https://arxiv.org/pdf/2310.12931",
+      "kind": "Related paper",
+      "year": 2023,
+      "summary": "A reading route for agents that write learning objectives and use experimental feedback. Reward generation is a different update interface from directly writing a controller.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-22",
+        "d2-59",
+        "d2-46"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "dr-eureka",
+      "title": "DrEureka: Language Model Guided Sim-to-Real Transfer",
+      "url": "https://arxiv.org/html/2406.01967",
+      "kind": "Related paper",
+      "year": 2024,
+      "summary": "Connects the agent-run learning branch to simulator and transfer choices. Read to compare the artifact being optimized with code-skill discovery and deployment intervention learning.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-22",
+        "d2-59",
+        "d1-21"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "diffusion-policy",
+      "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+      "url": "https://diffusion-policy.cs.columbia.edu/",
+      "kind": "Foundational project",
+      "year": 2023,
+      "summary": "Background for action-chunk denoising, temporal inference schedules and latent correction methods. The CoRL talks modify different parts of this control and learning interface.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-26",
+        "d1-28",
+        "d2-40",
+        "d2-47",
+        "d2-68"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "octo",
+      "title": "Octo: An Open-Source Generalist Robot Policy",
+      "url": "https://octo-models.github.io/paper.pdf",
+      "kind": "Foundational paper",
+      "year": 2024,
+      "summary": "A contextual reading for broad pretraining and adaptation interfaces. Compare the assumptions about data mixtures and target adaptation rather than treating model names as a ranking.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-11",
+        "d1-12",
+        "d2-46"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "open-x",
+      "title": "Open X-Embodiment: Robotic Learning Datasets and RT-X Models",
+      "url": "https://arxiv.org/html/2310.08864v5/",
+      "kind": "Foundational paper",
+      "year": 2023,
+      "summary": "Background for combining experience across robot embodiments. Pair with ZETA’s explicit distinction between strict target holdout and target exposure during pretraining.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-7",
+        "d1-12",
+        "d2-37"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "droid",
+      "title": "DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset",
+      "url": "https://arxiv.org/html/2403.12945v2",
+      "kind": "Dataset paper",
+      "year": 2024,
+      "summary": "A source for studying data collected across real settings. Read alongside data-coverage and deployment-evaluation questions, with attention to collection and split design.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-17",
+        "d1-19",
+        "d2-80"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "mujoco-playground",
+      "title": "MuJoCo Playground",
+      "url": "https://arxiv.org/abs/2502.08844",
+      "kind": "Simulation paper",
+      "year": 2025,
+      "summary": "An earlier public research reference for simulation and sim-to-real workflows. The 2026 talk’s announced versions should be verified against their own release material.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d2-59",
+        "d2-52"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "drivevlm",
+      "title": "DriveVLM: The Convergence of Autonomous Driving and Large Vision-Language Models",
+      "url": "https://tsinghua-mars-lab.github.io/DriveVLM/DriveVLM.pdf",
+      "kind": "Related paper",
+      "year": 2024,
+      "summary": "The driving antecedent to Hang Zhao’s slow-reasoning/fast-control argument. Its production claims in the keynote remain speaker-reported.",
+      "verification": "Reference pointer discovered in public search; the page body was not readable in this session.",
+      "related_talk_ids": [
+        "d1-10"
+      ],
+      "source_origin": "Public search result",
+      "status": "reference-pointer",
+      "reviewed": false
+    },
+    {
+      "id": "fast-wam",
+      "title": "Fast-WAM: Galaxea’s High-Speed World Action Model",
+      "url": "https://galaxea-dynamics.com/blogs/developer-hub/fast-wam-world-action-model",
+      "kind": "Company research post",
+      "year": 2026,
+      "summary": "Fast-WAM keeps video co-training but skips explicit future-video generation at inference, extracting a latent world representation for actions. This gives a concrete distinction between learning through a world-model objective and paying for online imagined video. Compare it with DreamZero’s joint video/action policy and with explicit cloth-planning rollouts.",
+      "verification": "Primary project methods and evaluation text read on 2026-11-22; performance claims remain author-reported.",
+      "related_talk_ids": [
+        "d1-10"
+      ],
+      "source_origin": "Public search result",
+      "status": "reviewed-primary-source",
+      "reviewed": true,
+      "limitations": "The official company post discusses controlled variants and task-specific results. Its performance language remains company-reported. The page’s published and updated timestamps are inconsistent, so this record does not infer a release date from them.",
+      "source_evidence": [
+        {
+          "source_url": "https://galaxea-dynamics.com/blogs/developer-hub/fast-wam-world-action-model",
+          "locator": "Training and inference, L45–50",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "reading_date": "2026-11-22"
+    },
+    {
+      "id": "gr00t2",
+      "title": "GR00T 2: Scaling Robot Foundation Models for Generalization, Dexterity, and Adaptation",
+      "url": "https://research.nvidia.com/labs/gear/gr00t-2/",
+      "kind": "Conference project",
+      "year": 2026,
+      "summary": "GR00T 2 is a world-action model that jointly predicts future video and robot actions. Its official material separates three improvement mechanisms: policy post-training and real-world RL, an execution agent invoking the WAM API, and ASPIRE-authored code recovery skills. The agent watches for stalls, calls a code skill to repair the scene, then hands control back. Turbo compresses the video representation and model for onboard execution, with SONIC providing faster whole-body control.",
+      "verification": "Primary project methods and evaluation text read on 2026-11-22; performance claims remain author-reported.",
+      "related_talk_ids": [
+        "d1-22"
+      ],
+      "source_origin": "Public search result and existing atlas link",
+      "status": "reviewed-primary-source",
+      "reviewed": true,
+      "limitations": "The project page reports its own tasks and protocols. Target tasks absent from target-robot data may still occur in human or other-robot data. The page also reports limits of visual steering: marks do not encode final object orientation or all motion, and some long tasks still rarely complete.",
+      "source_evidence": [
+        {
+          "source_url": "https://research.nvidia.com/labs/gear/gr00t-2/",
+          "locator": "Model Architecture, L56–64",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://research.nvidia.com/labs/gear/gr00t-2/",
+          "locator": "Agentic Control, L212–217",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://research.nvidia.com/labs/gear/gr00t-2/",
+          "locator": "Turbo runtime, L295–300",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "reading_date": "2026-11-22"
+    },
+    {
+      "id": "gemini25",
+      "title": "Gemini Robotics 2.5: Accelerating Physical Intelligence",
+      "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+      "kind": "Company research post",
+      "year": 2026,
+      "summary": "Gemini Robotics 2.5 is the robot action model; Gemini Robotics ER tracks workflow in the described automotive-kitting pilot. Gemini 4 Argon acts elsewhere in the development loop, building simulation practice data and helping diagnose rollout failures. These roles make this a useful concrete example of combining action execution, high-level supervision and agent-assisted learning.",
+      "verification": "Primary project methods and evaluation text read on 2026-11-22; performance claims remain author-reported.",
+      "related_talk_ids": [
+        "d2-59"
+      ],
+      "source_origin": "Public search result",
+      "status": "reviewed-primary-source",
+      "reviewed": true,
+      "limitations": "The company post reports task breadth, dexterity and a factory proof-of-concept; it does not supply independent verification or demonstrate unconstrained generalist deployment. The factory result is a particular kitting workflow, not a measured rate across all robot work.",
+      "source_evidence": [
+        {
+          "source_url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+          "locator": "Factory pilot, L46–58",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+          "locator": "Argon development loop, L78–88",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "reading_date": "2026-11-22"
+    },
+    {
+      "id": "grail",
+      "title": "GRAIL: Generating Humanoid Loco-Manipulation from World Models",
+      "url": "https://research.nvidia.com/labs/dair/grail/",
+      "kind": "Conference project",
+      "year": 2026,
+      "summary": "GRAIL grounds video generation in known 3D assets before reconstruction: geometry, cameras, metric scale and a robot-proportioned character are fixed inputs. Recovered human-object interaction is retargeted to a humanoid, then object-aware and scene-aware trackers convert it into robot-action data for downstream visual policy learning. This is a generated-training-data pipeline, rather than the robot performing online search in a video model.",
+      "verification": "Primary project methods and evaluation text read on 2026-11-22; performance claims remain author-reported.",
+      "related_talk_ids": [
+        "d2-56"
+      ],
+      "source_origin": "Public search result and existing atlas link",
+      "status": "reviewed-primary-source",
+      "reviewed": true,
+      "limitations": "Privileged scene information simplifies reconstruction and avoids the assumptions of unconstrained in-the-wild video recovery. Physical transfer examples are particular pickup and stair tasks; broad generation capability is not automatically broad deployed autonomy.",
+      "source_evidence": [
+        {
+          "source_url": "https://research.nvidia.com/labs/dair/grail/",
+          "locator": "Abstract, L18–32",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://research.nvidia.com/labs/dair/grail/",
+          "locator": "Method, L120–143",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "reading_date": "2026-11-22"
+    },
+    {
+      "id": "robottt",
+      "title": "RoboTTT: Context Scaling for Robot Policies",
+      "url": "https://research.nvidia.com/labs/gear/robottt/",
+      "kind": "Conference project",
+      "year": 2026,
+      "summary": "RoboTTT integrates test-time-training layers into a robot policy. Their fast weights are fixed-size recurrent state: incoming tokens update those weights, and the updated state conditions actions. Sequence action forcing and truncated backpropagation enable long-sequence training. DAgger Distillation uses mistakes as context and corrections as action targets, giving a mechanism for within-episode recovery.",
+      "verification": "Primary project methods and evaluation text read on 2026-11-22; performance claims remain author-reported.",
+      "related_talk_ids": [
+        "d1-13"
+      ],
+      "source_origin": "Existing atlas link",
+      "status": "reviewed-primary-source",
+      "reviewed": true,
+      "limitations": "Fast weights and persistent trained parameters play different roles. The reviewed assembly evaluations demonstrate context-dependent behavior; they do not establish that slow policy weights continually update across real deployments.",
+      "source_evidence": [
+        {
+          "source_url": "https://research.nvidia.com/labs/gear/robottt/",
+          "locator": "Test-Time Training, L35–52",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://research.nvidia.com/labs/gear/robottt/",
+          "locator": "On-the-Fly Improvement, L160–166",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "reading_date": "2026-11-22"
+    },
+    {
+      "id": "supermimic",
+      "title": "SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model",
+      "url": "https://supermimic.github.io/",
+      "kind": "Conference project",
+      "year": 2026,
+      "summary": "SuperMimic learns one differentiable world model of shared humanoid dynamics and jointly trains a tracking policy through imagined short rollouts. Gradients pass through the learned model rather than the rigid-body simulator. Its main contribution is amortizing this learning across a motion library, giving a practical alternative to repeatedly training specialists or using cluster-scale model-free RL.",
+      "verification": "Indexed paper abstract and primary project method/evaluation text read; full indexed paper methods were unavailable on 2026-11-22; performance claims remain author-reported.",
+      "related_talk_ids": [
+        "d2-57"
+      ],
+      "source_origin": "Existing atlas link",
+      "status": "reviewed-primary-source",
+      "reviewed": true,
+      "limitations": "The official project page states that benchmark motions are training motions for both methods, so failure counts measure coverage, not generalization. Comparisons also use different GPU hardware and motion-data amounts; the report distinguishes return, wall time and GPU-hours.",
+      "source_evidence": [
+        {
+          "source_url": "https://supermimic.github.io/",
+          "locator": "One loop, L63–67",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://supermimic.github.io/",
+          "locator": "Benchmark qualification, L124",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "reading_date": "2026-11-22"
+    },
+    {
+      "id": "dreamzero",
+      "title": "DreamZero: World Action Models are Zero-shot Policies",
+      "url": "https://dreamzero0.github.io/",
+      "kind": "Conference project",
+      "year": 2026,
+      "summary": "DreamZero learns a policy from a pretrained video-diffusion backbone by jointly predicting video and actions. Its official page separates novel task/environment tests, task-specific post-training, and new-embodiment adaptation with play data. Runtime optimization, asynchronous inference and smoothing are part of deploying the model, alongside the learning recipe.",
+      "limitations": "“Zero-shot” is conditioned on the test axis. New embodiment adaptation uses target-robot play data, then tests novel tasks or objects; it is not strict no-target-exposure transfer. The reviewed page describes its own real-robot comparisons, and a visual rollout gallery does not replace a matched benchmark protocol.",
+      "related_talk_ids": [
+        "d1-14"
+      ],
+      "related_node_ids": [
+        "direct-policy",
+        "world-planning",
+        "human-transfer",
+        "control-timescales"
+      ],
+      "verification": "Primary project method and evaluation text read on 2026-11-22; empirical findings remain author-reported.",
+      "reviewed": true,
+      "status": "reviewed-primary-source",
+      "reading_date": "2026-11-22",
+      "source_evidence": [
+        {
+          "source_url": "https://dreamzero0.github.io/",
+          "locator": "Opening, L2–9",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://dreamzero0.github.io/",
+          "locator": "New embodiment, L82–87",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "source_origin": "Supported primary-source retrieval"
+    },
+    {
+      "id": "argon",
+      "title": "Gemini 4 Argon for Robotics",
+      "url": "https://developers.googleblog.com/gemini-4-argon-for-robotics/",
+      "kind": "Company research post",
+      "year": 2026,
+      "date": "2026-10-13",
+      "summary": "The Argon primary post gives distinct examples of robot-control primitives, physically calibrated Real2Sim, hindsight annotation, simulation-generated training experience and iterative hardware repair. Its simulation reconstruction example separately checks visual match and force/torque timing, magnitude and direction. This makes the agent-run learning branch concrete: an agent can create experiments and accepted code/data artifacts without every example implying neural-weight learning.",
+      "limitations": "The examples are company demonstrations with supplied prompts, hardware primitives and verification objectives. The iterative pick-and-place example improves an execution artifact; the simulation-data example supports a VLA training loop. Neither demonstrates recursive self-improvement of the underlying model or unlimited autonomy.",
+      "related_talk_ids": [
+        "d2-59"
+      ],
+      "related_node_ids": [
+        "agentic-learning",
+        "code-policy",
+        "agentic-execution",
+        "simulation-transfer",
+        "data-provenance"
+      ],
+      "verification": "Primary article sections on control, calibration and research loops read on 2026-11-22; empirical findings remain author-reported.",
+      "reviewed": true,
+      "status": "reviewed-primary-source",
+      "reading_date": "2026-11-22",
+      "source_evidence": [
+        {
+          "source_url": "https://developers.googleblog.com/gemini-4-argon-for-robotics/",
+          "locator": "Real2Sim calibration, L179–203",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://developers.googleblog.com/gemini-4-argon-for-robotics/",
+          "locator": "Research and self-improvement, L407–448",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "source_origin": "Supported primary-source retrieval"
+    },
+    {
+      "id": "pi07",
+      "title": "π0.7: A Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
+      "url": "https://arxiv.org/abs/2604.15483",
+      "kind": "Conference paper",
+      "year": 2026,
+      "date": "2026-04-16",
+      "summary": "π0.7 diversifies the conditioning context, including subtask instructions, subgoal images, control modes and episode metadata. This lets a single model learn from demonstrations, suboptimal autonomous trajectories including failures, and non-robot sources while giving users more ways to specify desired behavior. The paper evaluates instruction following, cross-embodiment transfer and compositional tasks.",
+      "limitations": "The authors explicitly say large, diverse data makes definitive seen-versus-unseen task classification difficult: related skills can appear under other labels or incidentally. Treat its out-of-the-box demonstrations as evidence under its data assumptions, and compare strict embodiment holdout separately.",
+      "related_talk_ids": [
+        "d1-11"
+      ],
+      "related_node_ids": [
+        "direct-policy",
+        "representation-data",
+        "human-transfer",
+        "evaluation-validity"
+      ],
+      "verification": "Indexed paper method, evaluation and discussion sections read on 2026-11-22; empirical findings remain author-reported.",
+      "reviewed": true,
+      "status": "reviewed-primary-source",
+      "reading_date": "2026-11-22",
+      "source_evidence": [
+        {
+          "source_url": "https://arxiv.org/abs/2604.15483",
+          "section": "Abstract and Diversifying the Prompt",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://arxiv.org/abs/2604.15483",
+          "section": "Discussion",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "source_origin": "Supported primary-source retrieval"
+    },
+    {
+      "id": "floweval",
+      "title": "FlowEval: How Much Adaptation Does an Embodied Foundation Model Need at Deployment?",
+      "url": "https://arxiv.org/abs/2611.11650",
+      "kind": "Related paper",
+      "year": 2026,
+      "date": "2026-11-08",
+      "summary": "FlowEval uses a small set of successful target-domain demonstrations and the flow-matching objective to diagnose model–deployment fit without training. It probes predictive agreement and studies whether the score correlates with improvement as adaptation data is added. It supplies a useful decision layer before collecting another large dataset: diagnose what adaptation may remain, then test that prediction.",
+      "limitations": "The method applies to flow-matching action models. It assumes actual rollout demonstrations with the issued action targets; post-hoc reconstructed action targets can invalidate the metric. The paper identifies calibrated predictions of the exact amount of data needed as future work, so correlation is not a guaranteed data-budget estimate.",
+      "related_talk_ids": [
+        "d1-1",
+        "d1-11",
+        "d1-14",
+        "d2-46",
+        "d2-80"
+      ],
+      "related_node_ids": [
+        "evaluation-validity",
+        "weight-adaptation",
+        "representation-data",
+        "deployment-economics"
+      ],
+      "verification": "Indexed paper method, adaptation experiments and stated limitations read on 2026-11-22; empirical findings remain author-reported.",
+      "reviewed": true,
+      "status": "reviewed-primary-source",
+      "reading_date": "2026-11-22",
+      "source_evidence": [
+        {
+          "source_url": "https://arxiv.org/abs/2611.11650",
+          "section": "FlowEval Metrics",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://arxiv.org/abs/2611.11650",
+          "section": "Limitation: Post transformed demos",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://arxiv.org/abs/2611.11650",
+          "section": "Conclusion and Future Work",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "source_origin": "Supported primary-source retrieval"
+    },
+    {
+      "id": "vlrla",
+      "title": "VLRLA: Deployment-Time Adaptation of Vision-Language-Action Models through In-Context Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2610.19517",
+      "kind": "Related paper",
+      "year": 2026,
+      "date": "2026-10-14",
+      "summary": "VLRLA conditions actions on accumulated observations, actions, rewards and termination signals while keeping deployed model parameters fixed. Its in-context RL module learns during training how to use interaction history; deployment then changes the history rather than optimizing the checkpoint. The paper includes simulation studies and real tasks with cross-episode reward memory.",
+      "limitations": "Fixed weights do not mean fixed behavior, but this is still distinct from persistent weight adaptation. Its histories and reward feedback are designed inputs, and the reported transfer is bounded by the evaluated tasks and training-history construction strategies.",
+      "related_talk_ids": [
+        "d1-13",
+        "d1-3",
+        "d2-46"
+      ],
+      "related_node_ids": [
+        "runtime-memory",
+        "weight-adaptation",
+        "agentic-learning"
+      ],
+      "verification": "Indexed paper design, simulation and real-experiment sections read on 2026-11-22; empirical findings remain author-reported.",
+      "reviewed": true,
+      "status": "reviewed-primary-source",
+      "reading_date": "2026-11-22",
+      "source_evidence": [
+        {
+          "source_url": "https://arxiv.org/abs/2610.19517",
+          "section": "Introduction and Conclusion",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://arxiv.org/abs/2610.19517",
+          "section": "Conclusion",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "source_origin": "Supported primary-source retrieval"
+    },
+    {
+      "id": "dual-stream-memory",
+      "title": "Dual-Stream Memory for Vision-Language-Action Policies",
+      "url": "https://arxiv.org/abs/2610.13262",
+      "kind": "Related paper",
+      "year": 2026,
+      "date": "2026-10-09",
+      "summary": "Dual-Stream Memory separates compressed execution-stage context from selective access to historical visual detail. A task-agnostic Gated DeltaNet produces a compact temporal token; a task-conditioned retriever keeps relevant frames with spatial detail. This refines the memory question from “how long a context?” to “which information should be compressed, and which must remain accessible?”.",
+      "limitations": "The paper reports non-additive benefits and task regressions, and real gains concentrate on repeated actions. Real checkpoints are matched by training loss rather than equal training steps. The authors call for matched full-system ablations and broader task/hardware tests, especially identity tracking through cup swaps.",
+      "related_talk_ids": [
+        "d1-3",
+        "d1-13",
+        "d1-15",
+        "d2-76"
+      ],
+      "related_node_ids": [
+        "runtime-memory",
+        "world-representation",
+        "evaluation-validity"
+      ],
+      "verification": "Indexed paper method, full-benchmark comparison and real-robot evaluation read on 2026-11-22; empirical findings remain author-reported.",
+      "reviewed": true,
+      "status": "reviewed-primary-source",
+      "reading_date": "2026-11-22",
+      "source_evidence": [
+        {
+          "source_url": "https://arxiv.org/abs/2610.13262",
+          "section": "Introduction",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://arxiv.org/abs/2610.13262",
+          "section": "Real-robot evaluation",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://arxiv.org/abs/2610.13262",
+          "section": "Discussion and conclusion",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "source_origin": "Supported primary-source retrieval"
+    },
+    {
+      "id": "ode-policy",
+      "title": "ODE Policy: Robot Learning via Action Dynamics, Not Actions",
+      "url": "https://arxiv.org/abs/2611.01729",
+      "kind": "Related paper",
+      "year": 2026,
+      "date": "2026-11-01",
+      "summary": "ODE Policy learns a vector field for how robot commands evolve in physical time, then integrates it to produce an action trajectory. This is different from the denoising time of a generative flow head. The paper studies seamless chunk joins, small perturbations near demonstrations and a diversity head, with comparisons in imitation learning, VLA/WAM action heads and humanoid reinforcement learning.",
+      "limitations": "The reported protocols use specific chunk lengths, integrators and control rates. Some execution-quality measures compare only successful episodes, while one real-task baseline measure comes from failures. The paper’s uses for arbitrary control rates and action-free learning include preliminary directions rather than finished solutions.",
+      "related_talk_ids": [
+        "d1-25",
+        "d1-26",
+        "d1-28",
+        "d2-47",
+        "d2-57"
+      ],
+      "related_node_ids": [
+        "control-timescales",
+        "direct-policy",
+        "search-distillation"
+      ],
+      "verification": "Indexed paper method, experimental setup and future-directions sections read on 2026-11-22; empirical findings remain author-reported.",
+      "reviewed": true,
+      "status": "reviewed-primary-source",
+      "reading_date": "2026-11-22",
+      "source_evidence": [
+        {
+          "source_url": "https://arxiv.org/abs/2611.01729",
+          "section": "Method",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://arxiv.org/abs/2611.01729",
+          "section": "Experimental Setup",
+          "reading_date": "2026-11-22"
+        },
+        {
+          "source_url": "https://arxiv.org/abs/2611.01729",
+          "section": "Discussion and Future Directions",
+          "reading_date": "2026-11-22"
+        }
+      ],
+      "source_origin": "Supported primary-source retrieval"
+    }
+  ],
+  "people": [
+    {
+      "id": "hang-zhao",
+      "name": "Hang Zhao",
+      "role": "Keynote speaker",
+      "affiliation": "MARS Lab, Tsinghua University; Galaxea",
+      "connection": "The introduction identifies the MARS Lab and a co-founded company. The talk connects driving, parkour and manipulation through their control clocks.",
+      "talk_ids": [
+        "d1-10"
+      ],
+      "reference_ids": [
+        "drivevlm",
+        "fast-wam"
+      ],
+      "source_note": "Local introduction 01:21:33–01:22:26; company and role names normalized from auto captions. External current affiliation not independently checked. Galaxea Fast-WAM company article reviewed; it supplies the related paper/project pointers."
+    },
+    {
+      "id": "jim-fan",
+      "name": "Jim Fan",
+      "role": "Research presenter",
+      "affiliation": "NVIDIA",
+      "connection": "The recorded presentation connects GR00T 2, supervisory control, ASPIRE code skills, simulation and annotation infrastructure. Treat their release plans separately from demonstrated mechanisms.",
+      "talk_ids": [
+        "d1-22"
+      ],
+      "reference_ids": [
+        "gr00t2",
+        "voyager",
+        "eureka",
+        "dreamzero"
+      ],
+      "source_note": "Local recorded NVIDIA presentation; related-work connections are editorial and do not assert coauthorship. GR00T 2, RoboTTT and DreamZero primary project pages reviewed; DreamZero citation lists Linxi “Jim” Fan."
+    },
+    {
+      "id": "kanishka-rao",
+      "name": "Kanishka Rao",
+      "role": "Industry research presenter",
+      "affiliation": "Google DeepMind, Gemini Robotics",
+      "connection": "Presents the robot action model and the role of Argon in simulation, failure analysis and training experiments. These are distinct entries in the architecture graph.",
+      "talk_ids": [
+        "d2-59"
+      ],
+      "reference_ids": [
+        "gemini25",
+        "mujoco-playground",
+        "argon"
+      ],
+      "source_note": "Speaker introduction in local transcript at 05:23:05; spelling normalized from chapter title. Official Gemini Robotics and Argon primary articles also reviewed."
+    },
+    {
+      "id": "russ-tedrake",
+      "name": "Russ Tedrake",
+      "role": "Keynote speaker",
+      "affiliation": "Walden; MIT and prior Toyota Research work discussed in the talk",
+      "connection": "Describes founding Walden, a Toyota Research spinout, and manufacturing deployment loops with targeted interventions and postmortem failure analysis.",
+      "talk_ids": [
+        "d2-80"
+      ],
+      "reference_ids": [],
+      "source_note": "Local transcript 07:29:31–07:33:14 identifies the company and founder/CEO role. Company performance claims are speaker-reported."
+    },
+    {
+      "id": "fei-fei-li",
+      "name": "Fei-Fei Li",
+      "role": "Keynote and fireside speaker",
+      "affiliation": "Stanford; World Labs",
+      "connection": "Links world generation and reconstruction research to potential robotics simulation, and points to Stanford BEHAVIOR workshop work. Keep Atlas the world model distinct from Boston Dynamics Atlas the robot.",
+      "talk_ids": [
+        "d3-84",
+        "d3-85"
+      ],
+      "reference_ids": [],
+      "source_note": "Local introduction 00:49:58–00:50:58 and technical talk 00:55:26 onward; role and company spelling normalized from auto captions."
+    },
+    {
+      "id": "lisa-su",
+      "name": "Lisa Su",
+      "role": "Fireside speaker",
+      "affiliation": "AMD",
+      "connection": "Discusses hardware/software co-design and the different resource needs of training and physical deployment with Fei-Fei Li.",
+      "talk_ids": [
+        "d3-85"
+      ],
+      "reference_ids": [],
+      "source_note": "Local keynote introduction 00:50:58 identifies Lisa Su as AMD CEO; local fireside supplies the research connection."
+    },
+    {
+      "id": "roberto-martin-martin",
+      "name": "Roberto Martín-Martín",
+      "role": "Keynote speaker",
+      "affiliation": "Affiliation not independently checked in this expansion",
+      "connection": "Connects pre-learned action spaces, human corrections, data selection and continual retention through the idea of learning potential.",
+      "talk_ids": [
+        "d2-49"
+      ],
+      "reference_ids": [],
+      "source_note": "Recorded keynote is the evidence for the ideas; this record avoids inferring a current affiliation."
+    },
+    {
+      "id": "alberto-rodriguez",
+      "name": "Alberto Rodriguez",
+      "role": "Industry research presenter",
+      "affiliation": "Boston Dynamics, Atlas robot behavior",
+      "connection": "Describes the interaction between a single whole-body action model, Gemini ER reasoning, an Orbit-hosted factory workflow and systematic intervention collection. Atlas here is the physical humanoid, separate from World Labs’ world model.",
+      "talk_ids": [
+        "d2-60"
+      ],
+      "reference_ids": [
+        "gemini25"
+      ],
+      "source_note": "Local introduction 05:33:22 and Boston Dynamics talk 05:34:38–05:41:11 identify role, architecture and partner. This does not assert the Atlas action model is Gemini Robotics 2.5."
+    }
+  ],
+  "architecture": [
+    {
+      "id": "fixed-direct",
+      "title": "Execute a learned policy",
+      "branch": "Execution",
+      "changes": "Current action; checkpoint usually fixed during the episode",
+      "flow": [
+        "Observe and receive instruction",
+        "Predict action or action chunk",
+        "Execute with feedback"
+      ],
+      "talk_ids": [
+        "d1-1",
+        "d1-11",
+        "d1-14"
+      ],
+      "node_id": "direct-policy",
+      "caveat": "A direct policy can include reasoning and history; those features do not establish a learning agent."
+    },
+    {
+      "id": "orchestrate-skills",
+      "title": "Orchestrate policies and skills",
+      "branch": "Execution",
+      "changes": "Plan, tool choice and task state",
+      "flow": [
+        "Observe task progress",
+        "Select policy, code skill or tool",
+        "Check completion and recover"
+      ],
+      "talk_ids": [
+        "d1-10",
+        "d1-22"
+      ],
+      "node_id": "agentic-execution",
+      "caveat": "An execution agent can work with fixed skills and fixed model weights."
+    },
+    {
+      "id": "write-code",
+      "title": "Write the controller as code",
+      "branch": "Policy construction",
+      "changes": "Executable program or skill library",
+      "flow": [
+        "Generate program",
+        "Test and repair",
+        "Run program at the required control rate"
+      ],
+      "talk_ids": [
+        "d1-10",
+        "d1-22"
+      ],
+      "node_id": "code-policy",
+      "caveat": "One-shot code writing and a skill library that grows through experiments are different loops."
+    },
+    {
+      "id": "update-episode-state",
+      "title": "Adapt through episode memory",
+      "branch": "State adaptation",
+      "changes": "Text/video memory, spatial state or fast weights",
+      "flow": [
+        "Read retained context",
+        "Act from observation and context",
+        "Write new episode state"
+      ],
+      "talk_ids": [
+        "d1-3",
+        "d1-13",
+        "d2-76"
+      ],
+      "node_id": "runtime-memory",
+      "caveat": "Fast-weight state is not automatically persistent learning across episodes."
+    },
+    {
+      "id": "train-policy",
+      "title": "Learn a policy or adapter from experience",
+      "branch": "Policy learning",
+      "changes": "Language policy, adapter, critic or policy weights",
+      "flow": [
+        "Gather trials or corrections",
+        "Optimize the chosen learning interface",
+        "Evaluate both new and retained capability"
+      ],
+      "talk_ids": [
+        "d1-5",
+        "d2-40",
+        "d2-46",
+        "d2-47"
+      ],
+      "node_id": "weight-adaptation",
+      "caveat": "A frozen foundation policy can be part of a larger system that learns a new adapter."
+    },
+    {
+      "id": "agent-run-experiments",
+      "title": "Use an agent to run the learning loop",
+      "branch": "Experiment orchestration",
+      "changes": "Hypotheses, experiments and accepted policy/code artifacts",
+      "flow": [
+        "Inspect failures and propose a hypothesis",
+        "Build simulation, test, train or tune",
+        "Validate on hardware and retain what works"
+      ],
+      "talk_ids": [
+        "d2-59",
+        "d1-22"
+      ],
+      "node_id": "agentic-learning",
+      "caveat": "Record what changes and what evaluation gates acceptance; policy improvement is distinct from recursive self-improvement."
+    }
+  ],
+  "edges": [],
+  "editorial_notes": [
+    "The map keeps the original Learn / Act / Improve split. Topics are reading groups rather than an exclusive scientific taxonomy.",
+    "Cross-topic dependency links have been removed. Source-specific illustrations remain within each topic.",
+    "A diagram is scoped to its named source. It does not claim that every approach follows the same recipe.",
+    "The absence of a connection makes no claim about another connection being invalid.",
+    "Reported results and company claims remain attributed to their sources rather than independently reproduced."
+  ],
+  "recent_research": {
+    "as_of": "2026-11-22",
+    "reference_ids": [
+      "floweval",
+      "ode-policy",
+      "vlrla",
+      "dual-stream-memory",
+      "argon",
+      "gr00t2",
+      "gemini25",
+      "pi07",
+      "supermimic"
+    ],
+    "selection_note": "A curated set of reviewed 2026 developments, not a claim of exhaustive coverage of all current robotics papers. Conference recordings provide the anchor; related papers refine the mechanisms and evaluation questions."
+  },
+  "map_policy": {
+    "structure": "Learn / Act / Improve reading groups with self-contained topics",
+    "cross_topic_connections": "Not drawn or asserted",
+    "diagrams": "Illustrate a named source inside its topic; not a general dependency graph",
+    "omissions": "No conclusion about validity, compatibility or relevance follows from an omitted connection",
+    "grouping": "Editorial navigation; categories may overlap and are not mandatory stages"
+  }
+}

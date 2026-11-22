@@ -1,0 +1,430 @@
+[
+  {
+    "id": "enpire",
+    "title": "ENPIRE: Agentic Robot Policy Self-Improvement in the Real World",
+    "url": "https://research.nvidia.com/labs/gear/enpire/",
+    "arxiv_id": "2606.19980",
+    "main_paper_ids": [
+      "0cK9Wf9Eeq"
+    ],
+    "workshop_paper_ids": [],
+    "review_scope": "The indexed manuscript yielded only title/abstract. The complete primary project page was read, including the four-module method, physical reset/evaluation examples, policy-improvement regimes, fleet experiments and stated limitations. Full manuscript methods were not available through the indexed reader.",
+    "status": "primary-project-methods-reviewed",
+    "full_summary": "ENPIRE makes selected physical manipulation tasks accessible to coding agents as repeatable research environments. Its Environment component resets scenes and verifies outcomes; Policy Improvement launches a chosen refinement routine; Rollout evaluates candidates on one or more robots; Evolution lets coding agents inspect failures and modify algorithm or infrastructure code. The improvement interface accepts several regimes, including heuristics, code/tool use, behavior cloning, offline RL and online RL. Consequently, the changed artifact can be an executable program, a training recipe or a learned policy, depending on the experiment. The project describes agent-run iterations on prepared tasks such as Push-T and pin insertion, together with simulation experiments and fleet-resource measurements. This is evidence of an engineered loop around real interaction, rather than merely a supervisor choosing skills during one episode. Its autonomy claim is scoped to the provided self-resetting, self-verifying task interfaces. The site labels its showcased 99% result as pass@8, so it should not be rewritten as single-attempt reliability. All results remain author-reported.",
+    "method": "Expose reset, observation, action and reward APIs for a prepared task. Coding agents propose changes, launch the selected PI regime, collect real rollouts, inspect success and failure evidence, then retain useful changes. Multiple agents can explore branches in parallel while robot and compute utilization are monitored. When PI invokes RL or behavior cloning, a learning routine updates policy parameters; when it uses heuristic code, the improvement is in the program. Both fit the same harness but are different learning artifacts.",
+    "why_it_matters": "It gives the agentic panel a concrete physical policy-improvement system, and gives the training panel an example that can choose among code changes, demonstrations and RL. Reset and verification engineering are part of what makes that automation possible.",
+    "open_question": "How much of the improvement survives new task setups and imperfect reset or reward verification, and what is the full cost of preparing the physical environment rather than only running the agent loop?",
+    "limitations": [
+      "The demonstrated autonomy assumes task-specific automatic reset, perception, reward verification and available robot-control tools; it is not evidence of autonomous setup for arbitrary robots or tasks.",
+      "The primary page reports 99% pass@8 on showcased tasks. That metric permits repeated attempts and is not a single-rollout success guarantee.",
+      "The authors report robot underutilization while agents read, debug or wait, and rising token consumption as fleets and coordinating agents scale.",
+      "This review used substantive primary project text plus an indexed abstract, not a complete primary manuscript-method review."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://research.nvidia.com/labs/gear/enpire/",
+        "section": "Abstract / L33–35",
+        "quote": "Coding agents can improve policies with various PI regimes, such as heuristic learning, tool calling, behavior cloning, offline or online RL."
+      },
+      {
+        "source_url": "https://research.nvidia.com/labs/gear/enpire/",
+        "section": "Learned Manipulation Policy / L40",
+        "quote": "Policies trained with ENPIRE reach a 99% pass@8 success rate across the showcased manipulation tasks."
+      },
+      {
+        "source_url": "https://research.nvidia.com/labs/gear/enpire/",
+        "section": "From Robot Hardware to an Agent-Operable Environment / L153–154",
+        "quote": "Before an agent can improve a robot policy, the task must become self-resetting and self-verifying."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "agentic",
+        "perspective_index": 1,
+        "note": "Add ENPIRE as a named example of agent-run policy-improvement experiments in prepared real-world environments.",
+        "reason": "Its source explicitly describes agents changing code and launching selectable training/refinement regimes, rather than treating recovery in a single episode as proof of learning."
+      },
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 1,
+        "note": "Use the PI-regime choice to show that heuristic code, behavior cloning and RL are different interventions whose value must be measured.",
+        "reason": "The same harness supports multiple update interfaces, making the artifact and physical feedback budget concrete without claiming one regime is universally best."
+      }
+    ],
+    "related_talk_ids": [
+      "d1-22",
+      "d2-46",
+      "d2-49"
+    ],
+    "what_changes": "Policy/algorithm code, training infrastructure or learned policy parameters, depending on the chosen PI regime.",
+    "year": 2026,
+    "reviewed_at": "2026-11-22",
+    "reviewed": true,
+    "empirical_status": "Results are author-reported and have not been independently reproduced in this review.",
+    "placement_policy": "Editorial placement within the original six panels; not a claim of incompatibility, author endorsement or performance comparability across different benchmarks.",
+    "kind": "Main-conference research",
+    "reading_verification": "Primary method/evaluation text was inspected; the review scope above distinguishes manuscript sections from project-page evidence.",
+    "short_method": "Coding agents propose policy or training-code changes, run selectable refinement routines, and evaluate real rollouts through a task-specific automatic reset and verification harness.",
+    "short_why": "Makes code changes and RL-based policy updates available within one physical experiment loop, while exposing setup and resource costs.",
+    "short_question": "How well does it work with imperfect resets or reward verification, and how much effort is needed to prepare a new task environment?"
+  },
+  {
+    "id": "harbor",
+    "title": "HARBOR: A Harness Framework for Agentic Robot Reinforcement Learning",
+    "url": "https://arxiv.org/abs/2606.08610",
+    "arxiv_id": "2606.08610",
+    "main_paper_ids": [
+      "JqZEEaNDLJ"
+    ],
+    "workshop_paper_ids": [],
+    "review_scope": "Indexed manuscript main methods, experiments, real-world validation, ablations and stated limitations were read. Primary project guide was also read to corroborate the harness design. Indexed equations/tables contain formatting loss, so extracted table values are not used for headline comparisons; appendices were not reviewed exhaustively.",
+    "status": "primary-manuscript-sections-reviewed",
+    "full_summary": "HARBOR automates the engineering workflow surrounding robot reinforcement learning in simulation. A central agent divides a request into bounded stages such as dependencies, task construction, rewards, domain randomization, RL integration and tuning. Stage-local agents operate through standard commands and persistent artifacts. Executable gates check interfaces and rollout evidence before later stages proceed; failures are repaired within a retry budget and unresolved stages can require human intervention. Reward and hyperparameter candidates run in isolated parallel trials, while an experience ledger preserves useful heuristics and failure diagnoses for later runs. This separates the coding agent that constructs or tunes the experiment from the numerical RL algorithm that trains the policy. The authors evaluate multiple simulation backends and include physical validation, but the latter uses user-provided real trajectories, interface engineering and human feedback for simulator alignment. The source explicitly warns that gates do not guarantee semantic policy correctness. Its results support a scoped engineering-automation claim, not a general guarantee that any agent can autonomously train reliable real-world policies.",
+    "method": "Persist workflow state as code, configuration, logs, videos and checkpoints. Delegate each bounded stage to an isolated agent, run standard commands, and admit outputs only after executable interface or rollout checks. Parallelize iterative reward/algorithm trials, aggregate their outcomes, then write reusable lessons into an experience store. Standard RL training carries out parameter learning. Sim-to-real alignment adds measured trajectories, system identification and human feedback; it is not automatically solved by passing simulation gates.",
+    "why_it_matters": "It makes agentic learning operational: the agent engineers experiments while RL performs policy optimization. The persistent-artifact and gate design also shows what must be inspected when an automated pipeline reports success.",
+    "open_question": "How robust is the harness on unfamiliar tasks without supplied templates or expert heuristics, and how much practical effort remains in physical interfaces and simulator alignment after simulation training succeeds?",
+    "limitations": [
+      "Executable gates catch particular engineering failures but do not prove that the reward captures the intended behavior or that the final policy is semantically correct.",
+      "The authors explicitly retain manual robot-interface engineering, user-provided real trajectories and human feedback at the sim-to-real boundary.",
+      "The evaluated policies are relatively simple; extending the framework to VLA or world-model policies is described as future work.",
+      "Some reward-design gains rely on supplied human heuristics and accumulated experience. Their contribution should remain visible when comparing automation methods."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/abs/2606.08610",
+        "section": "Harness Abstractions for RL",
+        "quote": "HARBOR does not guarantee semantic correctness of the final policy."
+      },
+      {
+        "source_url": "https://arxiv.org/abs/2606.08610",
+        "section": "Parallel Tuning with Experience Learning",
+        "quote": "after each tuning round, the main agent distills recurring patterns across trials into short bullet points"
+      },
+      {
+        "source_url": "https://arxiv.org/abs/2606.08610",
+        "section": "Limitations and Future Work",
+        "quote": "deployment to physical robots still requires manual engineering around robot interfaces and human feedback."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "agentic",
+        "perspective_index": 1,
+        "note": "Add HARBOR as an agent-assisted RL engineering workflow, distinguishing agent code/configuration changes from RL weight updates.",
+        "reason": "The manuscript names stage-local agents, training commands, gates and persistent artifacts, making the update process and its human boundaries explicit."
+      },
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 1,
+        "note": "Use it to discuss reward and algorithm tuning as interventions around policy learning, with engineering and compute costs included.",
+        "reason": "Its experiments study bounded reward design and RL tuning; they do not establish that post-training dominates foundation training across unrelated tasks."
+      }
+    ],
+    "related_talk_ids": [
+      "d2-46",
+      "d2-47",
+      "d2-49"
+    ],
+    "what_changes": "Environment/reward/configuration artifacts, RL-trained policy weights and text experience ledgers; the LLM agent does not itself replace the RL optimizer.",
+    "year": 2026,
+    "reviewed_at": "2026-11-22",
+    "reviewed": true,
+    "empirical_status": "Results are author-reported and have not been independently reproduced in this review.",
+    "placement_policy": "Editorial placement within the original six panels; not a claim of incompatibility, author endorsement or performance comparability across different benchmarks.",
+    "kind": "Main-conference research",
+    "reading_verification": "Primary method/evaluation text was inspected; the review scope above distinguishes manuscript sections from project-page evidence.",
+    "short_method": "Stage-specific agents build simulation tasks, rewards and training configurations; executable gates check artifacts, parallel RL trials compare candidates, and experience ledgers preserve useful engineering lessons.",
+    "short_why": "Separates the agent’s engineering decisions from RL’s parameter updates and makes intermediate evidence inspectable.",
+    "short_question": "How much prior scaffolding and human engineering remains necessary for unfamiliar tasks and real-robot transfer?"
+  },
+  {
+    "id": "mobiagent",
+    "title": "MobiAgent: Dual-Loop Recursive Policy Self-Improvement for Long-Horizon Mobile Manipulation",
+    "url": "https://arxiv.org/html/2610.03476v1",
+    "arxiv_id": "2610.03476",
+    "main_paper_ids": [
+      "w3g5PWur7i"
+    ],
+    "workshop_paper_ids": [],
+    "review_scope": "Primary manuscript introduction, inner/outer-loop methods, main experiments and conclusion/limitations were read, together with the complete primary project page and reported deployment-round tables. Detailed supplementary prompts and all appendix failure cases were not exhaustively reviewed.",
+    "status": "primary-manuscript-sections-reviewed",
+    "full_summary": "MobiAgent separates deployment-time planning from offline policy refinement. Its inner loop uses a VLM planner, a shared VLM trunk with skill-specific flow-matching action experts, and a reflection critic that recommends advance, retry or replan. Critic observations are retained as episode memory. The outer loop runs after episode termination: it segments and verifies trajectories, standardizes skill captions and trains or fine-tunes neural skill policies. Startup data creates the skill inventory; subsequent rollout data is assigned to the existing inventory, and the described continual phase updates those existing policies without expanding the model inventory. This is more specific than saying the robot simply learns through reasoning or that its skill vocabulary grows without bound. The authors report finite deployment-to-training rounds on RoboCasa and Astribot S1, plus long-horizon BEHAVIOR tasks. Early RoboCasa gains later plateau. Here the reusable changes are learned skill policies and curated data; the paper does not establish indefinite improvement or a learning procedure that recursively redesigns itself.",
+    "method": "A task planner combines current observations, episode memory and skill names into the next subtask. A chosen flow-matching expert executes action chunks; a visual critic decides whether to advance, retry or replan. After an episode, separate curation verifies skill clips. Startup captions are clustered to create canonical skills, but rollout clips are mapped to those established skills. Behavior cloning initializes skill experts, and subsequent offline fine-tuning updates their parameters from curated deployment data.",
+    "why_it_matters": "It offers a concrete example in which agentic execution and neural policy adaptation coexist, while clearly separating within-episode memory from later offline parameter updates.",
+    "open_question": "How well are older skills retained when shared policies are updated, and what happens when deployment needs skills outside the inventory established from startup data?",
+    "limitations": [
+      "Continuous rollout refinement updates the existing skill-policy inventory; startup skill discovery should not be rewritten as unrestricted discovery of new skills during every deployment round.",
+      "The authors identify interference with earlier behaviors, pose-correction churn, critic drift and visual occlusion as remaining problems.",
+      "Reported RoboCasa gains plateau in later rounds, and the real-robot improvement covers four tasks and two update rounds rather than unbounded lifelong learning.",
+      "The title’s recursive self-improvement claim concerns repeated deployment-data recycling and policy training; the reviewed experiments do not establish improvement of the training procedure itself."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/html/2610.03476v1",
+        "section": "§3.2 The Outer Loop / L241–244",
+        "quote": "continuous finetuning, which runs offline after episode termination to curate deployment rollouts and iteratively refine the active policies."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2610.03476v1",
+        "section": "§3.2.2 Skill Generator / L272–274",
+        "quote": "For rollout data, the clustering and naming phases are bypassed; the LLM directly assigns the new clips to the previously established atomic skills"
+      },
+      {
+        "source_url": "https://arxiv.org/html/2610.03476v1",
+        "section": "§3.2.3 Skill Trainer / L280–282",
+        "quote": "without expanding the model inventory."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "agentic",
+        "perspective_index": 0,
+        "note": "Use the inner loop as a source example of planning, skill execution and visual reflection.",
+        "reason": "Those mechanisms change the current execution decisions; the paper separately describes when neural policy training occurs."
+      },
+      {
+        "panel_id": "agentic",
+        "perspective_index": 2,
+        "note": "Add the offline outer loop to clarify deployment-driven policy adaptation and its retention/inventory limits.",
+        "reason": "The manuscript explicitly distinguishes episode memory from parameter updates using verified rollout clips."
+      },
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 2,
+        "note": "Add automatically curated deployment trajectories as an experience source for targeted policy updates.",
+        "reason": "It is a documented data-recycling mechanism, not a claim that every deployment improvement requires this architecture."
+      }
+    ],
+    "related_talk_ids": [
+      "d1-22",
+      "d2-49",
+      "d2-59"
+    ],
+    "what_changes": "Episode memory during execution; curated data and existing skill-policy parameters during later offline training.",
+    "year": 2026,
+    "reviewed_at": "2026-11-22",
+    "reviewed": true,
+    "empirical_status": "Results are author-reported and have not been independently reproduced in this review.",
+    "placement_policy": "Editorial placement within the original six panels; not a claim of incompatibility, author endorsement or performance comparability across different benchmarks.",
+    "kind": "Main-conference research",
+    "reading_verification": "Primary method/evaluation text was inspected; the review scope above distinguishes manuscript sections from project-page evidence.",
+    "short_method": "An online planner and critic compose learned skills; after episodes, verified rollout clips fine-tune the existing skill policies offline.",
+    "short_why": "Distinguishes execution-time memory from later parameter learning using deployment data.",
+    "short_question": "Do updates retain older skills, and can the system handle behavior outside its startup skill inventory?"
+  },
+  {
+    "id": "physcap",
+    "title": "PhysCaP: Grounding Code-as-Policy Agent with Physics-Informed Exploration",
+    "url": "https://arxiv.org/html/2608.21031v2",
+    "arxiv_id": "2608.21031",
+    "main_paper_ids": [],
+    "workshop_paper_ids": [
+      "wp-e0f4326b5548"
+    ],
+    "review_scope": "Primary arXiv v2 main text through methods, real/simulation experiments, discussion and conclusion/limitations was read; primary project page and workshop publication note were also read. ARK returned a mismatched HPC-paper body under this title, which was rejected and not used. Appendices were not reviewed comprehensively.",
+    "status": "primary-manuscript-sections-reviewed",
+    "full_summary": "PhysCaP gives a code-as-policy agent explicit ways to acquire physical information that an image alone may not reveal. Training-free modules estimate object mass using differential joint torque during a lift and stiffness using gripper force-displacement measurements. A Planner decides what information is missing and when exploration can stop; a Prioritizer filters and orders candidate interactions; a coding agent produces programs that call measurement and control APIs. Measurements update a task belief before further exploration or execution. The evaluated improvement is therefore in information gathering and programmatic control, rather than a new neural policy trained online. The study reports three physical tabletop tasks and a simulated hidden-mass task, with component comparisons that distinguish having measurement tools from choosing efficient interactions. Interaction-count and execution-time statistics are conditional on successful episodes. Simulation exposes a mass-sensing API only after a verified lift. These conditions are important when interpreting comparisons with passive policies; the experiments do not establish that all VLAs lack active perception or that the agent can infer arbitrary physics.",
+    "method": "Use existing proprioception to estimate mass from loaded-versus-empty grasp torque and stiffness from gripper force/displacement. The Planner proposes needed measurements and a stopping decision; the Prioritizer ranks feasible candidate interactions from visual/task cues. A coding agent invokes the measurement APIs and robot-control primitives. The measured values enter belief storage and guide the next plan. No additional physical-property model training is required by these modules, although their perception and hardware interfaces remain assumptions of the setup.",
+    "why_it_matters": "It makes a useful boundary case for the panels: a robot can improve decisions by measuring and rewriting control programs without changing neural policy weights. The relevant artifact is a better-grounded belief and executable plan.",
+    "open_question": "How reliable are the measurement and exploration choices for unfamiliar materials, geometry and hardware, especially when value comes from avoided failed episodes rather than efficiency measured only on successes?",
+    "limitations": [
+      "The implementation estimates a narrow set of physical quantities with particular robot/gripper measurements; it is not a general physical-property inference system.",
+      "Object interactions and execution time are reported only for successful episodes. Lower interaction counts alone do not establish better overall success or cost.",
+      "The simulated sensing API reveals ground-truth mass after a required lift; conclusions about VLA comparisons should remain scoped to that observation/API contract and the tested checkpoints.",
+      "The authors identify VLM variability, localization/depth precision and robot communication/execution latency as practical limitations. The mismatched indexed body was discarded."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/html/2608.21031v2",
+        "section": "§3 method overview / L100–104",
+        "quote": "The measurements update the system belief, which the Planner consults to decide whether to explore further or execute the task."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2608.21031v2",
+        "section": "§4.1 Evaluation Protocol / L172–176",
+        "quote": "OI and Time are reported only for successful episodes."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2608.21031v2",
+        "section": "§1 Introduction / L56–60",
+        "quote": "without retraining the underlying model."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "agentic",
+        "perspective_index": 0,
+        "note": "Add code-driven physical measurement as an example of agentic execution with belief updates.",
+        "reason": "The paper explicitly describes measurement APIs and program generation, rather than autonomous neural policy optimization."
+      },
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 1,
+        "note": "Use it as a qualified comparison showing that a new behavior can come from measurements and program changes, not necessarily weight post-training.",
+        "reason": "This is a boundary case for choosing an intervention, not a claim that PhysCaP itself is an RL post-training method."
+      }
+    ],
+    "related_talk_ids": [
+      "d1-22",
+      "d2-59"
+    ],
+    "what_changes": "Executable control code and within-task physical beliefs; the physical-property modules are training-free.",
+    "year": 2026,
+    "reviewed_at": "2026-11-22",
+    "reviewed": true,
+    "empirical_status": "Results are author-reported and have not been independently reproduced in this review.",
+    "placement_policy": "Editorial placement within the original six panels; not a claim of incompatibility, author endorsement or performance comparability across different benchmarks.",
+    "kind": "Workshop-contributed research",
+    "reading_verification": "Primary method/evaluation text was inspected; the review scope above distinguishes manuscript sections from project-page evidence.",
+    "short_method": "A Planner and Prioritizer choose informative interactions; code calls training-free mass and stiffness measurement APIs, updates task beliefs, and executes a grounded plan.",
+    "short_why": "Shows improved decisions through physical measurements and program changes, rather than neural policy retraining.",
+    "short_question": "Are measurements and exploration choices reliable on new hardware and materials, including failed episodes omitted from efficiency statistics?"
+  },
+  {
+    "id": "aspire",
+    "title": "ASPIRE: Agentic /Skills Discovery for Robotics",
+    "url": "https://arxiv.org/html/2607.00272v2",
+    "arxiv_id": "2607.00272",
+    "main_paper_ids": [],
+    "workshop_paper_ids": [
+      "wp-35515f6f5dd0"
+    ],
+    "review_scope": "Primary arXiv v2 introduction, execution-engine/skill-library/evolutionary-search methods, curriculum and backward transfer, main evaluation protocol, zero-shot/real-robot studies, ablations and stated limitations were read. Detailed appendix prompts and all per-task results were not reviewed exhaustively.",
+    "status": "primary-manuscript-sections-reviewed",
+    "full_summary": "ASPIRE learns robot control programs and reusable repair knowledge while keeping its underlying LLM frozen. Its execution engine exposes per-primitive multimodal traces so an actor can locate failures in perception, planning, grasping or control. Evolutionary search explores several candidate programs using debug seeds. Validated repairs are proposed as compact skill guidance containing a failure signature, when-to-apply condition, repair strategy and sometimes a code sketch. A fresh verifier actor checks a proposed skill on its source task before admission, and later actors retrieve the library as context. The learned artifact is thus executable code and persistent repair guidance, not an online update to the LLM’s neural weights. Evaluation separates debug and held-out seeds, with distinct procedures for different benchmarks. Simulation-discovered skills help real-robot debugging, but the paper explicitly says transfer is not direct policy deployment. The real cube study still uses human task guidance, scrambling and scene resets. One-time skill admission also leaves stale or misleading entries as an unresolved scaling issue.",
+    "method": "An actor writes and executes a robot program, inspects primitive-level traces, then repairs the program or proposes diverse candidates. Search selects programs on debug seeds within a round budget. The actor summarizes potentially reusable repairs; a separate verifier attempts the source task and the coordinator admits reusable API-compliant entries. Future actors use those entries as in-context guidance. Curriculum selection and a bounded rerun of earlier low-performing tasks provide opportunities for backward transfer. The main policy representation is code plus text skill knowledge.",
+    "why_it_matters": "It deepens the original skill-discovery perspective with explicit artifacts, admission checks and held-out protocols. It also prevents conflating code-space continual learning with neural-weight training or fully autonomous real-world lifelong learning.",
+    "open_question": "How should accumulated skills be revalidated, pruned and retrieved when tasks or robot APIs change, and how much human reset/calibration work is needed beyond the showcased real-robot experiments?",
+    "limitations": [
+      "The underlying LLM is frozen, and its strength plus the predefined perception/planning/control API bounds expressible behavior.",
+      "Real-robot skill transfer is guidance for further physical debugging, not a policy copied directly from simulation. Human task guidance, cube scrambling and scene resets remain in the cube experiment.",
+      "Skills are checked once at admission and not revalidated as the library grows, so entries can become stale, redundant or misleading.",
+      "Reported cube efficiency is amortized time/token cost per completed turn across three episodes; total episode duration is not monotonically decreasing."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/html/2607.00272v2",
+        "section": "§2.3 Evolutionary Search / L220",
+        "quote": "The search target is the robot program itself."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2607.00272v2",
+        "section": "§3.7 Online Skill Learning / L402–403",
+        "quote": "learning through context refinement rather than model-weight updates."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2607.00272v2",
+        "section": "§5 Limitations / L579–583",
+        "quote": "it is not yet a fully autonomous real-world lifelong learner."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2607.00272v2",
+        "section": "§5 Skill Library Management / L594–596",
+        "quote": "Entries are not re-validated as the library grows"
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "agentic",
+        "perspective_index": 1,
+        "note": "Replace a generic skill-discovery mention with the concrete execution engine, evolutionary program search and skill-admission procedure.",
+        "reason": "The manuscript identifies exactly what is learned and which checks allow it to persist."
+      },
+      {
+        "panel_id": "agentic",
+        "perspective_index": 2,
+        "note": "Use backward transfer and stale-skill management as specific continual-adaptation questions.",
+        "reason": "The paper’s own limits qualify its growing-library claim and connect retention to an actual tested protocol."
+      },
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 2,
+        "note": "Add failure-derived code repairs as a different deployment-improvement artifact from a trained neural adapter.",
+        "reason": "The source explicitly learns through context and program refinement, so it should not be described as gradient post-training."
+      }
+    ],
+    "related_talk_ids": [
+      "d1-22",
+      "d2-49"
+    ],
+    "what_changes": "Robot programs and persistent in-context repair skills; the frontier LLM’s model weights remain frozen.",
+    "year": 2026,
+    "reviewed_at": "2026-11-22",
+    "reviewed": true,
+    "empirical_status": "Results are author-reported and have not been independently reproduced in this review.",
+    "placement_policy": "Editorial placement within the original six panels; not a claim of incompatibility, author endorsement or performance comparability across different benchmarks.",
+    "kind": "Workshop-contributed research",
+    "reading_verification": "Primary method/evaluation text was inspected; the review scope above distinguishes manuscript sections from project-page evidence.",
+    "short_method": "A coding agent uses primitive-level traces to repair robot programs; candidate search and a verifier admit reusable repair guidance into a persistent skill library.",
+    "short_why": "Makes the learned artifact explicit: programs and in-context repair skills, with a frozen LLM and bounded evaluation.",
+    "short_question": "How should skills be revalidated as tasks or APIs change, and what human reset and calibration support remains necessary?"
+  },
+  {
+    "id": "embodiedswe",
+    "title": "EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics",
+    "url": "https://arxiv.org/html/2609.27308v2",
+    "arxiv_id": "2609.27308",
+    "main_paper_ids": [],
+    "workshop_paper_ids": [
+      "wp-58b35db698d3"
+    ],
+    "review_scope": "Primary arXiv v2 benchmark design, solver protocol, task/embodiment transfer, supporting-tool study, demonstration-generation methods, VLA training/generalization experiments, real-robot transfer and Appendix I limitations were read. Complete appendix implementation/prompt/result listings were not reviewed exhaustively.",
+    "status": "primary-manuscript-sections-reviewed",
+    "full_summary": "EmbodiedSWE separates coding agents as task solvers from coding agents as sources of policy supervision. Its benchmark contains human-designed long-horizon, contact-rich simulation tasks. Agents inspect privileged simulator state and iteratively produce executable solution programs; an isolated grader checks submitted artifacts. Verified solutions then seed EmbodiedSWE-Gen, which diversifies scenes, strategies, intermediate phases and perturbations, retaining trajectories after grader and replay checks. Those demonstrations fine-tune VLAs, so the resulting neural policy update is distinct from the coding agent’s program search. The authors test data scaling and held-out variations, and show a real four-stage lamp-disassembly example trained only on generated simulation demonstrations. That physical result covers one task and ten trials, with limited full-task completion. Appendix I also distinguishes these component studies from a broader synthetic-task-generation-to-policy pipeline that has not been run end to end. A separate exploratory RL post-training experiment for the coding agent lacks held-out checkpoint evaluation. The work provides a useful teacher-data route, not proof that all coding-agent capability has already been distilled into a general robot.",
+    "method": "First let a coding agent build a successful program against a fixed simulated task. Diversify the verified solution through changes to scene, strategy, task phases and noise, plus scripted physics/visual randomization. Admit generated trajectories only after task grading and replay checks. Train a VLA on those demonstrations and evaluate it separately. Program search can use checkpoint trees, parallel sweeps or CMA-ES over program parameters; those optimizations should not be mistaken for the later VLA’s weight training.",
+    "why_it_matters": "It provides a source-backed distinction within the panels between writing a control program and learning a neural policy from the resulting experience. The teacher-data mechanism is explicit, with both held-out and limited physical evaluations.",
+    "open_question": "How much coding-agent capability transfers through a fully automatic task-generation-to-policy pipeline, and do the generated visual/physical scenes support reliable transfer beyond the demonstrated real task?",
+    "limitations": [
+      "Coding-agent solver experiments use full simulator state, engineered control interfaces and human-designed tasks; their success is not a direct test of vision-only deployment autonomy.",
+      "The physical VLA transfer study covers one four-stage lamp task over ten trials, with 20% cumulative full completion; it should not become a general claim of reliable long-horizon real-robot control.",
+      "Appendix I says the broader synthetic-task construction, solution generation, diversification and policy-learning pipeline has not been studied end to end.",
+      "Exploratory RL post-training of the coding agent lacks held-out checkpoint evaluation, and broader dexterous-hand embodiments remain open questions."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/html/2609.27308v2",
+        "section": "§3 Evaluating Coding Agents as Solvers / L120–122",
+        "quote": "optimizing a program rather than the parameters of a learned policy."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2609.27308v2",
+        "section": "§4.1 Data Engine / L287",
+        "quote": "Generated trajectories are retained only if they pass the task grader and an open-loop replay check."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2609.27308v2",
+        "section": "Appendix I / L2036–2042",
+        "quote": "we have not yet run this pipeline end to end"
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "agentic",
+        "perspective_index": 1,
+        "note": "Add the coding-agent-as-teacher route, keeping program search, generated experience and VLA training separate.",
+        "reason": "These stages are explicitly studied within one paper; the full automatic capability-distillation pipeline is still limited as stated by its authors."
+      },
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 1,
+        "note": "Add verified and diversified simulation demonstrations as a concrete VLA fine-tuning input.",
+        "reason": "The evaluated intervention changes policy weights through supervised learning; it does not establish the value of foundation pretraining or a universal data recipe."
+      }
+    ],
+    "related_talk_ids": [
+      "d1-22",
+      "d2-49"
+    ],
+    "what_changes": "Executable solver programs, generated demonstration datasets and subsequently fine-tuned VLA parameters; those are distinct artifacts.",
+    "year": 2026,
+    "reviewed_at": "2026-11-22",
+    "reviewed": true,
+    "empirical_status": "Results are author-reported and have not been independently reproduced in this review.",
+    "placement_policy": "Editorial placement within the original six panels; not a claim of incompatibility, author endorsement or performance comparability across different benchmarks.",
+    "kind": "Workshop-contributed research",
+    "reading_verification": "Primary method/evaluation text was inspected; the review scope above distinguishes manuscript sections from project-page evidence.",
+    "short_method": "Coding agents solve simulated tasks; verified solutions are diversified into demonstrations that fine-tune VLAs, with separate program-search and learned-policy evaluations.",
+    "short_why": "Explains a concrete route from executable solutions to policy-training data without equating program search with neural learning.",
+    "short_question": "How much capability transfers through a fully automatic generation-to-policy pipeline, and does it generalize beyond the limited real-robot study?"
+  }
+]

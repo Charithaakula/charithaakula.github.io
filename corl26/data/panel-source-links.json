@@ -1,0 +1,803 @@
+[
+  {
+    "panel_id": "policy",
+    "perspectives": [
+      {
+        "index": 0,
+        "talk_ids": [
+          "d1-14",
+          "d1-11"
+        ],
+        "paper_reference_ids": [
+          "dreamzero",
+          "pi07",
+          "imagewam",
+          "lawam"
+        ],
+        "reference_roles": {
+          "dreamzero": "direct",
+          "pi07": "direct",
+          "imagewam": "context",
+          "lawam": "context"
+        },
+        "main_paper_ids": [
+          "Bshs9HDDiu"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "World Action Models are Zero-shot Policies",
+            "url": "https://arxiv.org/abs/2602.15922",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "Bshs9HDDiu",
+            "verification": "The named publication matches this recorded talk in the catalogue. Its linked project may have reviewed methods, but this audit does not claim the complete manuscript body was read."
+          }
+        ],
+        "scope_note": "DreamZero and π0.7 are the named direct examples. ImageWAM and LaWAM are other policy designs, not evidence that every direct policy replaces planning, control or supervision."
+      },
+      {
+        "index": 1,
+        "talk_ids": [
+          "d1-10"
+        ],
+        "paper_reference_ids": [
+          "fast-wam",
+          "drivevlm",
+          "ode-policy",
+          "rolling-wam"
+        ],
+        "reference_roles": {
+          "fast-wam": "context",
+          "drivevlm": "context",
+          "ode-policy": "context",
+          "rolling-wam": "context"
+        },
+        "main_paper_ids": [],
+        "primary_paper_urls": [],
+        "scope_note": "System 0/1/2 is Hang Zhao’s proposed organization in the keynote. These papers supply latency/control context; they are not a written validation of that universal hierarchy."
+      },
+      {
+        "index": 2,
+        "talk_ids": [
+          "d1-22"
+        ],
+        "paper_reference_ids": [
+          "gr00t2",
+          "aspire",
+          "mobiagent",
+          "physcap"
+        ],
+        "reference_roles": {
+          "gr00t2": "direct",
+          "aspire": "direct",
+          "mobiagent": "context",
+          "physcap": "context"
+        },
+        "main_paper_ids": [],
+        "primary_paper_urls": [
+          {
+            "title": "GR00T 2 technical whitepaper",
+            "url": "https://research.nvidia.com/labs/gear/gr00t-2/assets/gr00t2_whitepaper.pdf",
+            "role": "direct",
+            "source_kind": "technical-report",
+            "verification": "Linked from the official GR00T 2 project page. This audit verified the outlink and readable project Agentic Control section; the PDF crawler returned HTTP 200 with no readable text, so the PDF body is not claimed reviewed."
+          }
+        ],
+        "scope_note": "GR00T 2’s project explicitly describes an S2 reasoning agent invoking the WAM API and ASPIRE code recovery. ASPIRE is the same-system complement; MobiAgent and PhysCaP are alternative systems, not all work authored by Jim Fan."
+      }
+    ],
+    "synthesis": {
+      "talk_ids": [
+        "d1-14",
+        "d1-11",
+        "d1-10",
+        "d1-22"
+      ],
+      "paper_reference_ids": [
+        "dreamzero",
+        "pi07",
+        "imagewam",
+        "lawam",
+        "fast-wam",
+        "drivevlm",
+        "ode-policy",
+        "rolling-wam",
+        "gr00t2",
+        "aspire",
+        "mobiagent",
+        "physcap"
+      ],
+      "main_paper_ids": [
+        "Bshs9HDDiu"
+      ],
+      "primary_paper_urls": [
+        {
+          "title": "World Action Models are Zero-shot Policies",
+          "url": "https://arxiv.org/abs/2602.15922",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "Bshs9HDDiu",
+          "verification": "The named publication matches this recorded talk in the catalogue. Its linked project may have reviewed methods, but this audit does not claim the complete manuscript body was read."
+        },
+        {
+          "title": "GR00T 2 technical whitepaper",
+          "url": "https://research.nvidia.com/labs/gear/gr00t-2/assets/gr00t2_whitepaper.pdf",
+          "role": "direct",
+          "source_kind": "technical-report",
+          "verification": "Linked from the official GR00T 2 project page. This audit verified the outlink and readable project Agentic Control section; the PDF crawler returned HTTP 200 with no readable text, so the PDF body is not claimed reviewed."
+        }
+      ],
+      "scope_note": "Our synthesis is an editorial reading of the listed inputs. It does not attribute our conclusion to the speakers or claim universal dependencies, matched cross-paper rankings, or independent reproduction."
+    }
+  },
+  {
+    "panel_id": "world",
+    "perspectives": [
+      {
+        "index": 0,
+        "talk_ids": [
+          "d1-14"
+        ],
+        "paper_reference_ids": [
+          "dreamzero",
+          "imagewam",
+          "lawam",
+          "rolling-wam"
+        ],
+        "reference_roles": {
+          "dreamzero": "direct",
+          "imagewam": "context",
+          "lawam": "context",
+          "rolling-wam": "context"
+        },
+        "main_paper_ids": [
+          "Bshs9HDDiu"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "World Action Models are Zero-shot Policies",
+            "url": "https://arxiv.org/abs/2602.15922",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "Bshs9HDDiu",
+            "verification": "The named publication matches this recorded talk in the catalogue. Its linked project may have reviewed methods, but this audit does not claim the complete manuscript body was read."
+          }
+        ],
+        "scope_note": "DreamZero is the named source. Other listed WAM designs differ: ImageWAM avoids future-image/video decoding, LaWAM uses latent futures and Rolling-WAM retains rolling video-action context. Do not describe all as identical joint motion generation."
+      },
+      {
+        "index": 1,
+        "talk_ids": [
+          "d2-56",
+          "d3-84"
+        ],
+        "paper_reference_ids": [
+          "grail"
+        ],
+        "reference_roles": {
+          "grail": "direct"
+        },
+        "main_paper_ids": [
+          "2dEfANeQL7"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "GRAIL: Generating Humanoid Loco-Manipulation from World Models",
+            "url": "https://arxiv.org/abs/2606.05160",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "2dEfANeQL7",
+            "verification": "The named publication matches this recorded talk in the catalogue. Its linked project may have reviewed methods, but this audit does not claim the complete manuscript body was read."
+          }
+        ],
+        "scope_note": "GRAIL is the direct research source; Atlas here refers to World Labs’ world model in Fei-Fei Li’s keynote, not the Boston Dynamics robot. No separate Atlas manuscript is registered in this source set."
+      },
+      {
+        "index": 2,
+        "talk_ids": [
+          "d2-57",
+          "d1-29",
+          "d2-73",
+          "d2-78"
+        ],
+        "paper_reference_ids": [
+          "supermimic",
+          "lewam"
+        ],
+        "reference_roles": {
+          "supermimic": "direct",
+          "lewam": "direct"
+        },
+        "main_paper_ids": [
+          "v24DO7JOuN",
+          "psNqjklVOK"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "MoRE: Mixture-of-Experts for Multi-Physics Robotic World Models",
+            "url": "https://openreview.net/pdf/7f6cd0dbb61353d02cbb1264f15074b58b5b02df.pdf",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "v24DO7JOuN",
+            "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+          },
+          {
+            "title": "SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model",
+            "url": "https://arxiv.org/abs/2610.28480",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "psNqjklVOK",
+            "verification": "The named publication matches this recorded talk in the catalogue. Its linked project may have reviewed methods, but this audit does not claim the complete manuscript body was read."
+          }
+        ],
+        "scope_note": "SuperMimic uses training-time differentiable policy optimization; MoRE specializes dynamics. LeWAM and cloth refinement provide control-time planning examples. These roles must remain distinct rather than presented as one online planner."
+      }
+    ],
+    "synthesis": {
+      "talk_ids": [
+        "d1-14",
+        "d2-56",
+        "d3-84",
+        "d2-57",
+        "d1-29"
+      ],
+      "paper_reference_ids": [
+        "dreamzero",
+        "imagewam",
+        "lawam",
+        "rolling-wam",
+        "grail",
+        "supermimic",
+        "lewam"
+      ],
+      "main_paper_ids": [
+        "Bshs9HDDiu",
+        "2dEfANeQL7",
+        "v24DO7JOuN",
+        "psNqjklVOK"
+      ],
+      "primary_paper_urls": [
+        {
+          "title": "World Action Models are Zero-shot Policies",
+          "url": "https://arxiv.org/abs/2602.15922",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "Bshs9HDDiu",
+          "verification": "The named publication matches this recorded talk in the catalogue. Its linked project may have reviewed methods, but this audit does not claim the complete manuscript body was read."
+        },
+        {
+          "title": "GRAIL: Generating Humanoid Loco-Manipulation from World Models",
+          "url": "https://arxiv.org/abs/2606.05160",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "2dEfANeQL7",
+          "verification": "The named publication matches this recorded talk in the catalogue. Its linked project may have reviewed methods, but this audit does not claim the complete manuscript body was read."
+        },
+        {
+          "title": "MoRE: Mixture-of-Experts for Multi-Physics Robotic World Models",
+          "url": "https://openreview.net/pdf/7f6cd0dbb61353d02cbb1264f15074b58b5b02df.pdf",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "v24DO7JOuN",
+          "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+        },
+        {
+          "title": "SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model",
+          "url": "https://arxiv.org/abs/2610.28480",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "psNqjklVOK",
+          "verification": "The named publication matches this recorded talk in the catalogue. Its linked project may have reviewed methods, but this audit does not claim the complete manuscript body was read."
+        }
+      ],
+      "scope_note": "Our synthesis is an editorial reading of the listed inputs. It does not attribute our conclusion to the speakers or claim universal dependencies, matched cross-paper rankings, or independent reproduction."
+    }
+  },
+  {
+    "panel_id": "data",
+    "perspectives": [
+      {
+        "index": 0,
+        "talk_ids": [
+          "d1-12"
+        ],
+        "paper_reference_ids": [
+          "h2rbench",
+          "handedit",
+          "mcr-representation"
+        ],
+        "reference_roles": {
+          "h2rbench": "context",
+          "handedit": "context",
+          "mcr-representation": "context"
+        },
+        "main_paper_ids": [
+          "cfzFrOJmKA"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "Being-H0.5: Scaling Human-Centric Robot Learning for Cross-Embodiment Generalization",
+            "url": "https://arxiv.org/abs/2601.12993",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "cfzFrOJmKA",
+            "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+          }
+        ],
+        "scope_note": "Being-H0.5 is the direct source, not these contextual papers. H2RBench’s human-data benefit is task/method-dependent at a fixed robot-supervision budget."
+      },
+      {
+        "index": 1,
+        "talk_ids": [
+          "d2-37"
+        ],
+        "paper_reference_ids": [
+          "h2r-bridge",
+          "handedit",
+          "h2rbench"
+        ],
+        "reference_roles": {
+          "h2r-bridge": "context",
+          "handedit": "context",
+          "h2rbench": "context"
+        },
+        "main_paper_ids": [
+          "JV472m0zgq"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "Ego2Robot: Scalable Robot Data Synthesis from Egocentric Human Data",
+            "url": "https://arxiv.org/abs/2608.02580",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "JV472m0zgq",
+            "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+          }
+        ],
+        "scope_note": "Ego2Robot is the direct source. H2R-Bridge separates observation alignment and action decoding; its weighted progress scores are not binary success percentages."
+      },
+      {
+        "index": 2,
+        "talk_ids": [
+          "d1-7"
+        ],
+        "paper_reference_ids": [
+          "glam",
+          "h2r-bridge",
+          "lawam"
+        ],
+        "reference_roles": {
+          "glam": "context",
+          "h2r-bridge": "context",
+          "lawam": "context"
+        },
+        "main_paper_ids": [
+          "4RLjGPEfpH"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "ZETA: A Controlled Study of Zero-Shot Cross-Embodiment VLA Transfer for Tabletop Manipulation",
+            "url": "https://arxiv.org/abs/2609.02546",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "4RLjGPEfpH",
+            "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+          }
+        ],
+        "scope_note": "ZETA is the direct coordinate-transfer study. GLAM’s grounded latents and H2R-Bridge decoders are contextual alternatives with narrower tested interfaces, not evidence of unrestricted cross-embodiment deployment."
+      }
+    ],
+    "synthesis": {
+      "talk_ids": [
+        "d1-12",
+        "d2-37",
+        "d1-7"
+      ],
+      "paper_reference_ids": [
+        "h2rbench",
+        "handedit",
+        "mcr-representation",
+        "h2r-bridge",
+        "glam",
+        "lawam",
+        "scale-up-strategically"
+      ],
+      "main_paper_ids": [
+        "cfzFrOJmKA",
+        "JV472m0zgq",
+        "4RLjGPEfpH"
+      ],
+      "primary_paper_urls": [
+        {
+          "title": "Being-H0.5: Scaling Human-Centric Robot Learning for Cross-Embodiment Generalization",
+          "url": "https://arxiv.org/abs/2601.12993",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "cfzFrOJmKA",
+          "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+        },
+        {
+          "title": "Ego2Robot: Scalable Robot Data Synthesis from Egocentric Human Data",
+          "url": "https://arxiv.org/abs/2608.02580",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "JV472m0zgq",
+          "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+        },
+        {
+          "title": "ZETA: A Controlled Study of Zero-Shot Cross-Embodiment VLA Transfer for Tabletop Manipulation",
+          "url": "https://arxiv.org/abs/2609.02546",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "4RLjGPEfpH",
+          "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+        }
+      ],
+      "scope_note": "Our synthesis is an editorial reading of the listed inputs. It does not attribute our conclusion to the speakers or claim universal dependencies, matched cross-paper rankings, or independent reproduction."
+    }
+  },
+  {
+    "panel_id": "posttrain",
+    "perspectives": [
+      {
+        "index": 0,
+        "talk_ids": [
+          "d1-11",
+          "d2-50"
+        ],
+        "paper_reference_ids": [
+          "pi07",
+          "mcr-representation"
+        ],
+        "reference_roles": {
+          "pi07": "direct",
+          "mcr-representation": "context"
+        },
+        "main_paper_ids": [
+          "WF4X17Al2r"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data",
+            "url": "https://arxiv.org/abs/2602.16710",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "WF4X17Al2r",
+            "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+          }
+        ],
+        "scope_note": "π0.7 and EgoScale are direct sources; representation pretraining is contextual. Do not turn different training budgets into a universal ranking."
+      },
+      {
+        "index": 1,
+        "talk_ids": [
+          "d2-46",
+          "d2-47"
+        ],
+        "paper_reference_ids": [
+          "rara",
+          "harbor",
+          "enpire",
+          "embodiedswe"
+        ],
+        "reference_roles": {
+          "rara": "context",
+          "harbor": "context",
+          "enpire": "context",
+          "embodiedswe": "context"
+        },
+        "main_paper_ids": [
+          "RYXo2ktK1M",
+          "acslhrig33"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "RL Token: Bootstrapping Online RL with Vision-Language-Action Models",
+            "url": "https://arxiv.org/abs/2604.23073",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "RYXo2ktK1M",
+            "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+          },
+          {
+            "title": "Flow Policy Gradients for Robot Control",
+            "url": "https://arxiv.org/abs/2602.02481",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "acslhrig33",
+            "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+          }
+        ],
+        "scope_note": "RL Token and Flow Policy Gradients are direct sources. Their trainable interfaces differ; Flow Policy Gradients should not be described as necessarily a small-module update. Related agent-engineering and representation papers are not their authors’ conclusions."
+      },
+      {
+        "index": 2,
+        "talk_ids": [
+          "d2-40",
+          "d2-49"
+        ],
+        "paper_reference_ids": [
+          "memory-anchors",
+          "multisensory-continual-learning",
+          "far",
+          "aspire"
+        ],
+        "reference_roles": {
+          "memory-anchors": "context",
+          "multisensory-continual-learning": "context",
+          "far": "context",
+          "aspire": "context"
+        },
+        "main_paper_ids": [
+          "aspenN9eir"
+        ],
+        "primary_paper_urls": [
+          {
+            "title": "FlowDAgger: Human-in-the-Loop Adaptation of Generative Robot Policies in Latent Space",
+            "url": "https://arxiv.org/abs/2607.08877",
+            "role": "direct",
+            "source_kind": "paper",
+            "catalogue_paper_id": "aspenN9eir",
+            "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+          }
+        ],
+        "scope_note": "FlowDAgger is the direct paper; Roberto Martín-Martín supplies the keynote framing. Memory Anchors concerns persistent training replay, not runtime fast weights. Retention is tested, not guaranteed; FAR’s real tests use human outcome labels."
+      }
+    ],
+    "synthesis": {
+      "talk_ids": [
+        "d1-11",
+        "d2-50",
+        "d2-46",
+        "d2-47",
+        "d2-40",
+        "d2-49"
+      ],
+      "paper_reference_ids": [
+        "pi07",
+        "mcr-representation",
+        "rara",
+        "harbor",
+        "enpire",
+        "embodiedswe",
+        "memory-anchors",
+        "multisensory-continual-learning",
+        "far",
+        "aspire"
+      ],
+      "main_paper_ids": [
+        "WF4X17Al2r",
+        "RYXo2ktK1M",
+        "acslhrig33",
+        "aspenN9eir"
+      ],
+      "primary_paper_urls": [
+        {
+          "title": "EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data",
+          "url": "https://arxiv.org/abs/2602.16710",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "WF4X17Al2r",
+          "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+        },
+        {
+          "title": "RL Token: Bootstrapping Online RL with Vision-Language-Action Models",
+          "url": "https://arxiv.org/abs/2604.23073",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "RYXo2ktK1M",
+          "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+        },
+        {
+          "title": "Flow Policy Gradients for Robot Control",
+          "url": "https://arxiv.org/abs/2602.02481",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "acslhrig33",
+          "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+        },
+        {
+          "title": "FlowDAgger: Human-in-the-Loop Adaptation of Generative Robot Policies in Latent Space",
+          "url": "https://arxiv.org/abs/2607.08877",
+          "role": "direct",
+          "source_kind": "paper",
+          "catalogue_paper_id": "aspenN9eir",
+          "verification": "Exact title/name match to this recorded presentation in the main catalogue; accepted-version and manuscript-reading status are separate."
+        }
+      ],
+      "scope_note": "Our synthesis is an editorial reading of the listed inputs. It does not attribute our conclusion to the speakers or claim universal dependencies, matched cross-paper rankings, or independent reproduction."
+    }
+  },
+  {
+    "panel_id": "deployment",
+    "perspectives": [
+      {
+        "index": 0,
+        "talk_ids": [
+          "d2-80"
+        ],
+        "paper_reference_ids": [
+          "far",
+          "memory-anchors"
+        ],
+        "reference_roles": {
+          "far": "context",
+          "memory-anchors": "context"
+        },
+        "main_paper_ids": [],
+        "primary_paper_urls": [],
+        "scope_note": "Russ Tedrake’s factory keynote is the direct source. These papers provide correction/replay context and are not reports of Walden’s deployment or commercial performance."
+      },
+      {
+        "index": 1,
+        "talk_ids": [
+          "d3-86"
+        ],
+        "paper_reference_ids": [
+          "atom-bench",
+          "pi07",
+          "gr00t2"
+        ],
+        "reference_roles": {
+          "atom-bench": "context",
+          "pi07": "context",
+          "gr00t2": "context"
+        },
+        "main_paper_ids": [],
+        "primary_paper_urls": [],
+        "scope_note": "The commercially viable generalist debate is direct recorded evidence. The papers test bounded capabilities and do not establish commercial viability or unrestricted generality."
+      },
+      {
+        "index": 2,
+        "talk_ids": [
+          "d1-33",
+          "d1-35"
+        ],
+        "paper_reference_ids": [
+          "atom-bench",
+          "contactguard",
+          "early-warning-openvla",
+          "rle-bench"
+        ],
+        "reference_roles": {
+          "atom-bench": "context",
+          "contactguard": "context",
+          "early-warning-openvla": "context",
+          "rle-bench": "context"
+        },
+        "main_paper_ids": [],
+        "primary_paper_urls": [],
+        "scope_note": "Burgard and RoboColosseum are keynote/industry sources. ATOM-Bench is controlled physical evaluation; ContactGuard detects/vetoes without recovery; RLE-Bench tests bounded engineering/simulation workflows rather than field reliability."
+      }
+    ],
+    "synthesis": {
+      "talk_ids": [
+        "d2-80",
+        "d3-86",
+        "d1-33",
+        "d1-35"
+      ],
+      "paper_reference_ids": [
+        "far",
+        "memory-anchors",
+        "atom-bench",
+        "pi07",
+        "gr00t2",
+        "contactguard",
+        "early-warning-openvla",
+        "rle-bench"
+      ],
+      "main_paper_ids": [],
+      "primary_paper_urls": [],
+      "scope_note": "Our synthesis is an editorial reading of the listed inputs. It does not attribute our conclusion to the speakers or claim universal dependencies, matched cross-paper rankings, or independent reproduction."
+    }
+  },
+  {
+    "panel_id": "agentic",
+    "perspectives": [
+      {
+        "index": 0,
+        "talk_ids": [
+          "d1-22"
+        ],
+        "paper_reference_ids": [
+          "gr00t2",
+          "aspire",
+          "physcap",
+          "mobiagent"
+        ],
+        "reference_roles": {
+          "gr00t2": "direct",
+          "aspire": "direct",
+          "physcap": "context",
+          "mobiagent": "context"
+        },
+        "main_paper_ids": [],
+        "primary_paper_urls": [
+          {
+            "title": "GR00T 2 technical whitepaper",
+            "url": "https://research.nvidia.com/labs/gear/gr00t-2/assets/gr00t2_whitepaper.pdf",
+            "role": "direct",
+            "source_kind": "technical-report",
+            "verification": "Linked from the official GR00T 2 project page. This audit verified the outlink and readable project Agentic Control section; the PDF crawler returned HTTP 200 with no readable text, so the PDF body is not claimed reviewed."
+          }
+        ],
+        "scope_note": "Direct GR00T 2 technical material and its ASPIRE recovery system accompany the talk. PhysCaP and MobiAgent are separate research systems illustrating belief/program changes or deployment-time planning; their results are not attributed to Jim Fan."
+      },
+      {
+        "index": 1,
+        "talk_ids": [
+          "d1-22"
+        ],
+        "paper_reference_ids": [
+          "aspire",
+          "harbor",
+          "enpire",
+          "embodiedswe",
+          "argon"
+        ],
+        "reference_roles": {
+          "aspire": "direct",
+          "harbor": "context",
+          "enpire": "context",
+          "embodiedswe": "context",
+          "argon": "context"
+        },
+        "main_paper_ids": [],
+        "primary_paper_urls": [],
+        "scope_note": "ASPIRE is the named skill-acquisition source. HARBOR/ENPIRE organize numerical policy learning, while EmbodiedSWE generates supervision for VLA fine-tuning. Argon assists a team workflow; it does not demonstrate autonomous neural-weight training by itself."
+      },
+      {
+        "index": 2,
+        "talk_ids": [
+          "d2-49"
+        ],
+        "paper_reference_ids": [
+          "memory-anchors",
+          "multisensory-continual-learning",
+          "mobiagent",
+          "aspire"
+        ],
+        "reference_roles": {
+          "memory-anchors": "context",
+          "multisensory-continual-learning": "context",
+          "mobiagent": "context",
+          "aspire": "context"
+        },
+        "main_paper_ids": [],
+        "primary_paper_urls": [],
+        "scope_note": "Roberto supplies the recorded framing; these papers investigate retention or repeated refinement. Memory Anchors is training replay, MobiAgent updates a fixed inventory and plateaus, and ASPIRE does not claim a fully autonomous real-world lifelong learner."
+      }
+    ],
+    "synthesis": {
+      "talk_ids": [
+        "d1-22",
+        "d2-49",
+        "d2-59"
+      ],
+      "paper_reference_ids": [
+        "gr00t2",
+        "aspire",
+        "physcap",
+        "mobiagent",
+        "harbor",
+        "enpire",
+        "embodiedswe",
+        "argon",
+        "memory-anchors",
+        "multisensory-continual-learning"
+      ],
+      "main_paper_ids": [],
+      "primary_paper_urls": [
+        {
+          "title": "GR00T 2 technical whitepaper",
+          "url": "https://research.nvidia.com/labs/gear/gr00t-2/assets/gr00t2_whitepaper.pdf",
+          "role": "direct",
+          "source_kind": "technical-report",
+          "verification": "Linked from the official GR00T 2 project page. This audit verified the outlink and readable project Agentic Control section; the PDF crawler returned HTTP 200 with no readable text, so the PDF body is not claimed reviewed."
+        }
+      ],
+      "scope_note": "Our synthesis is an editorial reading of the listed inputs. It does not attribute our conclusion to the speakers or claim universal dependencies, matched cross-paper rankings, or independent reproduction."
+    }
+  }
+]

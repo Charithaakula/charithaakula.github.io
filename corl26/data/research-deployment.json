@@ -1,0 +1,326 @@
+[
+  {
+    "id": "far",
+    "title": "FAR: Failure-Aware Retry for Test-Time Recovery and Continual Policy Improvement",
+    "url": "https://arxiv.org/abs/2607.01111",
+    "arxiv_id": "2607.01111",
+    "main_paper_ids": [
+      "7jMlaTLtAc"
+    ],
+    "workshop_paper_ids": [],
+    "reviewed_at": "2026-11-22",
+    "review_scope": "Primary manuscript main text, method (§4), experiments (§5), limitations (§6), and evaluation protocol (§C.3) read through the supported PDF-text reader; primary project page also read. Other appendix sections were not comprehensively reviewed.",
+    "status": "primary-paper-methods-evaluation-reviewed",
+    "full_summary": "FAR addresses the case in which an existing diffusion policy fails and a naive retry repeats the same behavior. It uses critic estimates to select potentially failure-inducing action chunks, pairs them with higher-valued alternatives, and performs a short preference-based policy update before retrying. Smoothed action perturbations provide local exploration. A separate improvement loop combines expert data, successful online trajectories and failed trajectories: the critic learns from the collected experience, while the actor learns from expert and successful data. The reported evaluation covers nine simulated manipulation tasks and three real xArm tasks, with bounded retry budgets. The paper supports distinguishing immediate recovery from longer-term policy improvement, but its autonomy claim needs care: real experiments use a human’s binary success/failure signal, and the arm is returned to its initial configuration between retries while the scene remains changed. Tests use single-task diffusion policies trained from scratch; transfer to large pretrained VLAs and principled automatic failure detection are stated future work.",
+    "method": "Use value-change estimates to select negative chunks, construct critic-ranked positive/negative preference pairs, update the diffusion policy, and retry with smoothed perturbations. Reuse recovery experience in critic learning and advantage-weighted policy training.",
+    "why_it_matters": "A recovery system can change behavior and generate useful learning data, but recovery success, failure-detection autonomy and reset cost are different claims that need separate accounting.",
+    "open_question": "Do gains remain when failure labels are automated, recovery exploration is safety-constrained, and the base policy is a large pretrained VLA rather than a single-task diffusion policy?",
+    "limitations": [
+      "The real-world protocol depends on a human-provided binary outcome signal; FAR does not supply a principled autonomous failure detector.",
+      "Retries still return the arm to an initial configuration. Avoiding full scene resets is different from eliminating every intervention.",
+      "The evaluated policies are trained from scratch in single-task settings; no demonstrated universal transfer to generalist VLAs.",
+      "Recovery exploration safety remains future work, and reported success is measured under finite retry budgets."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/pdf/2607.01111",
+        "section": "Appendix C.3 Evaluation, lines 1238–1241",
+        "quote": "In real-world experiments, a human observer provides a binary success/failure signal after each attempt."
+      },
+      {
+        "source_url": "https://arxiv.org/pdf/2607.01111",
+        "section": "§6 Limitations and Future Work, lines 528–532",
+        "quote": "our current framework does not include a principled failure detection mechanism, and instead relies on environment feedback and time limits."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "deployment",
+        "perspective_index": 0,
+        "note": "FAR provides a bounded example of using failures in a narrow deployment-like task to improve retries and later policy training. State the human outcome signal and reset protocol alongside the benefit.",
+        "reason": "It expands the deployment-first learning perspective with a concrete failure-to-retry-to-training mechanism, without claiming that narrow recovery establishes generality."
+      },
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 2,
+        "note": "Contrast per-failure preference updates with later replay-based policy improvement; they are separate learning stages and budgets.",
+        "reason": "It adds a specific correction signal and retained update mechanism to the existing adaptation discussion."
+      }
+    ],
+    "classification_note": "This is policy adaptation and recovery; the paper does not establish an LLM agentic planner or recursive improvement of the learning algorithm.",
+    "short_method": "Use critic estimates to select failure chunks, update the diffusion policy from failure/alternative preferences, and retry with smoothed perturbations. Replay recovery experience for further training.",
+    "short_why": "Separates immediate retry adaptation from later learning, while exposing human outcome signals and partial resets as part of the tested workflow.",
+    "short_question": "Do recovery gains survive automatic failure detection, safety-constrained exploration and transfer to large pretrained policies?"
+  },
+  {
+    "id": "atom-bench",
+    "title": "ATOM-Bench: A Real-World Benchmark for Atomic Skills and Compositional Generalization in Manipulation Policies",
+    "url": "https://flageval-baai.github.io/AtomBenchPage",
+    "arxiv_id": "2606.16826",
+    "main_paper_ids": [
+      "DpOVq6nE2d"
+    ],
+    "workshop_paper_ids": [],
+    "reviewed_at": "2026-11-22",
+    "review_scope": "Complete primary project page read, including task factorization, real-robot platforms, adaptation/test protocol and static results. The indexed-paper reader did not contain this ID; the full manuscript was not read.",
+    "status": "primary-project-reviewed",
+    "full_summary": "ATOM-Bench separates learning elementary manipulation skills from recombining them under new task structures. Its motor set isolates physical operations, its instruction set isolates language constraints, and a held-out composition set combines those factors. Models are adapted on atomic tasks only, rather than being shown demonstrations of the compositional test tasks. The project describes paired single-arm Franka Panda and dual-arm Cobot Magic tracks, with fixed physical test seeds and metrics for task completion, partial progress and composition failures. The reported models often perform much better on atomic tasks than on held-out combinations. This is useful evidence for asking what a benchmark score actually measures: a successful familiar operation is not automatically evidence of compositional reuse. The scope remains tabletop manipulation on these platforms and these adaptation protocols, not general home or factory performance. The project page reports results for its selected policies; it does not establish that every VLA has the same failure profile.",
+    "method": "Fine-tune policies on 15 atomic tasks per platform with no composition demonstrations, then evaluate atomic execution and held-out compositions over ten fixed real-world seeds.",
+    "why_it_matters": "It provides an operational way to distinguish an execution bottleneck from a compositional-generalization bottleneck instead of treating all task successes as one capability.",
+    "open_question": "How stable are the composition conclusions across more physical seeds, different adaptation data budgets, later policy versions and tasks beyond tabletop manipulation?",
+    "limitations": [
+      "Results are conditioned on the particular atomic-to-compositional split and the two hardware tracks.",
+      "Ten fixed physical seeds improve reproducibility but do not represent the full deployment distribution.",
+      "The displayed model comparisons concern the listed versions and training recipe; they cannot be generalized to all newer policies.",
+      "The complete primary project page was reviewed, not the full manuscript or an independent replication."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://flageval-baai.github.io/AtomBenchPage",
+        "section": "Evaluation Protocol, lines 86–100",
+        "quote": "Models are jointly fine-tuned on all 15 atomic tasks per platform, with no composition demos."
+      },
+      {
+        "source_url": "https://flageval-baai.github.io/AtomBenchPage",
+        "section": "Results heading, line 110",
+        "quote": "Strong atomic performance does not guarantee held-out composition."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "deployment",
+        "perspective_index": 1,
+        "note": "Use the atomic/compositional split as a concrete test of whether demonstrated narrow skills transfer to unshown task combinations; keep its tabletop scope visible.",
+        "reason": "It supplies measured transfer conditions for the generalist ambition perspective without equating compositional tabletop success with commercial generality."
+      },
+      {
+        "panel_id": "deployment",
+        "perspective_index": 2,
+        "note": "Separate motor execution, language constraints, partial progress and composition failures when interpreting a score.",
+        "reason": "It strengthens the practical-benchmark perspective with a specific protocol rather than a blanket claim that benchmarks are invalid."
+      }
+    ],
+    "short_method": "Fine-tune on atomic motor and instruction tasks, then test held-out compositions on two robot platforms using fixed physical seeds.",
+    "short_why": "Separates familiar skill execution from recombining skills; results remain scoped to the benchmark’s tasks, platforms and adaptation recipe.",
+    "short_question": "How stable are compositional results under more seeds, different adaptation budgets and tasks beyond tabletop manipulation?"
+  },
+  {
+    "id": "contactguard",
+    "title": "ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models",
+    "url": "https://arxiv.org/abs/2608.13438",
+    "arxiv_id": "2608.13438",
+    "main_paper_ids": [
+      "Jq0aPlIS34"
+    ],
+    "workshop_paper_ids": [],
+    "reviewed_at": "2026-11-22",
+    "review_scope": "Indexed primary manuscript introduction, latent-model/probe methods, online monitor, experimental setup/results and limitations read. Figures and the complete original PDF were not independently inspected.",
+    "status": "primary-paper-methods-evaluation-reviewed",
+    "full_summary": "ContactGuard is an execution monitor for a policy that proposes action chunks. It learns action-conditioned visual dynamics from unlabeled robot trajectories, freezes that latent world model, and trains a small failure probe on labeled pre-contact clips. Before a predicted gripper closure, the monitor rolls the model forward under the policy’s own planned actions and scores the future latent. A task-calibrated threshold can veto the chunk while the underlying policy remains unchanged. The experiments use four grasp settings on a dual-arm robot and compare future-latent monitoring against matched current-state and action-corruption controls. The live evaluation is a controlled counterfactual protocol: flagged attempts pause before contact and then resume so the would-be outcome can be recorded. Its claim is predictive abstention, not completed autonomous recovery or policy learning. The paper explicitly leaves post-abort completion and longer-horizon monitoring for future work. It therefore supports reporting false aborts, missed failures and subsequent task completion separately.",
+    "method": "Train a multi-view action-conditioned latent predictor without outcome labels, fit a frozen logistic failure probe on labeled clips, and veto imminent grasp chunks when the predicted post-contact failure score exceeds a per-task validation threshold.",
+    "why_it_matters": "A world model can support a bounded execution check without online search or changing policy weights. Failure prediction, aborting and recovery are distinct outputs.",
+    "open_question": "At an acceptable false-abort rate, can the monitor remain calibrated on new contacts and work with a recovery module that completes the task after a veto?",
+    "limitations": [
+      "It abstains but does not repair the scene or complete the task after an abort.",
+      "The implemented trigger is an imminent commanded gripper closure; general contact-event triggering is not demonstrated.",
+      "Evaluation covers four grasp settings and per-task validation thresholds, not arbitrary long-horizon skills.",
+      "The live protocol pauses and resumes flagged chunks to label counterfactual outcomes; it is not an evaluation of a complete abort-and-recover system."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/abs/2608.13438",
+        "section": "Conclusions, Limitations, and Future Work",
+        "quote": "ContactGuard prevents failures by abstaining, but does not recover from them or complete the task after an abort."
+      },
+      {
+        "source_url": "https://arxiv.org/abs/2608.13438",
+        "section": "Introduction: pre-contact monitoring",
+        "quote": "the monitor asks whether the action it is about to execute is likely to fail."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "deployment",
+        "perspective_index": 2,
+        "note": "Count predicted failures, false aborts and post-abort completion separately; the published monitor does not by itself supply recovery.",
+        "reason": "It makes the reliability and intervention discussion concrete while keeping the tested grasp settings and counterfactual protocol explicit."
+      },
+      {
+        "panel_id": "agentic",
+        "perspective_index": 0,
+        "note": "A bounded contrast: an added monitor can change execution outcomes while the policy is fixed. Do not label ContactGuard an LLM agent or evidence of autonomous learning.",
+        "reason": "It helps specify which artifact actually changes during execution, rather than inferring learning from a better outcome."
+      }
+    ],
+    "classification_note": "The presented implementation evaluates a proposed chunk without searching alternative plans, performing recovery, or updating policy weights online.",
+    "short_method": "Roll a frozen latent world model forward under the proposed action chunk; a trained failure probe can veto imminent contact.",
+    "short_why": "Pre-contact detection is separate from recovery: the published monitor abstains but does not finish the task after an abort.",
+    "short_question": "Can calibration hold on new contacts while a recovery module completes vetoed tasks at an acceptable false-abort rate?"
+  },
+  {
+    "id": "memory-anchors",
+    "title": "Memory Anchors for Continual Robot Learning",
+    "url": "https://robot-adaptation.github.io/MemoryAnchors",
+    "arxiv_id": "2608.26545",
+    "main_paper_ids": [
+      "dSbtHPqFj9"
+    ],
+    "workshop_paper_ids": [
+      "wp-80a08a7e33f2"
+    ],
+    "reviewed_at": "2026-11-22",
+    "review_scope": "Complete primary project methods, simulation and real-robot evaluation, limitations and FAQ read across lines 0–546; indexed manuscript conclusion/discussion also read. The full manuscript methods and appendices were not available through the indexed reader.",
+    "status": "primary-project-and-paper-discussion-reviewed",
+    "full_summary": "Memory Anchors studies which old training examples matter during sequential policy updates. The authors identify new-task states that overlap with old-task representations but require different actions, then select nearby old examples as anchors for replay. Removing these samples while holding buffer capacity fixed worsens forgetting in the reported experiments; enriching a small replay buffer with them can improve retention. This is training-data curation, not inference-time episodic memory. The project includes LIBERO studies, a pretrained π0.5 comparison and real-robot jar-opening and sweater-folding sequences. It also explains that different addition and subtraction experiments use different replay budgets, so their baseline scores should not be treated as one shared setting. The method requires the current representation space and past training data, and anchor-only replay can reduce diversity. These studies suggest a targeted replay intervention for observed task conflicts; they do not establish indefinite retention throughout a long real deployment.",
+    "method": "Filter new-task data for latent overlap with old data, locate action-target disagreements using the current policy, then enrich replay with nearby old examples while retaining diverse random samples.",
+    "why_it_matters": "Replay content and replay budget both affect retention. A broad model or a buffer-size headline alone does not explain how a conflicting new task is handled.",
+    "open_question": "Can anchor selection remain effective when old data or model internals are inaccessible, and across much longer task sequences and larger deployment shifts?",
+    "limitations": [
+      "Extraction requires access to past training data and the policy’s representation space.",
+      "Pre-task representation computation scales with the past dataset; subsampling may change which conflicts are found.",
+      "Memory Anchors are not the only useful replay data: diversity remains important.",
+      "The manuscript discussion describes relatively short sequences of 3–10 tasks, not lifelong deployment evidence.",
+      "Different replay budgets are used in different reported experiments; their raw baseline scores are not directly interchangeable.",
+      "Anchor extraction uses labeled new-task training samples; it is not training-free inference-time memory."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://robot-adaptation.github.io/MemoryAnchors",
+        "section": "Conclusion, Limitations, and FAQ, lines 481–491",
+        "quote": "Finding Memory Anchors requires access to past training data and the model's representation space."
+      },
+      {
+        "source_url": "https://robot-adaptation.github.io/MemoryAnchors",
+        "section": "Conclusion, Limitations, and FAQ, lines 490–491",
+        "quote": "we can't fill an ER buffer with only Memory Anchors, as the diversity suffers and, subsequently, so does the performance."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 2,
+        "note": "Add a retention example that targets replay samples near actual task conflicts, with the replay budget and data-access assumptions stated.",
+        "reason": "It expands the existing continual-adaptation perspective rather than adding a new panel question."
+      },
+      {
+        "panel_id": "deployment",
+        "perspective_index": 0,
+        "note": "A narrow sequential-learning study can diagnose failure mechanisms, but its short task sequences should not be presented as proof of indefinite reliability.",
+        "reason": "It supplies a concrete boundary between measured adaptation and a generalist deployment claim."
+      }
+    ],
+    "classification_note": "Place under Learn / Continual learning or policy adaptation. The anchors are replay training samples, not runtime memory or fast weights.",
+    "short_method": "Find new-task states with latent overlap and action disagreement; enrich training replay with nearby old examples alongside diverse random samples.",
+    "short_why": "Replay content and budget both affect retention; Memory Anchors are training samples, not inference-time memory.",
+    "short_question": "Can targeted replay work without private training data or model access, and through longer sequences and larger distribution shifts?"
+  },
+  {
+    "id": "multisensory-continual-learning",
+    "title": "Multisensory Continual Learning: Adapting Pretrained Visuomotor Policies to Force",
+    "url": "https://arxiv.org/abs/2606.30988",
+    "arxiv_id": "2606.30988",
+    "main_paper_ids": [
+      "NEtxISu52Q"
+    ],
+    "workshop_paper_ids": [
+      "wp-59110cc46f8d"
+    ],
+    "reviewed_at": "2026-11-22",
+    "review_scope": "Primary v4 HTML manuscript main text (§1–5), methods, force-torque case study, ablations and limitations read. References and appendices were not comprehensively reviewed.",
+    "status": "primary-paper-methods-evaluation-reviewed",
+    "full_summary": "MuSe asks how a policy pretrained without a sensor can acquire that modality later while preserving its earlier capabilities. The studied case adds force-torque sensing to a pretrained Unified Video-Action model. Early token fusion and later cross-attention adapters combine the sensor with vision and other inputs; the model predicts future observations, force-torque signals and actions. During adaptation, replay mixes the original pretraining data with new multisensory demonstrations, masking the force input and force loss where those measurements are absent. The evaluation separates force prediction on previously unsupervised tasks, forward transfer to new contact-rich tasks and backward transfer to pretraining tasks. The authors report improvements in their tabletop settings, while no-replay ablations exhibit substantial forgetting. This is evidence for a particular sensor-expansion and replay strategy, not a result that every added sensor improves every policy. Only force-torque expansion, limited tasks and access to the original pretraining data were tested; broader modalities, embodiments and longer horizons remain future work.",
+    "method": "Augment the pretrained UVA model with early and late force-torque fusion, joint future prediction, and masked replay of original vision-action data; use predicted wrench trajectories as an interface to adaptive compliance control.",
+    "why_it_matters": "Adaptation can change the sensor suite as well as the task distribution. New-task learning, prior-task retention and cross-modal transfer need separate evaluation.",
+    "open_question": "Will the approach still retain earlier skills without storing the original pretraining data, and when the new modality is touch, audio or depth rather than force-torque?",
+    "limitations": [
+      "The demonstrated sensor-expansion case is force-torque; other modalities and combinations are untested.",
+      "Replay assumes access to the original pretraining data.",
+      "The real-world evaluation is a limited tabletop task set; diverse robots and longer-horizon tasks remain future work.",
+      "Some reported task scores use partial credit, so fractional totals should not be described as counts of independently successful trials."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/html/2606.30988v4",
+        "section": "§5 Limitations and future works, lines 307–311",
+        "quote": "We study multi-sensory continual learning through a single sensor-expansion case: adding force–torque sensing to a pretrained vision-action policy."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2606.30988v4",
+        "section": "§5 Limitations and future works, lines 309–311",
+        "quote": "Our experiments also rely on experience replay with access to the original pretraining data"
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 1,
+        "note": "Use sensor expansion as a specific adaptation target, and report forward transfer, backward transfer and missing-modality handling separately.",
+        "reason": "It gives the targeted-policy-learning perspective a concrete case beyond standard task-only fine-tuning."
+      },
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 2,
+        "note": "The original-data replay assumption is part of the retention result, not an optional detail.",
+        "reason": "It strengthens the existing continual-learning discussion while preserving the scope of the tested force-torque case."
+      }
+    ],
+    "classification_note": "A learning/adaptation study with force-aware execution; it does not establish a new universal robot-architecture category.",
+    "short_method": "Add force-torque fusion and future prediction to pretrained UVA; mix new multisensory demonstrations with original-data replay, masking absent force inputs and losses.",
+    "short_why": "Separates new-sensor adaptation, old-task retention and cross-modal transfer; the tested case adds force-torque sensing.",
+    "short_question": "Will retention hold without stored pretraining data, or when adding touch, audio or depth instead of force-torque?"
+  },
+  {
+    "id": "rle-bench",
+    "title": "RLE-Bench: A Qualifying Exam for Coding Agents as Robot Learning Engineers",
+    "url": "https://rle-bench.github.io/",
+    "arxiv_id": "2609.34210",
+    "main_paper_ids": [],
+    "workshop_paper_ids": [
+      "wp-23a62171652f"
+    ],
+    "reviewed_at": "2026-11-22",
+    "review_scope": "Complete primary project overview and technical blog read, including nine task definitions, development budgets, hidden-evaluation protocols and case studies. The arXiv manuscript was not indexed, and the PDF reader did not return it. Dynamic aggregate score charts were not readable and are not treated as verified numeric results.",
+    "status": "primary-project-and-technical-overview-reviewed",
+    "full_summary": "RLE-Bench evaluates a coding agent’s robot-learning engineering process, not only the controller it finally produces. Nine tasks span interactive control, policy development, perception and estimation, and mechanical design. Depending on the task, the submitted artifact may be retained agent context, a harness for a fresh agent, an exported policy, a training recipe, an estimator or a mechanical design. The benchmark constrains development time, interactions and compute, then tests the result under hidden conditions. Its overview also distinguishes three interface levels: low-level APIs, reusable robotics tools, and privileged simulator state. These interfaces matter when interpreting agent comparisons. The public technical report includes cases in which visible objectives or development tests fail to predict broader checks, reinforcing the value of independently held-out evaluation. The benchmark does not establish field reliability for generalist robots: some transfer is explicitly sim-to-sim, aggregate charts were unreadable here, and reported API cost excludes simulation and GPU infrastructure.",
+    "method": "Give agents task-specific development environments and budgets, retain the appropriate work product, and evaluate it under independent hidden scenes, seeds, embodiments or physical constraints across four workflow families.",
+    "why_it_matters": "The artifact and evaluation boundary identify what an agent improved. An engineering score or a successful preview is not the same as a verified long-term robot deployment.",
+    "open_question": "Which engineering improvements transfer to real hardware and persist under new tasks when evaluation also accounts for infrastructure cost and uncertainty?",
+    "limitations": [
+      "The benchmark measures bounded engineering tasks; it does not establish commercial generalist deployment reliability.",
+      "The motion-tracking transfer described in the report is MuJoCo-Warp to MuJoCo-C, explicitly sim-to-sim.",
+      "API cost excludes simulation, GPU compute and other infrastructure.",
+      "Dynamic aggregate results were unavailable to this reader, so no complete current leaderboard ranking or numerical model comparison is claimed.",
+      "Published case studies are selected examples, not measured failure frequencies."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://rle-bench.github.io/blog/",
+        "section": "Coding agents beyond the digital world, lines 18–22",
+        "quote": "The capabilities we would like to evaluate span over the agent’s development process, not merely the policy it eventually produces."
+      },
+      {
+        "source_url": "https://rle-bench.github.io/",
+        "section": "Performance and Cost, lines 21–24",
+        "quote": "Cost excludes simulation, GPU compute, and other infrastructure."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "deployment",
+        "perspective_index": 2,
+        "note": "Separate engineering-development success from hidden evaluation and field reliability; show what infrastructure is excluded from cost.",
+        "reason": "It supplies a workflow-level benchmark perspective without equating an agent engineering score with a deployed robot’s commercial usefulness."
+      },
+      {
+        "panel_id": "agentic",
+        "perspective_index": 1,
+        "note": "Name whether the agent produced a harness, code, policy or training recipe, then test that artifact independently; do not infer recursive self-improvement from the loop.",
+        "reason": "It adds a workshop-listed example of measuring agent-assisted learning work under explicit budgets and evaluation boundaries."
+      }
+    ],
+    "classification_note": "An engineering benchmark with simulator-based development and task-specific hidden evaluation, not an across-the-board real-hardware generalist score.",
+    "short_method": "Give coding agents bounded development tasks; independently evaluate their harnesses, policies, recipes or designs under hidden conditions across four workflow families.",
+    "short_why": "Measures engineering artifacts under hidden tests; benchmark scores and API costs do not establish field reliability or total deployment cost.",
+    "short_question": "Which engineering improvements persist on real hardware, new tasks and distributions when cost also includes infrastructure?"
+  }
+]

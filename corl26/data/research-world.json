@@ -1,0 +1,233 @@
+[
+  {
+    "id": "lewam",
+    "title": "LeWAM: End-to-End World and Action Modeling with JEPAs",
+    "url": "https://arxiv.org/abs/2610.12818",
+    "arxiv_id": "2610.12818",
+    "year": 2026,
+    "kind": "Workshop-associated research paper",
+    "main_paper_ids": [],
+    "workshop_paper_ids": [
+      "wp-46959ae702ab"
+    ],
+    "review_scope": "Indexed manuscript methods, evaluation protocols, physical-robot experiments and limitations, cross-checked against the primary arXiv abstract and HTML introduction.",
+    "status": "primary-paper-reviewed",
+    "reviewed": true,
+    "full_summary": "LeWAM jointly learns action-conditioned latent dynamics and a flow-matching action policy. It can sample actions directly or refine candidate plans by differentiating through the learned dynamics. Its goal-image planning experiments and goal-free behavior-cloning experiments test different uses of that model family. The physical-robot experiments use direct policy execution; they do not demonstrate that online planning improves every physical task. Models are trained or adapted for individual tasks and embodiments.",
+    "method": "Jointly train latent-state prediction and action generation; for planning, refine sampled action sequences while holding model parameters fixed.",
+    "why_it_matters": "Provides a concrete way to investigate direct execution and explicit prediction-based planning within a related model family, while making the evaluation setting explicit.",
+    "open_question": "Does the planning benefit survive unfamiliar objects, changing viewpoints and real-robot goal-conditioned tasks at a matched runtime budget?",
+    "limitations": [
+      "Physical-robot results use direct execution, while visual planning has goal images and a separate evaluation protocol.",
+      "Tasks and embodiments are trained or adapted separately; broad multitask transfer is a proposed extension.",
+      "Data coverage, longer horizons and larger candidate populations remain scaling questions."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/html/2610.12818v1",
+        "section": "LeWAM Planning",
+        "quote": "During refinement, model parameters remain frozen and only the normalized action plans receive gradients."
+      },
+      {
+        "source_url": "https://arxiv.org/html/2610.12818v1",
+        "section": "Conclusion and Limitations",
+        "quote": "Models are trained or adapted separately for each task and embodiment."
+      }
+    ],
+    "venue_note": "The organizers list the same full title. The accepted OpenReview version and author list were not exposed by that listing, so the reviewed arXiv version is identified separately.",
+    "related_talk_ids": [
+      "d1-14",
+      "d2-73"
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "world",
+        "perspective_index": 2,
+        "note": "Explicitly refines policy-sampled plans through latent dynamics. Its physical-robot results use direct execution, keeping the planning-versus-policy comparison scoped.",
+        "reason": "Adds a reviewed workshop-associated example of actual online action refinement."
+      }
+    ],
+    "reviewed_at": "2026-11-22",
+    "verification": "Primary-source methods and evaluation were reviewed. Results are author-reported; this guide does not independently reproduce them.",
+    "summary": "LeWAM jointly learns action-conditioned latent dynamics and a flow-matching action policy. It can sample actions directly or refine candidate plans by differentiating through the learned dynamics. Its goal-image planning experiments and goal-free behavior-cloning experiments test different uses of that model family. The physical-robot experiments use direct policy execution; they do not demonstrate that online planning improves every physical task. Models are trained or adapted for individual tasks and embodiments.",
+    "authors_source": "See the linked primary manuscript."
+  },
+  {
+    "id": "rolling-wam",
+    "title": "Rolling-WAM: World Action Models with Rolling Imagination",
+    "url": "https://arxiv.org/abs/2609.30247",
+    "arxiv_id": "2609.30247",
+    "year": 2026,
+    "kind": "Workshop research paper",
+    "main_paper_ids": [],
+    "workshop_paper_ids": [
+      "wp-8d08cf32b9a5",
+      "wp-6999e291453b"
+    ],
+    "review_scope": "Indexed manuscript methods, training, benchmark protocols, real-robot evaluation and limitations, corroborated by the primary project page.",
+    "status": "primary-paper-reviewed",
+    "reviewed": true,
+    "full_summary": "Rolling-WAM distributes joint video-action denoising across successive control updates. It completes the next action chunk while retaining partially refined future chunks, then incorporates a new observation as the window advances. The paper evaluates simulation benchmarks and three Unitree G1 manipulation tasks. Its timing comparison measures steady-state replanning rather than startup or the complete robot lifecycle. The authors also identify a trade-off: retained future predictions can lag behind rapid scene changes, particularly with long windows.",
+    "method": "Maintain a sliding video-action prediction window at staggered noise levels; finish, execute and replace the nearest chunk while refining its future continuation.",
+    "why_it_matters": "Changes how prediction compute is allocated over time, supplying another concrete timing strategy alongside the conference discussion of robot control clocks.",
+    "open_question": "How do window size and initialization cost affect response to abrupt changes outside the demonstrated task distribution?",
+    "limitations": [
+      "Latency timing includes visual encoding and denoising but excludes warm-up and initialization.",
+      "The physical evaluation covers three manipulation tasks; it is not evidence of unrestricted humanoid generality.",
+      "Long prediction windows can preserve stale future context."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/abs/2609.30247",
+        "section": "Inference Efficiency",
+        "quote": "Timing includes visual encoding and denoising, with CUDA synchronization, and excludes warm-up and initialization."
+      },
+      {
+        "source_url": "https://arxiv.org/abs/2609.30247",
+        "section": "Conclusion: limitations",
+        "quote": "Despite observation feedback, retained predictions may lag behind rapid scene changes and misguide action generation, particularly with long windows."
+      }
+    ],
+    "venue_note": "Title and first author match the Efficient Foundation Models workshop listing. The world-model workshop separately lists it as website-only; accepted versions are not assumed identical.",
+    "related_talk_ids": [
+      "d1-10",
+      "d1-14"
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "policy",
+        "perspective_index": 1,
+        "note": "Amortizes video-action prediction over successive control updates. Its steady-state timing excludes initialization; this is an alternative timing strategy, not another System 0/1/2 implementation.",
+        "reason": "Adds a workshop paper that makes the physical-clock discussion measurable."
+      },
+      {
+        "panel_id": "world",
+        "perspective_index": 0,
+        "note": "Retains future-video generation while spreading its computation over time; rolling prediction is distinct from optimizing candidate action plans.",
+        "reason": "Broadens the direct world-action perspective beyond one model."
+      }
+    ],
+    "reviewed_at": "2026-11-22",
+    "verification": "Primary-source methods and evaluation were reviewed. Results are author-reported; this guide does not independently reproduce them.",
+    "summary": "Rolling-WAM distributes joint video-action denoising across successive control updates. It completes the next action chunk while retaining partially refined future chunks, then incorporates a new observation as the window advances. The paper evaluates simulation benchmarks and three Unitree G1 manipulation tasks. Its timing comparison measures steady-state replanning rather than startup or the complete robot lifecycle. The authors also identify a trade-off: retained future predictions can lag behind rapid scene changes, particularly with long windows.",
+    "authors_source": "See the linked primary manuscript."
+  },
+  {
+    "id": "imagewam",
+    "title": "ImageWAM: Do World Action Models Really Need Video Generation, or Just Image Editing?",
+    "url": "https://arxiv.org/abs/2606.19531",
+    "arxiv_id": "2606.19531",
+    "year": 2026,
+    "kind": "Main-conference paper",
+    "main_paper_ids": [
+      "ntHuqgjrgs"
+    ],
+    "workshop_paper_ids": [],
+    "review_scope": "Indexed manuscript architecture, objectives, inference, experiments and ablations, corroborated by the complete primary project page.",
+    "status": "primary-paper-reviewed",
+    "reviewed": true,
+    "full_summary": "ImageWAM attaches an action expert to an image-editing backbone. During inference it computes editing-aware attention context from one editing-branch step, then denoises an action chunk using that context. It does not decode a complete future image or generate a dense future video for each update. The study reports simulation benchmarks and four dual-arm hardware tasks, with multiple editing backbones. This supports examining how much visual prediction an action policy needs in those settings, rather than declaring video prediction unnecessary for all robot control.",
+    "method": "Train the editing branch and action expert together, retain frozen understanding components, and use editing caches to condition action flow matching.",
+    "why_it_matters": "Supplies a main-paper alternative to dense future-video intermediates and separates one editing-step shortcut from the remaining action-denoising computation.",
+    "open_question": "Which dynamic or longer-horizon tasks require temporal prediction that an editing-cache intermediate does not retain?",
+    "limitations": [
+      "A single editing-branch step is not a single-step action-generation or complete-control-loop guarantee.",
+      "Reported results cover the specified training, benchmark and hardware settings; generalized dominance is not established.",
+      "Different backbone variants and efficiency baselines use different interfaces, so figures should not be pooled without their protocols."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://zhangwenyao1.github.io/ImageWAM/",
+        "section": "Compact inference",
+        "quote": "At test time, ImageWAM uses one editing forward step and internal KV caches, avoiding dense future-video denoising and decoding."
+      }
+    ],
+    "related_talk_ids": [
+      "d1-14",
+      "d1-1"
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "policy",
+        "perspective_index": 0,
+        "note": "Conditions an action expert on one image-editing forward step and its attention caches; the action expert still denoises actions.",
+        "reason": "Adds a main-paper example of changing the intermediate representation inside a direct policy."
+      },
+      {
+        "panel_id": "world",
+        "perspective_index": 0,
+        "note": "Uses editing-aware context without decoding a future image or dense video at inference. Its evidence is limited to the tested tasks and interfaces.",
+        "reason": "Adds a specific alternative to dense future-video generation."
+      }
+    ],
+    "reviewed_at": "2026-11-22",
+    "verification": "Primary-source methods and evaluation were reviewed. Results are author-reported; this guide does not independently reproduce them.",
+    "summary": "ImageWAM attaches an action expert to an image-editing backbone. During inference it computes editing-aware attention context from one editing-branch step, then denoises an action chunk using that context. It does not decode a complete future image or generate a dense future video for each update. The study reports simulation benchmarks and four dual-arm hardware tasks, with multiple editing backbones. This supports examining how much visual prediction an action policy needs in those settings, rather than declaring video prediction unnecessary for all robot control.",
+    "authors_source": "See the linked primary manuscript."
+  },
+  {
+    "id": "lawam",
+    "title": "LaWAM: Latent World Action Models for Efficient Dynamics-Aware Robot Policies",
+    "url": "https://arxiv.org/abs/2606.15768",
+    "arxiv_id": "2606.15768",
+    "year": 2026,
+    "kind": "Main-conference paper",
+    "main_paper_ids": [
+      "mw8BgE8ADo"
+    ],
+    "workshop_paper_ids": [],
+    "review_scope": "Indexed manuscript model stages, component ablations, physical-time alignment, real-robot protocols and limitations, corroborated by the complete primary project page.",
+    "status": "primary-paper-reviewed",
+    "reviewed": true,
+    "full_summary": "LaWAM learns a latent-action-conditioned world model in a frozen visual feature space, then teaches a language-conditioned policy to predict the latent action needed for a future subgoal. An action expert uses that compact future feature without rendering future pixels. The manuscript includes physical-time alignment for mixed-frequency action data and controlled task evaluations. Its stated limitations include unstable camera motion and insufficient coverage of fine deformable dynamics. Coherent open-loop latent rollouts on other embodiments are not the same evidence as successful closed-loop control on a new robot.",
+    "method": "Pretrain latent dynamics, distill transition codes into a policy prior, and condition action chunks on a predicted latent visual subgoal.",
+    "why_it_matters": "Connects predictive representation design with practical action timing, while identifying where future-state features and native action frequencies enter the policy.",
+    "open_question": "Can its latent dynamics retain useful task change when camera self-motion or fine contact deformation dominates the observation?",
+    "limitations": [
+      "The paper states a preference for relatively stable camera views and weaker modeling of rare fine-grained deformation.",
+      "Open-loop cross-embodiment latent visualization does not establish zero-shot closed-loop policy deployment on those robots.",
+      "The project page includes additional evaluations; they are not pooled with the retrieved manuscript protocol or other papers’ timing measurements."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/abs/2606.15768",
+        "section": "Limitations",
+        "quote": "LaWAM is currently most effective in manipulation settings with relatively stable camera views."
+      },
+      {
+        "source_url": "https://arxiv.org/abs/2606.15768",
+        "section": "Physical-Time Alignment for Mixed-Frequency Data",
+        "quote": "the same action-token index does not necessarily represent the same elapsed physical time."
+      }
+    ],
+    "related_talk_ids": [
+      "d1-14",
+      "d1-7",
+      "d1-10"
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "policy",
+        "perspective_index": 0,
+        "note": "Predicts a compact latent visual subgoal instead of rendering future pixels; camera-motion and deformation limits qualify the reported control benefits.",
+        "reason": "Broadens the main-paper evidence for direct dynamics-aware policies."
+      },
+      {
+        "panel_id": "data",
+        "perspective_index": 2,
+        "note": "Aligns mixed-frequency actions by physical time. Shared token positions alone do not establish a common physical transition across datasets.",
+        "reason": "Adds a representation/interface issue distinct from merely collecting more data."
+      },
+      {
+        "panel_id": "world",
+        "perspective_index": 0,
+        "note": "Uses a compact latent future as action context, rather than explicit candidate-plan optimization or dense video generation.",
+        "reason": "Adds another concrete role for prediction within a policy."
+      }
+    ],
+    "reviewed_at": "2026-11-22",
+    "verification": "Primary-source methods and evaluation were reviewed. Results are author-reported; this guide does not independently reproduce them.",
+    "summary": "LaWAM learns a latent-action-conditioned world model in a frozen visual feature space, then teaches a language-conditioned policy to predict the latent action needed for a future subgoal. An action expert uses that compact future feature without rendering future pixels. The manuscript includes physical-time alignment for mixed-frequency action data and controlled task evaluations. Its stated limitations include unstable camera motion and insufficient coverage of fine deformable dynamics. Coherent open-loop latent rollouts on other embodiments are not the same evidence as successful closed-loop control on a new robot.",
+    "authors_source": "See the linked primary manuscript."
+  }
+]
