@@ -1,0 +1,1112 @@
+[
+  {
+    "talk_id": "d1-1",
+    "takeaway": "Connect visual and physical reasoning to an action expert in one open training recipe.",
+    "flow": [
+      "Vision + instruction",
+      "Reasoning backbone",
+      "Action expert",
+      "Robot adaptation"
+    ],
+    "insight": "An open recipe lets researchers test which training stage supplies a transferable capability.",
+    "question": "Which parts of out-of-the-box success survive a genuinely new robot, task and environment?",
+    "diagram_note": "Pretraining, mid-training and adaptation are learning stages, rather than three calls required for every action."
+  },
+  {
+    "talk_id": "d1-2",
+    "takeaway": "Preserve semantic alignment without erasing the details needed to execute an action.",
+    "flow": [
+      "Pretrained VLM features",
+      "Shared semantic branch",
+      "Private action details",
+      "Robot action"
+    ],
+    "insight": "Separate representations can protect instruction meaning while retaining physical precision.",
+    "question": "Does alignment retain instruction following without removing task-specific geometric detail?"
+  },
+  {
+    "talk_id": "d1-3",
+    "takeaway": "A robot can remember both recent motion and long-task progress without retaining every frame.",
+    "flow": [
+      "Recent video",
+      "Compressed visual memory",
+      "Recurrent text summary",
+      "Memory-conditioned action"
+    ],
+    "insight": "The two memory scales address different failures: immediate motion and forgotten task progress.",
+    "question": "Can the memory recover from an incorrect stored belief, and how is old state cleared between tasks?",
+    "diagram_note": "Visual and textual memories are complementary paths; textual state is refreshed recurrently."
+  },
+  {
+    "talk_id": "d1-4",
+    "takeaway": "Pretraining can teach progress toward a goal, not only how to copy an action.",
+    "flow": [
+      "Instruction goal",
+      "Positive reachability pairs",
+      "Contrastive + action loss",
+      "Downstream policy"
+    ],
+    "insight": "Goal-reachability supervision gives the representation a notion of what an action accomplishes.",
+    "question": "Does reachability supervision transfer to new goals without requiring their trajectories in the pretraining set?"
+  },
+  {
+    "talk_id": "d1-5",
+    "takeaway": "Learn which instructions improve a frozen VLA, and intervene only when they are likely to help.",
+    "flow": [
+      "Candidate language edits",
+      "Frozen VLA trials",
+      "Learn feedback policy",
+      "Selective language gate"
+    ],
+    "insight": "Behavior can improve by learning the language interface while leaving the motor policy untouched.",
+    "question": "How often does language steering help, and when is missing low-level skill the actual bottleneck?",
+    "diagram_note": "The learned feedback policy changes; the downstream VLA remains frozen."
+  },
+  {
+    "talk_id": "d1-6",
+    "takeaway": "A familiar scene can overpower a new instruction; inference guidance tests and corrects that shortcut.",
+    "flow": [
+      "Same scene, new instruction",
+      "Conditioned action",
+      "Unconditioned action",
+      "Contrastive guidance"
+    ],
+    "insight": "Changing language while holding the image fixed isolates instruction following from visual habit.",
+    "question": "Does improved instruction following persist across unseen scenes and ambiguous language?",
+    "diagram_note": "Conditioned and unconditioned predictions are compared; this is not an agentic skill-learning loop."
+  },
+  {
+    "talk_id": "d1-7",
+    "takeaway": "Cross-robot transfer depends on action coordinates and whether the target robot appeared in training.",
+    "flow": [
+      "Fixed scenes + tasks",
+      "Vary robot embodiment",
+      "Gripper-local actions",
+      "Separate exposure tests"
+    ],
+    "insight": "A transfer score is only comparable when representation and target-exposure assumptions are explicit.",
+    "question": "How much transfer comes from gripper-relative coordinates, source diversity or prior exposure to the target robot?",
+    "diagram_note": "Strict zero-shot excludes the target robot from training; pretraining-exposed transfer is a different test."
+  },
+  {
+    "talk_id": "d1-8",
+    "takeaway": "Keep a transferable Cartesian policy, but guide execution using the target robot’s whole-body geometry.",
+    "flow": [
+      "Joint-space samples",
+      "Forward kinematics",
+      "Frozen Cartesian policy",
+      "Joint-space guidance",
+      "Collision-aware action"
+    ],
+    "insight": "The same end-effector behavior can be preserved while avoiding collisions elsewhere on the arm.",
+    "question": "How reliable is collision avoidance under geometry errors or unfamiliar joint limits?",
+    "diagram_note": "Kinematic mappings connect joint and Cartesian spaces during iterative denoising; policy weights stay frozen."
+  },
+  {
+    "talk_id": "d1-9",
+    "takeaway": "Compositional failure can come from missing examples, weak instructions or dependent subgoals.",
+    "flow": [
+      "Task combinations",
+      "Controlled coverage splits",
+      "Instruction tests",
+      "Subgoal dependency diagnosis"
+    ],
+    "insight": "A diagnosis tells you whether to collect another demonstration or improve task conditioning.",
+    "question": "Which dependent task pairs must be demonstrated, and which combinations can be composed without new data?"
+  },
+  {
+    "talk_id": "d1-10",
+    "takeaway": "A slow reasoning model is useful when faster layers keep the robot responsive.",
+    "flow": [
+      "Task-level intent",
+      "VLA or skill execution",
+      "Fast contact control",
+      "Progress + force feedback"
+    ],
+    "insight": "The clock determines where a decision belongs, and failure feedback must cross back upward.",
+    "question": "What latency and feedback frequency does each physical subtask require, and where should computation be placed?",
+    "diagram_note": "System 0/1/2 denote physical timescales here; the last step is an upward feedback path, not another slower controller."
+  },
+  {
+    "talk_id": "d1-11",
+    "takeaway": "Diverse prompts and quality metadata make mixed robot experience steerable rather than disposable.",
+    "flow": [
+      "Mixed-quality experience",
+      "Task + quality context",
+      "Generalist policy training",
+      "Prompted robot behavior"
+    ],
+    "insight": "Conditioning describes both the requested task and the strategy or quality represented by a trajectory.",
+    "question": "How much new task capability is gained at fixed robot-hours, and what target-task exposure is required?",
+    "diagram_note": "The paper notes that related skills can appear incidentally in a large dataset, complicating definitive seen/unseen classification."
+  },
+  {
+    "talk_id": "d1-12",
+    "takeaway": "Use human interaction as a shared representational anchor across different robots.",
+    "flow": [
+      "Human + robot data",
+      "Shared action slots",
+      "Embodiment specialization",
+      "Cross-robot behavior"
+    ],
+    "insight": "A common interface can preserve transferable structure while allowing robot-specific execution.",
+    "question": "Which human motion labels remain trustworthy after reconstruction and retargeting, especially for contact?"
+  },
+  {
+    "talk_id": "d1-13",
+    "takeaway": "RoboTTT compresses long interaction history into fast weights that update while the robot acts.",
+    "flow": [
+      "Current observation",
+      "Fast-weight state update",
+      "History-conditioned action",
+      "Carry state forward"
+    ],
+    "insight": "Long context becomes fixed-size recurrent state rather than a continually growing frame cache.",
+    "question": "How do online state updates behave after a failure, interruption or change of task?",
+    "diagram_note": "Fast weights update during inference. Persistent slow checkpoint parameters and recurrent fast state are distinct; this alone does not prove continual learning across deployments."
+  },
+  {
+    "talk_id": "d1-14",
+    "takeaway": "A video-generation prior can become a robot policy by predicting future video and actions together.",
+    "flow": [
+      "Pretrained video model",
+      "Joint video + action training",
+      "Optimized joint inference",
+      "Closed-loop robot action"
+    ],
+    "insight": "Video supplies a dense physical prior, but deployment also depends on inference scheduling and latency.",
+    "question": "What is the measured control latency, and how does joint generation handle physical mismatch or long rollouts?",
+    "diagram_note": "Joint world-action generation is different from explicit search over candidate future rollouts. New-embodiment adaptation uses target play data."
+  },
+  {
+    "talk_id": "d1-15",
+    "takeaway": "Retrieve spatial history according to the action being considered, instead of treating all past views equally.",
+    "flow": [
+      "Candidate action",
+      "Retrieve multiview history",
+      "Memory-conditioned dynamics",
+      "Future-state prediction"
+    ],
+    "insight": "Action-conditioned retrieval can recover the hidden geometry relevant to the next manipulation.",
+    "question": "How does the model handle stale or contradictory history, and does better video prediction improve control?"
+  },
+  {
+    "talk_id": "d1-16",
+    "takeaway": "Compact motion history can help a policy act at the right time in a changing scene.",
+    "flow": [
+      "Recent observations",
+      "Motion + command context",
+      "Temporal representation",
+      "Dynamic manipulation"
+    ],
+    "insight": "Timing needs information that a single image cannot supply.",
+    "question": "How far can compact context extrapolate beyond the speeds and timing patterns seen in training?"
+  },
+  {
+    "talk_id": "d1-17",
+    "takeaway": "Compare demonstrations as paths, then curate a subset with high signature entropy.",
+    "flow": [
+      "Observation-action paths",
+      "Signature kernel matrix",
+      "Signature entropy",
+      "Diversity-guided subset"
+    ],
+    "insight": "Trajectory geometry supplies a data-coverage measure without training a policy or auxiliary diversity model.",
+    "question": "Does the metric predict gains across tasks and embodiments, or mainly within its measured dataset distribution?"
+  },
+  {
+    "talk_id": "d1-18",
+    "takeaway": "Train manipulation at scale in simulation, then test what transfers without real-task demonstrations.",
+    "flow": [
+      "Simulated task variation",
+      "Synthetic robot experience",
+      "Generalist policy",
+      "Real-robot transfer"
+    ],
+    "insight": "Simulation shifts the data bottleneck toward environment design and physical transfer validation.",
+    "question": "Which simulation choices are essential, and where do visual or contact mismatches still require real data?",
+    "diagram_note": "No real-task demonstrations in the described transfer setting does not mean the simulator perfectly reproduces real contact."
+  },
+  {
+    "talk_id": "d1-19",
+    "takeaway": "A high manipulation score may reward benchmark shortcuts rather than the capability it claims to measure.",
+    "flow": [
+      "Claimed robot capability",
+      "Benchmark task + resets",
+      "Controlled task changes",
+      "Interpret score differences"
+    ],
+    "insight": "Evaluation design determines which generalization conclusion a score can support.",
+    "question": "Would the reported ranking survive new scenes, different resets and stricter success criteria?"
+  },
+  {
+    "talk_id": "d1-20",
+    "takeaway": "Dexterous skills need contact, force and recovery information that hand-motion video alone leaves out.",
+    "flow": [
+      "Capture useful demonstrations",
+      "Convert references to skills",
+      "Retarget experience",
+      "Dexterous execution"
+    ],
+    "insight": "The missing interaction signals can determine whether a visually plausible motion actually works.",
+    "question": "Which parts of the stack have controlled independent validation, and what acquisition cost is needed per reusable skill?",
+    "diagram_note": "This is Sharpa’s described stack and argument, not an independent comparison of all dexterous-learning methods."
+  },
+  {
+    "talk_id": "d1-21",
+    "takeaway": "Close the loop between real capture, physically calibrated simulation and deployment feedback.",
+    "flow": [
+      "Capture real activity",
+      "Calibrate simulation",
+      "Train + evaluate policy",
+      "Deploy + collect feedback"
+    ],
+    "insight": "Simulation becomes more useful when its errors are checked against real interactions.",
+    "question": "How is physical fidelity checked against real trajectories, and does simulator improvement reduce deployment failures?",
+    "diagram_note": "The final feedback returns to calibration and training. Capabilities are company-described."
+  },
+  {
+    "talk_id": "d1-22",
+    "takeaway": "GR00T acts, a supervisor checks progress, and ASPIRE code skills can repair a failure before control returns.",
+    "flow": [
+      "Reasoning supervisor",
+      "GR00T manipulation",
+      "Detect stall or failure",
+      "ASPIRE code recovery",
+      "Resume learned control"
+    ],
+    "insight": "A task can combine a learned motor policy with executable recovery skills instead of relying on either alone.",
+    "question": "What changes during improvement: the current plan, executable skill code, policy weights or the experiment-selection procedure?",
+    "diagram_note": "ASPIRE learns code skills through trial and error; real-world RL can separately update the action policy. Executing the supervisor loop is not itself a policy-weight update."
+  },
+  {
+    "talk_id": "d1-23",
+    "takeaway": "Robots must learn to coordinate with other decision makers, not only react to a passive scene.",
+    "flow": [
+      "Observe partner behavior",
+      "Model interaction",
+      "Choose coordinated action",
+      "Partner responds"
+    ],
+    "insight": "The other actor’s response changes the environment the policy is trying to control.",
+    "question": "Can a trained robot coordinate with an unfamiliar partner that follows a different timing or convention?"
+  },
+  {
+    "talk_id": "d1-24",
+    "takeaway": "Low-bit robot models need an aligned training recipe and a runtime that can exploit packed weights.",
+    "flow": [
+      "Low-bit model components",
+      "Quantization-aware learning",
+      "Packed-weight runtime",
+      "Onboard robot inference"
+    ],
+    "insight": "Memory and energy gains matter only if the deployed hardware preserves useful control performance.",
+    "question": "Do performance and energy gains hold on the intended edge hardware under matched precision and control budgets?"
+  },
+  {
+    "talk_id": "d1-25",
+    "takeaway": "Predict what the robot will see after the inference delay, and schedule execution asynchronously.",
+    "flow": [
+      "Recent robot observation",
+      "Future-state anticipation",
+      "Asynchronous inference",
+      "Fresh aligned execution"
+    ],
+    "insight": "Observation freshness can matter more than raw model throughput on a moving physical task.",
+    "question": "How much prediction error can the controller tolerate when the world changes during its inference delay?"
+  },
+  {
+    "talk_id": "d1-26",
+    "takeaway": "Rolling denoising revises an ongoing action sequence when new observations arrive.",
+    "flow": [
+      "Current action sequence",
+      "Fresh observation",
+      "Rolling denoising update",
+      "Smooth reactive motion"
+    ],
+    "insight": "The controller can respond without discarding all of the trajectory’s temporal coherence.",
+    "question": "How do input freshness, reaction delay and motion jitter trade off on dynamic physical tasks?",
+    "diagram_note": "REACT here is reactive action-chunk control, not a language agent that learns or orchestrates skills."
+  },
+  {
+    "talk_id": "d1-27",
+    "takeaway": "Learn when to update the controller as well as which action to execute.",
+    "flow": [
+      "Observe state",
+      "Choose action + duration",
+      "Hold within update budget",
+      "Observe and replan"
+    ],
+    "insight": "Inference can be concentrated at moments when feedback is likely to change the action.",
+    "question": "What minimum update rate preserves recovery when unexpected contact or a push occurs?"
+  },
+  {
+    "talk_id": "d1-28",
+    "takeaway": "Partial re-noising keeps early and late motion segments open to revision.",
+    "flow": [
+      "Noisy action sequence",
+      "Partial re-noising",
+      "Cross-time denoising",
+      "Revised trajectory"
+    ],
+    "insight": "The noise schedule changes how strongly a poor early prefix commits the rest of the motion.",
+    "question": "How much extra inference is required, and does the benefit persist with the same training schedule and model capacity?"
+  },
+  {
+    "talk_id": "d1-29",
+    "takeaway": "Different physical regimes can use specialized motion experts inside one world model.",
+    "flow": [
+      "Object + actuator state",
+      "Motion-expert router",
+      "Specialized dynamics",
+      "Predicted 3D motion"
+    ],
+    "insight": "A mixture can avoid averaging incompatible material or actuation behavior into one prediction.",
+    "question": "The recorded talk ends early after technical problems; empirical performance requires the paper or a complete presentation.",
+    "diagram_note": "The recorded presentation was interrupted. This diagram represents the stated architecture, without claiming reviewed empirical results."
+  },
+  {
+    "talk_id": "d1-30",
+    "takeaway": "Compromised input data can propagate through a world model into a downstream robot policy.",
+    "flow": [
+      "Third-party input",
+      "World-model generation",
+      "Generated training data",
+      "Downstream policy check"
+    ],
+    "insight": "Data provenance must cover transformations, not only the initial dataset download.",
+    "question": "What screening, provenance tracking and downstream validation detect contaminated generated trajectories?",
+    "diagram_note": "This diagram describes the studied contamination pathway and its evaluation, rather than an endorsed data-generation workflow."
+  },
+  {
+    "talk_id": "d1-31",
+    "takeaway": "Predict an entire latent chunk to reduce the error of repeatedly unrolling one-step dynamics.",
+    "flow": [
+      "Current latent state",
+      "Candidate action chunk",
+      "Future latent prediction",
+      "Model-based policy update"
+    ],
+    "insight": "Chunk-level predictions offer optimization signals without the same recursive error chain.",
+    "question": "Does the model remain accurate as chunk length grows, and what physical tasks expose model bias?"
+  },
+  {
+    "talk_id": "d1-32",
+    "takeaway": "Share a multimodal prior across robot clients while preserving their local specialized policies.",
+    "flow": [
+      "Local robot policies",
+      "Transport-aligned priors",
+      "Shared server guidance",
+      "Local value-stable updates"
+    ],
+    "insight": "Federation should preserve different useful behavior modes instead of collapsing them through averaging.",
+    "question": "Does sharing help the weakest client without collapsing distinct behavior modes or requiring incompatible objectives?"
+  },
+  {
+    "talk_id": "d1-33",
+    "takeaway": "Robust autonomy needs calibrated uncertainty and task-stage evidence alongside learned perception and action.",
+    "flow": [
+      "Perception + task state",
+      "Uncertainty estimate",
+      "Act or defer",
+      "Check stage outcome"
+    ],
+    "insight": "Confidence is useful when it changes whether the robot should continue, recover or seek help.",
+    "question": "Are confidence estimates calibrated at each task stage, including after the robot has already deviated from the intended plan?",
+    "diagram_note": "This diagram is a synthesis of the keynote’s system requirements, rather than a single newly proposed algorithm."
+  },
+  {
+    "talk_id": "d1-34",
+    "takeaway": "Driving self-play and imitation offer different kinds of coverage, and different gaps.",
+    "flow": [
+      "Simulated self-play",
+      "Real driving imitation",
+      "Compare coverage + behavior",
+      "Deployment evaluation"
+    ],
+    "insight": "Self-play can supply rare events; real logs supply distribution and human-behavior information.",
+    "question": "Which conclusions are published evaluations, and which product timelines or capability statements are company projections?",
+    "diagram_note": "Self-play and imitation are parallel learning routes. The speaker notes simplified simulation inputs and real-distribution mismatch; product dates are company plans."
+  },
+  {
+    "talk_id": "d1-35",
+    "takeaway": "Pair accessible interaction capture with physical evaluations run beyond a single lab.",
+    "flow": [
+      "Egocentric capture",
+      "Open processing tools",
+      "Robot evaluation sites",
+      "Comparable physical results"
+    ],
+    "insight": "A broader evaluation network can test whether capability survives different real environments.",
+    "question": "Can independent sites reproduce results with consistent task definitions and disclosure of human interventions?",
+    "diagram_note": "RoboCap and RoboColosseum are distinct capture and evaluation efforts described by the sponsor."
+  },
+  {
+    "talk_id": "d1-36",
+    "takeaway": "Turn captured activity into robot-relevant data, then monitor whether deployed actions meet the task.",
+    "flow": [
+      "Egocentric capture",
+      "Process + annotate activity",
+      "Robot-relevant experience",
+      "Task monitoring feedback"
+    ],
+    "insight": "Collection volume becomes useful only when labels and downstream improvement can be checked.",
+    "question": "How are label quality, embodiment transfer and downstream improvement measured independently of collection volume?",
+    "diagram_note": "This is the company-described collection and monitoring workflow."
+  },
+  {
+    "talk_id": "d2-37",
+    "takeaway": "Align human motion and visual appearance to synthesize demonstrations a robot policy can use.",
+    "flow": [
+      "Egocentric human video",
+      "Recover + retarget motion",
+      "Robot visual synthesis",
+      "Filter training examples"
+    ],
+    "insight": "Separating action alignment from appearance synthesis reveals where human-to-robot transfer actually comes from.",
+    "question": "Which gains come from action alignment versus visual synthesis, and what failures survive filtering?"
+  },
+  {
+    "talk_id": "d2-38",
+    "takeaway": "Transfer a person’s intended subgoal instead of trying to copy their exact motion.",
+    "flow": [
+      "Gaze + hand cues",
+      "Infer intended subgoal",
+      "Robot action generation",
+      "Check task outcome"
+    ],
+    "insight": "Intention can remain meaningful when a robot’s body cannot reproduce the human movement.",
+    "question": "Can intention prediction distinguish plausible alternatives when gaze or hand motion is ambiguous?"
+  },
+  {
+    "talk_id": "d2-39",
+    "takeaway": "A learned contact copilot can improve precision while the human retains high-level intent.",
+    "flow": [
+      "Human task command",
+      "Simulation-trained copilot",
+      "Residual contact correction",
+      "Assisted teleoperation"
+    ],
+    "insight": "Better low-level assistance can make both execution and collected demonstrations more useful.",
+    "question": "Does assistance improve demonstration quality without overriding a user's intent on unfamiliar objects?",
+    "diagram_note": "The human remains part of the deployed control loop; assisted success is not fully autonomous success."
+  },
+  {
+    "talk_id": "d2-40",
+    "takeaway": "Convert a human correction into the latent input that would make a pretrained policy produce it.",
+    "flow": [
+      "Human action correction",
+      "Invert action to latent",
+      "Train small latent policy",
+      "Steer pretrained controller"
+    ],
+    "insight": "The foundation model can retain its prior while a small module learns the difficult local fix.",
+    "question": "How many interventions are needed for a new failure mode, and do corrections degrade previously successful behavior?",
+    "diagram_note": "The small latent policy is trained; the large VLA or world-action model is not backpropagated through."
+  },
+  {
+    "talk_id": "d2-41",
+    "takeaway": "Learn two-hand grasps as coordinated object-relative configurations, not two independent predictions.",
+    "flow": [
+      "Object geometry",
+      "Coupled grasp examples",
+      "Object-relative hand anchors",
+      "Coordinated bimanual grasp"
+    ],
+    "insight": "Coupling the hands accounts for mutual constraints that separate single-hand models can miss.",
+    "question": "Do coordinated grasps remain feasible under real contact uncertainty and a different hand embodiment?"
+  },
+  {
+    "talk_id": "d2-42",
+    "takeaway": "Predict a hand’s grasp keypoints, then solve for executable joint commands.",
+    "flow": [
+      "Object point cloud",
+      "Conditional keypoint model",
+      "Predicted hand keypoints",
+      "Inverse kinematics"
+    ],
+    "insight": "A geometric grasp representation can separate learned contact structure from robot-specific joint angles.",
+    "question": "What fraction of predicted keypoint grasps remains kinematically and contact-feasible after inverse kinematics?"
+  },
+  {
+    "talk_id": "d2-43",
+    "takeaway": "Use multimodal prediction to build a recurrent state useful for closed-loop in-hand contact.",
+    "flow": [
+      "Depth + touch + state",
+      "Recurrent interaction memory",
+      "Geometry + touch prediction",
+      "Contact-conditioned action"
+    ],
+    "insight": "A world model can serve as a state representation even without searching imagined futures.",
+    "question": "Does representation quality improve closed-loop control under new sensor corruption and contact conditions?"
+  },
+  {
+    "talk_id": "d2-44",
+    "takeaway": "Train the second robot with the first robot’s actual policy in the loop, then correct the pair’s interaction.",
+    "flow": [
+      "Train first robot",
+      "Freeze first policy",
+      "Demonstrate partner",
+      "Correct first interaction"
+    ],
+    "insight": "Policies learn the other robot’s timing and mistakes rather than assuming perfect simultaneous demonstrations.",
+    "question": "Can the learned pair still coordinate if one robot or its controller is replaced?",
+    "diagram_note": "Training is sequential and asymmetric; both robots do not require simultaneous teleoperation."
+  },
+  {
+    "talk_id": "d2-45",
+    "takeaway": "A robot can complete its own task while leaving the next robot a more useful environment.",
+    "flow": [
+      "Leader candidate state",
+      "Follower value estimate",
+      "Out-of-distribution gate",
+      "Usable environment left"
+    ],
+    "insight": "The follower’s prospects become an objective for the leader without jointly training their policies.",
+    "question": "Does the value gate still protect cooperation when the follower encounters a genuinely new shared state?",
+    "diagram_note": "The leader balances its own objective with the follower’s handoff-state value. The distribution gate suppresses unreliable follower values; neither policy needs joint training."
+  },
+  {
+    "talk_id": "d2-46",
+    "takeaway": "Learn a compact reinforcement-learning component around a frozen VLA’s features and action proposal.",
+    "flow": [
+      "Frozen VLA features",
+      "Compress to RL token",
+      "Base action + token",
+      "Online RL component"
+    ],
+    "insight": "Targeted online learning can focus on execution bottlenecks without retraining the foundation model.",
+    "question": "Does token learning generalize beyond the adapted tasks, and what physical interaction budget does it require?",
+    "diagram_note": "The smaller learner is updated from experience; the frozen VLA supplies features and an action proposal."
+  },
+  {
+    "talk_id": "d2-47",
+    "takeaway": "Stabilize flow-policy reinforcement learning with trust regions that account for individual samples.",
+    "flow": [
+      "Sample flow-policy actions",
+      "Estimate policy improvement",
+      "Per-sample trust region",
+      "Stable policy update"
+    ],
+    "insight": "The update rule can preserve exploration instead of allowing the action distribution to collapse.",
+    "question": "Do gains hold across random seeds and task classes, with comparable exploration and deployment sampling?",
+    "diagram_note": "Training exploration and deployment action sampling are distinct choices in the recorded study."
+  },
+  {
+    "talk_id": "d2-48",
+    "takeaway": "Use a learned trust gate because real road users do not always follow the symbolic rule.",
+    "flow": [
+      "Neural trajectory forecast",
+      "Probabilistic traffic rules",
+      "Learned trust gate",
+      "Rule-adjusted prediction"
+    ],
+    "insight": "Explicit rules help most when the system knows when their assumptions are unreliable.",
+    "question": "How does the gate behave under incorrect maps, local-rule changes and deliberate noncompliance?"
+  },
+  {
+    "talk_id": "d2-49",
+    "takeaway": "Judge a robot prior by how much new capability it enables from the next small amount of experience.",
+    "flow": [
+      "Pre-learned action space",
+      "Select useful experience",
+      "Adapt the allowed interface",
+      "Retain new capability"
+    ],
+    "insight": "Equal performance today can hide very different learning potential tomorrow.",
+    "question": "How much improvement is gained per safe interaction, and which older capabilities are retained?",
+    "diagram_note": "Freezing a prior can speed learning while limiting which motions can change; the reuse interface is part of the learning design."
+  },
+  {
+    "talk_id": "d2-50",
+    "takeaway": "Scale human-video learning by recovering motion and bridging both visual and embodiment gaps.",
+    "flow": [
+      "Egocentric video scale",
+      "Recover camera + hand motion",
+      "Robot-hand action mapping",
+      "Policy pretraining"
+    ],
+    "insight": "Large human datasets matter only when the information recovered from them becomes executable robot behavior.",
+    "question": "What contact information is absent from video, and how much target-robot data is still needed to bridge the gap?"
+  },
+  {
+    "talk_id": "d2-51",
+    "takeaway": "Choose a stable grasp that also leaves the object usable for the requested task.",
+    "flow": [
+      "Task language",
+      "Synthetic functional grasps",
+      "Human-contact alignment",
+      "Task-suitable grasp"
+    ],
+    "insight": "A mechanically secure grasp can still block pouring, tool use or the next manipulation.",
+    "question": "Can grasp generation preserve both physical stability and functional access on genuinely new objects?"
+  },
+  {
+    "talk_id": "d2-52",
+    "takeaway": "General dexterous play can make sparse-reward assembly learnable before task-specific precision training.",
+    "flow": [
+      "Random object-goal play",
+      "Shared dexterity policy",
+      "Sparse assembly fine-tuning",
+      "Real pose-conditioned control"
+    ],
+    "insight": "Pretraining useful movements reduces the exploration burden of long, contact-rich assembly.",
+    "question": "Which forms of play matter for transfer, and where does simulated contact fail on the real robot?",
+    "diagram_note": "The reported policy is trained in simulation and deployed with tracked object poses. Play quality and diversity are explicit ablations."
+  },
+  {
+    "talk_id": "d2-53",
+    "takeaway": "Infer external joint torque from motor response instead of adding a dedicated force-torque sensor.",
+    "flow": [
+      "Free-space motor calibration",
+      "Observed motor current",
+      "External torque residual",
+      "Force-aware policy"
+    ],
+    "insight": "Contact feedback can come from a calibrated representation of existing hardware signals.",
+    "question": "How robust is the estimate to payload, temperature, wear and motion outside the calibration distribution?",
+    "diagram_note": "The estimate depends on the learned free-space response and the actual payload/dynamics."
+  },
+  {
+    "talk_id": "d2-54",
+    "takeaway": "Touch has three jobs: identify the phase, trigger corrections and predict what contact does next.",
+    "flow": [
+      "Sustained tactile state",
+      "Contact-phase conditioning",
+      "Abrupt-event correction",
+      "Future-touch supervision"
+    ],
+    "insight": "Giving tactile signals temporal roles is more specific than simply concatenating another sensor input.",
+    "question": "Does the phase/event split generalize across sensors, objects and contact speeds?",
+    "diagram_note": "The labels show complementary conditioning, correction and training roles, rather than a mandatory serial sensor pipeline."
+  },
+  {
+    "talk_id": "d2-55",
+    "takeaway": "Slow continuous-action search can teach a policy that later deploys without search.",
+    "flow": [
+      "Policy-proposed actions",
+      "Progressively widened search",
+      "Tree value + action targets",
+      "Policy and critic distillation",
+      "Direct policy deployment"
+    ],
+    "insight": "Training-time planning compute can be amortized into a fast controller.",
+    "question": "Does the distilled policy retain long-horizon success on new arrangements without additional test-time search?",
+    "diagram_note": "Search and actor/critic updates repeat during training. The recorded test policy deploys without search, explicitly stated at 03:27:14 and again in the conclusion at 03:28:10."
+  },
+  {
+    "talk_id": "d2-56",
+    "takeaway": "Generate humanoid experience in a known 3D scene, then ground the recovered motion in physical control.",
+    "flow": [
+      "Known scene + video prompt",
+      "Recover human-object motion",
+      "Retarget to humanoid",
+      "Physics-aware tracking",
+      "Train visual policy"
+    ],
+    "insight": "Known geometry and robot proportions reduce ambiguity before generated motion becomes robot data.",
+    "question": "Which generated trajectories are physically executable, and how is failed reconstruction or contact hallucination filtered?",
+    "diagram_note": "Video generation is a training-data source. Its visual plausibility is not itself proof of physical feasibility."
+  },
+  {
+    "talk_id": "d2-57",
+    "takeaway": "Learn shared humanoid dynamics once, then use their gradients to train a whole motion library efficiently.",
+    "flow": [
+      "Simulator transitions",
+      "Fit differentiable dynamics",
+      "Short imagined rollouts",
+      "Analytic policy update",
+      "Repeat data-model loop"
+    ],
+    "insight": "Amortized dynamics and fast gradients make large motion-tracking experiments cheaper to iterate.",
+    "question": "How does model error affect difficult contact transitions, and do compute comparisons include learning the world model?",
+    "diagram_note": "Gradients pass through the learned model, not the rigid-body simulator. Reported benchmark motion failures measure training-library coverage, not held-out generalization."
+  },
+  {
+    "talk_id": "d2-58",
+    "takeaway": "Teach a humanoid the kick, the ball contact and the approach as a staged curriculum.",
+    "flow": [
+      "Reference kick tracking",
+      "Accurate ball contact",
+      "Approach the ball",
+      "Balanced shooting policy"
+    ],
+    "insight": "Curriculum stages expose dynamic task physics that motion imitation alone does not solve.",
+    "question": "Does precision persist for varied balls, surfaces and initial poses, without task-specific retuning?"
+  },
+  {
+    "talk_id": "d2-59",
+    "takeaway": "Gemini executes robot actions; Argon can separately build and test the learning experiments.",
+    "flow": [
+      "Real/sim rollout",
+      "Argon suggests fixes",
+      "Team trains a new model",
+      "Real-world evaluation"
+    ],
+    "insight": "A frontier model can accelerate policy development as well as supervise execution.",
+    "question": "Does an Argon-proposed fix improve held-out real tasks and retain previous capability, beyond the task used for iteration?",
+    "diagram_note": "This illustrates the Argon-assisted research segment discussed in the presentation; subsequent model training and testing are described as team activities."
+  },
+  {
+    "talk_id": "d2-60",
+    "takeaway": "A single whole-body action model can work beneath a factory job harness that reasons and verifies.",
+    "flow": [
+      "Factory task + exceptions",
+      "Orbit + Gemini ER reasoning",
+      "Onboard Atlas action model",
+      "Verify, recover or re-task"
+    ],
+    "insight": "Precise completion checks and exception handling connect physical skills to a real production workflow.",
+    "question": "What throughput, intervention rate and task-reset cost are achieved over sustained factory operation?",
+    "diagram_note": "The robot’s Atlas action model is distinct from Gemini ER, and Boston Dynamics Atlas is distinct from World Labs’ Atlas world model."
+  },
+  {
+    "talk_id": "d2-61",
+    "takeaway": "A reusable force-sensitive platform makes controller and experiment interfaces part of reproducible research.",
+    "flow": [
+      "Force-sensitive robot arm",
+      "Controller interfaces",
+      "Research software stack",
+      "Repeatable experiments"
+    ],
+    "insight": "Shared hardware interfaces help laboratories compare methods under known control assumptions.",
+    "question": "Which measurements and interfaces remain consistent across robot versions and independent laboratories?",
+    "diagram_note": "This is the sponsor’s research-platform presentation, rather than a new single learned policy."
+  },
+  {
+    "talk_id": "d2-62",
+    "takeaway": "Separate force markers from tactile appearance so one sensing need does not obscure the other.",
+    "flow": [
+      "Marker-based tactile image",
+      "Force-information branch",
+      "Texture-information branch",
+      "Cross-branch supervision"
+    ],
+    "insight": "Recovering both force and surface detail preserves more information for downstream contact perception.",
+    "question": "Does separation remain accurate for new materials, lighting and sensor deformation?",
+    "diagram_note": "The two branches are parallel decompositions of the same sensing input."
+  },
+  {
+    "talk_id": "d2-63",
+    "takeaway": "Complementary fingertip cameras keep approach and near-contact information available to the policy.",
+    "flow": [
+      "Approach camera view",
+      "Near-contact camera view",
+      "Action-conditioned fusion",
+      "Dexterous robot action"
+    ],
+    "insight": "Sensing at the fingertip can reveal details that a wrist camera loses near contact.",
+    "question": "How well do the sensing and fusion designs transfer to a different fingertip geometry or lighting regime?",
+    "diagram_note": "The camera views are complementary inputs rather than sequential observation stages."
+  },
+  {
+    "talk_id": "d2-64",
+    "takeaway": "Manipulation across water needs both refraction-aware vision and a workable contact-sensing design.",
+    "flow": [
+      "Air-water observations",
+      "Refraction-aware augmentation",
+      "Pressure-transmitted touch",
+      "Multimodal manipulation"
+    ],
+    "insight": "A physical sensing constraint can require changing hardware and representation together.",
+    "question": "How robust is the system to changing water depth, bubbles and conditions outside the augmentation range?"
+  },
+  {
+    "talk_id": "d2-65",
+    "takeaway": "Draw tactile measurements onto the image so existing visual robot policies can use contact.",
+    "flow": [
+      "Tactile measurement",
+      "Spatial contact overlay",
+      "Existing visual encoder",
+      "Contact-aware action"
+    ],
+    "insight": "An input representation can add physical feedback without redesigning the policy’s sensor encoder.",
+    "question": "Do overlays preserve accurate spatial meaning across camera placements and different tactile sensors?",
+    "diagram_note": "The contact overlay must remain spatially calibrated to the camera image."
+  },
+  {
+    "talk_id": "d2-66",
+    "takeaway": "Contact failures need both finer action precision and force feedback organized over time.",
+    "flow": [
+      "Precision + force failures",
+      "Logit-normal post-training",
+      "Temporal force injection",
+      "Contact-gated action"
+    ],
+    "insight": "The source separates an action-precision fix from the temporal force feedback needed to recognize contact.",
+    "question": "Which gain comes from action precision versus force conditioning, and does the fix generalize without extra demonstrations?",
+    "diagram_note": "The source examines separate precision and force-conditioning interventions; their contributions need independent ablation."
+  },
+  {
+    "talk_id": "d2-67",
+    "takeaway": "Add a force expert that can correct a predicted action chunk before the next visual replan.",
+    "flow": [
+      "Pretrained visual policy",
+      "Force-aware expert",
+      "Within-chunk correction",
+      "Reactive contact action"
+    ],
+    "insight": "Post-training can add fast contact response while preserving a broad visual prior.",
+    "question": "Does the force module remain useful under sensor bias and unfamiliar objects without degrading vision-only performance?",
+    "diagram_note": "The base visual pathway and force expert are complementary; corrections can occur inside an action chunk."
+  },
+  {
+    "talk_id": "d2-68",
+    "takeaway": "Use the policy’s sampled trajectories to infer where stiffness helps and where compliance is safer.",
+    "flow": [
+      "Generative policy samples",
+      "Feasible motion subspace",
+      "Direction-specific stiffness",
+      "Compliant object interaction"
+    ],
+    "insight": "An inferred constraint structure can guide impedance without a manually specified articulation model.",
+    "question": "How reliable is the inferred subspace when articulation changes with configuration or policy samples are biased?"
+  },
+  {
+    "talk_id": "d2-69",
+    "takeaway": "A fast torque adapter can compensate for dynamics changes without retraining every underlying controller.",
+    "flow": [
+      "Policy actions",
+      "Controller torque + history",
+      "TAM adapter",
+      "Corrected torque",
+      "Robot execution"
+    ],
+    "insight": "A small low-level interface can absorb payload or friction mismatch across policies.",
+    "question": "How far outside the simulated dynamics range does adaptation remain stable, and how is unsafe extrapolation detected?",
+    "diagram_note": "The adapter consumes recent history at execution; this does not by itself imply online policy-weight updates."
+  },
+  {
+    "talk_id": "d2-70",
+    "takeaway": "Sample feasible contact states so reinforcement learning encounters useful interaction modes sooner.",
+    "flow": [
+      "Physical contact constraints",
+      "Feasible state sampling",
+      "Reset or curriculum support",
+      "Reinforcement learning"
+    ],
+    "insight": "Better starting states can address exploration before changing the policy optimizer.",
+    "question": "Do sampled states remain relevant to real task trajectories, and what is the cost of constructing the constraints?"
+  },
+  {
+    "talk_id": "d2-71",
+    "takeaway": "Use physics for the approximate step and learn the deformable dynamics it misses.",
+    "flow": [
+      "Observed particles + motion",
+      "Approximate physics step",
+      "Learned residual correction",
+      "Next deformable state"
+    ],
+    "insight": "A residual model targets simulator error while retaining a structured physical prior.",
+    "question": "Which materials and deformations require new residual data, and can the correction violate physical consistency?"
+  },
+  {
+    "talk_id": "d2-72",
+    "takeaway": "Make industrial wire tasks comparable through shared fixtures, geometry variation and scoring.",
+    "flow": [
+      "Wire task definitions",
+      "Vary geometry + fixtures",
+      "Simulated method evaluation",
+      "Matched real-transfer tests"
+    ],
+    "insight": "A common benchmark can expose whether a gain survives different contact-sensitive setups.",
+    "question": "Do simulator rankings agree with real contact-sensitive wire manipulation under matched setups?",
+    "diagram_note": "The recorded work discusses simulation benchmarking and mixed simulated/real demonstrations; real-transfer agreement remains a question to examine."
+  },
+  {
+    "talk_id": "d2-73",
+    "takeaway": "Use the cloth simulator at decision time to test actions, execute the first and replan.",
+    "flow": [
+      "Current cloth image",
+      "Reconstruct deformable mesh",
+      "Parallel simulated candidates",
+      "Optimize and execute first",
+      "Observe and replan"
+    ],
+    "insight": "Explicit rollout planning can compensate for a poor initial action proposal if the reconstruction is accurate.",
+    "question": "How sensitive is planning to cloth reconstruction errors and imperfect simulator dynamics?",
+    "diagram_note": "This is test-time simulator planning, unlike using a world model only to generate training data."
+  },
+  {
+    "talk_id": "d2-74",
+    "takeaway": "Smooth differentiable contact and calibrated uncertainty support robust deformable feedback control.",
+    "flow": [
+      "Differentiable simulator",
+      "Calibrate prediction error",
+      "Robust output-feedback plan",
+      "Observe deformable state",
+      "Replan control"
+    ],
+    "insight": "Uncertainty and measurement error belong inside the control design, not only in an after-the-fact score.",
+    "question": "Which uncertainty and smooth-contact assumptions are required for the claimed robustness or certification?",
+    "diagram_note": "Robustness depends on the stated smooth-contact formulation and calibrated error assumptions."
+  },
+  {
+    "talk_id": "d2-75",
+    "takeaway": "Learn consistent spatial features even when depth pixels are corrupted or unreliable.",
+    "flow": [
+      "Corrupted depth views",
+      "Cross-view geometry learning",
+      "Uncertainty-aware aggregation",
+      "Robust 3D policy features"
+    ],
+    "insight": "A policy should preserve useful geometry instead of treating every depth measurement as equally trustworthy.",
+    "question": "Does robustness extend to unseen corruption patterns and camera calibration errors?"
+  },
+  {
+    "talk_id": "d2-76",
+    "takeaway": "Retain a spatial feature map across mobile-manipulation steps instead of starting from each image alone.",
+    "flow": [
+      "Current scene + robot state",
+      "Spatiotemporal feature map",
+      "History-conditioned policy",
+      "Navigation + manipulation"
+    ],
+    "insight": "Persistent spatial state connects subgoals whose relevant objects are no longer in the current view.",
+    "question": "How is stale map content corrected after objects move or the robot revisits a scene?"
+  },
+  {
+    "talk_id": "d2-77",
+    "takeaway": "A scene graph becomes executable when it stores how an object can move as well as what it is.",
+    "flow": [
+      "RGB-D object interaction",
+      "Estimate articulation",
+      "Semantic-kinematic graph",
+      "Language-specified action"
+    ],
+    "insight": "Doors and drawers require kinematic affordances that a static semantic label does not provide.",
+    "question": "How does the graph handle unseen articulation types or an object whose behavior changes after contact?"
+  },
+  {
+    "talk_id": "d2-78",
+    "takeaway": "Answer reachability queries from a morphology-conditioned model without solving full inverse kinematics each time.",
+    "flow": [
+      "Robot morphology",
+      "Requested 3D pose",
+      "Learned reachability query",
+      "Feasibility or design use"
+    ],
+    "insight": "Fast feasibility estimates can remove impossible candidates before more expensive planning.",
+    "question": "How are false-positive reachability predictions checked before physical execution?",
+    "diagram_note": "A positive reachability prediction is not an executable joint configuration; physical execution needs further checks."
+  },
+  {
+    "talk_id": "d2-79",
+    "takeaway": "Optimize the robot body through a frozen value function after learning across varied morphologies.",
+    "flow": [
+      "Train across morphologies",
+      "Freeze controller + critic",
+      "Differentiate value to body",
+      "Improve design parameters"
+    ],
+    "insight": "A reusable learned critic can make hardware search cheaper than retraining a policy for every body.",
+    "question": "Are optimized bodies mechanically feasible, and does the frozen critic remain trustworthy outside its training morphologies?",
+    "diagram_note": "The design update changes morphology parameters; the controller and critic are frozen during that optimization."
+  },
+  {
+    "talk_id": "d2-80",
+    "takeaway": "Recover the task now, then investigate the failure so the next deployment improves.",
+    "flow": [
+      "Deploy useful factory task",
+      "Detect + handle intervention",
+      "Root-cause analysis",
+      "Targeted data or training",
+      "Measure retained reliability"
+    ],
+    "insight": "The rescue action and the reason it was needed are different forms of learning evidence.",
+    "question": "Does the data loop reduce interventions and retasking effort while retaining previously deployed capabilities?",
+    "diagram_note": "Intervention duration, autonomy ratio and mean time between interventions matter differently as policies become stronger."
+  },
+  {
+    "talk_id": "d2-81",
+    "takeaway": "Household humanoids need useful autonomous behavior and comfortable human interaction in the same system.",
+    "flow": [
+      "Household task goal",
+      "Humanoid capability stack",
+      "Human-aware interaction",
+      "Real-world usefulness test"
+    ],
+    "insight": "A home-robot goal spans task capability, reliability and the person’s experience of the robot.",
+    "question": "What independent task, reliability and human-interaction evaluations support the team's described capabilities?",
+    "diagram_note": "This is an industry research direction described by the speaker, not a newly benchmarked end-to-end algorithm."
+  },
+  {
+    "talk_id": "d2-82",
+    "takeaway": "Connect fleet experience, shared data and evaluation into a continuing physical-AI development loop.",
+    "flow": [
+      "Robot fleet experience",
+      "Trajectory dataset",
+      "Model development",
+      "Standardized evaluation",
+      "Deployment feedback"
+    ],
+    "insight": "Fleet scale helps only when evaluation distinguishes new capability from training exposure.",
+    "question": "Which fleet and dataset claims are independently reproducible, and how is evaluation insulated from training exposure?",
+    "diagram_note": "Dataset and fleet scale statements are company-reported."
+  },
+  {
+    "talk_id": "d2-83",
+    "takeaway": "Use counterfactual world-model scenarios to test behavior on rare or hard-to-stage events.",
+    "flow": [
+      "Recorded physical scenario",
+      "Counterfactual generation",
+      "Policy response test",
+      "Compare with real evidence"
+    ],
+    "insight": "Virtual rare events can expand testing, but the generated dynamics still need calibration.",
+    "question": "How are generated scenarios calibrated against reality, and what detailed robot-policy evidence is actually provided?",
+    "diagram_note": "The speaker explicitly does not provide detailed new Optimus-policy results; do not read the scenario workflow as proof of them."
+  },
+  {
+    "talk_id": "d3-84",
+    "takeaway": "Camera-conditioned generation and reconstruction can share one world-model architecture.",
+    "flow": [
+      "Text or sparse images",
+      "Camera/viewpoint conditioning",
+      "Atlas world generation",
+      "Multiview reconstruction"
+    ],
+    "insight": "The same representation can connect sparse observation to controllable scene synthesis.",
+    "question": "Does geometric consistency translate into accurate action-conditioned dynamics and downstream robot control?",
+    "diagram_note": "Generation and reconstruction are modes under one model. Atlas here is the World Labs world model, not Boston Dynamics’ humanoid, and is not established as a general action policy."
+  },
+  {
+    "talk_id": "d3-85",
+    "takeaway": "Training-scale compute and robot-deployment compute are different design problems.",
+    "flow": [
+      "Model training needs",
+      "Hardware/software design",
+      "Latency + power budget",
+      "Deployment trade-offs"
+    ],
+    "insight": "A capable model must fit the physical system’s cost, response time and energy constraints.",
+    "question": "Which parts of the discussion are technical evidence versus strategic forecasts or corporate plans?",
+    "diagram_note": "This is a fireside discussion of technical and strategic trade-offs, not a single evaluated method."
+  },
+  {
+    "talk_id": "d3-86",
+    "takeaway": "The commercial-generalist debate changes meaning unless generality and deployment success are defined first.",
+    "flow": [
+      "Define generalist capability",
+      "Specify data + learning route",
+      "Compare cost + reliability",
+      "Choose observable test"
+    ],
+    "insight": "A useful disagreement should imply a deployment or experiment that could distinguish the positions.",
+    "question": "What observable deployment would distinguish the competing claims, and under which definition of a generalist robot?",
+    "diagram_note": "Debate sides were assigned by the moderator and do not establish fixed personal beliefs of the speakers."
+  },
+  {
+    "talk_id": "d3-87",
+    "takeaway": "An award highlights work to investigate; the technical evidence remains in the paper and talk.",
+    "flow": [
+      "Conference interlude",
+      "Finalist announcements",
+      "Paper awards",
+      "Closing announcements"
+    ],
+    "insight": "Use the ceremony as an archival route to notable papers rather than as a substitute for reading their methods.",
+    "question": "Which technical claims are established in the papers rather than inferred from an award or closing summary?",
+    "diagram_note": "Archival conference material, not a research-method pipeline."
+  }
+]

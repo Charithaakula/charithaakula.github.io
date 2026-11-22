@@ -1,0 +1,197 @@
+[
+  {
+    "id": "policy",
+    "question": "Can a powerful direct policy replace a multi-timescale robot system?",
+    "tag": "ACT · SYSTEM ARCHITECTURES",
+    "summary": [
+      "End-to-end vision-language-action and world-action policies seek to absorb increasingly complex behavior into a learned model. DreamZero illustrates the promise of reusing generative world knowledge for action, and π0.7 examines more targeted policy training and generalization.",
+      "Hang Zhao’s keynote emphasizes another consideration: a robot runs on a physical clock. The path from a language-level decision to reflex-scale control can involve very different latencies. These approaches are not direct opponents; they make different trade-offs in where reasoning is placed and how much computation is spent per action."
+    ],
+    "views": [
+      {
+        "name": "Direct / world-action policy",
+        "by": "DreamZero · π0.7",
+        "text": "Compress more perception, decision-making and action into a model that can act directly."
+      },
+      {
+        "name": "Multiple timescales",
+        "by": "Hang Zhao · System 0/1/2",
+        "text": "Separate fast control, skill execution, and slow reasoning so each operates at an appropriate clock."
+      },
+      {
+        "name": "Agentic system",
+        "by": "Jim Fan · GR00T 2",
+        "text": "Use planning or code as orchestration around reusable robot-control skills."
+      }
+    ],
+    "test": "Compare success and safety at the same wall-clock budget, including inference delays and failure recovery.",
+    "sources": [
+      "DreamZero",
+      "π0.7",
+      "Hang Zhao",
+      "Jim Fan"
+    ]
+  },
+  {
+    "id": "world",
+    "question": "When is an explicit world model worth using at decision time?",
+    "tag": "ACT × LEARN · WORLD MODELS",
+    "summary": [
+      "A world model can be part of a direct policy, a data generator, a simulator, a memory mechanism, or an online planner. DreamZero turns a video-generation prior into a world-action policy, while GRAIL uses generative models to produce candidate experiences that can train humanoid control.",
+      "Other talks focus on reconstructing environments, structured dynamics, and model-based optimization. Calling all these 'world-model planning' hides the actual computational choices. The interesting question is not whether models of the world help, but whether explicit future rollouts improve action selection enough to justify their cost and error."
+    ],
+    "views": [
+      {
+        "name": "World-action policy",
+        "by": "DreamZero",
+        "text": "Generate motion and actions jointly; an explicit test-time search loop is not required."
+      },
+      {
+        "name": "Data / simulation engine",
+        "by": "GRAIL · Atlas",
+        "text": "Use generated or reconstructed worlds to support training, evaluation, and transfer."
+      },
+      {
+        "name": "Predictive optimization",
+        "by": "SuperMimic · MoRE",
+        "text": "Use predictive models in optimization, while distinguishing training-time policy updates from control-time action refinement."
+      }
+    ],
+    "test": "Measure how an explicit rollout changes performance against a direct policy under matched compute, model error and task horizon.",
+    "sources": [
+      "DreamZero",
+      "GRAIL",
+      "SuperMimic",
+      "MoRE"
+    ]
+  },
+  {
+    "id": "data",
+    "question": "What transfers better: more demonstrations, or better representations?",
+    "tag": "LEARN · DATA & TRANSFER",
+    "summary": [
+      "Scaling robot training data across embodiments introduces a fundamental mismatch: different robots see, move, and command actions in different coordinates. Being-H0.5 uses human-centric learning as a shared anchor; Ego2Robot aligns egocentric human motion with robot actions to synthesize useful training examples.",
+      "ZETA probes a sharper distinction: the action representation itself changes cross-robot transfer. In that setting, choosing gripper-relative action coordinates can have a large effect without changing the amount of data. These results suggest that data scale, embodiment diversity, and representation design should be evaluated as separate levers."
+    ],
+    "views": [
+      {
+        "name": "Shared human prior",
+        "by": "Being-H0.5",
+        "text": "Use human interaction data to anchor learning across many robot embodiments."
+      },
+      {
+        "name": "Human-to-robot synthesis",
+        "by": "Ego2Robot",
+        "text": "Align actions and appearance to convert human footage into robot-relevant examples."
+      },
+      {
+        "name": "Action representation & decoding",
+        "by": "ZETA",
+        "text": "Choose action coordinates and decoding interfaces that make a demonstrated skill usable on the target robot."
+      }
+    ],
+    "test": "At fixed total data and matched robot coverage, vary embodiment representation, source diversity and target exposure separately.",
+    "sources": [
+      "Being-H0.5",
+      "Ego2Robot",
+      "ZETA"
+    ]
+  },
+  {
+    "id": "posttrain",
+    "question": "Where should the next unit of robot-learning compute go?",
+    "tag": "LEARN · TRAINING & ADAPTATION",
+    "summary": [
+      "Large-scale pretraining, reinforcement-learning post-training, small adaptation modules, and deployment-time learning solve different problems. π0.7 explores stronger general-purpose performance with a different training recipe; RL Token updates a smaller trainable component of a frozen VLA; FlowDAgger uses targeted human corrections to adapt a policy.",
+      "The useful comparison isn't a blanket ranking of pretraining versus post-training. It is a marginal-value question: which intervention helps on a specific distribution shift, how much robot interaction does it cost, and which capabilities survive the change?"
+    ],
+    "views": [
+      {
+        "name": "Foundation training",
+        "by": "π0.7 · EgoScale",
+        "text": "Use broad pretraining and aligned training mixtures to expand reusable capability."
+      },
+      {
+        "name": "Targeted policy learning",
+        "by": "RL Token · Flow Policy Gradients",
+        "text": "Choose a defined update interface—policy parameters, a latent module or representations—and measure its cost and retained capability."
+      },
+      {
+        "name": "Deployment corrections",
+        "by": "FlowDAgger · Roberto Martín-Martín",
+        "text": "Use intervention data to target behavior changes, then check performance on both old and new tasks."
+      }
+    ],
+    "test": "Compare marginal gains per robot-hour, GPU-hour, intervention, and retained older-task performance.",
+    "sources": [
+      "π0.7",
+      "RL Token",
+      "FlowDAgger",
+      "Roberto Martín-Martín"
+    ]
+  },
+  {
+    "id": "deployment",
+    "question": "Does broad generality emerge from reliable narrow deployments?",
+    "tag": "IMPROVE · DEPLOYMENT",
+    "summary": [
+      "Russ Tedrake’s factory keynote describes a learning strategy built around reliable real-world deployments and intervention-driven feedback. The commercial-viability debate surfaces a contrasting concern: whether the current path to broadly capable generalist robots can overcome expensive, non-shareable physical interaction data and hard-to-measure failure modes.",
+      "There is no necessary contradiction between narrow deployment and eventual generality. But evidence that a system works for an industrial workflow is different from evidence that it transfers to unknown homes or tasks. The two goals require different success criteria and risk budgets."
+    ],
+    "views": [
+      {
+        "name": "Deployment-first learning",
+        "by": "Russ Tedrake · factory robotics",
+        "text": "Start with tasks whose reliability can be measured and improve from real interventions."
+      },
+      {
+        "name": "Generalist ambition",
+        "by": "Generalist robotics debate",
+        "text": "Seek policies that transfer across environments and tasks without extensive retasking."
+      },
+      {
+        "name": "Practical benchmarks",
+        "by": "Wolfram Burgard · RoboColosseum",
+        "text": "Measure stage-wise success, calibration, and failures as well as headline task success."
+      }
+    ],
+    "test": "Measure retasking cost, throughput, MTBI, and out-of-distribution success in matched deployments.",
+    "sources": [
+      "Russ Tedrake",
+      "Commercially Viable",
+      "Wolfram Burgard"
+    ]
+  },
+  {
+    "id": "agentic",
+    "question": "When does an agentic robot actually improve itself?",
+    "tag": "ACT × IMPROVE · AGENCY",
+    "summary": [
+      "Agentic execution means an assistant can plan a task, call tools or skills, monitor progress, and recover. Jim Fan’s presentation describes a coding-agent-style supervisory layer around robot skills. This can substantially expand a robot's ability to handle a long-horizon task without implying that its learning algorithm is changing.",
+      "Agentic learning is a different loop: propose a skill or experiment, gather evidence, evaluate what worked, and update a policy or reusable skill library. Self-directed skill discovery is interesting, but it should not be conflated with recursive self-improvement of the process that generates and selects improvements."
+    ],
+    "views": [
+      {
+        "name": "Agentic execution",
+        "by": "Jim Fan · GR00T 2",
+        "text": "A reasoning agent invokes robot-control skills and recovers during a task."
+      },
+      {
+        "name": "Agentic learning",
+        "by": "ASPIRE · skill discovery",
+        "text": "An agent searches, experiments, or writes skills to improve future behavior."
+      },
+      {
+        "name": "Continual adaptation",
+        "by": "Roberto Martín-Martín",
+        "text": "Select useful experience for adaptation and measure which earlier skills remain."
+      }
+    ],
+    "test": "Track exactly what changes: current action choice, skill library, policy weights, or the improvement procedure itself.",
+    "sources": [
+      "Jim Fan",
+      "Roberto Martín-Martín",
+      "REACT"
+    ]
+  }
+]

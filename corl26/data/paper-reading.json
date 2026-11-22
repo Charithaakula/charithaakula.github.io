@@ -1,0 +1,617 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-22",
+  "title": "Primary-paper reading notes",
+  "summary": "Eight additional primary-paper bodies and two primary abstracts were read to connect the conference talks to related work. Newer preprints are labeled as related research; inclusion does not assert CoRL acceptance.",
+  "papers": [
+    {
+      "id": "code-as-policies",
+      "title": "Code as Policies: Language Model Programs for Embodied Control",
+      "year": 2022,
+      "kind": "Foundational paper",
+      "summary": "Code-writing language models translate instructions into executable robot programs that process perception outputs and call control APIs. This is a concrete example of writing the policy representation directly, rather than updating a neural policy through reinforcement learning.",
+      "mechanism": "Few-shot examples → hierarchical Python generation → perception and control APIs → reactive loops or waypoint actions. Undefined helper functions can be generated recursively.",
+      "findings": [
+        "The paper demonstrates tabletop manipulation, drawing and mobile-robot navigation/manipulation, including numerical spatial reasoning and unfamiliar instructions.",
+        "Its simulated tabletop evaluation separates unseen instructions from unseen attribute values, making the source of generalization more explicit."
+      ],
+      "limitations": [
+        "The policy remains limited by available perception APIs and control primitives.",
+        "Cross-embodiment API adaptation is described as brittle; complex instructions outside the prompt examples can fail.",
+        "The method assumes feasible instructions and cannot establish the correctness of generated code before execution."
+      ],
+      "practical_takeaway": "For a code-policy branch, show the API boundary and the validation step. A generated loop can change behavior without any neural weight update.",
+      "related_talk_ids": [
+        "d1-10",
+        "d1-22",
+        "d2-59"
+      ],
+      "related_node_ids": [
+        "code-policy",
+        "agentic-execution",
+        "control-timescales"
+      ],
+      "connections": [
+        {
+          "talk_id": "d1-10",
+          "relation": "architectural comparison",
+          "why": "Hang Zhao distinguishes code-produced control logic from learned motor policies across physical time scales."
+        },
+        {
+          "talk_id": "d1-22",
+          "relation": "antecedent for code skill representation",
+          "why": "ASPIRE combines retained code skills with GR00T control; this paper explains the code-policy representation, not ASPIRE’s measured performance."
+        }
+      ],
+      "url": "https://arxiv.org/abs/2209.07753",
+      "arxiv_id": "2209.07753",
+      "status": "primary-paper-reviewed",
+      "reviewed": true,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved indexed primary-paper body, methods, evaluation and limitations",
+      "authors_source_text": "Jacky Liang, Wenlong Huang, Fei Xia, Peng Xu, Karol Hausman, Brian Ichter, Pete Florence, Andy Zeng, Robotics at Google",
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary manuscript text was read through the supported indexed-paper reader. Claims and limitations are paraphrases; benchmark figures are not treated as independently reproduced results.",
+      "source_text_sha256": "ffba420f84265d40d0b00c609b956f1bc287f73f2390c2843c6a8864eb2787e0",
+      "evidence": {
+        "section": "Discussion and Limitations",
+        "quote": "Our approach also assumes all given instructions are feasible, and we cannot tell if a response will be correct a priori.",
+        "content_offset": 48240
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    },
+    {
+      "id": "early-warning-openvla",
+      "title": "Early Warning Signals for OpenVLA Failure under Visual Distribution Shift",
+      "year": 2026,
+      "kind": "Related preprint",
+      "summary": "Small monitors trained on internal OpenVLA activations can detect approaching failure under controlled visual occlusion. The useful distinction is between a predictive warning signal and a recovery action that actually makes the robot safer.",
+      "mechanism": "Closed-loop rollout activations → fitted linear risk probe → calibrated warning threshold → runtime warning policy. The study compares the probe with a mean-difference direction and action-disagreement baseline.",
+      "findings": [
+        "The strongest reported probe is at layer 16 among layers 8, 10 and 16, under the studied occlusion distribution.",
+        "Transfer to camera jitter is weaker; a strong score on one perturbation does not establish robustness across tasks and shifts."
+      ],
+      "limitations": [
+        "The experimental setup uses five LIBERO-10 task IDs with a limited rollout budget.",
+        "Neighboring rollout states are correlated; the authors explicitly treat their result as controlled-setting decodability and call for episode-grouped and task-held-out evaluation.",
+        "A warning score alone is not a recovery policy; no-op, abort and held-action interventions are diagnostics."
+      ],
+      "practical_takeaway": "Record both failure prediction and what happens after the warning. Use episode-separated evaluation and measure false alarms, lead time and successful recovery.",
+      "related_talk_ids": [
+        "d1-9",
+        "d1-33",
+        "d2-66"
+      ],
+      "related_node_ids": [
+        "evaluation-validity",
+        "recovery-learning"
+      ],
+      "connections": [
+        {
+          "talk_id": "d1-33",
+          "relation": "evaluation refinement",
+          "why": "Connects Burgard’s uncertainty and reliability questions to calibration, warning rate and the distinction between detection and intervention."
+        },
+        {
+          "talk_id": "d2-66",
+          "relation": "complementary failure mechanism",
+          "why": "The contact-rich failure talk examines physical-control failures; this preprint studies visual-shift warnings. These failure classes should remain separate."
+        }
+      ],
+      "url": "https://arxiv.org/abs/2606.29699",
+      "arxiv_id": "2606.29699",
+      "status": "primary-paper-reviewed",
+      "reviewed": true,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved indexed primary-paper body, methods, evaluation and limitations",
+      "authors_source_text": "Dipesh Tharu Mahato, New York University, dm6259@nyu.edu, Rachel Ren, New York University, rr4000@nyu.edu",
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary manuscript text was read through the supported indexed-paper reader. Claims and limitations are paraphrases; benchmark figures are not treated as independently reproduced results.",
+      "source_text_sha256": "4ac7eb2f0a0e5c541f91047420cd27f51d59a514d7a4275c54521a2400eb5fe2",
+      "evidence": {
+        "section": "Discussion",
+        "quote": "A warning score is not a recovery policy.",
+        "content_offset": 19924
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    },
+    {
+      "id": "handedit",
+      "title": "HandEdit: A Unified Benchmark for Egocentric Human-to-Robot Dexterous Hand Image Editing",
+      "year": 2026,
+      "kind": "Related preprint",
+      "summary": "HandEdit studies how to replace a human hand in egocentric footage with a target robotic embodiment while preserving the object interaction. It provides a sharper evaluation lens for human-to-robot synthetic data: realistic pixels are insufficient if morphology or contact is wrong.",
+      "mechanism": "Egocentric hand-object data → retargeted/rendered robot-embodied pseudo-references → image editing → separate perceptual, semantic and embodiment-aware evaluation.",
+      "findings": [
+        "The benchmark separates hand-only editing from the harder hand-and-arm editing setting.",
+        "Its analysis finds that high perceptual quality or a high VLM judgment score need not imply correct embodiment structure or preserved interaction."
+      ],
+      "limitations": [
+        "Pixel-aligned human and robot pairs cannot be physically captured in identical configurations; edited pseudo-references retain appearance and contact-dynamics gaps.",
+        "The authors state that this data supports pretraining and mid-training and does not replace real-robot demonstrations.",
+        "The benchmark evaluates image editing; downstream control benefit requires separate robot-policy evidence."
+      ],
+      "practical_takeaway": "For every human-to-robot synthesis pipeline, track embodiment fidelity and interaction preservation separately from generic image quality.",
+      "related_talk_ids": [
+        "d2-37",
+        "d1-12",
+        "d2-50"
+      ],
+      "related_node_ids": [
+        "human-transfer",
+        "synthetic-experience",
+        "evaluation-validity"
+      ],
+      "connections": [
+        {
+          "talk_id": "d2-37",
+          "relation": "data-quality comparison",
+          "why": "Ego2Robot aligns appearance and actions; HandEdit provides explicit morphology and interaction-preservation evaluation for a related visual-editing step."
+        },
+        {
+          "talk_id": "d2-50",
+          "relation": "complementary evidence",
+          "why": "EgoScale’s policy-level transfer claims need to be distinguished from HandEdit’s image-level quality measurements."
+        }
+      ],
+      "url": "https://arxiv.org/abs/2608.12122",
+      "arxiv_id": "2608.12122",
+      "status": "primary-paper-reviewed",
+      "reviewed": true,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved indexed primary-paper body, methods, evaluation and limitations",
+      "authors_source_text": null,
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary manuscript text was read through the supported indexed-paper reader. Claims and limitations are paraphrases; benchmark figures are not treated as independently reproduced results.",
+      "source_text_sha256": "f200111fed181fd21bca99cf0b47ecb04a7f26a51aa961929995ded927d30236",
+      "evidence": {
+        "section": "Limitations and Broader Impacts",
+        "quote": "Such data retain a gap from real-robot observations in fine-grained appearance and contact dynamics.",
+        "content_offset": 82737
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    },
+    {
+      "id": "video2world",
+      "title": "Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos",
+      "year": 2026,
+      "kind": "Related preprint",
+      "summary": "Video2World evaluates coding agents that reconstruct an interactive simulator and robot behavior from one embodied demonstration. It separates whether a world runs, looks geometrically right, evolves correctly and supports the task—a useful alternative to judging world models by video realism alone.",
+      "mechanism": "Source video + simulator tools → agent edits environment and behavior code → execution feedback → repeated revisions → frozen program evaluated for build, geometry, dynamics and functional correctness.",
+      "findings": [
+        "Agent reconstructions often execute and achieve partial task progress while failing complete task requirements.",
+        "Better asset geometry does not necessarily yield better scene-level task performance."
+      ],
+      "limitations": [
+        "A failed rollout can arise from the world, the generated behavior or their interaction; the main joint evaluation does not fully isolate them.",
+        "Reproducing the observed interaction does not establish correct counterfactual behavior under unobserved actions or goals.",
+        "Reported agent performance bundles model, scaffold, context handling, tools and execution strategy."
+      ],
+      "practical_takeaway": "When comparing generated worlds, separate render quality, dynamics, task success and counterfactual validity; save the executed reconstruction and evaluation conditions.",
+      "related_talk_ids": [
+        "d3-84",
+        "d2-56",
+        "d1-21",
+        "d2-39"
+      ],
+      "related_node_ids": [
+        "world-representation",
+        "simulation-transfer",
+        "code-policy",
+        "evaluation-validity"
+      ],
+      "connections": [
+        {
+          "talk_id": "d3-84",
+          "relation": "evaluation question",
+          "why": "Atlas emphasizes generation and reconstruction; this benchmark asks which generated/reconstructed environments support executable interaction."
+        },
+        {
+          "talk_id": "d2-56",
+          "relation": "grounding comparison",
+          "why": "GRAIL generates training experiences for control; Video2World evaluates agent-built simulation. Successful reconstruction is not by itself evidence of successful policy training."
+        }
+      ],
+      "url": "https://arxiv.org/abs/2610.04432",
+      "arxiv_id": "2610.04432",
+      "status": "primary-paper-reviewed",
+      "reviewed": true,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved indexed primary-paper body, methods, evaluation and limitations",
+      "authors_source_text": "Jinzhou Tang",
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary manuscript text was read through the supported indexed-paper reader. Claims and limitations are paraphrases; benchmark figures are not treated as independently reproduced results.",
+      "source_text_sha256": "30298857760190b83973ce30be247c9c8eda64cb392efab75f3f971a5fc136dc",
+      "evidence": {
+        "section": "Limitations and Future Work",
+        "quote": "Consequently, a failed rollout may originate from errors in the reconstructed world, the behavior policy, or their interaction.",
+        "content_offset": 265428
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    },
+    {
+      "id": "sid",
+      "title": "SID: Sliding into Distribution for Robust Few-Demonstration Manipulation",
+      "year": 2026,
+      "kind": "Related preprint",
+      "summary": "SID separates bringing the robot back into familiar approach states from performing the local manipulation. An object-centric motion field aligns the scene to a demonstrated support region, then an egocentric flow-matching policy executes the skill.",
+      "mechanism": "Target pose estimation → object-centric alignment field → demonstrated approach region → egocentric action-chunk policy. A closed-loop variant can route drifting execution back to alignment.",
+      "findings": [
+        "The real-world evaluation studies pose/viewpoint shifts, disturbance, clutter and composed task sequences with very few task demonstrations.",
+        "Its protocol gives different baselines different demonstration budgets; the comparison therefore needs the full structured-system and data-budget context."
+      ],
+      "limitations": [
+        "The alignment field depends on reliable 6D pose estimates, which can degrade on transparent/reflective objects, occlusion or rapid motion.",
+        "The system does not explicitly model obstacle or collision constraints and assumes the demonstrated approach region remains reachable.",
+        "Strong unseen-object or unseen-category generalization is not yet demonstrated."
+      ],
+      "practical_takeaway": "A hierarchy can improve robustness by restoring the policy’s operating conditions. Inspect the geometry assumptions and recovery routing, not just the number of modules.",
+      "related_talk_ids": [
+        "d1-10",
+        "d1-7",
+        "d1-22",
+        "d2-66"
+      ],
+      "related_node_ids": [
+        "control-timescales",
+        "representation-data",
+        "recovery-learning",
+        "direct-policy"
+      ],
+      "connections": [
+        {
+          "talk_id": "d1-7",
+          "relation": "representation comparison",
+          "why": "ZETA asks how coordinates change transfer; SID separately uses object-centric alignment and egocentric execution interfaces."
+        },
+        {
+          "talk_id": "d1-22",
+          "relation": "recovery comparison",
+          "why": "ASPIRE can take over recovery around a neural skill; SID offers a structured geometric route back into a learned skill’s valid operating region."
+        }
+      ],
+      "url": "https://arxiv.org/abs/2605.13428",
+      "arxiv_id": "2605.13428",
+      "status": "primary-paper-reviewed",
+      "reviewed": true,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved indexed primary-paper body, methods, evaluation and limitations",
+      "authors_source_text": "Yicheng Ma1, 21, Wei Yu1, 21, Zhian Su1, 2, Xidan Zhang1, 2, Huixu Dong1, 22",
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary manuscript text was read through the supported indexed-paper reader. Claims and limitations are paraphrases; benchmark figures are not treated as independently reproduced results.",
+      "source_text_sha256": "775f97198ff9b20acf2b5b2c5ba0e26e99c78b1646101e766f123f956a98a5aa",
+      "evidence": {
+        "section": "Conclusions and Limitations",
+        "quote": "Our method does not explicitly model obstacles or collision constraints, and its motion-field alignment assumes that the demonstrated approach manifold remains observable and reachable.",
+        "content_offset": 60011
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    },
+    {
+      "id": "hydra-dp3",
+      "title": "Hydra-DP3: Frequency-Aware Right-Sizing of 3D Diffusion Policies for Visuomotor Control",
+      "year": 2026,
+      "kind": "Related preprint",
+      "summary": "Hydra-DP3 argues that smooth action trajectories need less denoising capacity than images. It uses a small 3D-input diffusion policy and two-step sampling, connecting action statistics to the practical control-latency budget.",
+      "mechanism": "Point-cloud observation → compact Diffusion Mixer → two-step DDIM action denoising → action trajectory. The theoretical analysis uses low-frequency trajectory energy and a simplified Gaussian model.",
+      "findings": [
+        "Synthetic experiments test the low-frequency argument; simulation and a small real-robot evaluation compare efficiency and task performance.",
+        "The key design question is whether extra model capacity or denoising steps improve the actual action distribution enough to justify their latency."
+      ],
+      "limitations": [
+        "The authors limit the validated architecture to 3D-input visuomotor policies; effectiveness on other input modalities remains open.",
+        "The mathematical analysis has simplifying assumptions and is not a general guarantee that every robot task needs only two steps.",
+        "Its real-world evaluation is small and cannot establish deployment-scale reliability."
+      ],
+      "practical_takeaway": "Treat sampler steps and decoder capacity as measured control-system choices. Compare complete loop latency and success under the same observation and action interface.",
+      "related_talk_ids": [
+        "d1-10",
+        "d1-24",
+        "d1-25",
+        "d1-28",
+        "d2-47"
+      ],
+      "related_node_ids": [
+        "direct-policy",
+        "control-timescales"
+      ],
+      "connections": [
+        {
+          "talk_id": "d1-10",
+          "relation": "latency trade-off",
+          "why": "A compact action sampler is one way of fitting the fast execution layer discussed in the timescale keynote."
+        },
+        {
+          "talk_id": "d1-28",
+          "relation": "sampling comparison",
+          "why": "Diffusion ReRoll studies action-generation/rollout behavior; Hydra-DP3 focuses on how much denoising computation an action distribution needs."
+        }
+      ],
+      "url": "https://arxiv.org/abs/2605.01581",
+      "arxiv_id": "2605.01581",
+      "status": "primary-paper-reviewed",
+      "reviewed": true,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved indexed primary-paper body, methods, evaluation and limitations",
+      "authors_source_text": "Jinhao Zhang^1Equal contribution.",
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary manuscript text was read through the supported indexed-paper reader. Claims and limitations are paraphrases; benchmark figures are not treated as independently reproduced results.",
+      "source_text_sha256": "cd93ce3b56ef20909cfb98a306477018acbd4ff3bd913dd799e5ea36be39ce28",
+      "evidence": {
+        "section": "Limitations",
+        "quote": "Although we validate the efficiency of our architecture on 3D-input visuomotor policies, its effectiveness on other input modalities remains to be investigated.",
+        "content_offset": 58575
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    },
+    {
+      "id": "pdf-adaptation",
+      "title": "Test-Time Perturbation Learning with Delayed Feedback for Vision-Language-Action Models",
+      "year": 2026,
+      "kind": "Related preprint",
+      "summary": "PDF changes a small perturbation head using delayed episode feedback while keeping the base VLA frozen. This makes it a useful example of genuine parameter adaptation that differs from retaining more context or writing a new code skill.",
+      "mechanism": "Uncertainty-guided image augmentation + action voting → episode rollout → delayed reward/success feedback → REINFORCE-style perturbation-head update, with the base VLA frozen.",
+      "findings": [
+        "The paper evaluates manipulation in the four LIBERO suites and additional sequential decision-making in Atari.",
+        "Only the perturbation head is updated; frozen base weights do not imply that the overall deployed policy is unchanged."
+      ],
+      "limitations": [
+        "“Verifier-free” still requires delayed task feedback; it does not mean learning without an objective or evaluation signal.",
+        "The authors state that the method alleviates trajectory-overfitting effects rather than fully solving them.",
+        "The reported robot benchmark is simulation; hardware reliability and feedback availability require separate evaluation."
+      ],
+      "practical_takeaway": "In an agent-learning graph, name the updated parameter, the feedback source and the update boundary. Test-time adaptation can be lightweight while still being learning.",
+      "related_talk_ids": [
+        "d1-13",
+        "d2-46",
+        "d2-49",
+        "d1-4"
+      ],
+      "related_node_ids": [
+        "weight-adaptation",
+        "runtime-memory",
+        "agentic-learning"
+      ],
+      "connections": [
+        {
+          "talk_id": "d1-13",
+          "relation": "what-changes comparison",
+          "why": "Compare RoboTTT’s context/memory mechanism with PDF’s learned perturbation-head updates rather than grouping both under an unexplained test-time-learning label."
+        },
+        {
+          "talk_id": "d2-46",
+          "relation": "parameter-efficient adaptation",
+          "why": "RL Token and PDF both make the updated component explicit, while using different training and feedback interfaces."
+        }
+      ],
+      "url": "https://arxiv.org/abs/2604.18107",
+      "arxiv_id": "2604.18107",
+      "status": "primary-paper-reviewed",
+      "reviewed": true,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved indexed primary-paper body, methods, evaluation and limitations",
+      "authors_source_text": "Zehua Zang^1, 2Xi Wang^1, 2Fuchun Sun^3Xiao Xu^5Lixiang Liu^1Jiahuan Zhou^4Corresponding authors. ",
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary manuscript text was read through the supported indexed-paper reader. Claims and limitations are paraphrases; benchmark figures are not treated as independently reproduced results.",
+      "source_text_sha256": "c7831a23bb4eeddbc0686fed157905aa73e79106b7a6182aca30b6db1d1d7127",
+      "evidence": {
+        "section": "Delayed Feedback-Guided Adaptation",
+        "quote": "Only the P head h_θ is updated; all other VLA parameters remain frozen for efficient, stable test-time adaptation.",
+        "content_offset": 25820
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    },
+    {
+      "id": "mcr-representation",
+      "title": "Robots Pre-train Robots: Manipulation-Centric Robotic Representation from Large-Scale Robot Datasets",
+      "year": 2024,
+      "kind": "Related paper",
+      "summary": "MCR pretrains visual features using real robot actions and proprioceptive dynamics from DROID. It asks whether a representation captures manipulation-relevant structure, adding a useful counterpoint to scaling generic human-video or web-image features.",
+      "mechanism": "Robot image + state/action chunks → contrastive dynamics alignment, action prediction and semantic/time objectives → visual encoder transferred to downstream policy learning.",
+      "findings": [
+        "The study evaluates the relation between manipulation centricity and downstream policy success, then trains representations to improve that alignment.",
+        "It compares simulation and real-robot manipulation and studies how dynamics information and robot data scale affect the learned features."
+      ],
+      "limitations": [
+        "The reported feature-performance relationship is evidence within the evaluated manipulation settings, not a universal causal guarantee across robots and tasks.",
+        "The approach requires synchronized robot dynamics data; access to raw human video alone does not supply the same training targets.",
+        "Language-aware/task-aware and broader temporal dynamics remain directions identified for further work."
+      ],
+      "practical_takeaway": "When comparing data sources, separate visual diversity from dynamics supervision. Measure whether the feature actually preserves the information the downstream controller needs.",
+      "related_talk_ids": [
+        "d1-2",
+        "d1-12",
+        "d1-17",
+        "d2-37",
+        "d2-50"
+      ],
+      "related_node_ids": [
+        "representation-data",
+        "human-transfer",
+        "weight-adaptation"
+      ],
+      "connections": [
+        {
+          "talk_id": "d1-2",
+          "relation": "representation alignment comparison",
+          "why": "Semantic Anchoring retains semantic information during action learning; MCR instead highlights grounding visual representations in robot dynamics."
+        },
+        {
+          "talk_id": "d2-37",
+          "relation": "data-source comparison",
+          "why": "Ego2Robot synthesizes action/appearance alignment from human footage; MCR shows the distinct supervision naturally available in real robot datasets."
+        }
+      ],
+      "url": "https://arxiv.org/abs/2410.22325",
+      "arxiv_id": "2410.22325",
+      "status": "primary-paper-reviewed",
+      "reviewed": true,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved indexed primary-paper body, methods, evaluation and limitations",
+      "authors_source_text": "Guangqi Jiang^1^⋆",
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary manuscript text was read through the supported indexed-paper reader. Claims and limitations are paraphrases; benchmark figures are not treated as independently reproduced results.",
+      "source_text_sha256": "608c15fa2106ca7a3c7c162bdb12eeb4b615126c8fe67316467ea29d3679579a",
+      "evidence": {
+        "section": "Training",
+        "quote": "Unlike human datasets, robot datasets provide access to manipulator dynamics, including proprioceptive states and actions.",
+        "content_offset": 34040
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    },
+    {
+      "id": "mlref",
+      "title": "MLREF: Efficient Module Reuse for Reward Design in Reinforcement Learning via Large Language Models",
+      "year": 2026,
+      "kind": "Related preprint",
+      "summary": "The abstract proposes a persistent pool of reusable reward-code modules, refined using reflection, credit assignment and rollback. It connects the retention of useful code components to the agentic learning loop, but the available retrieval contains no methods or experimental body.",
+      "mechanism": "Abstract-described loop: reward module pool → composed reward function → RL trial → feedback-driven refinement, reuse and rollback.",
+      "limitations": [
+        "Only the abstract was retrieved. Experimental setup, task membership, comparisons and implementation details have not been reviewed.",
+        "A generated reward function is an objective used to train a policy; it is not itself the executable policy."
+      ],
+      "related_talk_ids": [
+        "d1-22",
+        "d2-49",
+        "d2-57"
+      ],
+      "related_node_ids": [
+        "agentic-learning",
+        "weight-adaptation"
+      ],
+      "url": "https://arxiv.org/abs/2608.18827",
+      "arxiv_id": "2608.18827",
+      "status": "primary-abstract-reviewed",
+      "reviewed": false,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved primary abstract only",
+      "authors_source_text": "Chenglin Liu^1, Xun Wang^1, Ruishuo Chen^1, Zhuoran Li^1, and Longbo Huang^1, [0.3em]^1Institute for Interdisciplinary Information Sciences, Tsinghua University, Correspondence: longbohuang@tsinghua.edu.cn",
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary abstract was read through the supported indexed-paper reader. Full methods and experiments remain unreviewed.",
+      "source_text_sha256": "193c1a7f46246977709a6e609274f5eef30b61aaff9913c6aae2afa28dc6f8cd",
+      "evidence": {
+        "section": "Abstract",
+        "quote": "At the core of MLREF is a module pool, a persistent repository of reusable reward components.",
+        "content_offset": 826
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    },
+    {
+      "id": "world-model-poisoning",
+      "title": "Targeting World Models to Compromise Robot Learning Pipelines",
+      "year": 2026,
+      "kind": "Main-conference paper abstract",
+      "summary": "The original paper abstract describes how a world model can transform seemingly safe source trajectories into compromised synthetic training data. This supplements the recorded spotlight with a primary abstract and connects generated experience to data provenance.",
+      "mechanism": "Abstract-described threat: altered prompts or transition dynamics → world-model generation → compromised synthetic trajectories → downstream policy training.",
+      "limitations": [
+        "The primary retrieval includes the abstract only. Attack conditions, model versions and detailed comparisons have not been reviewed.",
+        "The abstract distinguishes an end-to-end downstream DRL backdoor from a proof-of-concept VLA setting; they should not be treated as equally established deployment results."
+      ],
+      "related_talk_ids": [
+        "d1-30",
+        "d2-56",
+        "d1-21"
+      ],
+      "related_node_ids": [
+        "synthetic-experience",
+        "data-provenance",
+        "evaluation-validity"
+      ],
+      "url": "https://arxiv.org/abs/2606.09499",
+      "arxiv_id": "2606.09499",
+      "status": "primary-abstract-reviewed",
+      "reviewed": false,
+      "reviewed_at": "2026-11-22",
+      "review_scope": "Retrieved primary abstract only",
+      "authors_source_text": "Ethan Rathbun, Northeastern University",
+      "source_origin": "Meta CLI search.paper load: indexed public arXiv manuscript",
+      "verification": "Primary abstract was read through the supported indexed-paper reader. Full methods and experiments remain unreviewed.",
+      "source_text_sha256": "65ffe47e6130b46af61d88ef298f4e7ff2263f5f964d9b301da3cac47a62d8b1",
+      "evidence": {
+        "section": "Abstract",
+        "quote": "We demonstrate the effectiveness of our attacks against both state of the art action conditioned and text conditioned world models, showing a full end-to-end backdoor on a downstream DRL policy and a proof-of-concept for the VLA setting.",
+        "content_offset": 1454
+      },
+      "connections_kind": "editorial comparison, not an asserted citation or experimental validation"
+    }
+  ],
+  "unavailable_foundational_papers": [
+    {
+      "id": "eureka",
+      "title": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+      "arxiv_id": "2310.12931",
+      "url": "https://arxiv.org/abs/2310.12931",
+      "status": "reference-pointer",
+      "reviewed": false,
+      "reason": "Exact arXiv ID returned not_found from the indexed paper collection. This means not indexed, not that the paper does not exist."
+    },
+    {
+      "id": "voyager",
+      "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+      "arxiv_id": "2305.16291",
+      "url": "https://arxiv.org/abs/2305.16291",
+      "status": "reference-pointer",
+      "reviewed": false,
+      "reason": "Exact arXiv ID returned not_found from the indexed paper collection. This means not indexed, not that the paper does not exist."
+    },
+    {
+      "id": "saycan",
+      "title": "Do As I Can, Not As I Say: Grounding Language in Robotic Affordances",
+      "arxiv_id": "2204.01691",
+      "url": "https://arxiv.org/abs/2204.01691",
+      "status": "reference-pointer",
+      "reviewed": false,
+      "reason": "Exact arXiv ID returned not_found from the indexed paper collection. This means not indexed, not that the paper does not exist."
+    },
+    {
+      "id": "diffusion-policy",
+      "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+      "arxiv_id": "2303.04137",
+      "url": "https://arxiv.org/abs/2303.04137",
+      "status": "reference-pointer",
+      "reviewed": false,
+      "reason": "Exact arXiv ID returned not_found from the indexed paper collection. This means not indexed, not that the paper does not exist."
+    },
+    {
+      "id": "openvla",
+      "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+      "arxiv_id": "2406.09246",
+      "url": "https://arxiv.org/abs/2406.09246",
+      "status": "reference-pointer",
+      "reviewed": false,
+      "reason": "Exact arXiv ID returned not_found from the indexed paper collection. This means not indexed, not that the paper does not exist."
+    },
+    {
+      "id": "rt2",
+      "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+      "arxiv_id": "2307.15818",
+      "url": "https://arxiv.org/abs/2307.15818",
+      "status": "reference-pointer",
+      "reviewed": false,
+      "reason": "Exact arXiv ID returned not_found from the indexed paper collection. This means not indexed, not that the paper does not exist."
+    },
+    {
+      "id": "droid",
+      "title": "DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset",
+      "arxiv_id": "2403.12945",
+      "url": "https://arxiv.org/abs/2403.12945",
+      "status": "reference-pointer",
+      "reviewed": false,
+      "reason": "Exact arXiv ID returned not_found from the indexed paper collection. This means not indexed, not that the paper does not exist."
+    },
+    {
+      "id": "open-x-embodiment",
+      "title": "Open X-Embodiment: Robotic Learning Datasets and RT-X Models",
+      "arxiv_id": "2310.08864",
+      "url": "https://arxiv.org/abs/2310.08864",
+      "status": "reference-pointer",
+      "reviewed": false,
+      "reason": "Exact arXiv ID returned not_found from the indexed paper collection. This means not indexed, not that the paper does not exist."
+    }
+  ],
+  "retrieval_notes": [
+    "Some indexed text contains duplicated chunks and degraded equations/table formatting. Notes avoid unreliably extracted numerical comparisons.",
+    "Publication year follows the retrieved paper metadata; exact submission/version dates were not independently checked.",
+    "Reading a preprint establishes what its authors report; it does not establish peer-review status or reproduce its results."
+  ]
+}

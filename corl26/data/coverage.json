@@ -1,0 +1,1080 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-22",
+  "title": "Coverage ledger",
+  "status": "partial",
+  "summary": "The atlas indexes 87 supplied recording entries, a 687-paper main-conference catalogue with abstracts from an explicitly labeled secondary snapshot, and 484 published workshop entries from primary organizer pages. All 32 official workshops were checked; paper lists remain incomplete for 20 workshops, and full-manuscript and exact playback verification are tracked separately.",
+  "counts": {
+    "recorded_entries": 87,
+    "main_paper_presentations": 66,
+    "oral_presentations": 21,
+    "spotlight_presentations": 45,
+    "keynotes": 6,
+    "industry_presentations": 12,
+    "fireside_chats": 1,
+    "special_debates": 1,
+    "closing_sessions": 1,
+    "workshop_papers_reviewed": 0,
+    "accepted_poster_papers_reconciled": 0,
+    "late_breaking_papers_reviewed": 0,
+    "workshop_source_leads": 32,
+    "main_catalogue_papers": 687,
+    "main_catalogue_abstracts": 687,
+    "main_catalogue_source": "secondary-source-snapshot",
+    "main_catalogue_manuscripts_reviewed": 0,
+    "workshop_papers_indexed": 484,
+    "workshop_abstracts_reviewed": 51,
+    "workshops_verified": 32,
+    "workshops_with_indexed_papers": 15,
+    "workshop_lists_complete": 12,
+    "workshop_lists_unresolved": 20,
+    "workshop_manuscripts_reviewed": 0,
+    "focused_primary_source_reviews": 21,
+    "focused_manuscript_section_reviews": 17,
+    "focused_project_method_reviews": 4
+  },
+  "announced_counts": [
+    {
+      "label": "Spotlight papers announced",
+      "value": 72,
+      "evidence": {
+        "label": "Program chairs: main-track tiers",
+        "url": "https://www.youtube.com/watch?v=F_4AAOQsWlA&t=1694s",
+        "day": 1,
+        "start_s": 1694,
+        "basis": "Supplied automatic recording transcript; speech not independently checked against playback."
+      },
+      "qualifier": "Speaker-reported count in automatic captions; 45 presently indexed."
+    },
+    {
+      "label": "Spotlight sessions announced",
+      "value": 8,
+      "evidence": {
+        "label": "Program chairs: presentation formats",
+        "url": "https://www.youtube.com/watch?v=F_4AAOQsWlA&t=1999s",
+        "day": 1,
+        "start_s": 1999,
+        "basis": "Supplied automatic recording transcript; speech not independently checked against playback."
+      },
+      "qualifier": "Catalogue currently contains S1–S5. S6–S8 require the missing program/recording."
+    },
+    {
+      "label": "Accepted workshops announced",
+      "value": 32,
+      "evidence": {
+        "label": "Workshop chairs: accepted proposals",
+        "url": "https://www.youtube.com/watch?v=F_4AAOQsWlA&t=2198s",
+        "day": 1,
+        "start_s": 2198,
+        "basis": "Supplied automatic recording transcript; speech not independently checked against playback."
+      },
+      "qualifier": "Speaker-reported accepted-workshop count; not a count of workshop papers."
+    },
+    {
+      "label": "Accepted late-breaking results announced",
+      "value": 39,
+      "evidence": {
+        "label": "Program chairs: late-breaking decisions",
+        "url": "https://www.youtube.com/watch?v=F_4AAOQsWlA&t=1831s",
+        "day": 1,
+        "start_s": 1831,
+        "basis": "Supplied automatic recording transcript; speech not independently checked against playback."
+      },
+      "qualifier": "Speaker-reported, separate from the archival main conference."
+    }
+  ],
+  "sections": [
+    {
+      "id": "main-orals",
+      "title": "Main-conference oral presentations",
+      "indexed": 21,
+      "status": "recording-indexed",
+      "detail": "O1–O7 contain 21 recorded oral presentations. All 21 also appear in the broader secondary catalogue. Canonical paper PDFs and official acceptance records still need direct primary verification.",
+      "talk_ids": [
+        "d1-11",
+        "d1-12",
+        "d1-13",
+        "d1-14",
+        "d1-15",
+        "d1-16",
+        "d1-17",
+        "d1-18",
+        "d1-19",
+        "d2-46",
+        "d2-47",
+        "d2-48",
+        "d2-50",
+        "d2-51",
+        "d2-52",
+        "d2-53",
+        "d2-54",
+        "d2-55",
+        "d2-56",
+        "d2-57",
+        "d2-58"
+      ],
+      "catalogue_indexed": 21
+    },
+    {
+      "id": "main-spotlights",
+      "title": "Main-conference spotlight presentations",
+      "indexed": 45,
+      "status": "partially-indexed",
+      "detail": "S1–S5 are indexed from supplied recordings (45 talks). The secondary catalogue includes S6–S8 metadata and all 72 spotlight abstracts. Matching the missing morning sessions to original playback remains open.",
+      "talk_ids": [
+        "d1-1",
+        "d1-2",
+        "d1-3",
+        "d1-4",
+        "d1-5",
+        "d1-6",
+        "d1-7",
+        "d1-8",
+        "d1-9",
+        "d1-24",
+        "d1-25",
+        "d1-26",
+        "d1-27",
+        "d1-28",
+        "d1-29",
+        "d1-30",
+        "d1-31",
+        "d1-32",
+        "d2-37",
+        "d2-38",
+        "d2-39",
+        "d2-40",
+        "d2-41",
+        "d2-42",
+        "d2-43",
+        "d2-44",
+        "d2-45",
+        "d2-62",
+        "d2-63",
+        "d2-64",
+        "d2-65",
+        "d2-66",
+        "d2-67",
+        "d2-68",
+        "d2-69",
+        "d2-70",
+        "d2-71",
+        "d2-72",
+        "d2-73",
+        "d2-74",
+        "d2-75",
+        "d2-76",
+        "d2-77",
+        "d2-78",
+        "d2-79"
+      ],
+      "missing_session_labels": [
+        "Spotlight S6",
+        "Spotlight S7",
+        "Spotlight S8"
+      ],
+      "catalogue_indexed": 72,
+      "recordings_indexed": 45
+    },
+    {
+      "id": "posters",
+      "title": "Accepted main-conference posters",
+      "indexed": 594,
+      "status": "secondary-catalogue-indexed",
+      "detail": "The secondary main-conference snapshot includes 594 poster-only entries with titles, authors, abstracts and original OpenReview links. Acceptance counts and paper content have not yet been independently reconciled with the canonical primary portal."
+    },
+    {
+      "id": "late-breaking",
+      "title": "Late-breaking research",
+      "indexed": 0,
+      "status": "awaiting-primary-sources",
+      "detail": "Opening remarks identify agentic robotics and real-to-sim-to-real as the two themes and report 39 accepted contributions. Treat these as a separate track with distinct review and publication status.",
+      "themes": [
+        "Agentic robotics",
+        "Real-to-sim-to-real"
+      ]
+    },
+    {
+      "id": "workshops",
+      "title": "Workshop research",
+      "indexed": 484,
+      "status": "primary-organizer-lists-indexed",
+      "detail": "All 32 workshop directory entries were checked against the official program. 484 published paper entries across 15 workshops are indexed; 12 organizer lists are complete. 51 original abstracts are available. Twenty workshops still have unresolved complete paper lists, including a published filename-only folder and selected subsets. Workshop acceptance is distinct from archival main-conference acceptance."
+    },
+    {
+      "id": "industry",
+      "title": "Keynotes, industry and discussion",
+      "indexed": 21,
+      "status": "recording-indexed",
+      "detail": "Includes six keynotes, twelve industry/sponsor presentations, a fireside chat, a special debate and the closing session. Industry claims remain speaker-reported unless supported by a reviewed technical source."
+    },
+    {
+      "id": "main-catalogue",
+      "title": "Full main-conference catalogue snapshot",
+      "indexed": 687,
+      "status": "secondary-catalogue-indexed",
+      "source_url": "https://jaywu109.github.io/papers/corl-2026/",
+      "detail": "21 oral, 72 spotlight and 594 poster-only entries, including abstracts. This is an attributed discovery catalogue; original manuscripts and official decisions remain separate verification steps."
+    }
+  ],
+  "workshop_sources": [
+    {
+      "id": "workshop-01",
+      "title": "4th CoRL Workshop on Learning Effective Abstractions for Planning (LEAP)",
+      "url": "http://leap-workshop.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "code-policy",
+        "world-planning"
+      ],
+      "related_talks": [
+        "d1-10",
+        "d1-22",
+        "d2-55"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "http://leap-workshop.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Complex long-horizon and sparse reward robotics tasks are challenging for scaling end-to-end learning methods. By contrast, planning approaches have shown great potential to handle such complex tasks effectively."
+    },
+    {
+      "id": "workshop-02",
+      "title": "Bringing Physics Simulation and World Models Together for Robotic Manipulation",
+      "url": "https://corl26ws-physwm.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "world-representation",
+        "simulation-transfer"
+      ],
+      "related_talks": [
+        "d3-84",
+        "d2-56",
+        "d2-57"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://corl26ws-physwm.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Recent advances in learned world models have shown impressive ability to generate visually plausible futures from images and videos, but visual prediction alone is insufficient for interaction-rich robot manipulation. A model that predicts pixel flow may still miss contact dynamics, frictional contact constraints, and"
+    },
+    {
+      "id": "workshop-03",
+      "title": "Modeling Uncertainty in Robotic World Models",
+      "url": "https://uncertainwm2026.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "world-planning",
+        "evaluation-validity"
+      ],
+      "related_talks": [
+        "d1-33",
+        "d1-29",
+        "d2-78"
+      ],
+      "indexed_papers": 39,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://uncertainwm2026.github.io/",
+      "gap": null,
+      "description": "Recent advances in vision-language foundation models and video generation have made learned world models an increasingly important tool for robotic task planning, policy simulation, and reward modeling. Yet real-world robots must operate under uncertainty that many current world models do not adequately"
+    },
+    {
+      "id": "workshop-04",
+      "title": "Do Robots Need World Models? A Debate on Dynamics Learning, Planning, and End-to-End Robot Learning",
+      "url": "https://do-robots-need-world-models.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "world-planning",
+        "world-representation"
+      ],
+      "related_talks": [
+        "d1-14",
+        "d1-15",
+        "d3-84"
+      ],
+      "indexed_papers": 69,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://do-robots-need-world-models.github.io/",
+      "gap": null,
+      "description": "World models are rapidly becoming a central paradigm in robot learning. Broadly, they are predictive systems that let robots anticipate how the world may spanning dynamics, contact, geometry, and physics-based models, as well as latent predictors, video models,"
+    },
+    {
+      "id": "workshop-05",
+      "title": "The action gap: large generative models (video, image, 3D) learn rich knowledge",
+      "url": "https://actiongapworkshop.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "synthetic-experience",
+        "direct-policy"
+      ],
+      "related_talks": [
+        "d1-14",
+        "d2-56",
+        "d2-37"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://actiongapworkshop.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "specifies which robot actions will reliably produce the desired change. G2A places the interface between generative models and robot Talk Mike Rabbat Towards Bridging the Action Gap via Planning with Action-Conditioned JEPA World Models"
+    },
+    {
+      "id": "workshop-06",
+      "title": "Sim-to-Real-to-Field (SRF): The Science of Transfer",
+      "url": "https://sim2real2field-corl26.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "simulation-transfer",
+        "evaluation-validity"
+      ],
+      "related_talks": [
+        "d1-21",
+        "d2-39",
+        "d2-57"
+      ],
+      "indexed_papers": 50,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://sim2real2field-corl26.github.io/",
+      "gap": null,
+      "description": "certifies a point; deployment in the field demands robustness measured distributionally — across many robots, sites, and operating conditions, where Preliminary findings, ongoing projects, or emerging ideas. Papers currently under review at another venue must use this track."
+    },
+    {
+      "id": "workshop-07",
+      "title": "From GPU-Accelerated Simulation for Real-World Robot Policy Learning",
+      "url": "https://corl2026-realworld-robot-learning.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "simulation-transfer",
+        "evaluation-validity"
+      ],
+      "related_talks": [
+        "d1-19",
+        "d2-39",
+        "d2-57"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://corl2026-realworld-robot-learning.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Conference on Robot Learning (CoRL) 2026 · Half-Day Workshop · Nov 12, 2026, 8:30 AM – 12:30 PM (CST) · JW Marriott Room 212 (Level 2), Austin, Texas, USA \"Simulation is the most scalable training ground for embodied AI — from rigorous simulation benchmarks"
+    },
+    {
+      "id": "workshop-08",
+      "title": "1st Workshop on \"Structured Physical Intelligence\" (SPIN)",
+      "url": "https://sites.google.com/view/spin-1st-workshop/home",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "representation-data",
+        "control-timescales"
+      ],
+      "related_talks": [
+        "d1-7",
+        "d1-10"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://sites.google.com/view/spin-1st-workshop/home",
+      "gap": "Official workshop link verified; target page rendered too little content to recover its program or paper list.",
+      "description": "Official accepted-workshop directory entry. Follow the primary workshop page for its program and contributions."
+    },
+    {
+      "id": "workshop-09",
+      "title": "Remember, Retrieve, Act: Memory for Robot Foundation Models",
+      "url": "https://corl2026-memory.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "runtime-memory",
+        "agentic-execution"
+      ],
+      "related_talks": [
+        "d1-3",
+        "d1-13",
+        "d1-15"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://corl2026-memory.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "November 12, 2026 · 8:30 AM – 12:30 PM · 【0†Hilton Austin, Room 408†www.google.com】 · 500 E 4th St, Austin, TX 78701 2. 08:40 – 09:10 Invited Talk: Katerina Fragkiadaki Carnegie Mellon University “A Memory You Can Point To: Grounded Reasoning in 3D”"
+    },
+    {
+      "id": "workshop-10",
+      "title": "Efficient Foundation Models for Real-Time Embodied AI",
+      "url": "http://efficient-embodied-ai.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "control-timescales",
+        "direct-policy"
+      ],
+      "related_talks": [
+        "d1-10",
+        "d1-24",
+        "d1-25"
+      ],
+      "indexed_papers": 35,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "http://efficient-embodied-ai.github.io/",
+      "gap": null,
+      "description": "Updated workshop session time and venue per the 【0†CoRL 2026 workshop schedule†www.corl.org】: Thursday, November 12, 2026, Afternoon Session (2:00–6:00 PM CST) Paper submission results and final acceptance notifications have been released on 【1†OpenReview†openreview.net】. The final workshop program was published on"
+    },
+    {
+      "id": "workshop-11",
+      "title": "Continually Self-Improving Robots Workshop (CSIR-2026)",
+      "url": "https://csircorl.github.io/website/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "agentic-learning",
+        "recovery-learning"
+      ],
+      "related_talks": [
+        "d1-22",
+        "d2-49",
+        "d2-47"
+      ],
+      "indexed_papers": 5,
+      "paper_list_complete": false,
+      "paper_list_status": "primary-list-indexed",
+      "paper_list_url": "https://csircorl.github.io/website/",
+      "gap": "Indexed the readable published subset; remaining paper titles or manuscripts were not exposed by the available primary source.",
+      "description": "Developing general-purpose robots capable of autonomously performing diverse tasks in unstructured environments remains a central challenge in robotics. Recent demonstration-driven approaches, including learning from teleoperated robot demonstrations and human video demonstrations, have provided robots with strong"
+    },
+    {
+      "id": "workshop-12",
+      "title": "Learn@Deploy: Robot Learning at Deployment",
+      "url": "https://learn-at-deploy.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "recovery-learning",
+        "weight-adaptation"
+      ],
+      "related_talks": [
+        "d2-49",
+        "d2-80",
+        "d2-40"
+      ],
+      "indexed_papers": 40,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://learn-at-deploy.github.io/",
+      "gap": null,
+      "description": "strategies for continuous adaptation and test-time optimization after deployment, under real constraints on compute, memory, streaming data, and physical safety. We bring together industry and academic researchers across robot learning, embodied AI, planning, control, and computer vision to discuss"
+    },
+    {
+      "id": "workshop-13",
+      "title": "Pretrain to Adapt: What Makes a Pretrained Policy Adaptable?",
+      "url": "https://corl2026-robotcl.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "weight-adaptation",
+        "representation-data"
+      ],
+      "related_talks": [
+        "d1-2",
+        "d2-46",
+        "d2-49"
+      ],
+      "indexed_papers": 29,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://corl2026-robotcl.github.io/papers/",
+      "gap": null,
+      "description": "The strongest robotic manipulation systems today are typically built in two stages: first, pretrain a generalist policy on a large and diverse dataset, then adapt it to the specific setting where we actually want to deploy it. Adaptation can take many forms — supervised or RL fine-tuning, in-context learning, or"
+    },
+    {
+      "id": "workshop-14",
+      "title": "Scaling H2R: Scaling Laws and Diversity in Human-to-Robot Workshop",
+      "url": "http://scaling-h2r-corl.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "human-transfer",
+        "representation-data"
+      ],
+      "related_talks": [
+        "d1-12",
+        "d2-37",
+        "d2-50"
+      ],
+      "indexed_papers": 30,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "http://scaling-h2r-corl.github.io/",
+      "gap": null,
+      "description": "from human data, but deliberately narrows the question. Where prior efforts established whether robots can be taught from sensorized, modeled human behavior, premise here is that the binding constraint has now shifted from feasibility to scale and diversity: human data is a source of embodied experience that is"
+    },
+    {
+      "id": "workshop-15",
+      "title": "\"Oops, I Erred\" — Collecting, Curating and Using Imperfect Data for Realistic Scenarios",
+      "url": "http://workshop.oopsie-data.com/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "data-provenance",
+        "representation-data"
+      ],
+      "related_talks": [
+        "d1-17",
+        "d1-30",
+        "d2-40"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "http://workshop.oopsie-data.com/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Robot learning has made rapid progress on datasets of clean, successful demonstrations. But a policy trained on curated successes only knows what to do when This workshop is about other data: execution failures and near-misses, noisy or suboptimal demonstrations, out-of-distribution events, and the unexpected things"
+    },
+    {
+      "id": "workshop-16",
+      "title": "Learning from Corrections and Interventions",
+      "url": "https://sites.google.com/view/lfcworkshopcorl2026/home",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "recovery-learning",
+        "weight-adaptation"
+      ],
+      "related_talks": [
+        "d2-40",
+        "d2-49",
+        "d1-8"
+      ],
+      "indexed_papers": 20,
+      "paper_list_complete": false,
+      "paper_list_status": "complete-visible-folder-indexed",
+      "paper_list_url": "https://drive.google.com/drive/folders/1gdCInwYMTLcHtvCo2Kze8B4_rDdqwYmw?usp=sharing",
+      "gap": "Indexed the readable published subset; remaining paper titles or manuscripts were not exposed by the available primary source.",
+      "description": "Robots operating in real-world environments often learn from human demonstrations, preferences, or rewards. However, in many deployment settings, people act as supervisors rather than teachers: they monitor robot behavior and intervene only when necessary. These corrections and interventions provide rich information"
+    },
+    {
+      "id": "workshop-17",
+      "title": "From Human Videos to Dexterous Robot Capability: A Hands-on Tutorial",
+      "url": "https://aanwar-nv.github.io/v2d-tutorial.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "human-transfer",
+        "contact-control"
+      ],
+      "related_talks": [
+        "d2-50",
+        "d2-51",
+        "d2-52"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://aanwar-nv.github.io/v2d-tutorial.github.io/",
+      "gap": "Official workshop link verified; target page rendered too little content to recover its program or paper list.",
+      "description": "This page has moved. If you are not redirected automatically, follow 【0†this link†nvidia-isaac.github.io】."
+    },
+    {
+      "id": "workshop-18",
+      "title": "BiDexTool: Bimanual Dexterous Tool Use: From Contact-Rich Execution to Generalist Robot Intelligence",
+      "url": "https://bimanual-tool.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "contact-control",
+        "humanoid-control"
+      ],
+      "related_talks": [
+        "d2-53",
+        "d2-54",
+        "d2-67"
+      ],
+      "indexed_papers": 8,
+      "paper_list_complete": false,
+      "paper_list_status": "primary-list-indexed",
+      "paper_list_url": "https://bimanual-tool.github.io/",
+      "gap": "Indexed the readable published subset; remaining paper titles or manuscripts were not exposed by the available primary source.",
+      "description": "are not simply longer versions of pick-and-place: the tool becomes a physical mediator between the body and the world. Successful tool use requires Tool use requires representing the evolving relationship between hands, fingers, tools, target objects, contacts, and forces."
+    },
+    {
+      "id": "workshop-19",
+      "title": "The UMI Olympics: From Handheld Devices to Real-World Policies",
+      "url": "https://umi-olympics.airoa.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "representation-data",
+        "deployment-economics"
+      ],
+      "related_talks": [
+        "d1-17",
+        "d1-7",
+        "d2-40"
+      ],
+      "indexed_papers": 30,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://umi-arena.airoa.io/accepted.html",
+      "gap": null,
+      "description": "The UMI Arena. Handheld devices turn human demonstrations into robot policies. The arena is where those policies are put to the test, on the same tasks, the Robot-free data collection, the founding idea of the 【0†Universal Manipulation Interface†umi-gripper.github.io】 (UMI), has gone"
+    },
+    {
+      "id": "workshop-20",
+      "title": "3rd Workshop on Dexterous Manipulation: Full-Stack Robotics on Learning and Design",
+      "url": "https://dex-manipulation.github.io/corl2026/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "contact-control",
+        "humanoid-control"
+      ],
+      "related_talks": [
+        "d2-51",
+        "d2-52",
+        "d2-53"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://dex-manipulation.github.io/corl2026/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Dexterous manipulation remains one of robotics' most difficult challenges. Although researchers have made progress over several decades, robots still struggle to perform tasks that humans accomplish with ease."
+    },
+    {
+      "id": "workshop-21",
+      "title": "R2RL: Roadmap to Sample-Efficient Real-World Reinforcement Learning",
+      "url": "https://r2rl-workshop.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "weight-adaptation",
+        "evaluation-validity"
+      ],
+      "related_talks": [
+        "d2-46",
+        "d2-47",
+        "d2-57"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://r2rl-workshop.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Reinforcement learning (RL) has long promised autonomous, self-improving robots, yet a stubborn gap separates impressive sim results from reliable real-world deployment. At the heart of that gap is sample efficiency:"
+    },
+    {
+      "id": "workshop-22",
+      "title": "Robot Learning on the Path to Surgical Autonomy: Methods, Data, and Open Challenges",
+      "url": "https://corl2026-surgical-autonomy.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "contact-control",
+        "recovery-learning"
+      ],
+      "related_talks": [
+        "d2-53",
+        "d2-66"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://corl2026-surgical-autonomy.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "The tutorial took place on Thursday, November 12, 2026 at CoRL in Austin, and it was a great afternoon. Thank you to our speakers, Filippo Filicori, Shan Lin, Aneeq Zia, Mostafa Toloui and Axel Krieger, for sharing how they actually do this work. And thank you to everyone who joined us, worked through the notebooks"
+    },
+    {
+      "id": "workshop-23",
+      "title": "RoboLetics 3.0: Benchmarks for Agile Physical Human-Robot Interaction",
+      "url": "https://roboletics.github.io/corl2026/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "coordination",
+        "humanoid-control"
+      ],
+      "related_talks": [
+        "d1-23",
+        "d2-58"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://roboletics.github.io/corl2026/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Robotics and AI Institute, our workshop will showcase the latest innovations, foster interdisciplinary evaluation methodologies, safety constraints, fairness criteria, rules for difficulty level progression"
+    },
+    {
+      "id": "workshop-24",
+      "title": "Human-Centered Robot Learning and Interaction: Toward Reliable and Scalable Autonomy in Human Environments",
+      "url": "https://hc-robot-learning.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "coordination",
+        "deployment-economics"
+      ],
+      "related_talks": [
+        "d1-23",
+        "d2-38",
+        "d1-33"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://hc-robot-learning.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "a first-class component of the learning, adaptation, evaluation, and deployment loop: how robots learn from people at scale, interact with them safely and Associate Professor at the National University of Singapore, where he leads the Collaborative, Learning, and Adaptive Robots (CLeAR) group. His work builds"
+    },
+    {
+      "id": "workshop-25",
+      "title": "The Science of Physical AI Safety Workshop (SPAIS)",
+      "url": "https://spais-ws.org/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "data-provenance",
+        "evaluation-validity"
+      ],
+      "related_talks": [
+        "d1-30",
+        "d1-33",
+        "d2-66"
+      ],
+      "indexed_papers": 51,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://spais-ws.org/",
+      "gap": null,
+      "description": "Convening the AI safety and robot learning communities to establish a shared science — and a shared research agenda — for the interpretability, alignment, and $20,000 in travel, registration & accommodation grants Backing early-career researchers in physical AI safety. Apply now → Sponsored by Robocurve"
+    },
+    {
+      "id": "workshop-26",
+      "title": "Grounded 4D Multimodal World Models for Autonomous Driving Decision Making",
+      "url": "https://arlo0o.github.io/Grounded-Driving-World-Models_Workshop/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "world-representation",
+        "world-planning"
+      ],
+      "related_talks": [
+        "d3-84",
+        "d1-29",
+        "d1-15"
+      ],
+      "indexed_papers": 19,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://arlo0o.github.io/Grounded-Driving-World-Models_Workshop/",
+      "gap": null,
+      "description": "judge the consequences of a vehicle’s actions. Explore their slides and the workshop contributions below. In Quo Vadis, Driving World Models?, Hao Zhao traces how perception and geometry, scene reconstruction, generative simulation, and driving scene generation"
+    },
+    {
+      "id": "workshop-27",
+      "title": "Spatial Intelligence and Structured Reasoning for Embodied Navigation (SISREN)",
+      "url": "https://sisren-embodied-nav.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "world-representation",
+        "coordination"
+      ],
+      "related_talks": [
+        "d2-77",
+        "d1-23",
+        "d3-84"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://sisren-embodied-nav.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Embodied navigation — the ability of autonomous agents to move purposefully through complex, unstructured environments — sits at the intersection of perception, cognition, and action. Despite significant progress driven by large-scale pretraining, state-of-the-art navigation systems still struggle with tasks that"
+    },
+    {
+      "id": "workshop-28",
+      "title": "Everything Beneath the Policy: How Controllers, Hardware, and Data Infrastructure Shape Robot Learning",
+      "url": "https://beneath-the-policy.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "contact-control",
+        "control-timescales"
+      ],
+      "related_talks": [
+        "d1-10",
+        "d2-67",
+        "d2-68"
+      ],
+      "indexed_papers": 20,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://beneath-the-policy.github.io/",
+      "gap": null,
+      "description": "Robot learning has recently made striking progress in challenging domains such as dexterous manipulation, legged locomotion, and whole-body control. These advances are often credited to better policies, achieved through improved network architectures, novel learning algorithms, and, perhaps most importantly,"
+    },
+    {
+      "id": "workshop-29",
+      "title": "Open Problems in Contact-Rich Loco-Manipulation",
+      "url": "https://contact-rich-loco-manipulation.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "humanoid-control",
+        "coordination"
+      ],
+      "related_talks": [
+        "d2-57",
+        "d2-58",
+        "d1-23"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://contact-rich-loco-manipulation.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Recent advances in robot learning, control, perception, and planning have enabled mobile robots to navigate complex environments and interact more capably with the physical world. Legged robots, humanoids, and mobile manipulators now perform tasks that require ==whole-body motion, forceful interaction, and adaptation"
+    },
+    {
+      "id": "workshop-30",
+      "title": "Beyond Binary Success: Diagnosing Fine-Grained Capabilities in Robot Manipulation",
+      "url": "https://robofinemani2026.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "evaluation-validity",
+        "recovery-learning"
+      ],
+      "related_talks": [
+        "d1-19",
+        "d2-66",
+        "d1-9"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://robofinemani2026.github.io/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Due to visa complications affecting the organizing team, none of the organizers is able to travel to CoRL 2026 in person. The workshop will therefore be held Fine-grained robot manipulation demands more than completing a task once. Reliable physical intelligence requires accurate instruction understanding, precise"
+    },
+    {
+      "id": "workshop-31",
+      "title": "Compositional Generalization for Real-World Robot Learning",
+      "url": "https://compogen-robotics.github.io/corl2026/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "evaluation-validity",
+        "representation-data"
+      ],
+      "related_talks": [
+        "d1-9",
+        "d1-2",
+        "d1-6"
+      ],
+      "indexed_papers": 0,
+      "paper_list_complete": false,
+      "paper_list_status": "not-readable-in-available-sources",
+      "paper_list_url": "https://compogen-robotics.github.io/corl2026/",
+      "gap": "Paper list is not fully rendered in the available primary page; OpenReview pages require browser verification.",
+      "description": "Join us at CoRL 2026 on November 12! Talks and discussions take place in Rooms 310–311 at JW Marriott Austin. The poster session is 9:35–10:20 AM in Lone Star Ballroom, also on Level 3, at boards 072L–091R. View the venue map and poster details."
+    },
+    {
+      "id": "workshop-32",
+      "title": "Workshop on Agentic Robotics",
+      "url": "https://agentic-robotics-workshop.github.io/",
+      "status": "official-directory-verified",
+      "verification": "Workshop membership verified against the official CoRL 2026 accepted-workshop directory. Paper metadata comes from the linked organizers’ primary page or published paper list.",
+      "topics": [
+        "agentic-learning",
+        "agentic-execution"
+      ],
+      "related_talks": [
+        "d1-22",
+        "d2-49",
+        "d2-59"
+      ],
+      "indexed_papers": 39,
+      "paper_list_complete": true,
+      "paper_list_status": "complete-organizer-list-indexed",
+      "paper_list_url": "https://agentic-robotics-workshop.github.io/papers",
+      "gap": null,
+      "description": "Across the broader AI field, agents increasingly operate by decomposing tasks, generating code, calling tools, managing memory, and revising plans based on intermediate feedback. This pattern is spreading to robotics, where reasoning, skills, and verification are composed at inference time on top of learned"
+    }
+  ],
+  "primary_sources": [
+    {
+      "id": "official-workshop-directory",
+      "title": "CoRL 2026 — Accepted Workshops",
+      "url": "https://www.corl.org/program/workshops",
+      "role": "Canonical workshop membership directory",
+      "status": "primary-page-reviewed",
+      "reviewed_at": "2026-11-22",
+      "next_step": "Complete the remaining title lists and review original workshop manuscripts."
+    },
+    {
+      "id": "official-main-portal",
+      "title": "CoRL 2026 — Main Conference on OpenReview",
+      "url": "https://openreview.net/group?id=robot-learning.org/CoRL/2026/Conference",
+      "role": "Canonical main-conference portal, linked by official author instructions",
+      "status": "primary-link-verified-portal-unreadable",
+      "next_step": "Reconcile official decisions and manuscripts when the portal can be read."
+    },
+    {
+      "id": "workshop-call",
+      "title": "CoRL 2026 — Call for Workshops",
+      "url": "https://www.corl.org/contributions/call-for-workshops",
+      "role": "Official conference source lead",
+      "status": "primary-page-reviewed",
+      "next_step": "Follow the official accepted-workshop program and obtain each workshop submission list.",
+      "reviewed_at": "2026-11-22"
+    },
+    {
+      "id": "author-instructions",
+      "title": "CoRL — Instruction for Authors",
+      "url": "https://www.corl.org/contributions/instruction-for-authors",
+      "role": "Official conference source lead",
+      "status": "primary-page-reviewed",
+      "next_step": "Find the canonical accepted-paper/proceedings list and retain paper IDs, authors and track.",
+      "reviewed_at": "2026-11-22"
+    },
+    {
+      "id": "bair-roundup",
+      "title": "BAIR at CoRL 2026",
+      "url": "http://bair.berkeley.edu/blog/2026/11/09/bair-at-corl-2026/",
+      "role": "Primary institutional publication roundup",
+      "status": "discovered-not-reviewed",
+      "next_step": "Follow the original project and manuscript links; deduplicate against the conference catalogue."
+    },
+    {
+      "id": "rai-roundup",
+      "title": "CoRL 2026 Publication and Workshop Round Up",
+      "url": "https://rai-inst.com/resources/blog/corl-2026-publication-and-workshop-round-up/",
+      "role": "Primary institutional publication roundup",
+      "status": "discovered-not-reviewed",
+      "next_step": "Follow institute paper links, author affiliations and workshop contributions."
+    },
+    {
+      "id": "nvidia-corl",
+      "title": "NVIDIA at CoRL 2026",
+      "url": "https://www.nvidia.com/en-us/events/corl/",
+      "role": "Primary organizational conference page",
+      "status": "discovered-not-reviewed",
+      "next_step": "Read papers and technical model reports behind the demonstrations; separate product announcements from evaluated results."
+    },
+    {
+      "id": "rpl-publications",
+      "title": "Robot Perception and Learning Lab — Publications",
+      "url": "https://ut-austin-rpl.github.io/publications/",
+      "role": "Primary lab publication index",
+      "status": "discovered-not-reviewed",
+      "next_step": "Use the lab list to identify related work and resolve full manuscript titles."
+    },
+    {
+      "id": "iprl-publications",
+      "title": "Interactive Perception and Robot Learning Lab — Publications",
+      "url": "https://iprl.stanford.edu/publications.html",
+      "role": "Primary lab publication index",
+      "status": "discovered-not-reviewed",
+      "next_step": "Find supporting papers cited in the world-model and interaction talks."
+    }
+  ],
+  "secondary_sources": [
+    {
+      "title": "CoRL 2026 Paper Explorer",
+      "url": "https://gisbi-kim.github.io/conference-explorers/corl2026/",
+      "status": "catalogue-snapshot-indexed",
+      "role": "Attributed secondary catalogue: 687 main-paper records with abstracts; original acceptance and manuscripts not independently verified.",
+      "data_url": "https://jaywu109.github.io/papers/corl-2026/"
+    },
+    {
+      "title": "ai-conferences/CoRL2026",
+      "url": "https://huggingface.co/datasets/ai-conferences/CoRL2026",
+      "status": "discovered-not-reviewed",
+      "role": "Secondary machine-readable discovery index; verify conference membership and provenance."
+    },
+    {
+      "title": "CoRL 2026 papers | alphaXiv",
+      "url": "https://www.alphaxiv.org/conferences/corl/2026?tier=poster",
+      "status": "discovered-not-reviewed",
+      "role": "Secondary poster discovery index; follow original papers."
+    }
+  ],
+  "acquisition_tasks": [
+    {
+      "id": "canonical-main",
+      "priority": 1,
+      "title": "Reconcile the canonical main-conference paper list",
+      "done_when": "Every accepted paper has a stable ID, full title, authors, paper URL, track, and indexed/reviewed status. Counts match the official programme.",
+      "reason": "A main-stage talk catalogue cannot establish complete proceedings coverage.",
+      "status": "partially-completed",
+      "progress": "687 paper records and abstracts imported from the attributed secondary snapshot; canonical OpenReview verification remains open."
+    },
+    {
+      "id": "missing-morning",
+      "priority": 1,
+      "title": "Acquire Day 3 morning spotlights",
+      "done_when": "S6–S8 are matched to original recordings, transcripts and paper IDs; all starts are checked against playback.",
+      "reason": "The supplied Day 3 recording covers the afternoon session only.",
+      "status": "partially-completed",
+      "progress": "S6–S8 paper metadata and abstracts recovered from the broader catalogue; original recording onsets are still unverified."
+    },
+    {
+      "id": "workshop-manifest",
+      "priority": 1,
+      "title": "Build the workshop and submission manifest",
+      "done_when": "Each accepted workshop is verified against the conference program; each publicly available paper is linked to its workshop with archival status stated.",
+      "reason": "A workshop name or organizer page is not evidence for a particular paper claim.",
+      "status": "partially-completed",
+      "progress": "All 32 accepted-workshop links verified. 484 published entries across 15 workshops indexed; 12 complete organizer lists and 51 original abstracts recovered."
+    },
+    {
+      "id": "late-breaking-manifest",
+      "priority": 2,
+      "title": "Import late-breaking research as its own track",
+      "done_when": "Contributions have original papers/projects and clear late-breaking labels, then connect to relevant concepts and talks.",
+      "reason": "Recent demonstrations and late-breaking submissions can have different evidence strength from reviewed archival papers."
+    },
+    {
+      "id": "original-sources",
+      "priority": 2,
+      "title": "Review original manuscripts and project releases",
+      "done_when": "Each synthesis separates the authors’ measured finding, experimental setting, limitations, and this atlas’s interpretation.",
+      "reason": "Automatic transcripts can mishear titles, names and numerical claims."
+    },
+    {
+      "id": "playback",
+      "priority": 2,
+      "title": "Check every video start against playback",
+      "done_when": "The exact speaker onset is checked with the original video; a saved note records the verification method and correction.",
+      "reason": "Transcript-aligned links are useful but do not guarantee frame-exact start times."
+    }
+  ],
+  "source_policy": {
+    "research_references": "Original papers, technical reports, project pages, code/data releases and original recordings.",
+    "social_discovery": "Social posts can identify work to investigate; posts are not used as supporting research references.",
+    "primary_source_status": "Workshop directory membership and readable organizer lists were reviewed. Some papers have reviewed primary abstracts or indexed primary-paper bodies; others remain title-only entries or reference pointers. Each record states its depth.",
+    "editorial_edges": "Connections and reading questions are this atlas’s synthesis unless a reviewed source explicitly establishes the relationship.",
+    "catalogue_status": "The 687-paper main index comes from an attributed secondary snapshot. It is useful for exhaustive discovery but does not independently establish each official decision or manuscript finding."
+  },
+  "access_note": "Supported primary-page and indexed-paper readers were used. OpenReview’s browser-verification challenge and PDF access errors prevented direct completion of portal-dependent paper lists and manuscripts; no verification bypass was attempted.",
+  "review_note": "Focused reviews cover public manuscript sections or author project methods, with exact depth stated per source. This is separate from exhaustive catalogue discovery and independent confirmation of accepted publication versions."
+}

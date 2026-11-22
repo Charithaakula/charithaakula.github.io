@@ -1,0 +1,4 @@
+[06:48:41] >> Um, hi, I'm Zu. Today I'll present more
+[06:48:45] mixture of experts for multifysic robotic world models. A war model helps robots in three ways like uh model based planning and control and it can also serves as an interactive and for reinforcement learning. However, uh existing models fall short. Video model predict 2D pixels and are hard to act on. Inversed physics methods need long observation and slow system ID. And uh uh existing 3D dynamics models only handle one material. So we build on this line aiming for a single 3D world model across materials and actuators. And our key insight is that robot interactions form distinct dynamic groups. So one shared model tends to blur them together. That is why we use a
+[06:49:30] mixture of motion experts and let a router pick the right one.
+[06:49:57] It should be three minutes but obviously >> okay we don't >> sorry there is a technical problem here we are we are trying to fix that

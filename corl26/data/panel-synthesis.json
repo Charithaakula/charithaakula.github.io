@@ -1,0 +1,81 @@
+[
+  {
+    "id": "policy",
+    "synthesis": [
+      "The perspectives concern policy capability, execution timing and orchestration. New papers add more concrete choices inside those categories: ImageWAM and LaWAM change the intermediate used for action prediction, while Rolling-WAM distributes joint denoising across successive updates.",
+      "Our reading is to compare complete execution loops, with their observation interfaces, startup costs, steady-state timing and recovery behavior visible. A compact predictive policy is not automatically a replacement for a supervisor or fast controller. These studies support scoped comparisons rather than a universally best architecture."
+    ],
+    "source_talk_ids": [
+      "d1-14",
+      "d1-11",
+      "d1-10",
+      "d1-22"
+    ]
+  },
+  {
+    "id": "world",
+    "synthesis": [
+      "The new papers distinguish what prediction contributes: editing caches in ImageWAM, latent subgoals in LaWAM, rolling video-action context in Rolling-WAM, and explicit action-plan refinement in LeWAM. They do not measure the same use of a world model.",
+      "Our synthesis is to separate training-time gains from decision-time costs. LeWAM’s planning updates candidate actions while keeping model parameters frozen; its physical-robot evaluations use direct execution under a different protocol. Match goal information, task conditions and runtime budgets before treating results as evidence for adding online planning."
+    ],
+    "source_talk_ids": [
+      "d1-14",
+      "d2-56",
+      "d3-84",
+      "d2-57",
+      "d1-29"
+    ]
+  },
+  {
+    "id": "data",
+    "synthesis": [
+      "The papers broaden representation beyond a coordinate choice. H2R-Bridge separates observation alignment from action decoding; GLAM grounds latent actions with target-robot supervision. H2RBench holds robot supervision fixed and finds that more human data has task- and method-dependent value.",
+      "Our reading is to account for coverage, interfaces and evaluation separately. Scale Up Strategically adds another question: which demonstrations should receive a fixed collection budget? Transfer evidence should retain its robot-data budget, environment assumptions and scoring definition; a weighted task-progress score should not become a binary success percentage."
+    ],
+    "source_talk_ids": [
+      "d1-12",
+      "d2-37",
+      "d1-7"
+    ]
+  },
+  {
+    "id": "posttrain",
+    "synthesis": [
+      "The papers show different ways to use an existing model. RARA preserves representations using relevant retrieved trajectories; Memory Anchors selects replay states for retaining earlier tasks; MuSe adds force-torque observations while replaying original data. Those mechanisms spend additional data and compute in different places.",
+      "Our synthesis is to identify the actual bottleneck and account for the whole update budget. RARA’s extra alignment stage and access to relevant pretraining data matter; selective replay still needs diversity. These results motivate targeted adaptation and retention tests, rather than a single ranking of pretraining, post-training and corrections."
+    ],
+    "source_talk_ids": [
+      "d1-11",
+      "d2-50",
+      "d2-46",
+      "d2-47",
+      "d2-40",
+      "d2-49"
+    ]
+  },
+  {
+    "id": "deployment",
+    "synthesis": [
+      "The papers separate detecting a problem, retrying a task and improving a policy. ContactGuard predicts imminent-contact failures without supplying recovery; FAR studies retries and later policy updates, but its real tests use human outcome labels. ATOM-Bench examines held-out compositions under a controlled physical protocol.",
+      "Our reading is to report interventions, reset requirements, attempt budgets and untested settings alongside success. RLE-Bench measures bounded engineering workflows, not fielded generalist reliability. These distinctions sharpen the factory-versus-generality discussion without implying that one successful workflow establishes unrestricted transfer."
+    ],
+    "source_talk_ids": [
+      "d2-80",
+      "d3-86",
+      "d1-33",
+      "d1-35"
+    ]
+  },
+  {
+    "id": "agentic",
+    "synthesis": [
+      "The manuscripts distinguish the artifact that changes. PhysCaP updates physical beliefs and control programs without neural training; ASPIRE retains code and repair guidance; HARBOR and ENPIRE organize numerical policy-improvement experiments. EmbodiedSWE supplies verified simulation demonstrations for VLA fine-tuning.",
+      "Our synthesis is to identify the agent’s role and the human or engineered support around it. ASPIRE still needs real-world guidance and debugging; ENPIRE assumes prepared reset and verification interfaces; HARBOR’s gates do not guarantee semantic correctness. MobiAgent’s finite policy-update rounds plateau. These are useful improvements with stated limits, not evidence of unlimited recursive improvement."
+    ],
+    "source_talk_ids": [
+      "d1-22",
+      "d2-49",
+      "d2-59"
+    ]
+  }
+]

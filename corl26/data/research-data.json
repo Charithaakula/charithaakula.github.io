@@ -1,0 +1,387 @@
+[
+  {
+    "id": "scale-up-strategically",
+    "title": "Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation",
+    "url": "https://arxiv.org/abs/2607.21582",
+    "arxiv_id": "2607.21582",
+    "year": 2026,
+    "kind": "Main-conference paper",
+    "main_paper_ids": [
+      "quVJ7qbQl6"
+    ],
+    "workshop_paper_ids": [],
+    "status": "primary-paper-reviewed",
+    "review_scope": "Indexed primary manuscript methodological appendix, factor-bias evaluation, collection strategies and experiments; author project page methods/results also read. Indexed formulas and some table values are malformed, so numerical claims are not reproduced here.",
+    "full_summary": "This study asks how a fixed demonstration budget should be distributed across instruction factors, rather than treating data scale as a single count. It deliberately correlates pairs of factors during fine-tuning, then evaluates held-out combinations to diagnose which factor a policy follows when cues conflict. A vision-language judge supplies factor-level failure labels. The authors use those diagnostics to collect more informative combinations under matched demonstration and configuration-change budgets. Their simulation and real-robot studies report benefits from this targeted allocation, but the appendix also identifies settings where the advantage disappears, particularly difficult size distinctions. The contribution is a concrete data-selection perspective: first identify an under-grounded capability, then test whether reallocating examples helps it. The reported hierarchy and improvements are scoped to the tested policies, task factors and collection protocols.",
+    "method": "Measure instruction-factor shortcuts, then reallocate a fixed collection budget toward under-grounded factors and held-out combinations.",
+    "why_it_matters": "The next demonstration can be chosen for the capability it tests or teaches; increasing trajectory count alone can leave the same shortcut intact.",
+    "open_question": "Does bias-aware allocation retain its benefit when instructions, task families and perceptual factors are less controlled than the tested factor grids?",
+    "limitations": [
+      "The tested instruction factors and structured task grids do not cover arbitrary open-world language or manipulation.",
+      "Failure attribution relies on a VLM judge; its agreement with human labels is checked on a subset, not established universally.",
+      "Some reported size-related settings show little collection-strategy benefit.",
+      "Collection cost includes configuration changes, so claims should preserve both the demonstration budget and the scene-change budget."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/abs/2607.21582",
+        "section": "Factor-change counting per strategy",
+        "quote": "fix the total factor change f and the budget"
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "data",
+        "perspective_index": 0,
+        "note": "Adds a data-allocation perspective: under fixed budgets, which instruction factors receive demonstrations can matter, and benefits are task-dependent.",
+        "reason": "Broadens the data-scale view with a tested selection policy instead of adding another panel."
+      }
+    ],
+    "suggested_question_change": {
+      "question": "Which additional demonstrations improve transfer, and what must be aligned?",
+      "reason": "This wording accommodates data coverage and selection alongside visual/action representations. It is an editorial option, not a new empirical conclusion or a request to add a seventh panel."
+    },
+    "reviewed": true,
+    "reviewed_at": "2026-11-22",
+    "empirical_status": "Reported findings are attributed to the paper authors; no independent reproduction or cross-paper ranking is claimed.",
+    "placement_kind": "Editorial reading suggestion within an existing panel, not a claimed citation, dependency, endorsement or exclusive taxonomy.",
+    "source_text_sha256": {
+      "scale-full": "9d33b3cf996492a3848737e75084d26be6f6ebfc7e38a97cc3f8690e415125a4",
+      "scale-site": "5daf06d9df54935ebe56877b76f293ca29cf437016892a4eabe2819b71def272"
+    },
+    "source_cache_keys": [
+      "scale-full",
+      "scale-site"
+    ],
+    "related_talk_ids": [
+      "d1-9",
+      "d1-6",
+      "d1-17"
+    ],
+    "short_method": "Diagnose instruction-factor shortcuts, then allocate a fixed demonstration and scene-change budget to under-grounded factors.",
+    "short_why": "More data can preserve the same shortcut; useful demonstrations should target the capability that is missing.",
+    "short_question": "Does targeted collection still help when tasks and language are less structured than the tested factor grids?"
+  },
+  {
+    "id": "h2rbench",
+    "title": "H2RBench: A Real-to-Sim Benchmark for Evaluating Human-to-Robot Transfer",
+    "url": "https://arxiv.org/abs/2609.24778",
+    "arxiv_id": "2609.24778",
+    "year": 2026,
+    "kind": "Main-conference paper",
+    "main_paper_ids": [
+      "SMKzI5HX9P"
+    ],
+    "workshop_paper_ids": [],
+    "status": "primary-paper-reviewed",
+    "review_scope": "Indexed primary manuscript: problem definition, task suite, reconstruction/data collection, method interfaces, evaluation/scaling, sim-versus-real validation, limitations and implementation/failure analyses.",
+    "full_summary": "H2RBench compares human-to-robot transfer methods under a shared task and supervision protocol. It reconstructs real workspaces in simulation, uses real human demonstrations, and holds the robot-demonstration budget fixed while varying the amount of human data. The evaluated methods bridge embodiments through visual editing, keypoints, latent dynamics or hierarchical subgoals. The reported human-data benefit varies by method and task: it is more consistent for coarse spatial behavior than for precise contact and longer sequences, and adding human data can hurt insertion performance. The benchmark also compares rankings from separately trained simulation-pipeline and real-world-pipeline policies. That correspondence supports comparative evaluation in the tested setup; it does not show that a single simulated policy transfers unchanged to arbitrary real settings. The task suite remains limited to controlled third-person tabletop manipulation, primarily with rigid objects.",
+    "method": "Fix robot supervision, sweep human-demonstration volume, compare embodiment-bridging methods on shared tasks, and validate relative rankings with separately trained real-world pipelines.",
+    "why_it_matters": "It separates human-data scaling from robot-supervision budgets and shows why a pooled success score can hide precision and long-horizon bottlenecks.",
+    "open_question": "Do its scaling trends and simulation ranking fidelity persist for egocentric, in-the-wild, articulated, deformable and bimanual tasks?",
+    "limitations": [
+      "Four controlled tabletop tasks and limited interaction families.",
+      "Real-to-sim reconstruction has imperfect visual and physical fidelity.",
+      "Simulation and real-world comparisons use separately trained policies; this is not zero-shot transfer of one checkpoint.",
+      "Method–task interactions, especially contact-sensitive stacking, account for remaining ranking discrepancies."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/abs/2609.24778",
+        "section": "Overview",
+        "quote": "we hold the robot demonstration budget fixed across methods"
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "data",
+        "perspective_index": 0,
+        "note": "More human data has method- and task-dependent value when robot supervision is fixed; high-level transfer and precision should be evaluated separately.",
+        "reason": "Qualifies the broad human-prior perspective with a controlled comparison."
+      },
+      {
+        "panel_id": "data",
+        "perspective_index": 1,
+        "note": "Human-to-robot synthesis and representation choices should be compared at matched robot-data budgets, rather than through results from unrelated task suites.",
+        "reason": "Adds an evaluation perspective to the human-to-robot data engine."
+      }
+    ],
+    "reviewed": true,
+    "reviewed_at": "2026-11-22",
+    "empirical_status": "Reported findings are attributed to the paper authors; no independent reproduction or cross-paper ranking is claimed.",
+    "placement_kind": "Editorial reading suggestion within an existing panel, not a claimed citation, dependency, endorsement or exclusive taxonomy.",
+    "source_text_sha256": {
+      "2609.24778-all": "51942e9cedb3452c9fd73486547dd3993198e20a599ee190fdef709e9368dc32"
+    },
+    "source_cache_keys": [
+      "2609.24778-all"
+    ],
+    "related_talk_ids": [
+      "d1-12",
+      "d2-37",
+      "d2-50"
+    ],
+    "short_method": "Hold robot-data budgets fixed, vary human demonstrations, compare transfer methods on shared tasks, and check simulated versus real-world rankings.",
+    "short_why": "Separates human-data scaling from robot supervision and exposes precision and long-horizon bottlenecks.",
+    "short_question": "Do the scaling trends and simulated rankings hold for egocentric, deformable, articulated, bimanual, or in-the-wild tasks?"
+  },
+  {
+    "id": "glam",
+    "title": "Imitation from Heterogeneous Demonstrations using Grounded Latent-Action World Models",
+    "url": "https://arxiv.org/abs/2606.21672",
+    "arxiv_id": "2606.21672",
+    "year": 2026,
+    "kind": "Main-conference paper",
+    "main_paper_ids": [
+      "RLsVfgv1pS"
+    ],
+    "workshop_paper_ids": [],
+    "status": "primary-paper-reviewed",
+    "review_scope": "Indexed primary manuscript: paired latent-action generative models, asymmetric alignment, object-mask variant, downstream behavior cloning, real/sim protocols, scaling ablations and limitations.",
+    "full_summary": "GLAM learns a shared latent-action representation from target robot demonstrations and cheaper auxiliary trajectories that need not carry executable action labels. One model infers latent actions from visual transitions; another uses target action labels to make those latents decodable into robot control. An asymmetric alignment loss transfers the target branch’s control information into the transition-based representation. The resulting model relabels heterogeneous trajectories for a downstream imitation policy. The authors test Kinova robot data and a simulated floating-UMI-gripper source, with an object-mask variant to emphasize manipulated-object motion. They report data-efficiency gains and useful auxiliary-data scaling in these settings. This is evidence for control-grounded representation as an alternative to simply sharing raw action coordinates. It is not demonstrated web-video or human-hand transfer: the source and target share scenes, camera placement, objects and task semantics, and tactile or force information is absent.",
+    "method": "Align a transition-inferred latent action with a target-action-supervised latent, then relabel target and auxiliary data to train a robot policy in the shared control-grounded space.",
+    "why_it_matters": "It shows how action-unlabeled auxiliary experience can become useful supervision without assuming that raw action spaces already match.",
+    "open_question": "Can the latent bridge retain control meaning under new viewpoints, new object/task semantics, dexterous hands and contact feedback absent from the original sources?",
+    "limitations": [
+      "Auxiliary and target data share deployment cameras, tabletop scenes, objects and task semantics.",
+      "The study has not established transfer from in-the-wild human video or morphologically distinct dexterous end-effectors.",
+      "Target robot action labels remain necessary to ground the decoder.",
+      "Visual object motion and proprioception do not capture tactile or force signals."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/abs/2606.21672",
+        "section": "Asymmetric alignment between posteriors",
+        "quote": "the ground-truth action labels in the target space."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "data",
+        "perspective_index": 2,
+        "note": "A learned, control-grounded latent action space offers another representation strategy alongside hand-designed coordinates. The tested auxiliary source is a simulated UMI gripper, not arbitrary human video.",
+        "reason": "Adds a primary-paper alternative while keeping its demonstrated transfer scope explicit."
+      }
+    ],
+    "reviewed": true,
+    "reviewed_at": "2026-11-22",
+    "empirical_status": "Reported findings are attributed to the paper authors; no independent reproduction or cross-paper ranking is claimed.",
+    "placement_kind": "Editorial reading suggestion within an existing panel, not a claimed citation, dependency, endorsement or exclusive taxonomy.",
+    "source_text_sha256": {
+      "2606.21672-all": "2f45b89c3286deb3e014bea3870a5637ca76213772786045e2140aaaede6c7af"
+    },
+    "source_cache_keys": [
+      "2606.21672-all"
+    ],
+    "related_talk_ids": [
+      "d1-7",
+      "d2-37"
+    ],
+    "short_method": "Align transition-inferred latents with target-action-supervised latents, then train from labeled robot and unlabeled auxiliary trajectories in the shared representation.",
+    "short_why": "Auxiliary experience can teach usable control without already matching the target robot’s raw action interface.",
+    "short_question": "Can the latent bridge handle different viewpoints, task semantics, dexterous hands, and contact feedback absent from the tested sources?"
+  },
+  {
+    "id": "h2r-bridge",
+    "title": "Human-to-Robot Transfer via Bridging Representation and Action Space in VLAs",
+    "url": "https://arxiv.org/abs/2611.04391",
+    "arxiv_id": "2611.04391",
+    "year": 2026,
+    "kind": "Workshop contribution",
+    "main_paper_ids": [],
+    "workshop_paper_ids": [
+      "wp-f90dd86d8725"
+    ],
+    "status": "primary-paper-reviewed",
+    "review_scope": "Indexed primary manuscript abstract and detailed methodological/evaluation appendix: geometry adapter, action tokenizer/decoders, training interfaces, transfer conditions, scoring and rollout protocol.",
+    "full_summary": "This Scaling H2R workshop contribution adapts a robot-pretrained VLA with unpaired human and robot demonstrations. It tackles two interfaces separately. A hand-geometry training objective aligns the policy’s observation representation, while a shared action tokenizer uses independent human and robot reconstruction decoders instead of forcing both sources through one mapping. Human actions are reconstructed and retargeted to a canonical wrist–hand convention before tokenization. The tokenizer is frozen during policy adaptation, and the reported transfer uses a fixed human-trained decoder branch whose outputs already follow that control convention. Real-robot experiments cover object transfer and skills introduced through human demonstrations in a shared environment. The reported task scores include partial progress, so they must not be presented as binary success percentages. Each comparison condition uses one independently trained policy; the evidence is narrower than unrestricted cross-embodiment or in-the-wild generalization.",
+    "method": "Ground observation features with current hand geometry, co-train a shared action latent with embodiment-specific decoders, and adapt the VLA using unpaired human/robot demonstrations.",
+    "why_it_matters": "Representation alignment and action decoding are separate choices; common latent actions need not require one identical source-to-action decoder.",
+    "open_question": "Does the two-interface bridge remain effective across independent scenes, more robot embodiments and repeated training seeds, beyond the tested object and skill families?",
+    "limitations": [
+      "Human and robot demonstrations are collected in the same environment in the controlled transfer study.",
+      "Scores are weighted task progress, not binary success rates.",
+      "Each reported condition uses one independently trained policy; target-task rollout groups are limited.",
+      "Human-only adaptation still starts from a robot-pretrained backbone.",
+      "The default human decoder emits already-retargeted canonical actions; this does not demonstrate direct deployment of raw human anatomy."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/abs/2611.04391",
+        "section": "Embodiment-specific reconstruction decoders",
+        "quote": "independent temporal blocks and output heads"
+      },
+      {
+        "source_url": "https://arxiv.org/abs/2611.04391",
+        "section": "Task-progress scoring",
+        "quote": "weighted task score to capture partial execution"
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "data",
+        "perspective_index": 1,
+        "note": "This workshop paper bridges observation geometry and action decoding separately, expanding the human-to-robot synthesis perspective beyond visual conversion alone.",
+        "reason": "A directly relevant workshop mechanism with a reviewed manuscript and explicit evaluation limits."
+      },
+      {
+        "panel_id": "data",
+        "perspective_index": 2,
+        "note": "Sharing a latent action representation need not mean forcing human and robot sources through one reconstruction decoder.",
+        "reason": "Qualifies the representation perspective without claiming that every transfer method needs this architecture."
+      }
+    ],
+    "workshop_membership_source": "http://scaling-h2r-corl.github.io/",
+    "workshop_membership_evidence": "Primary organizer accepted-paper list, source reader line 193; title and authors match the manuscript.",
+    "reviewed": true,
+    "reviewed_at": "2026-11-22",
+    "empirical_status": "Reported findings are attributed to the paper authors; no independent reproduction or cross-paper ranking is claimed.",
+    "placement_kind": "Editorial reading suggestion within an existing panel, not a claimed citation, dependency, endorsement or exclusive taxonomy.",
+    "source_text_sha256": {
+      "bridge-full": "f6d3cfbfad5bc33c9af6836b6f7e4f510f61bd68ce465c340c6c8792037a7a38",
+      "h2r": "c63e528f86e095575c951df49f547f7b58078f4fd347d32dc0c905b8e89b7ddc"
+    },
+    "source_cache_keys": [
+      "bridge-full",
+      "h2r"
+    ],
+    "related_talk_ids": [
+      "d1-12",
+      "d2-37",
+      "d1-7"
+    ],
+    "short_method": "Align visual features through hand geometry and share action latents while keeping separate human and robot decoders.",
+    "short_why": "Observation alignment and action decoding are different problems; sharing a latent space need not require one identical decoder.",
+    "short_question": "Does the bridge generalize across different environments, robot embodiments, and repeated training runs beyond the tested object and skill families?"
+  },
+  {
+    "id": "rara",
+    "title": "RARA: Robust Policy Fine-Tuning through Retrieval-Anchored Representation Alignment for Robotic Manipulation",
+    "url": "https://arxiv.org/abs/2610.13578",
+    "arxiv_id": "2610.13578",
+    "year": 2026,
+    "kind": "Workshop contribution",
+    "main_paper_ids": [],
+    "workshop_paper_ids": [
+      "wp-8b5e274d7f28"
+    ],
+    "status": "primary-paper-reviewed",
+    "review_scope": "Indexed primary manuscript problem definition, retrieval/two-stage objectives, model and environment setup, ID/OOD evaluation, component/data ablations, conclusion and relevant-data limitations.",
+    "full_summary": "RARA reuses selected pretraining demonstrations to guide task adaptation. It retrieves trajectories by instruction similarity, then matches target frames to relevant source phases by action-chunk similarity. First it trains representation-producing layers and a small projector to align target features with frozen pretrained features. It then behavior-clones the target task while constraining how the policy represents the retrieved source observations. Retrieved source actions form alignment pairs; they are not extra behavior-cloning targets. In the reported diffusion-policy and GR00T experiments, this combination improves adaptation under visual shifts. Data choice is crucial: using unrelated pretraining skills or random pairings can remove the gain and sometimes hurt performance. The method therefore supplies a selection-and-preservation perspective on post-training, rather than a claim that anchoring any prior representation is beneficial. The experiments keep the robot and action space fixed and require relevant pretraining data.",
+    "method": "Retrieve source trajectories by task intent and action phase, align intermediate target features, then fine-tune the task while anchoring source representations.",
+    "why_it_matters": "Useful prior data can act as a representation constraint instead of additional action supervision; selecting the right references matters.",
+    "open_question": "How can appropriate anchors be found when related pretraining trajectories are unavailable or when the target introduces a new embodiment or action space?",
+    "limitations": [
+      "Relevant pretraining data must contain the same type of skill as the target.",
+      "Tests focus on visual shifts with the same robot and action space, not cross-embodiment transfer.",
+      "RARA adds a representation-alignment stage before the ordinary fine-tuning budget.",
+      "Wrong source skills or random pairings can harm target performance."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://arxiv.org/abs/2610.13578",
+        "section": "Pairing frames by action chunks",
+        "quote": "only to form these pairs, not as behavior-cloning targets."
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 1,
+        "note": "Retrieval-guided feature preservation is a distinct targeted-adaptation interface. The selected source trajectories constrain representations rather than simply supplying more behavior-cloning actions.",
+        "reason": "Adds a workshop-paper perspective to policy adaptation with a concrete failure condition for irrelevant anchors."
+      }
+    ],
+    "workshop_membership_source": "https://corl2026-robotcl.github.io/papers/",
+    "workshop_membership_evidence": "Primary organizer poster list, source reader lines 58–59; title and author list match the manuscript.",
+    "reviewed": true,
+    "reviewed_at": "2026-11-22",
+    "empirical_status": "Reported findings are attributed to the paper authors; no independent reproduction or cross-paper ranking is claimed.",
+    "placement_kind": "Editorial reading suggestion within an existing panel, not a claimed citation, dependency, endorsement or exclusive taxonomy.",
+    "source_text_sha256": {
+      "rara-full": "473a704c4578098b7e5cad90a01c478cd3ed4a1df1a3adc5502aec7724cd05ee",
+      "robotcl": "fade3ed60732495b4ccdf4780c5698ef45084938f6beff74e96198ddbca6fdac"
+    },
+    "source_cache_keys": [
+      "rara-full",
+      "robotcl"
+    ],
+    "related_talk_ids": [
+      "d1-2",
+      "d2-46",
+      "d2-49"
+    ],
+    "short_method": "Retrieve relevant pretraining trajectories, align target features to their pretrained features, then fine-tune while anchoring source representations.",
+    "short_why": "Useful prior data can preserve representations; unrelated reference skills can instead harm adaptation.",
+    "short_question": "How can suitable anchors be found without related pretraining data, or when embodiment and action space change?"
+  },
+  {
+    "id": "memory-anchors",
+    "title": "Memory Anchors for Continual Robot Learning",
+    "url": "https://robot-adaptation.github.io/MemoryAnchors",
+    "primary_paper_url": "https://arxiv.org/abs/2608.26545",
+    "arxiv_id": "2608.26545",
+    "year": 2026,
+    "kind": "Main paper and workshop contribution",
+    "main_paper_ids": [
+      "dSbtHPqFj9"
+    ],
+    "workshop_paper_ids": [
+      "wp-80a08a7e33f2"
+    ],
+    "status": "primary-project-reviewed",
+    "review_scope": "Author project page methods, controlled replay experiments, real-robot examples and limitations read (source reader L0–546), plus indexed manuscript abstract and conclusion. Full indexed manuscript methods were unavailable.",
+    "full_summary": "Memory Anchors studies which old experiences help a robot policy retain earlier tasks during sequential learning. It identifies new-task observations that overlap old-task representations but require different actions, then selects nearby old experiences for replay. For diffusion policies, the project measures action disagreement through conditional denoising to reduce confusion from multiple valid action modes. Controlled experiments remove or enrich these anchors while keeping the replay budget comparable, and the authors report changes in forgetting in simulation and diagnostic real-robot task sequences. The project also emphasizes that replay cannot consist only of high-conflict anchors: diverse old experience remains important. This is persistent policy training from selected past data, not inference-time conversational memory. Extracting anchors needs the model’s representation space and past training data; the evaluated task sequences and robots do not establish unlimited continual deployment.",
+    "method": "Find overlapping old/new representations with conflicting actions, select nearby old experiences as anchors, and mix them with diverse replay during sequential policy training.",
+    "why_it_matters": "Replay-buffer composition can matter beyond its size, and protecting prior skills may require retaining particular decision states.",
+    "open_question": "Can anchor selection remain useful with inaccessible pretraining data, large histories and much longer real-world task sequences without sacrificing replay diversity?",
+    "limitations": [
+      "Finding anchors requires access to model representations and past data.",
+      "Computing representations scales with dataset history and may need approximation.",
+      "Anchors alone reduce replay diversity; they are not a replacement for all other old data.",
+      "The manuscript discusses relatively short task sequences; real-world examples are controlled diagnostic tasks.",
+      "The reviewed project and indexed abstract/conclusion support these notes, but the full manuscript methods were not retrieved."
+    ],
+    "evidence": [
+      {
+        "source_url": "https://robot-adaptation.github.io/MemoryAnchors",
+        "section": "Adding More Memory Anchors / Why not use all Memory Anchors? (L311–315)",
+        "quote": "Having high buffer diversity is also important"
+      }
+    ],
+    "panel_placements": [
+      {
+        "panel_id": "posttrain",
+        "perspective_index": 2,
+        "note": "Continual adaptation can depend on which past decision states are replayed, not just on the size of the replay buffer. The project preserves diversity alongside conflict-based anchors.",
+        "reason": "Adds a workshop and main-paper example to the continual-retention perspective."
+      }
+    ],
+    "workshop_membership_source": "https://corl2026-robotcl.github.io/papers/",
+    "workshop_membership_evidence": "Primary organizer poster list, source reader lines 44–45; title and authors match the project/manuscript.",
+    "reviewed": true,
+    "reviewed_at": "2026-11-22",
+    "empirical_status": "Reported findings are attributed to the paper authors; no independent reproduction or cross-paper ranking is claimed.",
+    "placement_kind": "Editorial reading suggestion within an existing panel, not a claimed citation, dependency, endorsement or exclusive taxonomy.",
+    "source_text_sha256": {
+      "2608.26545": "48e02b33758c571f5727930839911ca89c9b76d8279eef1a6881c785098d8f20",
+      "memory-site": "1524ed1c6d786506adbbf26c92fc7a70dca124ae39809cac38e9cccfab42b1ac",
+      "memory-tail": "9dbfe404410943fe2dd0eb0ebeb00a85908887e9bcf5a5f443118de0d88b5d33",
+      "robotcl": "fade3ed60732495b4ccdf4780c5698ef45084938f6beff74e96198ddbca6fdac"
+    },
+    "source_cache_keys": [
+      "2608.26545",
+      "memory-site",
+      "memory-tail",
+      "robotcl"
+    ],
+    "related_talk_ids": [
+      "d2-49",
+      "d2-40",
+      "d1-13"
+    ],
+    "short_method": "Identify overlapping old/new states with conflicting actions, select nearby old experiences, and mix these anchors with diverse replay during training.",
+    "short_why": "Replay composition can matter beyond buffer size; important old decision states help protect previous skills.",
+    "short_question": "Can anchor selection work with inaccessible pretraining data, very large histories, and longer task sequences without losing replay diversity?"
+  }
+]

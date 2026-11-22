@@ -1,0 +1,301 @@
+[
+  {
+    "topic_id": "detail-learn-1",
+    "lead": "Data is useful when the policy can interpret what transfers across tasks, viewpoints and bodies.",
+    "paragraphs": [
+      "Robot trajectories do not share one universal interface. The same intention can appear as different images, hand keypoints, gripper motions or joint commands. The original talks illustrate several ways to reduce that mismatch: Being-H0.5 uses a human-centric prior, Ego2Robot converts egocentric human experience, and ZETA changes the action reference frame.",
+      "The newer papers make the interface choices more explicit. H2R-Bridge aligns observation geometry while using separate human and robot action decoders. GLAM learns latent actions that are grounded by target-robot action supervision, then uses them to label cheaper auxiliary trajectories. Its demonstrated auxiliary source is a simulated UMI gripper in shared scenes, rather than arbitrary web video.",
+      "Data quantity is a separate issue. H2RBench holds robot supervision fixed and varies human data; the reported benefit depends on the method and task, with some precise-contact cases becoming worse. Scale Up Strategically instead asks where a fixed collection budget should go, diagnosing instruction-factor failures before selecting new demonstrations.",
+      "A useful comparison keeps target-robot exposure, scene assumptions and collection cost visible. Ask whether a gain comes from broader task coverage, better alignment, a different decoder, or additional target supervision. Keep the scoring definition too: partial task progress and binary completion support different conclusions. These examples motivate controlled comparisons without establishing one representation or data source as universally best."
+    ],
+    "source_talk_ids": [
+      "d1-12",
+      "d2-37",
+      "d1-7"
+    ],
+    "source_reference_ids": [
+      "h2r-bridge",
+      "glam",
+      "h2rbench",
+      "scale-up-strategically"
+    ]
+  },
+  {
+    "topic_id": "detail-learn-2",
+    "lead": "Pretraining supplies a starting capability; adaptation changes a chosen part of the system for a particular objective.",
+    "paragraphs": [
+      "The term post-training covers different interventions. A full policy update, a trainable adapter, a latent-policy update, and a changed training mixture do not have the same cost or failure modes. The recorded π0.7, RL Token, Flow Policy Gradients and FlowDAgger presentations should therefore be compared by their update interface and supervision, rather than placed in one simple ranking.",
+      "FlowDAgger is a concrete example of targeted correction. An operator intervenes during execution, and a small latent policy is trained while the large VLA or world-action model stays fixed. RARA uses a different route: retrieve relevant pretraining trajectories, align representations to frozen pretrained features, and then fine-tune target behavior with source-feature constraints.",
+      "Relevant prior data matters in RARA. Source trajectories guide representation alignment, rather than becoming extra behavior-cloning targets. Mismatched source skills can remove the benefit or hurt performance. MuSe addresses another adaptation problem by adding force-torque information to a pretrained visuomotor policy and replaying original data, including missing-modality handling.",
+      "For a practical comparison, account for all stages, including representation alignment, data retrieval, reward construction and human corrections. Measure whether the new behavior improves and whether older capability survives. The reviewed studies use particular robots, shifts and supervision contracts; they do not establish the cheapest or best update for every deployment. A good marginal-compute question starts with an observed bottleneck and an explicit validation budget."
+    ],
+    "source_talk_ids": [
+      "d1-11",
+      "d2-46",
+      "d2-47",
+      "d2-40"
+    ],
+    "source_reference_ids": [
+      "pi07",
+      "rara",
+      "multisensory-continual-learning",
+      "lawam"
+    ]
+  },
+  {
+    "topic_id": "detail-learn-3",
+    "lead": "Simulation can supply experience, calibration or evaluation, but the reviewed systems use it in different ways.",
+    "paragraphs": [
+      "Real-to-sim-to-real starts with a measured environment, builds a useful simulator and returns a trained or tested behavior to hardware. Not every synthetic-data paper implements that whole cycle. GRAIL begins with generated motion and grounds it through reconstruction, retargeting and physics-aware tracking before policy training in simulation.",
+      "Calibration is more than making a scene look convincing. The Argon material describes checking visual match together with contact timing and force/torque behavior. A simulator that preserves appearance while getting friction, geometry, timing or action interfaces wrong can provide misleading evidence for transfer.",
+      "EmbodiedSWE demonstrates another data route. Coding agents solve engineered simulation tasks using privileged state; grader-checked programs then seed diversified trajectories for VLA fine-tuning. The real demonstration is limited to one lamp-disassembly task. The manuscript distinguishes those component experiments from a broader synthetic-task-generation pipeline that has not been studied end to end.",
+      "Ask what information is measured, what is supplied by the simulator, and what remains to be calibrated on hardware. Record real-data requirements, randomization choices and failure distributions. H2RBench also shows why sim/real comparison needs care: matching rankings from separately trained pipelines is different from transferring one simulated checkpoint unchanged. The diagram is an organizing aid for these choices, not evidence that every source follows identical steps."
+    ],
+    "source_talk_ids": [
+      "d1-18",
+      "d1-21",
+      "d2-56",
+      "d2-59"
+    ],
+    "source_reference_ids": [
+      "grail",
+      "argon",
+      "embodiedswe",
+      "h2rbench"
+    ]
+  },
+  {
+    "topic_id": "detail-learn-4",
+    "lead": "Continual learning asks which improvements persist and which earlier capabilities are lost.",
+    "paragraphs": [
+      "A new task can change a policy in ways that help the new distribution while damaging older behavior. Roberto Martín-Martín’s keynote frames this as learning without starting over: choose useful experience, reuse existing action structure, and evaluate what remains available after an update.",
+      "Memory Anchors studies which old decision states should be replayed during training. It identifies representational overlap where old and new tasks require different actions, then selects nearby past experience. Those anchors are mixed with diverse old data; a buffer containing only high-conflict examples can become too narrow.",
+      "MuSe studies adding force-torque sensing to a pretrained policy while retaining older behavior through replay and missing-modality handling. The demonstrated sensor expansion is force-torque, not every possible new modality. It also requires access to original pretraining data. These requirements matter when deciding whether an adaptation recipe is available for a deployed system.",
+      "MobiAgent provides a deployment-to-training example: verified episode data updates an existing skill-policy inventory offline, with gains plateauing in later reported rounds. This differs from runtime memory such as RoboTTT fast state. To assess continual improvement, test old and new tasks after each update, inspect data access and replay cost, and state whether an apparent benefit survives resets, distribution shifts and longer sequences."
+    ],
+    "source_talk_ids": [
+      "d2-49",
+      "d2-40"
+    ],
+    "source_reference_ids": [
+      "memory-anchors",
+      "multisensory-continual-learning",
+      "mobiagent",
+      "far"
+    ]
+  },
+  {
+    "topic_id": "detail-act-1",
+    "lead": "A direct policy predicts an executable action or action chunk; its internal representation and timing still vary considerably.",
+    "paragraphs": [
+      "Vision-language-action policies couple observations and instructions to motor behavior. A direct interface does not mean the model contains no reasoning, history or predictive representation. The original MolmoAct2, π0.7, DreamZero and RoboTTT examples expose different training recipes and forms of context inside an action-producing model.",
+      "World-action models make those intermediate choices especially visible. DreamZero and GR00T 2 use generative world knowledge together with action prediction. ImageWAM instead conditions the action expert on image-editing caches without decoding a dense future video at each update. Its one editing-branch step should not be confused with a single-step complete action-generation loop.",
+      "LaWAM predicts a compact latent future that conditions the action expert. Rolling-WAM retains video-action futures but distributes denoising across successive control updates. These are alternative ways to allocate representation and computation, rather than proof that all future prediction is either necessary or wasteful.",
+      "For execution, report observation interfaces, action-chunk duration, update latency and recovery behavior together. A chunk can contain several commands while the robot continues to need fast feedback. The reviewed evaluations use particular cameras, robots and task protocols; stable-camera performance or coherent open-loop latent prediction does not establish unrestricted closed-loop transfer. Compare complete interfaces and matched runtime conditions before choosing a design."
+    ],
+    "source_talk_ids": [
+      "d1-1",
+      "d1-11",
+      "d1-14",
+      "d1-13"
+    ],
+    "source_reference_ids": [
+      "dreamzero",
+      "gr00t2",
+      "imagewam",
+      "lawam",
+      "rolling-wam"
+    ]
+  },
+  {
+    "topic_id": "detail-act-2",
+    "lead": "Hierarchy separates decisions that operate at different physical clocks; the diagram illustrates a proposal rather than a required taxonomy.",
+    "paragraphs": [
+      "Hang Zhao’s System 0/1/2 presentation organizes high-level reasoning, learned motion or skills, and faster contact/control feedback into distinct roles. The useful point is that a robot cannot suspend physical dynamics while a slower model deliberates. The named layers and their proposed rates belong to that presentation, rather than a universal standard for all robots.",
+      "A hierarchy also needs a return path. A skill can stall, a grasp can fail, or a scene can change after a command was issued. A supervisor needs evidence of those events, while a lower-level controller needs permission and an interface for handling immediate constraints. Separating layers without specifying feedback and handoff leaves important behavior undefined.",
+      "The GR00T material supplies a concrete related execution example: a supervisory agent invokes an action model and code skills, while onboard components handle robot motion at their own update cadence. That combination is specific to the described system. Other policies can allocate compute differently, including rolling prediction, compact action context or continuous-time command modeling.",
+      "When comparing architectures, include the latency of sensing, network calls, decision making and action execution. Inspect what happens when a deadline is missed or a slow decision becomes stale. Architecture diagrams alone do not establish reliability. A useful test specifies wall-clock budgets, the authority of each layer, observed failure signals, and whether recovery restores a safe and productive task state."
+    ],
+    "source_talk_ids": [
+      "d1-10",
+      "d1-22",
+      "d2-59"
+    ],
+    "source_reference_ids": [
+      "gr00t2",
+      "fast-wam",
+      "ode-policy",
+      "rolling-wam"
+    ]
+  },
+  {
+    "topic_id": "detail-act-3",
+    "lead": "An execution agent organizes a task through tools and skills; that does not by itself imply new neural learning.",
+    "paragraphs": [
+      "A task-level agent may observe progress, select a controller, call a tool, check a result and retry. In the GR00T 2 project, the supervisory agent calls the world-action model and can invoke an ASPIRE code skill when manipulation stalls, then hand control back. The project and technical report accompany Jim Fan’s recorded presentation.",
+      "ASPIRE provides more detail about those skills. Evolutionary program search and multimodal primitive traces produce repairs and compact in-context guidance. The underlying LLM remains frozen. A verifier checks a skill at admission, but the manuscript identifies stale guidance and growing-library conflicts as continuing problems.",
+      "PhysCaP illustrates active information gathering through code. A planner and prioritizer select interactions, measurement APIs estimate limited physical properties, and code uses the resulting beliefs to control the robot. This changes information and executable plans without training a new neural policy online. Its efficiency statistics are conditional on successful episodes.",
+      "MobiAgent separates a deployment-time planner and reflection critic from later offline skill-policy updates. Keep those roles distinct when judging an agentic system: what is executed now, what artifact is retained, and who supplies resets, calibration or verification? Real-world ASPIRE transfer still includes human guidance and debugging. Tool orchestration expands an execution interface, but its scope is bounded by available tools, observations and recovery contracts."
+    ],
+    "source_talk_ids": [
+      "d1-22",
+      "d2-59",
+      "d2-60"
+    ],
+    "source_reference_ids": [
+      "gr00t2",
+      "aspire",
+      "physcap",
+      "mobiagent"
+    ]
+  },
+  {
+    "topic_id": "detail-act-4",
+    "lead": "Explicit planning evaluates candidate actions against predicted outcomes; world knowledge inside a policy is a different interface.",
+    "paragraphs": [
+      "In a model-based planner, current state and candidate actions feed predicted rollouts, an objective or constraint selects a plan, and the robot executes part of it before observing again. The cloth-refinement presentation gives a concrete simulator-in-the-loop example, using reconstructed cloth state and parallel refinement rather than relying only on a direct policy proposal.",
+      "LeWAM learns latent dynamics together with an action distribution. In its planning mode, it samples candidate plans and refines the actions through the learned dynamics while keeping model parameters fixed. This is action selection at decision time, not neural-weight training during that planning call.",
+      "The paper’s evaluation settings need to remain separate. Goal-image planning is tested in simulation; physical-robot behavior-cloning experiments use direct execution under another protocol. RAM supplies a narrower reachability-query role, and MoRE studies specialized dynamics. SuperMimic’s differentiable optimization concerns policy training, so it should not be presented as this same online planning loop.",
+      "Planning is useful only under an adequate state representation, objective and model contract. Long rollout horizons can compound model errors, while more candidates or refinement steps consume time before the next action. Match goal information, action limits, execution budget and failure handling when comparing with a direct policy. The reviewed examples motivate task-specific tests, rather than a general claim that every robot needs test-time world-model search."
+    ],
+    "source_talk_ids": [
+      "d2-73",
+      "d2-78",
+      "d1-29",
+      "d2-57"
+    ],
+    "source_reference_ids": [
+      "lewam",
+      "supermimic",
+      "dreamzero"
+    ]
+  },
+  {
+    "topic_id": "detail-act-5",
+    "lead": "Runtime memory changes the context or recurrent state used for action selection; it should not be confused with persistent policy training.",
+    "paragraphs": [
+      "A robot may need to remember where an object moved, which step is complete, or which earlier action failed. The storage mechanism can be a compressed history, spatial state, demonstrations supplied as context, or recurrent fast weights. Those choices affect what information remains available when the current observation is insufficient.",
+      "RoboTTT is an important precise example. Its presenter explicitly describes fast weights as recurrent state: an observation and current fast state produce an action chunk and an updated state. That inference-time update is different from retraining persistent checkpoint parameters for future deployments.",
+      "Other reviewed work exposes different context interfaces. VLRLA uses reward-bearing episode history while keeping checkpoint weights fixed. Dual-Stream Memory separates compressed progress information from accessible visual identity evidence. These should be compared by what is stored, how it is retrieved and what can be reset, rather than treated as one general form of learning.",
+      "Memory Anchors belongs to training replay and is not a runtime-memory example merely because of its name. For a runtime system, test resets of context, fast state and persistent parameters separately. Inspect stale observations, history length, retrieval errors and their latency cost. An improvement within an episode does not establish retention across new tasks or unrestricted continual learning; it may instead show better use of context under the tested observation interface."
+    ],
+    "source_talk_ids": [
+      "d1-3",
+      "d1-13",
+      "d1-15"
+    ],
+    "source_reference_ids": [
+      "robottt",
+      "vlrla",
+      "dual-stream-memory"
+    ]
+  },
+  {
+    "topic_id": "detail-act-6",
+    "lead": "Coordination includes how one robot’s action changes the opportunities available to other robots or people.",
+    "paragraphs": [
+      "An interaction partner is not simply a static obstacle. Negar Mehr’s keynote and the human-intention presentation consider behavior that responds to the robot. Predicting intent or coordinating decisions can therefore matter even when a robot’s own control policy performs well in isolation.",
+      "Leave It Better Than Found shows a concrete sequential case. A leader can complete its task while leaving a box where a follower cannot pass. The proposed method uses the follower’s value estimate, with an out-of-distribution gate, to guide the handoff state while balancing the leader’s own objective. The policies need not be jointly trained.",
+      "The value gate matters because a learned value can be unreliable on an unfamiliar state. Treating it as an unquestioned oracle could create a handoff that looks promising but is unusable. The original source describes suppressing that signal where the follower’s training distribution does not support it.",
+      "Residual co-pilot teleoperation describes another kind of coordination, where a person continues to share control. Separate a human training prior, a runtime operator and an interaction partner when reporting autonomy. Useful measures include joint task success, handoff feasibility, communication or intervention cost, and each participant’s retained objective. Success for one agent alone does not establish that the shared system works, but the evidence remains scoped to each reported interaction setup."
+    ],
+    "source_talk_ids": [
+      "d1-23",
+      "d2-38",
+      "d2-45",
+      "d2-39"
+    ],
+    "source_reference_ids": [
+      "h2rbench"
+    ]
+  },
+  {
+    "topic_id": "detail-improve-1",
+    "lead": "An evaluation is informative when its conditions and scoring match the capability claim being made.",
+    "paragraphs": [
+      "What Are We Actually Benchmarking in Robot Manipulation? examines how reset and task design affect policy scores. The result is a reason to inspect the tested protocol, not to dismiss every benchmark. A controlled suite can still be valuable when its initial states, supervision and success conditions are explicit.",
+      "ATOM-Bench adds a concrete compositional protocol: policies learn atomic skills without composition demonstrations, then attempt held-out combinations under controlled physical seeds. H2RBench instead fixes robot supervision while varying human data. These studies support different claims and should not be pooled into one generality score.",
+      "Scoring definitions also matter. H2R-Bridge reports weighted task progress, which differs from binary completion. ENPIRE’s showcased pass@8 allows retries and should not be reported as a single-attempt reliability rate. In some papers, timing or interaction statistics are conditional on successful episodes or exclude initialization.",
+      "For deployment, add interventions, resets, productive work and retasking cost to task completion. RLE-Bench measures bounded robot-learning engineering workflows and hidden test conditions, not fielded generalist-robot reliability. Report confidence and failure breakdowns within a shared protocol, then state which settings remain untested. A higher score is evidence for that test, with its assumptions, rather than proof of superior performance in every environment."
+    ],
+    "source_talk_ids": [
+      "d1-19",
+      "d1-33",
+      "d1-35",
+      "d2-80"
+    ],
+    "source_reference_ids": [
+      "atom-bench",
+      "h2rbench",
+      "h2r-bridge",
+      "rle-bench",
+      "enpire"
+    ]
+  },
+  {
+    "topic_id": "detail-improve-2",
+    "lead": "Diagnosing a failure asks which part of the observation, decision or physical response broke down.",
+    "paragraphs": [
+      "A plausible-looking action can still target the wrong object or ignore the instruction. When Vision Overrides Language and the compositional-generalization study probe those instruction-grounding failures. A contact-rich task can fail for another reason: missing force information, insufficient action precision or an inappropriate physical response.",
+      "Use an intervention that tests the suspected cause. Change an instruction while holding the scene fixed, improve an observation without changing the controller, or compare a controller with and without a particular feedback signal. These comparisons are more informative than attributing every failure to a broad label such as reasoning or generalization.",
+      "ContactGuard adds pre-contact execution monitoring through learned latent predictions. Its purpose is to detect or veto imminent-contact failures while leaving the base policy unchanged. It does not supply autonomous task recovery or completion after an abort. Its live evaluation also uses controlled pause-and-resume trials to obtain counterfactual outcomes.",
+      "Keep detection, diagnosis and repair separate in the evidence. Inspect false alarms, missed failures, observation assumptions and what an operator must do after stopping. ASPIRE’s per-primitive traces can help localize problems within its available interfaces, but a verifier or trace alone does not establish semantic correctness. The useful output is a bounded explanation with a targeted test and recorded uncertainty, rather than a universal cause assigned from one failed rollout."
+    ],
+    "source_talk_ids": [
+      "d1-6",
+      "d1-9",
+      "d2-66",
+      "d1-30"
+    ],
+    "source_reference_ids": [
+      "contactguard",
+      "aspire",
+      "floweval"
+    ]
+  },
+  {
+    "topic_id": "detail-improve-3",
+    "lead": "Deployment records can support recovery and future updates when they preserve failure context and a clear validation target.",
+    "paragraphs": [
+      "First separate three outcomes: detecting that something went wrong, recovering the current task, and changing a reusable policy or skill. A stop or retry can improve the current episode without training anything. A later learning update can use that experience, but it needs a defined target and evaluation before deployment.",
+      "FAR makes this separation concrete. It studies failure-aware preference adaptation and retries from perturbed actions, followed by later policy improvement from interaction experience. In its real experiments, a human observer supplies the binary outcome label. Those results should not be presented as autonomous failure detection or a human-free deployment loop.",
+      "ContactGuard addresses a different part of the workflow: imminent-contact monitoring and vetoes. It does not recover the task after an abort. MobiAgent supplies an offline refinement example, segmenting verified episodes and updating an existing skill-policy inventory after execution. Its reported gains plateau in later rounds, rather than demonstrating indefinite improvement.",
+      "Russ Tedrake’s factory keynote emphasizes productive deployments, interventions and postmortem analysis. That framing adds requirements often absent from isolated success rates: a useful failure record includes the scene, command history, intervention, recovery outcome and reason for the proposed change. Human attention, resets, retry budgets and robot downtime are part of the cost.",
+      "Before retaining an update, test the failure it was intended to address and regression on earlier tasks. Selective replay such as Memory Anchors can help retention, but still requires relevant past data and diversity. Keep acceptance criteria, rollback and the operator’s continuing role explicit. These sources motivate a measured feedback workflow; they do not establish that every fielded robot already learns continuously or that every recovered episode becomes a generalizable new skill."
+    ],
+    "source_talk_ids": [
+      "d2-80",
+      "d2-49",
+      "d2-40"
+    ],
+    "source_reference_ids": [
+      "far",
+      "contactguard",
+      "mobiagent",
+      "memory-anchors"
+    ]
+  },
+  {
+    "topic_id": "detail-improve-4",
+    "lead": "Agent-assisted learning can change code, data, a policy or the experimentation workflow; those artifacts require different evidence.",
+    "paragraphs": [
+      "ASPIRE explores control programs and retains validated repair guidance while its underlying LLM stays frozen. Real-robot transfer still involves guidance, calibration and debugging. PhysCaP is an execution-side contrast: physical measurements update beliefs and programs without training a new neural policy in that loop.",
+      "HARBOR organizes simulation-task construction, rewards, randomization and numerical RL trials through coding agents and executable gates. Its gates check particular engineering contracts, not complete semantic correctness. Real transfer retains manual interfaces, supplied trajectories and human feedback. ENPIRE extends experimentation to prepared physical tasks with reset and verification interfaces, with several selectable policy-improvement regimes.",
+      "EmbodiedSWE shows how code solutions can become policy supervision: verified programs seed diversified simulation demonstrations for VLA fine-tuning. The broader synthetic-task-generation pipeline has not been tested end to end, and its reported physical transfer is limited to one lamp task. Engineering or simulation results should not become a general hardware-autonomy claim.",
+      "For an improvement claim, identify what persists, which evaluation admits it and what support was supplied by people or the environment. MobiAgent’s repeated offline policy updates and ASPIRE’s growing library are useful finite processes, with regression, stale guidance or plateau limits. Recursive improvement of the learning procedure itself is a stronger claim than repeated task improvement; these examples do not establish unlimited, autonomous recursive progress."
+    ],
+    "source_talk_ids": [
+      "d1-22",
+      "d2-59",
+      "d2-49"
+    ],
+    "source_reference_ids": [
+      "aspire",
+      "physcap",
+      "harbor",
+      "enpire",
+      "embodiedswe",
+      "mobiagent"
+    ]
+  }
+]

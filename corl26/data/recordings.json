@@ -1,0 +1,20 @@
+{
+  "1": {
+    "recording_id": "F_4AAOQsWlA",
+    "source_document": "https://docs.google.com/document/d/1F0ITGGwMYvdQKTglu6FKFfPaaklu5DPMTY8p6MuDybU/edit",
+    "transcript_path": "transcripts/day-1.txt",
+    "source_kind": "Automatic recording transcript, supplied with the original atlas"
+  },
+  "2": {
+    "recording_id": "uPXoJm-L3YY",
+    "source_document": "https://docs.google.com/document/d/1hyYAaPCl7iwKX45onPRmFinDoWLUZt5c3MgjALG3WO4/edit",
+    "transcript_path": "transcripts/day-2.txt",
+    "source_kind": "Automatic recording transcript, supplied with the original atlas"
+  },
+  "3": {
+    "recording_id": "vzyHMAlvglU",
+    "source_document": "https://docs.google.com/document/d/12zRYCWnX8eRP3nB6PTG4bUxgTTdp-Uc-PDUeMciU4_4/edit",
+    "transcript_path": "transcripts/day-3.txt",
+    "source_kind": "Automatic recording transcript, supplied with the original atlas"
+  }
+}

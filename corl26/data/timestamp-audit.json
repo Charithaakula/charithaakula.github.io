@@ -1,0 +1,1574 @@
+{
+  "checked_at": "2026-11-22",
+  "method": "Compare original chapter links with timestamped archived captions and reconstruct bounded excerpts from the complete day source. No external recording was watched in this audit.",
+  "verification_level": "transcript-only",
+  "audiovisual_verification_complete": false,
+  "talks": [
+    {
+      "talk_id": "d1-1",
+      "title": "MolmoAct2",
+      "day": 1,
+      "chapter_start_s": 3070,
+      "start_s": 3096,
+      "delta_s": 26,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        3096,
+        3132
+      ],
+      "source_time": "00:51:36",
+      "evidence": ">> Yeah. Hi everyone. I'm Zafan. I'm an assistant professor at the National University of Singapore. Today I'll be introducing MolmoAct2, a open science robotics foundation model for real world deployment. I think AI are really good at writing answering questions of coding. But to bring that intelligent into the physical world still remains to be challenging. Most robots today depends relies heavily on specialized hardware and expert programming. Robotics foundation model offers a different approach learning general purpose behavior that can transfer across task and environment. We have seen exciting progress but there still three challenges ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 3280
+    },
+    {
+      "talk_id": "d1-2",
+      "title": "Semantic Anchoring for Robotic Action Representations",
+      "day": 1,
+      "chapter_start_s": 3280,
+      "start_s": 3280,
+      "delta_s": 0,
+      "status": "chapter-only",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        3280,
+        3326
+      ],
+      "source_time": "00:54:40",
+      "evidence": "present our work semantic anchoring for robotics action representations. Vision action models are built on pre-train models to inherit their high quality representations to that should help them generalize. However, fine tuning on much smaller and smaller and narrow data should push them to shard and erode representations. Prior prior art often started on the architecture but doesn't really look at what is lost. So we ask what should be a good action representation for generalization and how can we detect its degrations. Our idea comes from mere neurons when human watching and performing the same action assures intention level representations",
+      "note": "The first clearly attributable excerpt starts mid-sentence; the previous caption segment also contains the preceding talk. Keep the chapter timestamp pending audiovisual verification rather than inventing an exact boundary.",
+      "end_s": 3490
+    },
+    {
+      "talk_id": "d1-3",
+      "title": "MEM",
+      "day": 1,
+      "chapter_start_s": 3490,
+      "start_s": 3512,
+      "delta_s": 22,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        3512,
+        3550
+      ],
+      "source_time": "00:58:32",
+      "evidence": ">> Okay. Awesome. Hi everyone. I'm Marcel and today I'll talk about our work on MEM multiscale embodied memory for vision language action models. So a lot of robot tasks today require memory and here I'm showing two examples such as preparing the ingredients to cook a recipe or unpacking the items in a grocery bag. However, most robot policies today don't have memory and here I'm showing two examples such as pio5 and crruit and they basically just take the current time step as the input. So basically when we train these policies to for example clean a plate, we see that they keep cleaning the same spot over and over. Or for example, since the",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 3690
+    },
+    {
+      "talk_id": "d1-4",
+      "title": "PRTS",
+      "day": 1,
+      "chapter_start_s": 3690,
+      "start_s": 3691,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        3691,
+        3738
+      ],
+      "source_time": "01:01:31",
+      "evidence": "[applause] >> Hi everyone, I'm John from Chan University. Today I will present PRS a V bring contracted reinforcement learning into large scale pre-training. B cloning predicts demonstrated actions but give little explicit supervision about their progress towards the given goal. Our insight is to reformulate general proposed foundation policy preing as learning goal reachability. So state action representation capture progress towards the instruction goal. We implementate this insight with language condition contrast I for placing a cup on a tray approaching the cup is a positive grasping and placing are also positives because they share the ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 3880
+    },
+    {
+      "talk_id": "d1-5",
+      "title": "Learning What to Say to Your VLA",
+      "day": 1,
+      "chapter_start_s": 3880,
+      "start_s": 3894,
+      "delta_s": 14,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        3894,
+        3933
+      ],
+      "source_time": "01:04:54",
+      "evidence": "Hi everyone, I'm Joe and I'll be presenting our work on learning what to say to your VLA. Language interfaces and VLAs are nice because they operate on a higher level abstraction. Changing the language input can compose and elicit behaviors without updating the underlying policy. Here, a robot foundation model PI 0.5 is asked to put away cubes but does not get it quite right on the first try. Let's try a different task construction. Although the model makes a little bit more progress this time, ends up putting away the green cube in the wrong basket. The problem here is that the language to action mapping is unintuitive. The model may be brit",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 4065
+    },
+    {
+      "talk_id": "d1-6",
+      "title": "When Vision Overrides Language",
+      "day": 1,
+      "chapter_start_s": 4065,
+      "start_s": 4074,
+      "delta_s": 9,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        4074,
+        4121
+      ],
+      "source_time": "01:07:54",
+      "evidence": ">> Um, hi. I'm Euan. Today I'm glad to present our paper when vision overrides language evaluating and mitigating counterfactual failures in vision language action models. Although VLAs perform well on familiar tasks, they often struggle to follow language instructions. Uh due to modality imbalance, VLAs may rely heavily on visual cues and repeat well-learned tasks even when instructed otherwise. We call these counterfactual failures. To study this systematically, we introduce Libro CF, a benchmark that evaluates language following ability of BLAS. It includes over 50 counterfactual task for standardized evaluation. We provide multiple pieces",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 4245
+    },
+    {
+      "talk_id": "d1-7",
+      "title": "ZETA",
+      "day": 1,
+      "chapter_start_s": 4245,
+      "start_s": 4262,
+      "delta_s": 17,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        4262,
+        4305
+      ],
+      "source_time": "01:11:02",
+      "evidence": "Hi everyone, I'm Eong and this is data and control study of how VLA is transferred to new robots. Imagine training a VLA on one robot then deploying on another without new demos. When does that actually work? First let's pin down what zero shot means since prior work often blurs it under strict zero shot the target robot never appears in training under pre-training post the target robot is seen in pre training in bone setting post training uses only source robot demos and we test on the target robot prior work uses the term for bone settings so the reporting numbers of aren't comparable second we build a controlled benchmark cameras scenes an",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 4420
+    },
+    {
+      "talk_id": "d1-8",
+      "title": "EmbodiSteer",
+      "day": 1,
+      "chapter_start_s": 4420,
+      "start_s": 4421,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        4421,
+        4479
+      ],
+      "source_time": "01:13:41",
+      "evidence": "still gets enough data. RQ3 all code training as further gains. And RQ4 target exposure changes the results. So it should always be reported. Thanks for listening and see you guys at our poster. [applause] Hi everyone, I'm Shuang. I'm glad to introduce our work in body stair with Yumi. We can collect data easily using a handheld gripper without highly operating a robot arm. The resulting cartition policy can transfer to different robot arms. But we ask does the policy really generalize across different embodiment. Watch the right. The gripper follows the task while the arms collide with the obstacles in the environment. [snorts] This reveals ",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 4600
+    },
+    {
+      "talk_id": "d1-9",
+      "title": "Diagnosing Compositional Generalization",
+      "day": 1,
+      "chapter_start_s": 4600,
+      "start_s": 4602,
+      "delta_s": 2,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        4602,
+        4667
+      ],
+      "source_time": "01:16:42",
+      "evidence": "specific training. Learn a skill once then guide it for each body. That's embodied stair embodiment agnostic learning embodiment aware execution. Please visit poster 65. I also thank the dung fun for supporting my travel. Thank you. [applause] Hi everyone, I'm is Ishawan from the UC Berkeley. Happy to share our paper. Imagine the robot policy do the pick place and press and uh four four options for the each stage. So each extra abstract sub task multiplies the count. So real data set offers spars and the robot policy will perform very bad in the unfamiliar combinations. So we ask a question which combinations does the robot actually need to p",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 4830
+    },
+    {
+      "talk_id": "d1-10",
+      "title": "Hang Zhao — Organizing Physical AI Across Timescales",
+      "day": 1,
+      "chapter_start_s": 4830,
+      "start_s": 5008,
+      "delta_s": 178,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        5008,
+        5033
+      ],
+      "source_time": "01:23:28",
+      "evidence": "Thanks for the kind introduction that remind me a lot of good memories in the old times.",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 8280
+    },
+    {
+      "talk_id": "d1-11",
+      "title": "π0.7",
+      "day": 1,
+      "chapter_start_s": 8280,
+      "start_s": 8362,
+      "delta_s": 82,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        8362,
+        8375
+      ],
+      "source_time": "02:19:22",
+      "evidence": ">> Cool. Uh hey everyone, I'm Ashwin. >> Hi, I'm Lucy. >> We're researchers working on scaling robot foundation models at physical intelligence. And today we'll be talking about π0.7, our most recent robot foundation model.",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 9075
+    },
+    {
+      "talk_id": "d1-12",
+      "title": "Being-H0.5",
+      "day": 1,
+      "chapter_start_s": 9120,
+      "start_s": 9075,
+      "delta_s": -45,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        9075,
+        9122
+      ],
+      "source_time": "02:31:15",
+      "evidence": "Still okay. Hi. Hi everyone. I'm Hal from Ping University and is glad to be here to share our work being H0.5 and in this work we scale humanentric robot learning across uh multiple embodiment. So our starting point is quite simple. We want to build uh one generalist policy that works across multiple embodiment but with robot data alone it's get hard. We have collected robot data from about uh 30 embodiment from griers to dextra hands. And this plot shows how many hours of data we have for each one. And you can see three problems. The first one is sac uh scarcity. The the medium embodiment has",
+      "note": "Moved earlier to the presenter’s opening found in the complete day transcript; the old chapter timestamp started after the presentation was already underway. Audiovisual verification is still required.",
+      "end_s": 9697
+    },
+    {
+      "talk_id": "d1-13",
+      "title": "RoboTTT",
+      "day": 1,
+      "chapter_start_s": 9697,
+      "start_s": 9697,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        9697,
+        9749
+      ],
+      "source_time": "02:41:37",
+      "evidence": ">> Okay, thank you so much. >> Thank you. >> Thank you. All right, thank you. Um, let's move on to our final presentation of oral session one which is robot ttt. Cool. Um, good morning everyone. I'm Yuan from Stanford and Avidia gear and this is the robot ttt context scaling for robot policies. So let's start with language models. In five years context windows went from 2,000 tokens to 10 million. Context length became one of the first class scaling axis which enables important applications such as agentic workflows nowadays. Now robots since RT1 released in 2022 both model parameters and the training data grew nearly two orders of magnitude ",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 10430
+    },
+    {
+      "talk_id": "d1-14",
+      "title": "DreamZero",
+      "day": 1,
+      "chapter_start_s": 10430,
+      "start_s": 10475,
+      "delta_s": 45,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        10475,
+        10525
+      ],
+      "source_time": "02:54:35",
+      "evidence": "Yeah. Hi, I'm Tanyan and I'm here to present DreamZero world action models are zero shell policies and this work was done at NVIDIA gear. So when we first think about humans um humans are really good at doing various tasks your shop such as opening a door or like cleaning um dishes. So even though humans have not seen this particular objects or environments or task humans can do this test your shot like or just one or two trials. And how about robots? Can robots do this test your shop? So before talking about robots um yeah there's another line of generative AI models video generation models which are known to be very good at zeroot capabilit",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 11100
+    },
+    {
+      "talk_id": "d1-15",
+      "title": "Mem-World",
+      "day": 1,
+      "chapter_start_s": 11100,
+      "start_s": 11105,
+      "delta_s": 5,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        11105,
+        11167
+      ],
+      "source_time": "03:05:05",
+      "evidence": "Um, all right. Good morning. I'm Jim from Carnegie Melon University. I'm not one of the authors on this paper, but I because the authors cannot travel. Uh today I'm really honored to deliver this presentation on behalf of Zer Jung from Dalian University of Technology which uh happens to also be located in my hometown. So let's start with a question. What does it take for a world model to simulate a manipulation task from start to finish? Does it ever lose its context? Yeah, sorry. Is there think something wrong? Sorry.",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 11820
+    },
+    {
+      "talk_id": "d1-16",
+      "title": "TEMPO",
+      "day": 1,
+      "chapter_start_s": 11820,
+      "start_s": 11846,
+      "delta_s": 26,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        11846,
+        11882
+      ],
+      "source_time": "03:17:26",
+      "evidence": "Hi everyone. Today we are here to present our work tempo which solves dynamic tests using temporal context. I'm Jim and this is Daniel. Generalist policies such as VLAs are getting better at our day-to-day tasks. For example, this is PI 0.5. It can make your bed, fold your clothes, or clean up your kitchen counters. However, notice one thing. Everything in the room stays still while the robot acts. I think we can expect something a little more fun, right?",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 12500
+    },
+    {
+      "talk_id": "d1-17",
+      "title": "Diversity You Can Actually Measure",
+      "day": 1,
+      "chapter_start_s": 12500,
+      "start_s": 12503,
+      "delta_s": 3,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        12503,
+        12557
+      ],
+      "source_time": "03:28:23",
+      "evidence": "paper is called diversity. You can actually measure a fast model free diversity metric for robotics data sets. >> All right, let's get started. Hi everyone, I'm Van and I'll be presenting our work diversity you can actually measure a fast model free diversity metric for robotic data sets. Okay, let's jump straight into the motivation. So I asked Chad GPT how many times the word diversity appears at the papers I accepted at CoRL this year and it appears over a thousand times and that's a lot. We all seem to understand intuitively that is how the data set diversity affects the policy but none of them seem to put a number to the diversity or acc",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 13060
+    },
+    {
+      "talk_id": "d1-18",
+      "title": "MolmoB0T",
+      "day": 1,
+      "chapter_start_s": 13060,
+      "start_s": 13060,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        13060,
+        13107
+      ],
+      "source_time": "03:37:40",
+      "evidence": "scale simulation enables zeros short manipulation. Hi uh I'm Rose this is a and Maya and we're excited to present our latest workobot large scale simulation enables zeroot manipulation. MolmoB0T is a family of VLA trained exclusively on simulation data that transfer zero shot to the real world. Trained on extremely diverse large-scale simulation data, Momobbot generalizes robustly to novel environments, objects, camera poses, and task instructions. Advances in robot learning have leveraged massive amounts of data to train policies capable of broad task and environment generalization. But so far these have chiefly relied on real teley operatio",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 13680
+    },
+    {
+      "talk_id": "d1-19",
+      "title": "What Are We Actually Benchmarking in Robot Manipulation?",
+      "day": 1,
+      "chapter_start_s": 13680,
+      "start_s": 13704,
+      "delta_s": 24,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        13704,
+        13751
+      ],
+      "source_time": "03:48:24",
+      "evidence": ">> Um, hi, I'm Chen from Toyota Technological Institute at Chicago and this is the joint work with the following collaborator. We want to ask the question of uh when we see a high score on a benchmark uh what does it actually tell us? So a benchmark has two roles. First, a benchmark such as libero offers a value valuable test bed for individual researchers to test their ideas and compare policies under uh shared conditions. However, once everyone starts to use a benchmark, it uh becomes more than that. It becomes the field's definition of progress. So um here we are only talking about the second row. Um, have you seen something like that? And",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 18865
+    },
+    {
+      "talk_id": "d1-20",
+      "title": "Sharpa",
+      "day": 1,
+      "chapter_start_s": 18865,
+      "start_s": 18897,
+      "delta_s": 32,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        18897,
+        18947
+      ],
+      "source_time": "05:14:57",
+      "evidence": ">> Okay, thank you for the introduction. Uh good afternoon everyone. Uh very honored to be the first speaker uh this afternoon. Uh I hope uh I don't set the bar too low for Christian and Jim. Uh so I'll start. Uh the topic I'm sharing today is three paths one shared stack towards scalable dextrous manipulation. So dextrous manipulation is probably the last unsolved piece of general purpose robots. Aside from hardware complexity, its training data must capture not only how hands and objects move, but also where contacts occurs, how forces evolve and how robots uh recover from failures. So today's main bottlenecks are concentrated in this data ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 19675
+    },
+    {
+      "talk_id": "d1-21",
+      "title": "Lightwheel",
+      "day": 1,
+      "chapter_start_s": 19675,
+      "start_s": 19722,
+      "delta_s": 47,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        19722,
+        19760
+      ],
+      "source_time": "05:28:42",
+      "evidence": "Great. How's everyone doing today? [laughter] Glad you're here. Um, well, welcome everyone to Austin. This is uh actually my first time here. So, um, thank you guys for having me on stage. U, my name is Christian, not Steve. Steve is our wonderful CEO. Um, I am part of Lightwheel on the account executive and partnership side. Um, today I'm going to be talking about scaling robot through learning and data and simulation. So one thing that we've come to realize so far is that um if we want to be able to train a policy you need one a useful example two a place to practice it and three a way to measure it. So the way we do that is through a combi",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 20475
+    },
+    {
+      "talk_id": "d1-22",
+      "title": "Jim Fan — GR00T 2 and Agentic Robotics",
+      "day": 1,
+      "chapter_start_s": 20475,
+      "start_s": 20505,
+      "delta_s": 30,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        20505,
+        20554
+      ],
+      "source_time": "05:41:45",
+      "evidence": ">> About two months ago was happy Thursday, September the 3. The robots were partying. GPUs were spinning. Life as a roboticist was good. And that's the day Astra dropped. I have never seen a painting in human history that shattered so many dreams. Yeah, admit it. I can hear the sound of your hearts breaking. Then we did what any respectable scientific community would do. We went through five stages of grief. Denial. This is fake news. These are cherrypicked. Anger. How dare them call themselves roboticist now. Bargaining. They still need my motion planner. Right. Right. Depression with a wine bottle. My PhD is now a joke in the system prompt",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 21590
+    },
+    {
+      "talk_id": "d1-23",
+      "title": "Negar Mehr — Learning to Interact and Coordinate",
+      "day": 1,
+      "chapter_start_s": 21590,
+      "start_s": 21664,
+      "delta_s": 74,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        21664,
+        21704
+      ],
+      "source_time": "06:01:04",
+      "evidence": ">> Thank you so much, Ken, for the very kind introduction and thanks to the organizers for bringing us together. Um, so I'm very excited to share with you what my lab has been working on. And in particular, if you're worried that there is not much left for you to do in robotics, I want to encourage you all to think about the next steps. And I want to convince you that there are still many more problems and challenges to solve. So we are all excited. We are seeing performances, capabilities in robotics that we couldn't really imagine of a couple of years ago. Every time I just open up my Twitter or X, I'm impressed by the demos that we see and",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 23560
+    },
+    {
+      "talk_id": "d1-24",
+      "title": "BitVLA",
+      "day": 1,
+      "chapter_start_s": 23580,
+      "start_s": 23560,
+      "delta_s": -20,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        23560,
+        23581
+      ],
+      "source_time": "06:32:40",
+      "evidence": "to get rolling Hello everyone, I'm Tong. Today I'd like to introduce our work bit. What if a robot policy could use weights of just minus one, zero, and plus one? This is bita, the first fully native one bit with language action model. Compared",
+      "note": "Moved earlier to the presenter’s opening found in the complete day transcript; the old chapter timestamp started after the presentation was already underway. Audiovisual verification is still required.",
+      "end_s": 23735
+    },
+    {
+      "talk_id": "d1-25",
+      "title": "EagleVLA",
+      "day": 1,
+      "chapter_start_s": 23735,
+      "start_s": 23756,
+      "delta_s": 21,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        23756,
+        23802
+      ],
+      "source_time": "06:35:56",
+      "evidence": "Hello, I'm Zinga from Ping University and today I'd like to introduce our work ego. This work studies where should VLA models be deployed. The first choice is a high-end GPU such as RTX 1590 but it will faces long network latency when worked as a cloud server and high power consumption when deployed on the robots. Another trait is the onboard devices such as JSON or JSON s. However, this devices has limited resources and it will introduce long inference time. So the question is can we run VLA at 50 volts without affecting robot performance. Based on this we propose ego VLA a method for efficient VLA deployment for onboard devices. Let me firs",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 23935
+    },
+    {
+      "talk_id": "d1-26",
+      "title": "REACT",
+      "day": 1,
+      "chapter_start_s": 23935,
+      "start_s": 23951,
+      "delta_s": 16,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        23951,
+        23996
+      ],
+      "source_time": "06:39:11",
+      "evidence": "Hi everyone. I'm my name is Ryan Chen. I'm from Primebot and today we're going to introduce the React. It focused on the uh resolving the trade-off between the trajectories consistencies and the policy responsibility in UI models. Current action policy typically use action chunkings to predict the uh models predict actions. This help maintains coherent motions but when the target moves the robot may keep execution actions generated from an outdated observations which lead to the task failures. We define input throughput as a how often the policy use fresh observations and output throughput as a how fast it generates executable actions. Simply",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 24135
+    },
+    {
+      "talk_id": "d1-27",
+      "title": "TARC",
+      "day": 1,
+      "chapter_start_s": 24135,
+      "start_s": 24148,
+      "delta_s": 13,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24148,
+        24188
+      ],
+      "source_time": "06:42:28",
+      "evidence": "Hi everyone, I'm Arnaf and this is TAR. So most robot operate at a fixed control frequency which creates a trade-off between the efficiency of low frequency control and the robustness of high frequency feedback. For instance, a quad systems typically default to high rate send to cover the worst case. For instance, a quadripit standing still is running at the same frequency as when it's pushed. VLA's like pi zero face the same trade-off. Each control update here is a full replan through a 3 billion parameter model and replanning rarely happens open loop making it robust but wasteful. So we ask ourselves when do we really need to send new contr",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 24325
+    },
+    {
+      "talk_id": "d1-28",
+      "title": "Diffusion ReRoll",
+      "day": 1,
+      "chapter_start_s": 24325,
+      "start_s": 24325,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24325,
+        24380
+      ],
+      "source_time": "06:45:25",
+      "evidence": "[applause] I'd like to introduce the fusion rroll. Uh yeah, Diffusion ReRoll. improving robotic sequence prediction with structured noising process. Full sequence diffusion uses same noise level across the horizon. It can commit to a wrong decision and just make it cleaner rather than reconsidering it. Causal denoising with diffusion forcing as temporal order. However, once an early prefix becomes low noise information at later part cannot revise it. Our method diffusion reroll keeps predictions open to revision allowing earlier and later parts to keep influencing each other. Here's how it works. We use same architecture without a separate re",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 24521
+    },
+    {
+      "talk_id": "d1-29",
+      "title": "MoRE",
+      "day": 1,
+      "chapter_start_s": 24525,
+      "start_s": 24521,
+      "delta_s": -4,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24521,
+        24525
+      ],
+      "source_time": "06:48:41",
+      "evidence": ">> Um, hi, I'm Zu. Today I'll present more",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 24615
+    },
+    {
+      "talk_id": "d1-30",
+      "title": "Targeting World Models to Compromise Robot Learning Pipelines",
+      "day": 1,
+      "chapter_start_s": 24615,
+      "start_s": 24644,
+      "delta_s": 29,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24644,
+        24675
+      ],
+      "source_time": "06:50:44",
+      "evidence": "All right. Hey everyone, I'm Ethan Rathbun and I'm going to tell you how world models can be targeted to compromise robot learning. And we're going to start with stuff you already know. World models are s or sorry, robotics is super cool. It's super useful, but it's also really data hungry. And one way you can solve this data problem is just to get more data. In particular, in this case, we consider where you're gathering data from third party source. Um, and recently world models with like Cosmos and uh Dreamer, they've shown that you can use world models to generate even more data and to, you know, further improve your policies. Uh so we co",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 24820
+    },
+    {
+      "talk_id": "d1-31",
+      "title": "Chunk-wise Model-based Policy Optimization",
+      "day": 1,
+      "chapter_start_s": 24820,
+      "start_s": 24821,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24821,
+        24892
+      ],
+      "source_time": "06:53:41",
+      "evidence": "poster number 54. [applause] We now present our chunk wise model based policy optimization. In typical MBI roll out each future state depends on the previous prediction. That means an Fstep imagine trajectory usually require O model course. One step prediction arrow recursively propagates through future latence biasing prediction as the roll out horizon grows and the policy gradients are propagated through these recurrent rollouts which can explode vanish or oscillate. Therefore, we ask can we get multi-step model gradient signal without recurrent unrolling. Our corn idea is the collaborative chunk wise modeling. We use the chunk actor to pre",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 24985
+    },
+    {
+      "talk_id": "d1-32",
+      "title": "FedGuide",
+      "day": 1,
+      "chapter_start_s": 25005,
+      "start_s": 24985,
+      "delta_s": -20,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24985,
+        25005
+      ],
+      "source_time": "06:56:25",
+      "evidence": "Hello everyone. I'm Julian from SEMU and uh I present our work fed guide uh diffusion prior alignment and value based guideline for heterogeneity reinforcement learning feder clients training and distributed environment with a federated servers with a federation differing dynamics rewards and initial states making",
+      "note": "Moved earlier to the presenter’s opening found in the complete day transcript; the old chapter timestamp started after the presentation was already underway. Audiovisual verification is still required.",
+      "end_s": 26100
+    },
+    {
+      "talk_id": "d1-33",
+      "title": "Wolfram Burgard — Challenges to Realize Embodied AI",
+      "day": 1,
+      "chapter_start_s": 26100,
+      "start_s": 26363,
+      "delta_s": 263,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        26363,
+        26413
+      ],
+      "source_time": "07:19:23",
+      "evidence": "Thanks and uh thanks for having me here. Uh I must confess I'm super nervous right now. It's actually my very first plenary speech in robotics at least in the robotics and automation society space and um never stood in front of such a big audience and uh so it's it's really great to be here. Um this talk is a little bit about my perspective or my vision on where we might be going in this right now race about um embodied AI systems or robots and um it also will I will take you back a little bit maybe like 30 years ago but at some point in time will even take you even further back something like two to 3,000 years ago. I will let you know at th",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 30000
+    },
+    {
+      "talk_id": "d1-34",
+      "title": "General Motors",
+      "day": 1,
+      "chapter_start_s": 30000,
+      "start_s": 30017,
+      "delta_s": 17,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        30017,
+        30061
+      ],
+      "source_time": "08:20:17",
+      "evidence": ">> Uh, hi, my name is Sean. I'm here to talk about uh innovations in autonomy at GM. Um, so first quick intro to me. I'm Sean. I lead autonomy at GM. I've been in the autonomous vehicle space for over 10 years now. First at Cruise and then at Wave and now at General Motors. And three topics I'd like to go through today. The first is uh GM's vision for autonomy. Uh the second is some different uh innovations and approaches on how to learn to drive both imitation learning and reinforcement learning. And then also also talk about how VLAs are changing the way we think about autonomy as well. So first up uh GM and autonomy. Uh you might not have ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 30600
+    },
+    {
+      "talk_id": "d1-35",
+      "title": "BitRobot / RoboColosseum",
+      "day": 1,
+      "chapter_start_s": 30600,
+      "start_s": 30644,
+      "delta_s": 44,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        30644,
+        30686
+      ],
+      "source_time": "08:30:44",
+      "evidence": "Hello guys. Um my name is Michael Cho. Um I'm the co-founder of B robot. So today there are three things I would like to share with you guys. Uh starting with RoboCap and then our open source efforts and then finally Robboium which is a very ambitious attempt to do real world eval at scale. Uh so for those of you who've never heard of us before um our central thesis is to we want to crowdsource real world entropy and so we actually spend a lot of time thinking about actually things like incentive uh structures so that we can engage just uh regular people around the world to contribute resources so that we can advance uh physical AI research. ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 31300
+    },
+    {
+      "talk_id": "d1-36",
+      "title": "Max Insights",
+      "day": 1,
+      "chapter_start_s": 31300,
+      "start_s": 31345,
+      "delta_s": 45,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        31345,
+        31359
+      ],
+      "source_time": "08:42:25",
+      "evidence": "Okay. Hi everyone. I'm Quinn. I'm co-founder and CTE of Max Insights. Our headquarter is in Santa Clara in California. Uh we are building data infrastructure for physical AI. and just play a video.",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 32098
+    },
+    {
+      "talk_id": "d2-37",
+      "title": "Ego2Robot",
+      "day": 2,
+      "chapter_start_s": 1550,
+      "start_s": 1550,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        1550,
+        1608
+      ],
+      "source_time": "00:25:50",
+      "evidence": "Hi everyone. Today I introduce Ego2Robot human video. Okay. [clears throat] Oh, human videos are easy to collect at locals and curate diverse diverse object s and tasks. But using this data for robot learning is not easy. With Ego2Robot, we align actions and the vision appearance to bridge the human to robot gap. Uh we we we use and we use ant pose or estimate them from video. Uh for action alignment, we the thumb tip and weight and weighted point between the index and middle fingertips to grip tips. Then smooth the motion to reduce jitter. For vision alignment, we impend away human arms. Reply the",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 1745
+    },
+    {
+      "talk_id": "d2-38",
+      "title": "Learning Human Intention",
+      "day": 2,
+      "chapter_start_s": 1745,
+      "start_s": 1745,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        1745,
+        1801
+      ],
+      "source_time": "00:29:05",
+      "evidence": ">> Hi everyone, I'm Trayi and I'm excited to share our work learning human intention for robotic manipulation. Robot data is still scale and expensive to collect. Human data on the other hand can be collected at scale and including egocentric video, hand movements and gaze. Several reason work treat human as other embodiment and use them to scale up the robot training data. However, there is embodiment gap between human and robot. So this raise the main question what to learn from human and how to transfer the knowledge to robot. So let's first look at how people act. Imagine you want a drink of water. You look at table lock your gaze on the ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 1935
+    },
+    {
+      "talk_id": "d2-39",
+      "title": "Residual co-pilot teleoperation",
+      "day": 2,
+      "chapter_start_s": 1935,
+      "start_s": 1936,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        1936,
+        1991
+      ],
+      "source_time": "00:32:16",
+      "evidence": "Hello, I'm Shaw. I'm here to present the paper efficient and reliable teleoperation through realtore shared autonomy. teleoperation today is still widely used to collect demonstrations to train visual motor policies. But for fine grained contact-rich manipulation tasks, it is often slow, errorprone, and unreliable even for experienced operators. Here, an operator has to thread the nud 180 degrees onto a bolt under latency, without force feedback, and a limited view. Even a small misalignment can stall the insertion and lead to the nuts dropping. Our key insight is a mismatch of roles. Humans are great at providing high-level intent, but not s",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 2128
+    },
+    {
+      "talk_id": "d2-40",
+      "title": "FlowDAgger",
+      "day": 2,
+      "chapter_start_s": 2128,
+      "start_s": 2129,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        2129,
+        2184
+      ],
+      "source_time": "00:35:29",
+      "evidence": "Um, hi everyone. I'm Michael Murray and today I'm presenting FlowDAgger, a new method for adapting pre-trained flow matching and diffusionbased models from expert supervision, which we use to rapidly adapt robot foundation models in the real world. Here, an operator watches the policy run and intervenes with a space mouse when needed. Our goal is to learn from these corrections that the policy improves. And in this work, we consider pre-trained noise condition policies that map from noise to an action distribution. Our method applies to the range of models that follow this structure, including pre-trained VLAs like π0.5, world action models l",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 2313
+    },
+    {
+      "talk_id": "d2-41",
+      "title": "BiDexGrasp",
+      "day": 2,
+      "chapter_start_s": 2313,
+      "start_s": 2314,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        2314,
+        2370
+      ],
+      "source_time": "00:38:34",
+      "evidence": ">> Hi everyone, I am Moling from Chinua University. Today I will present our paper BiDexGrasp: coordinated bimanual dexterous grasps across object geometries and size. Large or irregular objects often require two texture hand for stable grasps. But to make this useful across different shapes and size, the two hands need to work together. To learn this ability, a common approach is to synthesize grasp data through optimization, then train generated models on that data. But bimanual grasping is still at an early stage. Existing data sets l quality and scale. Synthesis is inefficient and learning models struggle to generate reliable grasps. BiDe",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 2493
+    },
+    {
+      "talk_id": "d2-42",
+      "title": "KP-Grasp",
+      "day": 2,
+      "chapter_start_s": 2493,
+      "start_s": 2493,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        2493,
+        2550
+      ],
+      "source_time": "00:41:33",
+      "evidence": ">> I'm going to present KP grasp scalable keypoint flow matching for dexterous grasp generation. dexterous grasp generation often has two paradigms. Analytical methods use physics prior and offline optimization to produce large-scale grasp data sets. Learning based methods then extract these priors into a network by modeling the grasp distribution directly from data. But in practice, existing learning pipelines still often rely on contact losses, discriminators, or test time refinement. This reliance on analytical methods reintroduces high computational costs and extensive tuning. Can a network directly learn the grasp prior from large-scale ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 2686
+    },
+    {
+      "talk_id": "d2-43",
+      "title": "WM-Craftnet",
+      "day": 2,
+      "chapter_start_s": 2686,
+      "start_s": 2687,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        2687,
+        2742
+      ],
+      "source_time": "00:44:47",
+      "evidence": "Hello everyone, I'm Shoing. Welcome to the spotlight presentation for WM-Craftnet. Today we introduce our world synesthesia model for generalizable and robust theories in hand manipulation. Our work targets the challenging problem of robust visual tactile manipulation on a human sized 20 degree of freedom robotic hand. As shown in this video, a single closed loop policy can robustly rotate diverse objects smoothly adapting to changing contact states and unexpected external disturbances without dropping the objects. Methodologically we train the dreamer style recurrent state space model that seamlessly in integrates depth touch proprioception ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 2886
+    },
+    {
+      "talk_id": "d2-44",
+      "title": "Sequential Asymmetric Imitation",
+      "day": 2,
+      "chapter_start_s": 2886,
+      "start_s": 2886,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        2886,
+        2942
+      ],
+      "source_time": "00:48:06",
+      "evidence": "Good morning. Uh I'm William Z. Uh and I'll be presenting our work robots that collaborate sequential asymmetric imitation uh for learning coupled robot policies. Um so with what only one teleoperator we train uh two separate policies from human demonstrations to control mobile robots. Um here are some examples of some tasks where independently learned skills can quickly get out of sync. Um so here one robot uh releases uh too early and drops uh a cloth in the example there. Elsewhere mismatch pulling breaks breaks a grasp. Each robot must infer a partner's progression from visual observations and knowing when to move and wait. Um so in this ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 3075
+    },
+    {
+      "talk_id": "d2-45",
+      "title": "Leave It Better Than Found",
+      "day": 2,
+      "chapter_start_s": 3075,
+      "start_s": 3076,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        3076,
+        3131
+      ],
+      "source_time": "00:51:16",
+      "evidence": "Good morning. So I'm Mario. I'm going to present Leave it Better Than Found guided cooperation in sequential tasks. This is a joint effort between Por Lab at the University of Cambridge and ETHZurich. Um we're considering the problem of robots acting and modifying the same shared space. In this example, a leader robot pushes aside a box to clean the dirt under it. Um, subsequently, the follower robot, because the leader pushed this box into a choke point, cannot navigate the environment successfully. We call this problem sequential task continuation. The follower inherits the state that the leader leaves behind. Um, common approaches to solve",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 3395
+    },
+    {
+      "talk_id": "d2-46",
+      "title": "RL Token",
+      "day": 2,
+      "chapter_start_s": 3395,
+      "start_s": 3396,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        3396,
+        3452
+      ],
+      "source_time": "00:56:36",
+      "evidence": "Okay, good morning everyone. My name is Charles. I'll be presenting RL token bootstrapping online RL with vision language action models. This is work done at physical intelligence with my amazing collaborators Toby, Michael, Ali, Adnan, Sergey, and K. Over the past two years, VLA capabilities have improved dramatically and can do many challenging tasks out of the box. Here's π0.7 making coffee and assembling cardboard boxes all with a single model. But when it comes to uh real world deployment, they often don't possess the performance uh required for real world deployment. Especially when it comes to precise and deformable object manipulation",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 4037
+    },
+    {
+      "talk_id": "d2-47",
+      "title": "Flow Policy Gradients / FPO++",
+      "day": 2,
+      "chapter_start_s": 4037,
+      "start_s": 4038,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        4038,
+        4093
+      ],
+      "source_time": "01:07:18",
+      "evidence": "Hello everyone. I'm Hunguk Choy. Uh good morning. Today I'm going to talk about FPO++ flow policy gradients for robot control. Uh we built upon on our own prior work FPO and we are doing robotics uh with like flow matching RL policy. So our own prior work FPO is doing reinforcement learning with flow matching. What it does is first it samples actions uh and then it executes the actions. It estimates advantages of each action and then it updates the flow field to favor the positive advantage actions and unfavor the negative advantage actions. So this is very simple algorithm uh which doesn't need any like expensive exact likelihood computation",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 4616
+    },
+    {
+      "talk_id": "d2-48",
+      "title": "Neuro-symbolic motion prediction",
+      "day": 2,
+      "chapter_start_s": 4616,
+      "start_s": 4616,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        4616,
+        4672
+      ],
+      "source_time": "01:16:56",
+      "evidence": ">> Okay. Thank you. So my name is Simon. >> Hey, I'm Felix. >> We are two researchers from the artificial intelligence and machine learning lab from TU Damstat. And in general we are working on neurosyolic methods for robotics. So applying logic programming and these types of things for reliable and robust control or prediction. And today we are presenting driving fast or slow neurosymbolic guidance for motion prediction and multimodel mobility. So to start how fast and where it really depends on who you are in traffic. So traffic is a very heterogeneous place. You will find many different pedestrians, cyclists, buses, trucks, cars and so on.",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 5365
+    },
+    {
+      "talk_id": "d2-49",
+      "title": "Roberto Martín-Martín — Learning Without Starting Over",
+      "day": 2,
+      "chapter_start_s": 5365,
+      "start_s": 5366,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        5366,
+        5422
+      ],
+      "source_time": "01:29:26",
+      "evidence": ">> Awesome. Thank you, Georgia. You hear me? Well, thank you everyone for being here. Um, I want to begin with a story about what an extraordinary agent still has to learn. In 1975, Kit Jared arrived in Cologne for a very important concert and he encountered on the stage a very weird new piano and he was about to cancel the concert. But instead of that, for the concert he came on stage, he play a few notes and he learned how to play that piano. He adapted his playing to this new instrument and uh the result was the call concert which is our bestselling album. Experts are not only good at uh performing tasks well. They are good at learning to ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 8622
+    },
+    {
+      "talk_id": "d2-50",
+      "title": "EgoScale",
+      "day": 2,
+      "chapter_start_s": 8622,
+      "start_s": 8623,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        8623,
+        8678
+      ],
+      "source_time": "02:23:43",
+      "evidence": "present our work eoscale scaling dexterous manipulation with diverse egocentric human data. So as we all know that scaling the robot teleoperation data is so expensive where we have abundant human video data. So the key question we want to ask in this work is whether we can use human egocentric video to serve as the primary source for robot model pre-training. So to this end we curate this large scale egocentric video data set covering diverse scenes task and unique human object interactions. So as you can see here, our data set is very diverse, covering scenes from kitchen to clothing to gardening, clothes, as diverse as you can think of. An",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 9248
+    },
+    {
+      "talk_id": "d2-51",
+      "title": "OpenDexGrasp",
+      "day": 2,
+      "chapter_start_s": 9248,
+      "start_s": 9248,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        9248,
+        9304
+      ],
+      "source_time": "02:34:08",
+      "evidence": "Uh hello everyone. Today I'll present open dex grasp uh teach robot dctor's hand to grasp objects for task disc in everyday language. So in our daily manipulation when we pick pick up an object we usually have task in mind. We might we might pick up a brush to wash it or scoop to use it. Then um the way we hold the object should help us to compare the tasks. Using a tool both need grasping and moving it. The initial grasp affects which action are possible. In this work we focus on generating grasps that support the intended actions. Take this shampoo bottom as example. Both grasp may hold the object securely but the left one blocks the pump. ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 9779
+    },
+    {
+      "talk_id": "d2-52",
+      "title": "Play2Perfect",
+      "day": 2,
+      "chapter_start_s": 9779,
+      "start_s": 9779,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        9779,
+        9836
+      ],
+      "source_time": "02:42:59",
+      "evidence": "All right. Hi everyone. I'm Tyler >> and I'm Koshal >> and we're presenting play to perfect. Our goal is to learn precise assembly. For example, tight insertions with just half a millimeter clearance. Here the robot assembles a multi-art structure consisting of a pillar and beam. And all videos here are played at 1x speed. Finally, here's an example of screwing a table leg into a threaded hole. And all policies here are trained entirely in simulation with zero human data. So to understand why assembly is hard, let's look at the slowed down video. The robot must grasp the leg, reorient it upright, align it with the hole, and then screw it in. ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 10459
+    },
+    {
+      "talk_id": "d2-53",
+      "title": "FACTR 2",
+      "day": 2,
+      "chapter_start_s": 10459,
+      "start_s": 10460,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        10460,
+        10515
+      ],
+      "source_time": "02:54:20",
+      "evidence": "We're here to present factor two learning force sensing and force aware policies for commodity robot arms. Force is an important sensing modality from a manipulation. But giving robots this force sensing capability can be quite expensive. You will either need to rely on high-end robot arms that already come with joint torque sensors or you have to equip an additional dedicated force torque sensor, sometimes costing more than a lot of robot arms themselves. In fact, in recent years, we've seen these lowcost robot arms growing in popularity as they can be used to achieve some very impressive results. But these arms don't come with any dedicated",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 11071
+    },
+    {
+      "talk_id": "d2-54",
+      "title": "PACE",
+      "day": 2,
+      "chapter_start_s": 11071,
+      "start_s": 11072,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        11072,
+        11127
+      ],
+      "source_time": "03:04:32",
+      "evidence": "Hello everyone, I'm Zane presenting PACE on behalf of its first author Jian Chen from Xiaomi robotics. Jian couldn't attend today due to visa processing delays uh as I'm not the author. So maybe I cannot understand and answer your questions. So please direct detailed questions to uh him after the talk. So here we go. P asks a qu simple question. How can robot use touch more effectively during precision insertion? Vision helps align a plug before contact. But once insertion begins, visually similar situations can involve very different contact conditions. Even a tiny misalignment may cause the plug to hit the socket age and get stuck. Humans c",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 12153
+    },
+    {
+      "talk_id": "d2-55",
+      "title": "Disco / distilled search",
+      "day": 2,
+      "chapter_start_s": 12153,
+      "start_s": 12154,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        12154,
+        12211
+      ],
+      "source_time": "03:22:34",
+      "evidence": "Hi everyone. I'm Kal and uh today I'll be presenting our paper long horizon in multi-obiobject rearrangement via distarch over continuous actions otherwise abbreviated as disco. So in uh 2019 rich certain said that two methods that seem to scale with compute and data are search and learning. And in uh 2016 we saw that Alph Go was able to beat the human champion in Go using a combination of learning and search. Here by learning I mean a neural network that learns to make decisions. And by search I mean [snorts] Monte Carlo research that can search over the future possibilities of your actions. Most importantly learning gives guidance to search",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 12656
+    },
+    {
+      "talk_id": "d2-56",
+      "title": "GRAIL",
+      "day": 2,
+      "chapter_start_s": 12656,
+      "start_s": 12657,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        12657,
+        12714
+      ],
+      "source_time": "03:30:57",
+      "evidence": "Hi everyone. I'm T from NVIDIA research. Today I'm excited to share our latest work grill. With GR we propose a new paradigm for scaling robot learning. One powered by video watt models. Robotics has a data problem. Today most robot data comes from tele operation where operators drive the robot one demonstration at a time. It's slow and costly. And for tasks that we cannot tally up like terrain transversal, we turn the motion capture. That means we need to build the physical obstacles, set up a capture system and record a mer a person for each motion. In the end, both of them will hit the same wall, the same physical limitation. More data wil",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 13329
+    },
+    {
+      "talk_id": "d2-57",
+      "title": "SuperMimic",
+      "day": 2,
+      "chapter_start_s": 13329,
+      "start_s": 13329,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        13329,
+        13386
+      ],
+      "source_time": "03:42:09",
+      "evidence": "Okay. Hi, I'm Ch from UC Berkeley and this is super mimic. Super reduce GPU hours by three order of magnitudes compared with the state-of-the-art. And every time I say this, people hear three tons, even my advisor. So, let me be clear, it's 1,000 tons, not three. Uh, all these fancy video use motion tracking and they are mostly specialist policy that channel on only single motions and a single dance on itself is not that useful. But when we when we train at scale motion tracking is a promising way to shape general human or low-level controller. The question is how to scale it. We need to figure out three things. First data. The computer visio",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 13921
+    },
+    {
+      "talk_id": "d2-58",
+      "title": "RoboNaldo",
+      "day": 2,
+      "chapter_start_s": 13921,
+      "start_s": 13921,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        13921,
+        13978
+      ],
+      "source_time": "03:52:01",
+      "evidence": "and the next presentation is uh Robonaldo by Hong Wong. Uh hi everyone, I'm Hong from Hong Kong University and uh we are introducing this uh RoboNaldo uh accurate, stable and powerful humanoid software shooting by uh introducing the uh motion guided curriculum three stage framework. So uh this is a joint effort by the Hong Kong University and also CHK and Archon robotics. So why is accurate shooting hard for uh humanoids uh in the first place? So we have three desiraables. Uh the first one is a precision of the football contact and also we want to achieve this uh uh force aware contact uh when you should hit the ball and then to uh keep the b",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 14538
+    },
+    {
+      "talk_id": "d2-59",
+      "title": "Google DeepMind / Gemini Robotics 2.5",
+      "day": 2,
+      "chapter_start_s": 19384,
+      "start_s": 19385,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        19385,
+        19440
+      ],
+      "source_time": "05:23:05",
+      "evidence": ">> Thanks so much. [applause] >> Hi everyone. Uh my name is Keshkaro and I'm uh it's my pleasure to be here. I'm going to present on behalf of the Gemini robotics team at Google DeepMind and today I'm going to talk about general purpose robotics with Gemini. So one of the core fundamental problems still facing robotics is how do we combine this general purpose reasoning with very very dexterous whole body control. And I would argue that we can do both ends of the spectrum quite well. We can do very high level reasoning but with low dexterity. And we can create some very very agile very dexterous behaviors which are not very general. So the ke",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 20077
+    },
+    {
+      "talk_id": "d2-60",
+      "title": "Boston Dynamics / Atlas",
+      "day": 2,
+      "chapter_start_s": 20077,
+      "start_s": 20078,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        20078,
+        20134
+      ],
+      "source_time": "05:34:38",
+      "evidence": "All right. Excellent. So, I come from Boston Dynamics. Uh, let's get right in. >> [music] >> So about three weeks ago, we went to um Savannah, which is uh has a a car manufacturing plant from Hyundai, and we run some uh early deployment um experiments with Atlas in a particular manufacturing task. And I just wanted to give a report on how that went and uh where we're going from from here. All right. So, as you just saw, um it's Atlas doing uh sequencing task. That's a logistics workflow that is very common in manufacturing settings. Um where basically parts come in um uh single-SKU containers and they need to be",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 20921
+    },
+    {
+      "talk_id": "d2-61",
+      "title": "Franka",
+      "day": 2,
+      "chapter_start_s": 20921,
+      "start_s": 20922,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        20922,
+        20980
+      ],
+      "source_time": "05:48:42",
+      "evidence": "Great. Yeah, welcome everyone. Thanks for joining. Uh my name is Sen Pahuzul. I'm head of research partnerships at Agile Robots and co-founder of Franka Robotics. And I want to talk a little bit about how we're building what we think is the reference platform for robotics, physical AI, especially if it comes to um manipulation. Um, for those who don't know Frana, we're a German-based robotics company, uh, researchdriven coming out of the German Aerospace Center, um, DLR. We were founded in 2016 and, um, are were acquired in 2023, are now part of Agile Robots and, um, we're rather small company with around 100 employees. Um but happy to say th",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 21575
+    },
+    {
+      "talk_id": "d2-62",
+      "title": "DeTac",
+      "day": 2,
+      "chapter_start_s": 21575,
+      "start_s": 21579,
+      "delta_s": 4,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        21579,
+        21634
+      ],
+      "source_time": "05:59:39",
+      "evidence": ">> We present D tech a dual branch generative framework to decouple texture and force signals in vision based active sensors. Markers vision based active sensors capture shading images to perceive the surface texture but they lack special reference for force estimation. While marker based sensors enable force sensing via embedded markers. This design couples the two signals as the markers obstruct the surface beneath them and alter the surface around them. Existing datadriven methods attempt to solve this by using a ser pipeline first estimating mark masks and then applying in painting to infer the occluded shading. However, this ser pipeline",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 21745
+    },
+    {
+      "talk_id": "d2-63",
+      "title": "Finger Eye",
+      "day": 2,
+      "chapter_start_s": 21745,
+      "start_s": 21746,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        21746,
+        21801
+      ],
+      "source_time": "06:02:26",
+      "evidence": "Thank you for listening. Hi, I'm Jian and I will present finger eye, a vision tactile fingertip for dexterous manipulation. dexterous manipulation needs perception. External vision provides scene context but can be oluded near contact. Conventional tactile sensors provide detailed feedback once contact occurs. Therefore, we need continuous sensing to approach precisely, detect the first contact, then adjust contact. Caesar skin sensing connects vision and touch. However, some designs require internal illumination or optical mode switching. These systems do not jointly demonstrate robust tracking, dexterous",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 21946
+    },
+    {
+      "talk_id": "d2-64",
+      "title": "DAVATaR",
+      "day": 2,
+      "chapter_start_s": 21946,
+      "start_s": 21947,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        21947,
+        22003
+      ],
+      "source_time": "06:05:47",
+      "evidence": "Yeah. Hello everyone. I'm Sean from UT Austin and today I will be presenting Dvatar. So many household and field robotics tasks require us to reach into water and interact with objects and water will introduce reflection waves, floating materials and refraction. Therefore we study submerged manipulation where the robot still operates in air with any factor reaching to water. This task regime will introduce some new challenges. First is vision airwater interface will introduce a lot of new type of visual distortion and second is tactile because most of the tactile sensing principles require us to put electronics near contact surface. Therefore",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 22142
+    },
+    {
+      "talk_id": "d2-65",
+      "title": "Visible Touch",
+      "day": 2,
+      "chapter_start_s": 22142,
+      "start_s": 22143,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        22143,
+        22200
+      ],
+      "source_time": "06:09:03",
+      "evidence": "Okay. Hello everyone. We presenting visible touch. Robot policies increasingly learn from images, but images alone cannot tell us when contact happens. Without touch, contact is hidden, visual states are ambiguous, and recovering from errors becomes difficult. However, tactile integration usually requires specialized hardware and new encoders, making it difficult to integrate into pre-trained vision based policies. Our solution is simple. We build a lowcost magnetic tactile sensor, project its threedimensional magnetic flux readings as arrows into camera images and fine-tune existing VLAs without modifying their architectures. Our ex setup us",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 22346
+    },
+    {
+      "talk_id": "d2-66",
+      "title": "Demystifying When and Why VLAs Fail in Contact-Rich Tasks",
+      "day": 2,
+      "chapter_start_s": 22346,
+      "start_s": 22347,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        22347,
+        22403
+      ],
+      "source_time": "06:12:27",
+      "evidence": "Hello. Today I'm presenting demystifying when and why VLA's failed in contact with task and how to fix them. VLAs have achieved strong performance across a wide range of manipulation tasks from folding laundry to assembling boxes. Yet they continue to struggle with contact-rich task such as cutting a zucchini which requires precise physical interaction. In this work, we study why do fail to with contrib. We identify two failures. In the middle, we see a precision failure where the policy brings the pluck close to the socket but fails to align it. On the right, we have a force failure where the policy now correctly aligned the pluck but fail t",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 22532
+    },
+    {
+      "talk_id": "d2-67",
+      "title": "Never Too Late for Force",
+      "day": 2,
+      "chapter_start_s": 22532,
+      "start_s": 22533,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        22533,
+        22589
+      ],
+      "source_time": "06:15:33",
+      "evidence": "Hi, I'm Wendy Chen and this is never too late for force. So visual data sets are easy to scale and prin already provides useful manipulation skills. However, force force data require dedicated sensing system and existing data set are much fewer. So um can we add force awareness to a printer VLA? Our method lift adds force awareness to a printer VLA. This here is an example of timely contact response. Uh in this book insertion task lift senses when to push, stop and release while the vision vision only baseline keeps pushing. To achieve this, we add a reactive action expert with force memory. It updates action within each chunk using latest fo",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 22708
+    },
+    {
+      "talk_id": "d2-68",
+      "title": "Constraint-Decomposed Impedance Control",
+      "day": 2,
+      "chapter_start_s": 22708,
+      "start_s": 22709,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        22709,
+        22766
+      ],
+      "source_time": "06:18:29",
+      "evidence": "afternoon. Thank you very much. [applause] Hello, I'm Konga Park from Soul National University. Uh, articulated object impose kinematic constraint on the end factor. So, the endeector's visible motion span a low dimensional subspace of a body twist. However, the learned policy uh can output constraint violating motions. So under stiff tracking uh even a small violation can cause a large contact force and impedance control gives us compliance through stiffness and damping but their gains are uh typically set as isotropic gains. So the high gain can produce the large force and the low gain may not complete",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 22893
+    },
+    {
+      "talk_id": "d2-69",
+      "title": "TAM",
+      "day": 2,
+      "chapter_start_s": 22893,
+      "start_s": 22893,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        22893,
+        22949
+      ],
+      "source_time": "06:21:33",
+      "evidence": "thank you and come to poster 168. [applause] Hi, I am Danon. Today I introduce 10ation. >> It is well known that robot dynamics can differ between simulations where the robot moves as expected and reality where it may get stuck. Dynamics can also vary with different payload and even between instance of the same robot. Common remedy includes system modification but this require collecting new calibration data for each load and payload. Alternatively we can use the policy level adaptations. However this list lead over overly conservative motions to address this. Our key observation is that different policies",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 23042
+    },
+    {
+      "talk_id": "d2-70",
+      "title": "Combining Constrained Sampling and RL",
+      "day": 2,
+      "chapter_start_s": 23042,
+      "start_s": 23042,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        23042,
+        23098
+      ],
+      "source_time": "06:24:02",
+      "evidence": "available here. Thank you. [applause] Hi, my name is Mark Tong. It's great to be here and I'm going to present work today on constraint sampling for robotic manipulation. So I'm going to start right away with showing you a demonstration of behavior that we train. So you see a panda arm here manipulating a sphere towards the goal that is indicated in green and what you see is a single goal condition policy that can transport the spheres from from any start to any goal. So I think you know training such policies is really hard especially because of the exploration problem. So I think exploration is a core bottleneck of reinforcement learning es",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 23272
+    },
+    {
+      "talk_id": "d2-71",
+      "title": "Physics-Guided Residual Dynamics",
+      "day": 2,
+      "chapter_start_s": 23272,
+      "start_s": 23283,
+      "delta_s": 11,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        23283,
+        23339
+      ],
+      "source_time": "06:28:03",
+      "evidence": "Learning physicsguided residual dynamics for deformable object simulation. Deformable object manipulation is essential for robotics. Yet accurately predicting their dynamics remain challenging due to complex behaviors. Accurate simulation of deformable objects is therefore crucial for enabling robots to predict object behaviors and plan manipulation strategies. So predominantly there are two ways to simulate objects. First is physics based uh these methods excel at generalization but system identification is hard. The second is learning based simulation. These can model arbitrary systems but these do not generalize beyond their training data.",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 23471
+    },
+    {
+      "talk_id": "d2-72",
+      "title": "WireCraft",
+      "day": 2,
+      "chapter_start_s": 23471,
+      "start_s": 23471,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        23471,
+        23528
+      ],
+      "source_time": "06:31:11",
+      "evidence": "Hi everyone, my name is Shongu from University of Toronto. So today I'm so excited to present our paper assimulation benchmark for industrial wire manipulation. You see in Y manipulation nowadays research pretty much everyone has their own test bed with different setups. So the robots are different the fixture changes and the uh evaluation matrix varies. So it's almost impossible to do a fair comparison across algorithms. That's why we bring out this benchmark Ycraft to give the community a shared benchmark across three core tasks. So what do those tasks look like in Isaac? First off, we have connector insertion where the goal is simply plug ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 23657
+    },
+    {
+      "talk_id": "d2-73",
+      "title": "Cloth simulator-in-the-loop",
+      "day": 2,
+      "chapter_start_s": 23657,
+      "start_s": 23658,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        23658,
+        23716
+      ],
+      "source_time": "06:34:18",
+      "evidence": "Good afternoon everyone. Today I'll introduce our work on enabling robust cloth manipulation via inference time simulator in the loop refinement. Learned policies can't easily fix their own mistakes and uncloth small errors add up. So we ask can a simulator itself be the foreign model at test time. That needs three things. a faithful fast simulator, an accurate cloth state, and enough parallel rowouts. Offline flash generates synthetic data to train a realto sim network. Online, each RGB image becomes a cloth mesh. MPPI refineses the policies plan with parallel rowouts and the robot executes the first action. First the simulator matters with ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 23813
+    },
+    {
+      "talk_id": "d2-74",
+      "title": "Robustness without Wrinkles",
+      "day": 2,
+      "chapter_start_s": 23813,
+      "start_s": 23814,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        23814,
+        23870
+      ],
+      "source_time": "06:36:54",
+      "evidence": ">> Hello, I'm Jeffrey. I'll be presenting our work on deformable object manipulation using robust optimal control. Deformal object manipulation remains challenging for modelbased control due to their highdimensional dynamics and non smooth contact providing no useful gradients for optimization. We propose cord SLS a framework that provides differentiable simulation for planning and learning and GPU accelerated output feedback for real-time deformable object manipulation. In our simulator, each simulation step requires solving two optimizations. We apply implicit differentiation to both optimizations enabling the simulator to return gradients ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 24000
+    },
+    {
+      "talk_id": "d2-75",
+      "title": "NICE — Noise-Invariant Spatial Encoding for 3D Manipulation Policies under Depth Corruption",
+      "day": 2,
+      "chapter_start_s": 24000,
+      "start_s": 24001,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24001,
+        24058
+      ],
+      "source_time": "06:40:01",
+      "evidence": ">> Hi everyone, we introduce nice noise environment special encoding. How reliable is the geometry? Robots is positive use depths to understand object geometry. It is yet transparent and recalled out can appear incomplete or distorted in the depth observations crosses five task. and color reveals the objects while raw dips misses or disform their surfaces. The policy must still act using this imperfect geometry. It therefore needs special features that remain useful when dep measurement are unreliable. These errors affect actions in the select tail test tube grasp. The baseline triggers a protective stop while nice complete the grasp. Our que",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 24187
+    },
+    {
+      "talk_id": "d2-76",
+      "title": "Spatial-temporal feature map mobile manipulation",
+      "day": 2,
+      "chapter_start_s": 24187,
+      "start_s": 24187,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24187,
+        24244
+      ],
+      "source_time": "06:43:07",
+      "evidence": "Hello everyone. My name is Tan Kim. I am PhD student at UC San Diego. Very happy to present our work. Serve global learning has shown great result in tabletop environment. The next big question is how to scale this method to handle specially and temporally extended task. However, current robot foundation model and anchor special and temporal context implicitly which means there is no explicit mechanism to accumulate information. This limitation become critical in mobile manipulation where action decision depend on long-term context. The video show example of the π0.5 BLA model. Motivated by this limitation. In this paper, we show that conditi",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 24369
+    },
+    {
+      "talk_id": "d2-77",
+      "title": "Articulated 3D Scene Graphs",
+      "day": 2,
+      "chapter_start_s": 24369,
+      "start_s": 24369,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24369,
+        24427
+      ],
+      "source_time": "06:46:09",
+      "evidence": "Hi everyone. We present articulated 3D scene for open world mobile manipulation short SG. So, our everyday homes are full of articulated objects such as the fridge, a drawer, or a cabinet. But usually, we can only anticipate how an object moves. So, questions like, does the door swing left or right, or what's actually behind it, we can only answer by interacting with an object. In this work, we present Mom SG as a scalable method for understanding articulation kinematics and pairing this with object level semantics. To do so, we leverage in the wild ego exo or robotentric RGBD in order to build a semantic kinematic 3D scene graph. First, we s",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 24557
+    },
+    {
+      "talk_id": "d2-78",
+      "title": "RAM reachability",
+      "day": 2,
+      "chapter_start_s": 24557,
+      "start_s": 24558,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24558,
+        24613
+      ],
+      "source_time": "06:49:18",
+      "evidence": "Hi everyone, I'm Tim and I'm here to present our work on reachability across morphologies. Since so prices have turned random access memory into a luxury good, we took advantage of the newly vacant acronym to recone RAM as reachability across morphologies. So what can RAM do for you? Rem can answer the question can this morphology reach this pose. So far this has been answered by solving inverse kinematics which for numeric which for arbitrary morphologies means numerically solving a nonlinear system of equations that is expensive and when we iteratively optimize a morphology to cover a workspace or follow a desired trajectory we ask it milli",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 24733
+    },
+    {
+      "talk_id": "d2-79",
+      "title": "Shape Your Body",
+      "day": 2,
+      "chapter_start_s": 24733,
+      "start_s": 24734,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        24734,
+        24790
+      ],
+      "source_time": "06:52:14",
+      "evidence": "touch. Thank you for your attention. >> [applause] >> Hey everyone, I'm Nico and I will present to you Shape Your Body. So, as you all know, deep learning has revolutionized robotics control uh by learning behaviors in a datadriven manner. So, I want to ask, can we do the same for designing robot hardware? But how would you even optimize robot designs with over thousands of parameters in a datadriven way? Well, this is the field of robot code design where you learn policies and embodiment at the same time. But usually these works are rather slow and lowdimensional. So I want to ask how can we optimize designs fast and in high dimensional spac",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 26512
+    },
+    {
+      "talk_id": "d2-80",
+      "title": "Russ Tedrake — Learning in the Factories",
+      "day": 2,
+      "chapter_start_s": 26855,
+      "start_s": 26858,
+      "delta_s": 3,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        26858,
+        26914
+      ],
+      "source_time": "07:27:38",
+      "evidence": "If you want an expert demonstration of introducing a speaker, watch Anie. And if you want to learn one thing from me, it's hire students like Anie to work with and then everything just falls into place. That was awesome. Thank you. Very, very thoughtful. Well, look at this. I mean, what a time to be in the field. Uh like what a conference. What a moment. It's incredible what is happening right now. Um, I do feel like we're on a rocket ship. I feel like I've got a ticket. Uh, I feel like I have a responsibility to live up to everything an just said. So, I'm going to do my best today to sort of bring together two worlds. you know, the world of ",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 30322
+    },
+    {
+      "talk_id": "d2-81",
+      "title": "Meta Robotics Studio",
+      "day": 2,
+      "chapter_start_s": 30322,
+      "start_s": 30322,
+      "delta_s": 0,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        30322,
+        30379
+      ],
+      "source_time": "08:25:22",
+      "evidence": ">> Cool. Thanks Drew for uh putting me right after Russ. That was a that's a fun act to follow. Uh hi everyone. I'm Jonathan Thompson. Uh I'm the modeling lead at Meta Robotics Studio uh in reality labs uh at Meta. Uh today I'm going to talk about some of the cool stuff we're have cooking at Meta. Um [clears throat] so what is the team up to? Uh this is for the most part our sort of team goal. Um we are building a humanoid robot for the home that is useful and delightful. Uh it's a hard mission. What does that actually mean? Uh useful is maybe the more obvious one. I think it's what we think of especially as researchers. Uh useful means it do",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 30915
+    },
+    {
+      "talk_id": "d2-82",
+      "title": "AGIBOT",
+      "day": 2,
+      "chapter_start_s": 30915,
+      "start_s": 30916,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        30916,
+        30974
+      ],
+      "source_time": "08:35:16",
+      "evidence": "[applause] For the second presentation, we have Yongjian Shen from AGI Bot. >> Yeah, you can just uh go up there. I think they're going to plug it in the back. Hello. Yeah, I'm Yong Jen, technical ecosystem lead at AI bot and vice president of manyformer. Today I'll share with you guys that what we are learning as we connect data models and benchmarks for physical AI and many knows AI bot for its robots. In the past three years, we have produced over 20,000 general purpose robots. But it's deployment that really teaches us a",
+      "note": "The first caption segment contains the presenter’s opening and adjacent chair or previous-speaker text. The exact handoff is within this segment; audiovisual verification is still required.",
+      "end_s": 31617
+    },
+    {
+      "talk_id": "d2-83",
+      "title": "Tesla",
+      "day": 2,
+      "chapter_start_s": 31617,
+      "start_s": 31618,
+      "delta_s": 1,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        31618,
+        31674
+      ],
+      "source_time": "08:46:58",
+      "evidence": "Hi everyone. Uh my name is Patrick and um today I'm going to be presenting on building robust policies with role models um at Tesla. So why do we care so much about robust policies? So if you actually go out right now um you can actually hail a cyber cap um you can just download the app and immediately go on a cybercap ride. So we have worked really long on um making this work and the only reason why this works is because we have really really robust policies that we have kind of tested in so many different scenarios and ensured that the safety is almost guaranteed. Um, and I encourage anyone who hasn't tried the Cyber Cap yet, you can litera",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 32266
+    },
+    {
+      "talk_id": "d3-84",
+      "title": "Fei-Fei Li — Atlas World Model",
+      "day": 3,
+      "chapter_start_s": 2941,
+      "start_s": 3121,
+      "delta_s": 180,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        3121,
+        3151
+      ],
+      "source_time": "00:52:01",
+      "evidence": "Thank you. Thank you. Thank you. Let me get organized here. OK, you don't need to see my face. Can we go to the actual talk? OK, great. It's quite an honor to be invited by CoRL, especially multiple of my former students, including Yiku, the organizers. You guys have done a great job. I know that because I have so many papers",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 4583
+    },
+    {
+      "talk_id": "d3-85",
+      "title": "Fei-Fei Li and Lisa Su — Fireside Chat",
+      "day": 3,
+      "chapter_start_s": 4583,
+      "start_s": 4659,
+      "delta_s": 76,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        4659,
+        4686
+      ],
+      "source_time": "01:17:39",
+      "evidence": "UK, for the introduction. Thank you both, Lisa and Fei-Fei for joining us at CoRL. Wonderful talk. Fei-Fei will all watch tomorrow for the video. We're now, we're all at the edge of our seats waiting to see it. So, we will have some questions that we can take on Slido. We have about a half an hour that I'll be mixing in some questions that are prepared in advance and the ones that",
+      "note": "Start aligned to the first clearly attributable presentation segment in the archived captions. The audiovisual boundary has not been checked.",
+      "end_s": 6623
+    },
+    {
+      "talk_id": "d3-86",
+      "title": "Commercially Viable Generalist Robots — Special Debate",
+      "day": 3,
+      "chapter_start_s": 6623,
+      "start_s": 6898,
+      "delta_s": 275,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        6898,
+        6929
+      ],
+      "source_time": "01:54:58",
+      "evidence": "VC money on actual real money paid by customers. I know, I know. Very ambitious. Representing the pro side, we have Chelsea Finn from Physical Intelligence and Stanford University. We have Pulkit Agrawal from Eka Robotics and MIT, and we have Marc Toussaint from T.U. Berlin. Representing the con side, we have Leslie Kaelbling.",
+      "note": "The archived captions jump from 01:50:23 session setup to 01:54:58 moderator introductions. Link to the first available debate segment; the exact start in the missing interval is unverified.",
+      "end_s": 9664
+    },
+    {
+      "talk_id": "d3-87",
+      "title": "Closing and Awards",
+      "day": 3,
+      "chapter_start_s": 9664,
+      "start_s": 10852,
+      "delta_s": 1188,
+      "status": "transcript-aligned",
+      "precision": "caption segment; not audiovisual-verified",
+      "boundary_window_s": [
+        10852,
+        10884
+      ],
+      "source_time": "03:00:52",
+      "evidence": "Oh, good, finally. Yeah, so I want to start by asking you a question. Did you enjoy the conference? Yeah, we made it. It's the last hour of the main conference. So there's a lot of great moments and that our photographer was able to capture and they were going to share this in a photo album with all of you, I think. Like, so really love all the inspiring talk and the smiles on your face and I think like we all have a great",
+      "note": "Corrected from the 02:41:04 musical interlude to the first substantive awards/closing segment at 03:00:52. The original entry had incorrectly retained only the last minutes of the ceremony.",
+      "end_s": 12444
+    }
+  ]
+}
