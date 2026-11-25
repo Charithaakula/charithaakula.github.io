@@ -41,6 +41,12 @@ for r in reviewed:
         known_urls.add(r.get('url'))
     else:
         existing.update(r)
+DIAGRAM_REFS=read('diagram-references.json',[])
+for r in DIAGRAM_REFS:
+    r.setdefault('full_summary',r.get('summary',''))
+    existing=next((x for x in REFS if x['id']==r['id'] or x.get('url')==r.get('url')),None)
+    if existing:existing.update(r)
+    else:REFS.append(r)
 RESEARCH_REVIEWS=[]
 for source in sorted((ROOT/'data').glob('research-*.json')):
     records=json.loads(source.read_text())
@@ -81,32 +87,35 @@ BY_SYNTHESIS = {panel['id']:panel for panel in PANEL_SYNTHESIS}
 PANEL_SOURCE_LINKS = read('panel-source-links.json', [])
 BY_PANEL_SOURCES = {panel['panel_id']:panel for panel in PANEL_SOURCE_LINKS}
 MAP_EXPANSIONS = read('map-expansions.json', [])
+GUIDE = read('guide-components.json', {})
 RECORDINGS = read('recordings.json', {})
 BY_TALK = {t['id']: t for t in TALKS}
 BY_NODE = {n['id']: n for n in NODES}
 BY_REF = {r['id']: r for r in REFS}
-BY_PAPER_REVIEW={pid:review for review in RESEARCH_REVIEWS for pid in review.get('main_paper_ids',[])+review.get('workshop_paper_ids',[])}
+BY_PAPER_REVIEW={pid:review for review in RESEARCH_REVIEWS+DIAGRAM_REFS for pid in review.get('main_paper_ids',[])+review.get('workshop_paper_ids',[])}
 VISUAL_NOTES=read('visual-notes.json',[])
 if isinstance(VISUAL_NOTES,dict): VISUAL_NOTES=VISUAL_NOTES.get('notes',VISUAL_NOTES.get('records',[]))
 BY_VISUAL={v['talk_id']:v for v in VISUAL_NOTES}
 STAGE_COLOR = {'Learn': ('#e9eee4', '#426c55'), 'Act': ('#e9eef2', '#426b88'), 'Improve': ('#f2eadb', '#886633')}
 
 def nav(active,prefix):
-    items=[('map',prefix+'index.html','Knowledge map'),('panels',prefix+'panels/index.html','Research panels'),('library',prefix+'library/index.html','Library')]
+    items=[('guide',prefix+'index.html','Research Guide'),('panels',prefix+'panels/index.html','AI-Synthesized Research Panels'),('library',prefix+'library/index.html','Library')]
     links=''.join(f'<a href="{e(url)}"'+(' aria-current="page"' if key==active else '')+f'>{e(label)}</a>' for key,url,label in items)
     return f'''<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="shell nav"><a class="brand" href="{prefix}index.html"><span class="mark">Co<em>RL</em></span><span>Research Atlas<small>CoRL 2026 · Austin</small></span></a><nav class="links" aria-label="Main navigation">{links}<a class="atlas-home-link" href="/">Homepage ↗</a></nav></div></header>'''
 
 def footer(prefix,show_author=False):
-    return f'''<footer class="site-footer"><div class="shell footer-row"><div>Independent CoRL 2026 research guide · Updated November 22, 2026</div><div class="footer-links"><a href="{prefix}library/index.html#coverage">Coverage &amp; source policy</a><a href="{prefix}data/atlas-graph.json" download>Download source index</a><a href="https://www.corl.org" target="_blank" rel="noopener">Official CoRL ↗</a></div></div></footer>'''
+    return f'''<footer class="site-footer"><div class="shell footer-row"><div>Independent CoRL 2026 research guide · Updated November 25, 2026</div><div class="footer-links"><a href="{prefix}library/index.html#coverage">Coverage &amp; source policy</a><a href="{prefix}data/atlas-graph.json" download>Download source index</a><a href="https://www.corl.org" target="_blank" rel="noopener">Official CoRL ↗</a></div></div></footer>'''
 
-def page(name, active, title, description, body):
+def page(name, active, title, description, body, styles=(), scripts=()):
     sub = '/' in name
     prefix = '../' if sub else ''
     canonical = 'https://charithaakula.github.io/corl26/' + (name.replace('index.html', '') if sub else '')
     css_hash=hashlib.sha256((ROOT/'atlas.css').read_bytes()).hexdigest()[:10]
     js_hash=hashlib.sha256((ROOT/'atlas.js').read_bytes()).hexdigest()[:10]
     theme_hash=hashlib.sha256((ROOT/'theme.css').read_bytes()).hexdigest()[:10]
-    html = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111725"><title>{e(title)}</title><meta name="description" content="{e(description)}"><link rel="canonical" href="{e(canonical)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="{e(canonical)}"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="{prefix}atlas.css?v={css_hash}"><link rel="stylesheet" href="{prefix}theme.css?v={theme_hash}"><script src="{prefix}atlas.js?v={js_hash}" defer></script></head><body data-page="{active}">{nav(active,prefix)}<main class="shell" id="main">{body}</main>{footer(prefix,active != "library")}</body></html>'''
+    extra_styles=''.join(f'<link rel="stylesheet" href="{prefix}{e(asset)}?v={hashlib.sha256((ROOT/asset).read_bytes()).hexdigest()[:10]}">' for asset in styles)
+    extra_scripts=''.join(f'<script src="{prefix}{e(asset)}?v={hashlib.sha256((ROOT/asset).read_bytes()).hexdigest()[:10]}" defer></script>' for asset in scripts)
+    html = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111725"><title>{e(title)}</title><meta name="description" content="{e(description)}"><link rel="canonical" href="{e(canonical)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="{e(canonical)}"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="{prefix}atlas.css?v={css_hash}"><link rel="stylesheet" href="{prefix}theme.css?v={theme_hash}">{extra_styles}<script src="{prefix}atlas.js?v={js_hash}" defer></script>{extra_scripts}</head><body data-page="{active}" data-atlas-base="{prefix or './'}">{nav(active,prefix)}<main class="shell" id="main">{body}</main>{footer(prefix,active != "library")}</body></html>'''
     p = ROOT / name
     PAGES[p] = html + '\n'
 
@@ -214,10 +223,10 @@ def landing():
         synthesis_sources=''.join(talk_link(tid) for tid in p.get('synthesis_talk_ids',[]))
         research_evidence=paper_sources(p['source_groups'].get('synthesis',{}))
         evidence_drawer='<div class="synthesis-reference-groups"><section><h4>Talks</h4><div class="synthesis-sources">'+synthesis_sources+'</div></section><section><h4>Papers &amp; technical sources</h4><ul class="paper-source-list">'+research_evidence+'</ul></section></div>'
-        panel_html+=f'''<article class="panel-display" id="panel-{i+1}"><div class="panel-super">PANEL {i+1:02} / {len(panels):02} · {e(p['tag'])}</div><h2>{e(p['question'])}</h2><div class="stage-row">{seats}</div><section class="panel-synthesis" aria-labelledby="synthesis-{i+1}"><h3 class="synthesis-label" id="synthesis-{i+1}">Our synthesis</h3><div class="synthesis-body">{para(p['synthesis'])}{evidence_drawer}</div></section><div class="test-strip"><b>What would help assess these perspectives?</b>{e(p['test'])}</div><details class="panel-connections"><summary>Further reading in the map</summary><div class="chips">{maps}</div></details><p class="panel-footnote">Perspectives and synthesis are editorial readings of independent sources. Related context is not attributed to the speaker; linked reports are not automatically full-text reviews.</p></article>'''
-    body=f'''<section class="panel-page" id="panels"><h1>Research panels</h1><div class="panel-layout"><aside class="panel-picker" aria-label="Choose a research question">{picker}</aside><div class="panel-stage">{panel_html}</div></div></section>'''
+        panel_html+=f'''<article class="panel-display" id="panel-{i+1}"><div class="panel-super">PANEL {i+1:02} / {len(panels):02} · {e(p['tag'])}</div><h2>{e(p['question'])}</h2><div class="stage-row">{seats}</div><section class="panel-synthesis" aria-labelledby="synthesis-{i+1}"><h3 class="synthesis-label" id="synthesis-{i+1}">Synthesis</h3><div class="synthesis-body">{para(p['synthesis'])}{evidence_drawer}</div></section><div class="test-strip"><b>Open question · what would help assess these perspectives?</b>{e(p['test'])}</div><div class="panel-connections"><span>Read the related components</span><div class="chips">{maps}</div></div><p class="panel-footnote">Perspectives paraphrase the linked independent sources. The synthesis is an AI-assisted comparison; the evaluation question is an open research proposal. Related context is not attributed to the speaker, and linked reports are not automatically full-text reviews.</p></article>'''
+    body=f'''<section class="panel-page" id="panels"><h1>AI-Synthesized Research Panels</h1><p class="source-note">Constructed comparisons of independent talks and papers. The perspectives summarize their sources; the synthesis and open questions are editorial interpretations.</p><div class="panel-layout"><aside class="panel-picker" aria-label="Choose a research question">{picker}</aside><div class="panel-stage">{panel_html}</div></div></section>'''
     body=body.replace('href="library/','href="../library/').replace('href="field-map/','href="../field-map/')
-    page('panels/index.html','panels','CoRL 2026 Research Panels','Six research questions explored through three source-linked perspectives and our editorial synthesis.',body)
+    page('panels/index.html','panels','AI-Synthesized Research Panels · CoRL 2026','Six research questions explored through three source-linked perspectives and an AI-assisted editorial synthesis.',body)
 
 def source_badge(ref):
     state = str(ref.get('status', '')).lower()
@@ -286,9 +295,16 @@ MAP_TOPIC_LABELS={
     'detail-improve-1':'Evaluation in the real world','detail-improve-2':'Failure diagnosis',
     'detail-improve-3':'Deployment feedback & recovery','detail-improve-4':'Agentic learning & RSI'
 }
+MAP_TOPIC_LABELS.update({component['id']:component['title'] for chapter in GUIDE.get('chapters',[]) for component in chapter['components']})
 
 def source_map_index():
     index={tid:[] for tid in BY_TALK}
+    if GUIDE.get('chapters'):
+        for chapter in GUIDE['chapters']:
+            for component in chapter['components']:
+                for tid in component['talk_ids']:
+                    if component['id'] not in index[tid]:index[tid].append(component['id'])
+        return index
     class Sources(HTMLParser):
         topic=None
         def handle_starttag(self,tag,attrs):
@@ -340,7 +356,7 @@ def library():
         fact_table=f'<div class="research-facts"><table><caption class="sr-only">Research details</caption><tbody>{fact_rows}</tbody></table></div>'
         timing_details=f'<details class="research-details source-details"><summary>Recording and source notes</summary>{timing}<p class="source-note">{e(t.get("transcript_note",""))}</p><p class="source-note">{e(t.get("summary_source","Editorial notes from the original recorded presentation."))}</p></details>'
         reading=('<div class="resource-row"><span class="resource-label">Paper &amp; reading</span><div class="chips">'+catalogue_links+ref_links+'</div></div>') if catalogue_links or ref_links else ''
-        topics=('<div class="resource-row"><span class="resource-label">Map topics</span><div class="chips">'+connections+'</div></div>') if connections else ''
+        topics=('<div class="resource-row"><span class="resource-label">Research Guide components</span><div class="chips">'+connections+'</div></div>') if connections else ''
         articles.append(f'''<article class="reader-article" id="talk-{e(tid)}" aria-labelledby="heading-{e(tid)}"><span class="kicker">Day {t['day']} · {kinds[kind]}</span><h2 id="heading-{e(tid)}">{e(title)}</h2><div class="overview research-summary">{para(summary)}</div>{fact_table}<div class="action-row">{watch}</div><div class="video-host"></div>{topics}{reading}{transcript_block(t)}{timing_details}</article>''')
 
     for p in MAIN_PAPERS + WORKSHOP_PAPERS:
@@ -409,7 +425,7 @@ def coverage_article():
     tasks=''.join(f'<li>{e(x.get("title",x.get("task",x.get("description",x))))}</li>' if isinstance(x,dict) else '<li>'+e(x)+'</li>' for x in COVERAGE.get('acquisition_tasks',[]))
     leads=''.join('<li>'+link(x['url'],x['title']+' ↗')+'<p class="source-note">'+e(x.get('status',x.get('verification','Reading lead; review pending.')))+'</p></li>' for x in COVERAGE.get('primary_sources',[]))
     announced=''.join(f'<li>{e(x["value"])} {e(x["label"].lower())}. {e(x["qualifier"])} {link(x["evidence"]["url"],"Original announcement ↗")}</li>' for x in COVERAGE.get('announced_counts',[]))
-    return f'''<article class="reader-article" id="coverage"><span class="kicker">Coverage ledger</span><h2>What is covered—and what is still missing.</h2><p class="overview">{e(COVERAGE.get('summary'))}</p><div class="coverage-grid"><div class="card"><strong>66 paper presentations</strong><p>21 oral talks and 45 spotlights, represented by recorded source notes.</p></div><div class="card"><strong>21 other recorded segments</strong><p>Keynotes, industry presentations, fireside, debate and closing.</p></div><div class="card"><strong>484 workshop listings</strong><p>All 32 workshop pages checked. Twelve organizer lists are complete; twenty still have metadata gaps.</p></div></div><div class="table-scroll"><table><thead><tr><th scope="col">Research track</th><th scope="col">Indexed</th><th scope="col">Current boundary</th></tr></thead><tbody>{rows}</tbody></table></div><section style="margin-top:30px"><h3>Why the gaps are visible</h3><ul class="questions">{announced}</ul><p class="source-note">Announcement counts are speaker-reported in automatic captions; they require reconciliation with the official conference program.</p></section><h3>Source acquisition priorities</h3><ol class="questions">{tasks}</ol><h3>Primary-source reading leads</h3><ul class="questions">{leads}</ul><h3>Primary-source depth</h3><p>Twenty-one additional public sources were reviewed for focused paper notes: seventeen manuscript-section reviews and four technical project-method reviews. This is separate from the broader catalogue and from confirming accepted publication versions.</p><h3>How evidence is treated</h3><div class="callout"><p>Recorded source reviewed means the notes were built from the supplied talk transcript. Primary paper reviewed means the paper text was retrieved and read. A reading lead has a discovered title and URL, with its contents still awaiting review.</p><p>Editorial comparisons connect mechanisms and propose useful tests; they are not attributed speaker quotations. Company claims remain speaker-reported unless supported by reviewed technical evidence. Social posts may help discover work; the cited sources are papers, project pages, technical reports and original talks.</p><p>Video starts are transcript-aligned. Automatic captions have coarse segment boundaries, so audiovisual checking is still required before claiming second-perfect timing.</p></div><div class="action-row">{link('../data/coverage.json','Download coverage JSON','button')}{link('../data/conference-papers.json','Recorded paper manifest','button')}{link('../data/timestamp-audit.json','Timestamp audit','button')}</div></article>'''
+    return f'''<article class="reader-article" id="coverage"><span class="kicker">Coverage ledger</span><h2>What is covered—and what is still missing.</h2><p class="overview">{e(COVERAGE.get('summary'))}</p><div class="coverage-grid"><div class="card"><strong>66 paper presentations</strong><p>21 oral talks and 45 spotlights, represented by recorded source notes.</p></div><div class="card"><strong>21 other recorded segments</strong><p>Keynotes, industry presentations, fireside, debate and closing.</p></div><div class="card"><strong>484 workshop listings</strong><p>All 32 workshop pages checked. Twelve organizer lists are complete; twenty still have metadata gaps.</p></div></div><div class="table-scroll"><table><thead><tr><th scope="col">Research track</th><th scope="col">Indexed</th><th scope="col">Current boundary</th></tr></thead><tbody>{rows}</tbody></table></div><section style="margin-top:30px"><h3>Why the gaps are visible</h3><ul class="questions">{announced}</ul><p class="source-note">Announcement counts are speaker-reported in automatic captions; they require reconciliation with the official conference program.</p></section><h3>Source acquisition priorities</h3><ol class="questions">{tasks}</ol><h3>Primary-source reading leads</h3><ul class="questions">{leads}</ul><h3>Primary-source depth</h3><p>The November 22 review covered twenty-one additional public sources: seventeen manuscript-section reviews and four technical project-method reviews. Three further primary-manuscript notes were added on November 25 for AMP1, RAX and the Astra/RoboMME monitor. These reviews are separate from the broader catalogue and from confirming accepted publication versions.</p><h3>Recording and transcript status</h3><p class="source-note">{e(COVERAGE.get("source_policy",{}).get("transcript_redistribution",""))}</p><h3>How evidence is treated</h3><div class="callout"><p>Recorded source reviewed means the notes were built from the supplied talk transcript. Primary paper reviewed means the paper text was retrieved and read. A reading lead has a discovered title and URL, with its contents still awaiting review.</p><p>Editorial comparisons connect mechanisms and propose useful tests; they are not attributed speaker quotations. Company claims remain speaker-reported unless supported by reviewed technical evidence. Social posts may help discover work; the cited sources are papers, project pages, technical reports and original talks.</p><p>Video starts are transcript-aligned. Automatic captions have coarse segment boundaries, so audiovisual checking is still required before claiming second-perfect timing.</p></div><div class="action-row">{link('../data/coverage.json','Download coverage JSON','button')}{link('../data/conference-papers.json','Recorded paper manifest','button')}{link('../data/timestamp-audit.json','Timestamp audit','button')}</div></article>'''
 
 def field_map():
     template=ROOT/'templates'/'field-map.html'
@@ -461,6 +477,82 @@ def field_map():
     PAGES[ROOT/'field-map'/'index.html']=html
     PAGES[ROOT/'index.html']=html.replace('href="../','href="').replace('src="../','src="')
 
+def guide_paper_key(url):
+    match=re.search(r'arxiv\.org/(?:abs|html|pdf)/(\d{4}\.\d+)',url)
+    return match.group(1) if match else url.rstrip('/')
+
+def guide_component_sources(component,prefix):
+    talks=''
+    for tid in component['talk_ids']:
+        talk=BY_TALK[tid]
+        reader=prefix+'library/index.html?talk='+quote(tid)
+        talks+='<li>'+link(reader,talk['title'])+'<span>'+link(talk.get('recording_url') or talk['video'],'Video · '+time_s(talk['start_s']))+' · '+link(reader+'&view=transcript','Transcript')+'</span></li>'
+    papers='';seen=set();seen_papers=set()
+    for rid in component['reference_ids']:
+        reference=BY_REF[rid]
+        key=guide_paper_key(reference['url'])
+        if key in seen:continue
+        seen.add(key);seen_papers.update(reference.get('main_paper_ids',[]))
+        papers+='<li>'+link(reference['url'],reference['title']+' ↗')+'<span>'+e(source_badge(reference))+' · '+link(prefix+'library/index.html#reference-'+rid,'Research note')+'</span></li>'
+    for paper in MAIN_PAPERS:
+        if not set(component['talk_ids']).intersection(paper.get('related_talk_ids',[])):continue
+        url=paper.get('arxiv_url') or paper.get('pdf_url') or paper['url']
+        key=guide_paper_key(url)
+        if key in seen or paper['id'] in seen_papers:continue
+        seen.add(key)
+        review=BY_PAPER_REVIEW.get(paper['id']) or next((r for r in REFS if r.get('reviewed') and guide_paper_key(r['url'])==key),None)
+        label=source_badge(review) if review else 'Original paper · manuscript review pending'
+        papers+='<li>'+link(url,paper['title']+' ↗')+'<span>'+e(label)+' · '+link(prefix+'library/index.html#paper-'+paper['id'],'Research note')+'</span></li>'
+    groups=''
+    if talks:groups+='<section class="source-group"><h4>Talks &amp; transcripts</h4><ul>'+talks+'</ul></section>'
+    if papers:groups+='<section class="source-group"><h4>Papers &amp; technical sources</h4><ul>'+papers+'</ul></section>'
+    panels=''.join(link(prefix+'panels/index.html#panel-'+str(number),PANELS[number-1]['question']) for number in component.get('panel_numbers',[]))
+    if panels:groups+='<div class="guide-reading-links"><span>Explore the AI-synthesized comparisons</span>'+panels+'</div>'
+    return '<div class="component-sources">'+groups+'</div>'
+
+def guide_diagram_sources(chapter,prefix):
+    items=''
+    for source in GUIDE.get('diagram_sources',[]):
+        if source['figure']!=chapter['id']:continue
+        references=[]
+        for rid in source.get('reference_ids',[]):
+            reference=BY_REF[rid]
+            references.append(link(reference['url'],reference['title']+' ↗'))
+        for tid in source.get('talk_ids',[]):references.append(link(prefix+'library/index.html?talk='+tid,BY_TALK[tid]['title']+' · talk'))
+        items+='<li>'+link('#'+source['topic_id'],source['label'],'figure-source-label')+'<span>'+(' · '.join(references))+'</span><p class="figure-source-note">'+e(source.get('note',''))+'</p></li>'
+    return '<details class="chapter-source-key"><summary>Figure examples &amp; reading</summary><ul>'+items+'</ul></details>' if items else ''
+
+def research_guide():
+    assert len(GUIDE.get('chapters',[]))==2, 'Provide the two research guide chapters.'
+    for name in ['index.html','field-map/index.html']:
+        prefix='../' if '/' in name else ''
+        contents='';chapters=''
+        for index,chapter in enumerate(GUIDE['chapters'],1):
+            chapter_id=chapter['id']
+            toc_items=''.join('<li>'+link('#'+c['id'],c['title'])+'</li>' for c in chapter['components'])
+            contents+='<section><a class="toc-chapter" href="#'+e(chapter_id)+'">'+f'{index:02} · '+e(chapter['title'])+'</a><ol>'+toc_items+'</ol></section>'
+            components=''
+            for number,component in enumerate(chapter['components'],1):
+                points=''
+                for point in component['points']:
+                    if isinstance(point,dict):text='<strong>'+e(point.get('label',''))+'</strong> '+e(point.get('text',''))
+                    else:text=e(point)
+                    points+='<li>'+text+'</li>'
+                question=('<div class="component-question"><strong>Question to examine</strong><p>'+e(component['question'])+'</p></div>') if component.get('question') else ''
+                components+='<details class="guide-component" id="'+e(component['id'])+'" name="'+e(chapter_id)+'-components" aria-labelledby="heading-'+e(component['id'])+'"><summary class="component-summary"><span class="component-number">'+f'{index}.{number:02}'+'</span><h3 id="heading-'+e(component['id'])+'">'+e(component['title'])+'</h3><p class="component-lead">'+e(component['intro'])+'</p></summary><div class="component-body"><ul class="component-points">'+points+'</ul>'+question+guide_component_sources(component,prefix)+'</div></details>'
+            image=prefix+chapter['figure'];fig_id='figure-'+chapter_id
+            dimensions=(4920,2910) if chapter_id=='execution' else (6000,2010)
+            figure_links='<div class="figure-links"><a class="figure-open" href="'+e(image)+'" data-image="'+e(image)+'" data-title="'+e(chapter['title'])+'" data-alt="'+e(chapter['figure_alt'])+'">Enlarge diagram ↗</a><a href="'+e(image)+'" download="'+e(Path(chapter['figure']).name)+'">Download original PNG</a>'+link('#'+chapter['components'][0]['id'],'Read the components ↓')+'</div>'
+            figure='<figure class="guide-figure" id="'+e(fig_id)+'">'+figure_links+'<a class="figure-open" href="'+e(image)+'" data-image="'+e(image)+'" data-title="'+e(chapter['title'])+'" data-alt="'+e(chapter['figure_alt'])+'" aria-label="Enlarge '+e(chapter['title'])+' diagram"><img src="'+e(image)+'" alt="'+e(chapter['figure_alt'])+'" width="'+str(dimensions[0])+'" height="'+str(dimensions[1])+'"'+(' loading="lazy"' if index>1 else ' fetchpriority="high"')+'></a><figcaption>'+e(chapter['figure_caption'])+'</figcaption></figure>'
+            chapters+='<section class="guide-chapter" id="'+e(chapter_id)+'" aria-labelledby="heading-'+e(chapter_id)+'"><div class="chapter-heading"><span class="kicker">'+f'{index:02}'+' / '+('How the robot acts' if chapter_id=='execution' else 'How capability changes')+'</span><h2 id="heading-'+e(chapter_id)+'">'+e(chapter['title'])+'</h2><p class="chapter-intro">'+e(chapter['intro'])+'</p></div>'+figure+guide_diagram_sources(chapter,prefix)+components+'</section>'
+        desktop_toc='<aside class="guide-toc"><nav aria-label="Guide contents"><strong>In this guide</strong>'+contents+'</nav></aside>'
+        mobile_toc='<details class="guide-toc-mobile"><summary>Browse the two loops and their components</summary><nav aria-label="Guide contents on small screens">'+contents+'</nav></details>'
+        header='<section class="guide-header"><span class="eyebrow">CoRL Research Guide</span><h1>Execution &amp; improvement.</h1><p>Two views of robot learning, with component notes and links to the underlying research.</p><div class="guide-actions">'+link('#execution','The Execution Loop')+link('#improvement','The Learning & Improvement Loop')+link(prefix+'panels/index.html','Explore panels')+link('#export-transcripts','Export transcripts')+'</div></section>'
+        exports='<section class="guide-transcripts" id="export-transcripts"><h2>Export transcripts</h2><p>Download the transcripts and explore your own research questions with your preferred AI assistant.</p><div class="guide-actions">'+''.join('<a href="'+prefix+'transcripts/day-'+str(day)+'.txt" download>Day '+str(day)+' transcript ↓</a>' for day in [1,2,3])+link(prefix+'library/index.html?kind=transcript','Browse the day recordings')+'</div><p class="source-note">The supplied automatic captions retain timestamps and talk headings. Individual talk excerpts are available in the Library; audiovisual boundary verification remains pending.</p></section>'
+        dialog='''<dialog id="figure-dialog" aria-labelledby="figure-title"><div class="figure-dialog-header"><h2 id="figure-title">Original diagram</h2><button type="button" id="figure-close" aria-label="Close diagram">Close ×</button></div><div class="figure-toolbar" aria-label="Image viewing controls"><button type="button" id="figure-fit">Fit</button><button type="button" id="figure-zoom-out" aria-label="Zoom out">−</button><button type="button" id="figure-zoom-in" aria-label="Zoom in">+</button><button type="button" id="figure-original">Original resolution</button><a id="figure-download" download>Download PNG ↓</a><span id="figure-status" role="status" aria-live="polite"></span></div><div id="figure-scroll"><img id="figure-image" alt=""></div></dialog>'''
+        body=header+mobile_toc+'<div class="guide-layout">'+desktop_toc+'<div>'+chapters+exports+'</div></div>'+dialog
+        page(name,'guide','Execution & Improvement · CoRL Research Guide','Explore robot execution architectures and learning loops through original diagrams, source-backed component notes, talks and papers.',body,styles=('guide.css',),scripts=('guide.js',))
+
 def validate_sources():
     assert TALKS and NODES, 'Populate talks.json and knowledge.json before building.'
     assert len(BY_TALK)==len(TALKS), 'Duplicate talk IDs'
@@ -491,6 +583,16 @@ def validate_sources():
         assert topic['topic_id'] in MAP_TOPIC_LABELS
         for tid in topic['source_talk_ids']:assert tid in BY_TALK,tid
         for rid in topic['source_reference_ids']:assert rid in BY_REF,rid
+    if GUIDE.get('chapters'):
+        components=[c for chapter in GUIDE['chapters'] for c in chapter['components']]
+        assert {c['id'] for c in components}==set(MAP_TOPIC_LABELS), 'Preserve every original research topic.'
+        assert len(components)==len(MAP_TOPIC_LABELS), 'Duplicate guide component IDs'
+        for chapter in GUIDE['chapters']:
+            assert (ROOT/chapter['figure']).is_file(), 'Copy the original diagram: '+chapter['figure']
+        for component in components:
+            for tid in component['talk_ids']:assert tid in BY_TALK,(component['id'],tid)
+            for rid in component['reference_ids']:assert rid in BY_REF,(component['id'],rid)
+            for number in component.get('panel_numbers',[]):assert 1<=number<=len(PANELS),(component['id'],number)
 
 def export_graph():
     graph=json.loads(json.dumps(KNOWLEDGE))
@@ -504,7 +606,7 @@ def export_graph():
 if __name__=='__main__':
     validate_sources()
     export_graph()
-    landing(); library(); field_map()
+    landing(); library(); research_guide()
     for path,html in PAGES.items():
         path.parent.mkdir(parents=True,exist_ok=True)
         staged=path.with_suffix('.html.tmp')
