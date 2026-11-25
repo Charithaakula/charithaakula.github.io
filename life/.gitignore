@@ -1,0 +1,6 @@
+# Personal tracking backups should live in a private repository.
+exports/
+private/
+*state*.json
+*backup*.json
+.DS_Store

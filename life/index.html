@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-theme="sage">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Charitha's living scrapbook of places, flavors, firsts, and everyday adventures. Collect possibilities, keep memories, and make room for a little more living.">
+  <meta name="theme-color" content="#f4f1e8">
+  <link rel="canonical" href="https://charithaakula.github.io/life/">
+  <link rel="icon" type="image/svg+xml" href="images/spark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="vendor/markercluster/MarkerCluster.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>life, fully. — Charitha Akula</title>
+  <script src="data/catalog.js" defer></script>
+  <script src="data/cuisines.js" defer></script>
+  <script src="data/seeds.js" defer></script>
+  <script src="data/progress.js" defer></script>
+  <script src="data/us-map.js" defer></script>
+  <script src="data/trip-regions.js" defer></script>
+  <script src="data/world-locations.js" defer></script>
+  <script src="data/location-corrections.js" defer></script>
+  <script src="data/trip-shortlists.js" defer></script>
+  <script src="data/trip-options.js" defer></script>
+  <script src="js/geo.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="vendor/leaflet/leaflet.js" defer></script>
+  <script src="vendor/markercluster/leaflet.markercluster.js" defer></script>
+  <script src="js/svg-map.js" defer></script>
+  <script src="js/map-planner.js" defer></script>
+  <script src="js/csv-list.js" defer></script>
+  <script src="js/trip-explorer.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to my collection</a>
+  <div class="page-wrap">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Charitha Akula, life fully home">
+        <svg class="brand-spark" viewBox="0 0 42 42" aria-hidden="true"><path d="M21 2c2 12 5 15 19 19-14 3-17 6-19 19C18 27 15 24 2 21 15 17 18 14 21 2Z"/><path d="m31 4 2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/></svg>
+        <span><span class="brand-name">Charitha Akula</span><span class="brand-title">life, fully<span>.</span></span></span>
+      </a>
+      <div class="header-tools">
+        <label class="theme-control" for="theme-select"><span class="theme-dot" aria-hidden="true"></span><span class="sr-only">Scrapbook color theme</span><select id="theme-select" aria-label="Scrapbook color theme"><option value="sage">Sage</option><option value="blush">Blush</option><option value="ocean">Ocean</option><option value="night">Night</option></select></label>
+        <button class="button ghost header-settings" id="settings-button" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14M7 3v4m6 1v4m-7 1v4"/></svg><span>Make it yours</span></button>
+        <div class="save-tools"><button class="button ghost small" id="export-button" type="button" title="Export a copy of your journal"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v9m-3-3 3 3 3-3M4 13v4h12v-4"/></svg><span>Export</span></button><label class="button ghost small import-label" for="import-input" title="Import a saved journal"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 12V3m-3 3 3-3 3 3M4 13v4h12v-4"/></svg><span>Import</span><input id="import-input" type="file" accept="application/json,.json" class="file-input"></label></div>
+        <button class="button primary add-button" id="add-idea-button" type="button"><span class="button-plus" aria-hidden="true">+</span>Add an idea</button>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow"><span class="little-star" aria-hidden="true">✧</span> A scrapbook for the days ahead</p>
+        <h1 id="hero-title">A little more wonder.<br>A lot more <em>living.</em></h1>
+        <p class="hero-description">Places to get lost in. Flavors to fall for. Firsts, little rituals, and stories worth keeping. A whole world of possibilities, collected in one place.</p>
+        <div class="hero-bottom"><a class="hero-link" href="#explore">Find your next little adventure <span aria-hidden="true">↗</span></a><span class="handwritten">at your own pace.</span></div>
+        <div class="collection-counts" aria-label="Collection overview"><span><strong id="catalog-count">—</strong> possibilities</span><span class="count-dot" aria-hidden="true">·</span><span><strong id="done-count">—</strong> memories made</span><span class="count-dot" aria-hidden="true">·</span><span><strong id="cuisine-count">—</strong> cuisines to discover</span></div>
+      </div>
+      <div class="hero-scrapbook" aria-hidden="true">
+        <svg class="scrapbook-orbit" viewBox="0 0 480 350"><path d="M28 149C-15 58 148 13 242 47s213 103 190 200c-15 62-92 57-117 20"/><path d="m307 265 8 6 6-10"/><path class="doodle-star" d="m449 57 4 12 12 4-12 4-4 12-4-12-12-4 12-4Zm-406 216 3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/></svg>
+        <figure class="postcard postcard-mountain"><span class="paper-tape"></span><img src="images/mountains.svg" alt="" width="420" height="300"><figcaption>somewhere that takes your breath away <span>♡</span></figcaption></figure>
+        <figure class="postcard postcard-table"><span class="paper-tape"></span><img src="images/table.svg" alt="" width="420" height="300"><figcaption>a new favorite flavor</figcaption></figure>
+        <figure class="postcard postcard-coast"><img src="images/coast.svg" alt="" width="420" height="300"><figcaption>take the scenic way.</figcaption></figure>
+        <span class="scrapbook-stamp">COLLECT<br><strong>moments</strong><br>WITH LOVE</span>
+        <svg class="botanical-doodle" viewBox="0 0 96 160"><path d="M51 152C36 112 38 64 63 12M46 129c-25-1-29-13-28-24 21 1 28 12 28 24Zm-4-31c19 2 30-10 33-24-19-3-30 7-33 24Zm4-27C25 65 25 53 29 43c19 6 20 17 17 28Zm9-26c17-2 25-13 25-26-17 1-23 13-25 26Z"/></svg>
+      </div>
+    </section>
+
+    <nav id="tab-nav" class="tab-nav" role="tablist" aria-label="Life scrapbook sections">
+      <button type="button" id="tab-board" data-tab="board" role="tab" aria-controls="app" class="active"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="11" y="3" width="6" height="4" rx="1"/><rect x="3" y="11" width="6" height="6" rx="1"/><rect x="11" y="9" width="6" height="8" rx="1"/></svg><span>Dream boards</span></button>
+      <button type="button" id="tab-explore" data-tab="explore" role="tab" aria-controls="app"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="m12.8 7.2-1.6 4-4 1.6 1.6-4Z"/></svg><span>Explore</span></button>
+      <button type="button" id="tab-map" data-tab="map" role="tab" aria-controls="app"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m2 5 5-2 6 2 5-2v13l-5 2-6-2-5 2Zm5-2v13m6-11v13"/><circle cx="10" cy="9" r="2"/></svg><span>Trip map</span></button>
+      <button type="button" id="tab-food" data-tab="food" role="tab" aria-controls="app"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 3v5c0 2 4 2 4 0V3M5 3v14M14 3c-2 2-2 5-2 7h3M15 3v14"/></svg><span>Food &amp; cuisines</span></button>
+      <button type="button" id="tab-visited" data-tab="visited" role="tab" aria-controls="app"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h6l2 2h6v10H3ZM3 5V3h6l2 2"/><path d="m7 12 2 2 4-4"/></svg><span>Memories</span></button>
+      <button type="button" id="tab-plans" data-tab="plans" role="tab" aria-controls="app"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4h12v13H4ZM7 2v4m6-4v4M4 8h12m-9 3h2m2 0h2m-6 3h2"/></svg><span>Plans</span></button>
+      <button type="button" id="tab-csv" data-tab="csv" role="tab" aria-controls="app"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M3 8h14M3 12h14M8 3v14"/></svg><span>Full list / CSV</span></button>
+    </nav>
+
+    <main id="app" tabindex="-1" role="tabpanel" aria-labelledby="tab-board" aria-live="off"><div class="loading-state"><span class="loading-star" aria-hidden="true">✧</span><p>Opening your collection…</p></div></main>
+    <noscript><p class="empty-state">Turn on JavaScript to browse and keep your collection. Your ideas and journal are saved in this browser.</p></noscript>
+    <footer class="site-footer"><span class="footer-note"><span aria-hidden="true">✧</span> Go at your own pace. Leave room for surprises.</span><span class="footer-storage">Your journal stays on this device. Export a copy to keep it.</span><button class="button ghost small" id="public-export-button" type="button" title="Download a public-safe progress snapshot for this site">Save for GitHub <span aria-hidden="true">↗</span></button><a href="../">Charitha's home <span aria-hidden="true">↗</span></a></footer>
+  </div>
+
+  <dialog id="item-dialog" class="scrapbook-dialog" aria-label="A page in your collection"><div class="dialog-top"><span class="eyebrow">A page in your story</span><button type="button" id="dialog-close" class="dialog-close" aria-label="Close experience details">×</button></div><div id="dialog-content"></div></dialog>
+  <dialog id="settings-dialog" class="scrapbook-dialog settings-dialog" aria-label="Make your scrapbook yours"><div class="dialog-top"><span class="eyebrow">Make it yours</span><button type="button" id="settings-close" class="dialog-close" aria-label="Close preferences">×</button></div><div id="settings-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
