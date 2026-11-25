@@ -1073,8 +1073,25 @@
     "social_discovery": "Social posts can identify work to investigate; posts are not used as supporting research references.",
     "primary_source_status": "Workshop directory membership and readable organizer lists were reviewed. Some papers have reviewed primary abstracts or indexed primary-paper bodies; others remain title-only entries or reference pointers. Each record states its depth.",
     "editorial_edges": "Connections and reading questions are this atlas’s synthesis unless a reviewed source explicitly establishes the relationship.",
-    "catalogue_status": "The 687-paper main index comes from an attributed secondary snapshot. It is useful for exhaustive discovery but does not independently establish each official decision or manuscript finding."
+    "catalogue_status": "The 687-paper main index comes from an attributed secondary snapshot. It is useful for exhaustive discovery but does not independently establish each official decision or manuscript finding.",
+    "transcript_redistribution": "Original recordings are publicly available. Transcript redistribution permission has not been established from the retrieved sources. The existing supplied transcript archive is retained; no additional bundled archive is introduced."
   },
   "access_note": "Supported primary-page and indexed-paper readers were used. OpenReview’s browser-verification challenge and PDF access errors prevented direct completion of portal-dependent paper lists and manuscripts; no verification bypass was attempted.",
-  "review_note": "Focused reviews cover public manuscript sections or author project methods, with exact depth stated per source. This is separate from exhaustive catalogue discovery and independent confirmation of accepted publication versions."
+  "review_note": "Focused reviews cover public manuscript sections or author project methods, with exact depth stated per source. This is separate from exhaustive catalogue discovery and independent confirmation of accepted publication versions.",
+  "recording_sharing_audit": {
+    "checked_at": "2026-11-25",
+    "recordings_public": true,
+    "transcript_redistribution_permission": "not-established-from-retrieved-sources",
+    "evidence": [
+      {
+        "url": "https://www.corl.org/contributions/instruction-for-presentations",
+        "scope": "Spotlight recording submission instructions; no downstream transcript license found."
+      },
+      {
+        "url": "https://www.corl.org/contributions/instruction-for-authors",
+        "scope": "PMLR paper-publication permission; does not establish transcript redistribution rights."
+      }
+    ],
+    "note": "Absence of located permission evidence does not establish that sharing is prohibited."
+  }
 }

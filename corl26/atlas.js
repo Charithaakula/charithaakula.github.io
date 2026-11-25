@@ -11,8 +11,8 @@
   if (page === 'panels') {
     const activate = () => {
       const hash = location.hash.slice(1);
-      if (hash === 'library' || hash.startsWith('library?')) { location.replace(`library/index.html${hash.includes('?') ? '?' + hash.split('?')[1] : ''}`); return; }
-      if (hash === 'map') { location.replace('field-map/index.html'); return; }
+      if (hash === 'library' || hash.startsWith('library?')) { location.replace(`../library/index.html${hash.includes('?') ? '?' + hash.split('?')[1] : ''}`); return; }
+      if (hash === 'map') { location.replace('../index.html'); return; }
       const target = document.getElementById(hash);
       const current = target?.classList.contains('panel-display') ? target : one('.panel-display');
       all('.panel-display').forEach(p => p.classList.toggle('is-selected', p === current));
