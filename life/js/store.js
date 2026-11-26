@@ -112,7 +112,8 @@
       status: choice(r.status, CUISINE_STATUSES, 'cuisine status', 'untracked'),
       count: number(r.count, 0, 1000000, 'tasting count', 0),
       lastTried: date(r.lastTried, 'Last tasting date'),
-      notes: text(r.notes, 10000, 'Cuisine notes')
+      notes: text(r.notes, 10000, 'Cuisine notes'),
+      interest: number(r.interest, 0, 5, 'Cuisine interest', 0)
     };
   }
   function tags(input) {
@@ -207,6 +208,26 @@
       privateNotes: text(r.privateNotes, 10000, 'Private notes')
     };
   }
+  function priorityPreferences(input) {
+    var r = object(input === undefined ? {} : input, 'Discovery preferences');
+    var data = global.LIFE_DISCOVERY_PRIORITIES || {};
+    var destinations = new Set((Array.isArray(data.destinations) ? data.destinations : []).map(function (hub) { return hub.id; }));
+    var families = new Set((Array.isArray(data.families) ? data.families : []).map(function (family) { return family.id; }));
+    function refs(values, known, label) {
+      return Array.from(new Set(array(values, 100, label).map(function (id) {
+        identifier(id, label + ' ID');
+        if (!known.has(id)) fail('Unknown ' + label + ' ID.');
+        return id;
+      })));
+    }
+    var inputRatings = object(r.destinationRatings === undefined ? {} : r.destinationRatings, 'Destination ratings');
+    var keys = Object.keys(inputRatings); if (keys.length > 100) fail('Too many destination ratings.');
+    var ratings = {};
+    keys.forEach(function (id) { identifier(id, 'Destination rating ID'); if (!destinations.has(id)) fail('Unknown rated destination.'); ratings[id] = number(inputRatings[id], 0, 5, 'Destination interest', 0); });
+    return { destinationIds: refs(r.destinationIds, destinations, 'Destination'), destinationRatings: ratings,
+      repeatFamilies: refs(r.repeatFamilies, families, 'Repeat family'), coveredFamilies: refs(r.coveredFamilies, families, 'Covered family'),
+      localFirst: bool(r.localFirst, 'Local-first preference', true) };
+  }
   function validatedState(input) {
     var r = object(input, 'Backup');
     if (r.version !== 1) fail('This backup version is not supported. Expected version 1.');
@@ -243,6 +264,7 @@
       plans: unique(array(r.plans, 500, 'Plans').map(function (v) { return plan(v, known); }), 'plan'),
       boards: unique(array(r.boards, 100, 'Boards').map(function (v) { return board(v, known); }), 'board'),
       settings: settings(r.settings),
+      priorities: priorityPreferences(r.priorities),
       updatedAt: text(r.updatedAt, 40, 'Backup timestamp')
     };
   }
@@ -279,6 +301,7 @@
             input[key] = Object.keys(indexed).map(function (id) { return indexed[id]; });
           }
         });
+        if (published.priorities !== undefined) input.priorities = published.priorities;
         initial = validatedState(input);
       } catch (error) {
         storageWarning = 'Published progress could not be read. The idea library and reported visits are still available.';
@@ -379,7 +402,7 @@
     updateCuisine: function (id, patch) {
       identifier(id, 'Cuisine ID');
       if (!cuisineIds.has(id)) fail('Cuisine was not found.');
-      var value = cuisineProgress(mergeAllowed(cuisineProgress(state.cuisines[id] || {}), patch, ['status', 'count', 'lastTried', 'notes']));
+      var value = cuisineProgress(mergeAllowed(cuisineProgress(state.cuisines[id] || {}), patch, ['status', 'count', 'lastTried', 'notes', 'interest']));
       mutate(function (next) { next.cuisines[id] = value; });
     },
     logCuisine: function (id, input) {
@@ -406,6 +429,10 @@
       var value = settings(mergeAllowed(state.settings, patch, ['theme', 'usFirst', 'earlierEffort', 'soloDefault', 'homeBase', 'tripLengths', 'workingDays', 'availableWindow', 'privateNotes']));
       mutate(function (next) { next.settings = value; });
     },
+    updatePriorities: function (patch) {
+      var value = priorityPreferences(mergeAllowed(state.priorities, patch, ['destinationIds', 'destinationRatings', 'repeatFamilies', 'coveredFamilies', 'localFirst']));
+      mutate(function (next) { next.priorities = value; });
+    },
     exportState: function () { return JSON.stringify(state, null, 2); },
     exportPublicProgress: function () {
       var publicState = { version: 1, completeSnapshot: true, items: {}, customItems: [], cuisines: {}, visits: [], plans: [], boards: [] };
@@ -421,7 +448,7 @@
       });
       Object.keys(state.cuisines).forEach(function (id) {
         var r = state.cuisines[id];
-        publicState.cuisines[id] = { status: r.status, count: r.count };
+        publicState.cuisines[id] = { status: r.status, count: r.count, interest: r.interest };
       });
       publicState.visits = state.visits.map(function (r) {
         return { id: r.id, label: r.label, kind: r.kind, relatedIds: r.relatedIds.filter(function (id) { return publicIds.has(id); }) };
@@ -432,6 +459,7 @@
       publicState.boards = state.boards.map(function (r) {
         return { id: r.id, title: r.title, itemIds: r.itemIds.filter(function (id) { return publicIds.has(id); }), palette: r.palette };
       });
+      publicState.priorities = clone(state.priorities);
       return '/* Public progress only. Labels and plan / board titles are visible when published. Goal titles and locations are included. Private notes, photos, dates, and settings are omitted. */\nwindow.LIFE_PUBLIC_PROGRESS = ' + JSON.stringify(publicState, null, 2).replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029') + ';\n';
     },
     importState: function (input) {

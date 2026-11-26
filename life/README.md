@@ -8,6 +8,17 @@ The page includes vision boards, search and filters, individual experience track
 
 ## Geographic planning and the full list
 
+**Top picks** ranks 70 destination hubs from highest to lowest priority, plus ten distinct choices per category. Choose 15, 30, or all destinations and open the same ranked list on the map. Personal ratings refresh the ordering and map pins. The 49 curated canonical families prevent a first introduction from requiring every location variant; this is deliberately conservative, not exhaustive semantic deduplication. A verified local approach stays local by default. A particular park, heritage site, dish, or craft remains distinct when local evidence does not meet that goal.
+
+**Coverage plan** builds a finite portfolio of five-/nine-day journeys from the Bay Area, with a separate local hour budget. Nine calendar days use five weekday leave days; five calendar days use three. Travel, transfers, and recovery are reserved before goal slots are packed. Remote work and holidays are optional future adjustments. Coverage is a planned opportunity, never automatic completion. The fixed target union includes ranked category goals, cuisine introductions, international anchors, and regional breadth checks. Special-date events and longer commitments remain visible when they cannot fit.
+
+The optimizer distinguishes raw distinct-goal coverage, weighted priority coverage, per-category coverage, calendar days away, weekday leave, and local hours. Its candidate routes and goal assignments are inspectable in `data/coverage-trips.js` and `js/coverage-optimizer.js`. A certified solution applies only to its exact finite-model signature; changed preferences use a labeled heuristic until recertified. No result claims a global optimum over every possible journey or live airfare. Optional maintainer certification uses `LifeCoverageOptimizer.buildProblem(...)` and `python3 life/tools/solve_coverage.py models.json solutions.json` with SciPy installed. Certify a reviewed public baseline; the runtime website uses no Python or backend.
+
+Recorded cuisine tastings lower discovery priority unless a personal rating explicitly brings that cuisine back. A familiar first introduction is omitted from the coverage target unless deliberately selected for deeper exploration. Individual dishes and entire cuisine families are never automatically completed.
+
+The 32 locally hosted reference photographs include author, source, license, and derivative credits in `data/photo-library.js` and `images/photos/attribution.json`. They illustrate possibilities, not the user's recorded visits or meals. Cuisine guides distinguish official menu/location evidence from unverified discovery searches.
+
+
 **Trip map** loads all located US and world ideas together. Blue marks places, red marks activities, green marks food, and purple marks everyday or creative experiences. Toggle kinds, search, narrow a country or region, and collect selected ideas into a trip bucket. The day choice describes the bucket’s time budget; it does not silently hide destinations. The opening viewport favors the US, while the world-view control reveals the rest of the loaded locations.
 
 Leaflet and MarkerCluster are bundled locally with their licenses. OpenStreetMap supplies the background tiles and attribution. Wheel/trackpad, double-click, and touch zoom work through the map library. Clicking clusters zooms in; shared city or country coordinates can fan apart at close zoom so each real catalog record can be opened. Points identify a place, city, or country area rather than an assumed venue entrance. The visible unplaced list retains generic or ambiguous ideas without inventing a home location. The previous Census-derived, ISC-licensed US outline is available as an offline fallback.
@@ -48,7 +59,7 @@ The plan templates are deliberately undated. India’s ten-day template does not
 
 An agent can edit the structured records directly in `data/`. Keep IDs stable and avoid reusing removed IDs. Search the title and location before adding a record; distinct activities in one place can remain separate. Use blank or unknown metadata when details have not been checked. Add a specific dish, a small everyday experience, or a completed skill alongside larger destinations.
 
-New ideas and boards can also be created in the page and exported to the repository snapshot. Photos currently use optional HTTPS links. A future private photo store can be added without changing the stable experience IDs.
+New ideas and boards can also be created in the page and exported to the repository snapshot. Personal photos currently use optional HTTPS links, alongside the licensed reference-photo library. A future private photo store can be added without changing the stable experience IDs.
 
 ## Preview
 

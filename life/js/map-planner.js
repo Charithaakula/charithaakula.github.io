@@ -8,18 +8,20 @@
     food: { label: 'Food & drink', color: '#44855b', glyph: '◡' },
     everyday: { label: 'Everyday & making', color: '#8b6db4', glyph: '♡' }
   };
-  const DAYS = { '2-3': '2–3 days', '4-5': '4–5 days', '10': '10 days', '14': '14 days' };
+  const DAYS = { '2-3': '2–3 days', '4-5': '4–5 days', '9': '9 days', '10': '10 days', '14': '14 days' };
   const STATUS = { curious: 'Curious', want: 'Want to do', done: 'Done', revisit: 'Want to revisit', pass: 'Not for me' };
   const ui = {
     query: '', geography: '', category: '', status: '', earlier: false, kinds: new Set(Object.keys(KINDS)),
     days: '2-3', bucketName: '', selected: new Set(), focusIds: [], focusLabel: '',
-    listMode: 'viewport', limit: 20, basketLimit: 6, offline: false,
+    listMode: 'viewport', priorityIds: null, priorityLabel: '', rankedDestinations: null, rankedSource: null, limit: 20, basketLimit: 6, offline: false,
     view: { center: [39, -98], zoom: 4 }
   };
   let hooks = {};
   let root = null;
   let map = null;
   let clusters = null;
+  let destinationLayer = null;
+  let destinationMarkers = new Map();
   let tiles = null;
   let markers = new Map();
   let matchedIds = [];
@@ -67,6 +69,7 @@
   }
   function matches(item, snap) {
     const tracker = item.tracker || {};
+    if (ui.priorityIds && !ui.priorityIds.has(item.id)) return false;
     if (!ui.kinds.has(kindOf(item))) return false;
     if (ui.category && item.category !== ui.category) return false;
     if (ui.status && (ui.status === 'pinned' ? !tracker.board : tracker.status !== ui.status)) return false;
@@ -158,6 +161,7 @@
     return '<article class="map-result' + (ui.selected.has(item.id) ? ' is-selected' : '') + '"><label class="map-item-checkbox"><input type="checkbox" data-map-select="' + esc(item.id) + '"' + (ui.selected.has(item.id) ? ' checked' : '') + ' aria-label="Add ' + esc(item.title) + ' to the trip basket"><span class="sr-only">Select ' + esc(item.title) + '</span></label><div class="map-item-body"><button type="button" class="map-item-title" data-map-action="detail" data-item="' + esc(item.id) + '">' + esc(item.title) + '</button><p class="muted">' + esc(point ? point.locationLabel || item.location : item.location || item.country || 'A flexible, everyday possibility') + '</p><div class="map-item-meta"><span style="color:' + KINDS[kind].color + '">' + esc(KINDS[kind].label) + '</span><span>' + esc(STATUS[(item.tracker || {}).status] || 'Curious') + '</span><span>' + esc(point ? point.precision || 'area' : item.scope === 'Anywhere' ? 'Flexible location' : 'Not mapped yet') + '</span></div>' + (point ? button('Find on map', 'locate', item.id) : '') + '</div></article>';
   }
   function sidebarHtml(snap) {
+    if(ui.rankedDestinations) return '<span class="eyebrow">'+ui.rankedDestinations.length+' ranked destinations</span><h3>Your priority map</h3><p class="form-help">Numbers match Top picks. Open a place to see the food and experiences you can combine there.</p><div class="map-results">'+ui.rankedDestinations.map(row=>'<article class="map-result"><div class="map-item-body"><button type="button" class="map-item-title" data-map-action="destination-locate" data-item="'+esc(row.destination.id)+'">#'+row.rank+' · '+esc(row.destination.title)+'</button><p>'+Math.round(row.score)+' priority points</p>'+button('Food, places & experiences','destination-detail',row.destination.id)+'</div></article>').join('')+'</div>';
     const ids = listIds(snap);
     const shownCount = Math.min(ids.length, ui.limit, 40);
     const region = regionFor(ui.listMode === 'cluster' ? ui.focusIds.filter(id => snap.index.has(id)) : [], snap);
@@ -167,14 +171,15 @@
   function basketHtml(snap) {
     const selected = Array.from(ui.selected).map(id => snap.index.get(id)).filter(Boolean);
     const regionIds = unique(selected.map(item => (snap.points.get(item.id) || {}).regionId || item.country).filter(Boolean));
-    return '<div class="map-selection-heading"><div><span class="eyebrow">A loose trip basket</span><h3>' + selected.length + (selected.length === 1 ? ' idea, collected.' : ' ideas, collected.') + '</h3></div>' + (selected.length ? button('Clear basket', 'clear-selection') : '') + '</div><p class="form-help">Changing filters or map views keeps your selections.' + (regionIds.length > 1 ? ' These areas may need separate bases; compare travel time before combining.' : '') + '</p><div class="form-grid"><div class="form-field"><label for="map-bucket-name">A name for this possibility, optional</label><input id="map-bucket-name" class="map-bucket-name" maxlength="180" value="' + esc(ui.bucketName) + '" placeholder="A ten-day window, somewhere beautiful…"></div><div class="form-field"><label for="map-plan-days">Time to consider</label><select id="map-plan-days">' + Object.entries(DAYS).map(([value, label]) => option(value, label, ui.days)).join('') + '</select></div></div><p class="form-help">The time choice is a planning budget. It does not hide any map pins or assume all selected ideas fit.</p>' + (selected.length ? '<ul class="map-selection-list">' + selected.slice(0, ui.basketLimit).map(item => '<li><button type="button" class="map-item-title" data-map-action="detail" data-item="' + esc(item.id) + '">' + esc(item.title) + '</button>' + button('Remove', 'remove-selection', item.id) + '</li>').join('') + '</ul>' + (selected.length > ui.basketLimit ? button('See ' + (selected.length - ui.basketLimit) + ' more selected', 'more-basket') : '') : '<p class="muted">Select a checkbox in a popup or beside an idea to start collecting.</p>') + '<div class="map-create-row"><span class="chip">Solo · ' + esc(DAYS[ui.days]) + '</span>' + button('Create solo draft →', 'create-plan', '', 'primary', !selected.length) + '</div>';
+    return '<div class="map-selection-heading"><div><span class="eyebrow">A loose trip basket</span><h3>' + selected.length + (selected.length === 1 ? ' idea, collected.' : ' ideas, collected.') + '</h3></div>' + (selected.length ? button('Clear basket', 'clear-selection') : '') + '</div><p class="form-help">Changing filters or map views keeps your selections.' + (regionIds.length > 1 ? ' These areas may need separate bases; compare travel time before combining.' : '') + '</p><div class="form-grid"><div class="form-field"><label for="map-bucket-name">A name for this possibility, optional</label><input id="map-bucket-name" class="map-bucket-name" maxlength="180" value="' + esc(ui.bucketName) + '" placeholder="A ten-day window, somewhere beautiful…"></div><div class="form-field"><label for="map-plan-days">Time to consider</label><select id="map-plan-days">' + Object.entries(DAYS).sort((a,b)=>parseInt(a[0])-parseInt(b[0])).map(([value, label]) => option(value, label, ui.days)).join('') + '</select></div></div><p class="form-help">The time choice is a planning budget. It does not hide any map pins or assume all selected ideas fit.</p>' + (selected.length ? '<ul class="map-selection-list">' + selected.slice(0, ui.basketLimit).map(item => '<li><button type="button" class="map-item-title" data-map-action="detail" data-item="' + esc(item.id) + '">' + esc(item.title) + '</button>' + button('Remove', 'remove-selection', item.id) + '</li>').join('') + '</ul>' + (selected.length > ui.basketLimit ? button('See ' + (selected.length - ui.basketLimit) + ' more selected', 'more-basket') : '') : '<p class="muted">Select a checkbox in a popup or beside an idea to start collecting.</p>') + '<div class="map-create-row"><span class="chip">Solo · ' + esc(DAYS[ui.days]) + '</span>' + button('Create solo draft →', 'create-plan', '', 'primary', !selected.length) + '</div>';
   }
   function statsHtml(snap) {
+    if(ui.rankedDestinations)return '<span class="chip">Ranked destination map · '+ui.rankedDestinations.length+' places</span>'+button('Show all catalog locations','clear-ranked')+'<span class="form-help">Number = priority rank. These pins are city or regional planning bases.</span>';
     const allLocated = snap.points.size;
     const matching = snap.items.filter(item => matches(item, snap));
     const located = matching.filter(item => snap.points.has(item.id)).length;
     const unplaced = matching.length - located;
-    return '<span>' + located.toLocaleString() + ' mapped possibilities' + (located !== allLocated ? ' match these filters' : '') + '</span>' + button(unplaced + ' flexible / not mapped yet', 'unplaced', '', 'small ghost') + '<span class="form-help">Blue places · red activities · green food · purple everyday & making</span>';
+    return (ui.priorityIds ? '<span class="chip">Priority bundle: ' + esc(ui.priorityLabel) + '</span>' + button('Show all catalog locations', 'clear-priority') : '') + '<span>' + located.toLocaleString() + ' mapped possibilities' + (located !== allLocated ? ' match these filters' : '') + '</span>' + button(unplaced + ' flexible / not mapped yet', 'unplaced', '', 'small ghost') + '<span class="form-help">Blue places · red activities · green food · purple everyday & making</span>';
   }
   function fallbackHtml() {
     const fallback = global.LifeSvgMap;
@@ -186,7 +191,7 @@
     if (map && map.getContainer().isConnected) { const center = map.getCenter(); ui.view = { center: [center.lat, center.lng], zoom: map.getZoom() }; }
     current = snapshot();
     if (ui.offline) return fallbackHtml();
-    return '<section id="life-map-planner" class="map-planner"><div class="view-heading map-heading"><div><span class="eyebrow">Follow a little curiosity</span><h2>Where could life take you?</h2><p class="muted">All located US and world ideas share one map. Zoom into a bubble to discover more; shared city pins fan out when you reach them.</p><p class="map-coverage-summary">' + current.items.length.toLocaleString() + ' catalog ideas · ' + current.points.size.toLocaleString() + ' located · ' + (current.items.length - current.points.size).toLocaleString() + ' flexible / not mapped</p></div><div class="map-view-actions">' + button('USA view', 'usa', '', 'small primary') + button('World view', 'world') + (hooks.goPlans ? button('Explore 10-day trips →', 'plans') : '') + '</div></div>' + filtersHtml(current) + '<div id="map-color-legend">' + legendHtml() + '</div><div class="map-layout"><div class="map-stage"><div id="life-leaflet-map" class="leaflet-life-map" role="region" aria-label="Interactive world experience map"></div><div id="map-tile-notice" class="map-tile-notice" role="status" hidden><p>The background tiles could not load. You can still inspect pins or use the offline US map.</p>' + button('Retry background tiles', 'retry-tiles') + button('Use offline US map', 'offline') + '</div><div class="map-view-actions map-bulk-actions">' + button('Bucket ideas in this view', 'select-matching') + button('Fit my basket', 'fit-basket', '', 'small ghost', !ui.selected.size) + '</div><div id="map-stats" class="map-legend">' + statsHtml(current) + '</div><p class="form-help">Pins use place, city or country areas. Some ideas share a base; a fanned-out pin is a way to choose from the list, not a newly invented venue. Background map © OpenStreetMap contributors.</p><section id="map-basket" class="map-selection" aria-label="Selected trip ideas">' + basketHtml(current) + '</section></div><aside id="map-sidebar" class="map-sidebar" aria-label="Experiences around the map">' + sidebarHtml(current) + '</aside></div></section>';
+    return '<section id="life-map-planner" class="map-planner"><div class="view-heading map-heading"><div><span class="eyebrow">Follow a little curiosity</span><h2>Where could life take you?</h2><p class="muted">All located US and world ideas share one map. Zoom into a bubble to discover more; shared city pins fan out when you reach them.</p><p class="map-coverage-summary">' + current.items.length.toLocaleString() + ' catalog ideas · ' + current.points.size.toLocaleString() + ' located · ' + (current.items.length - current.points.size).toLocaleString() + ' flexible / not mapped</p></div><div class="map-view-actions">' + button('USA view', 'usa', '', 'small primary') + button('World view', 'world') + (hooks.goPlans ? '<a class="button small ghost" href="#coverage">Optimize 5 / 9-day trips →</a>' : '') + '</div></div>' + filtersHtml(current) + '<div id="map-color-legend">' + legendHtml() + '</div><div class="map-layout"><div class="map-stage"><div id="life-leaflet-map" class="leaflet-life-map" role="region" aria-label="Interactive world experience map"></div><div id="map-tile-notice" class="map-tile-notice" role="status" hidden><p>The background tiles could not load. You can still inspect pins or use the offline US map.</p>' + button('Retry background tiles', 'retry-tiles') + button('Use offline US map', 'offline') + '</div><div class="map-view-actions map-bulk-actions">' + button('Bucket ideas in this view', 'select-matching') + button('Fit my basket', 'fit-basket', '', 'small ghost', !ui.selected.size) + '</div><div id="map-stats" class="map-legend">' + statsHtml(current) + '</div><p class="form-help">Pins use place, city or country areas. Some ideas share a base; a fanned-out pin is a way to choose from the list, not a newly invented venue. Background map © OpenStreetMap contributors.</p><section id="map-basket" class="map-selection" aria-label="Selected trip ideas">' + basketHtml(current) + '</section></div><aside id="map-sidebar" class="map-sidebar" aria-label="Experiences around the map">' + sidebarHtml(current) + '</aside></div></section>';
   }
   function updatePanels(includeBasket) {
     if (!root || !root.isConnected) return;
@@ -219,6 +224,11 @@
   }
   function rebuildMarkers() {
     if (!map || !clusters) return;
+    if(ui.rankedDestinations){
+      const filters=root&&root.querySelector('#map-filters');if(filters)filters.hidden=true;
+      const legend=document.getElementById('map-color-legend');if(legend)legend.hidden=true;
+      const bulk=root&&root.querySelector('.map-bulk-actions');if(bulk)bulk.hidden=true;
+      rebuildDestinations();updatePanels(false);return;}
     current = snapshot();
     matchedIds = current.items.filter(item => current.points.has(item.id) && matches(item, current)).map(item => item.id);
     const signature = matchedIds.join('|');
@@ -234,6 +244,38 @@
       clusters.addLayers(layers); markerSignature = signature;
     } else updateSelectionIcons();
     updatePanels(false);
+  }
+  function rebuildDestinations() {
+    if(!map||!ui.rankedDestinations)return;
+    if(ui.rankedSource&&global.LifePriorities){
+      const source=ui.rankedSource,snap=snapshot(),q=String(source.query||'').trim().toLowerCase();
+      let rows=global.LifePriorities.rankDestinations(source.scope).map((row,i)=>({...row,rank:i+1}));
+      if(q)rows=rows.filter(row=>[row.destination.title,row.destination.reason,row.destination.mapLabel,...row.destination.relatedItemIds.map(id=>(snap.index.get(id)||{}).country)].join(' ').toLowerCase().includes(q));
+      if(source.sort==='low')rows.reverse();
+      ui.rankedDestinations=(source.limit==='all'?rows:rows.slice(0,Number(source.limit)||30)).filter(row=>Number.isFinite(row.destination.lat)&&Number.isFinite(row.destination.lon));
+    }
+    if(map.hasLayer(clusters))map.removeLayer(clusters);
+    if(destinationLayer)map.removeLayer(destinationLayer);
+    destinationLayer=global.L.layerGroup();destinationMarkers=new Map();
+    ui.rankedDestinations.forEach(row=>{
+      const d=row.destination;
+      if(!Number.isFinite(d.lat)||!Number.isFinite(d.lon))return;
+      const icon=global.L.divIcon({className:'life-priority-pin',iconSize:[38,38],iconAnchor:[19,19],html:'<span>'+row.rank+'</span>'});
+      const marker=global.L.marker([d.lat,d.lon],{icon,title:'#'+row.rank+' '+d.title+' · '+Math.round(row.score)+' priority points',keyboard:true});
+      marker.bindPopup('<div class="map-popup"><span class="eyebrow">#'+row.rank+' · '+Math.round(row.score)+' priority points</span><h3>'+esc(d.title)+'</h3><p>'+esc(row.reason)+'</p><p class="form-help">'+esc(d.precision||'Regional planning base')+' · '+esc(d.mapLabel||d.title)+'</p>'+button('Food, places & experiences','destination-detail',d.id)+'</div>',{maxWidth:320,className:'map-life-popup'});
+      marker.addTo(destinationLayer);destinationMarkers.set(d.id,marker);
+    });
+    destinationLayer.addTo(map);
+  }
+  function clearRanked() {
+    ui.rankedDestinations=null;ui.rankedSource=null;
+    if(map&&destinationLayer)map.removeLayer(destinationLayer);
+    destinationLayer=null;destinationMarkers=new Map();
+    if(map&&clusters&&!map.hasLayer(clusters))clusters.addTo(map);
+    const filters=root&&root.querySelector('#map-filters');if(filters)filters.hidden=false;
+    const legend=document.getElementById('map-color-legend');if(legend)legend.hidden=false;
+    const bulk=root&&root.querySelector('.map-bulk-actions');if(bulk)bulk.hidden=false;
+    rebuildMarkers();
   }
   function select(ids, checked) {
     const snap = snapshot();
@@ -265,6 +307,8 @@
     } catch (error) { notify(error.message || 'This draft could not be saved.'); }
   }
   function resetFilters() {
+    clearRanked();
+    ui.priorityIds = null; ui.priorityLabel = '';
     ui.query = ''; ui.geography = ''; ui.category = ''; ui.status = ''; ui.earlier = false;
     ui.kinds = new Set(Object.keys(KINDS)); ui.listMode = 'viewport'; ui.focusIds = []; ui.limit = 20;
     const fields = { 'map-search': '', 'map-geography': '', 'map-category': '', 'map-status': '' };
@@ -287,6 +331,9 @@
       const legend = document.getElementById('map-color-legend'); if (legend) legend.innerHTML = legendHtml();
       ui.limit = 20; rebuildMarkers();
     } else if (action === 'detail') { if (hooks.openItem) hooks.openItem(id); }
+    else if(action==='destination-detail'){if(hooks.openPriorityDestination)hooks.openPriorityDestination(id);}
+    else if(action==='destination-locate'){const marker=destinationMarkers.get(id);if(marker&&map){map.setView(marker.getLatLng(),6,{animate:false});marker.openPopup();}}
+    else if(action==='clear-ranked')clearRanked();
     else if (action === 'locate') {
       const marker = markers.get(id);
       if (marker && clusters) clusters.zoomToShowLayer(marker, () => marker.openPopup());
@@ -313,6 +360,7 @@
     }
     else if (action === 'plans') { if (hooks.goPlans) hooks.goPlans(); }
     else if (action === 'reset-filters') resetFilters();
+    else if (action === 'clear-priority') { ui.priorityIds = null; ui.priorityLabel = ''; rebuildMarkers(); }
     else if (action === 'unplaced') { ui.listMode = 'unplaced'; ui.limit = 20; updatePanels(false); }
     else if (action === 'offline') { ui.offline = true; rerenderEngine(); }
     else if (action === 'retry-tiles') {
@@ -356,6 +404,7 @@
     if (resizeObserver) { resizeObserver.disconnect(); resizeObserver = null; }
     if (tiles) tiles.off('tileerror tileload');
     map.remove(); map = null; clusters = null; tiles = null; popup = null; markers = new Map();
+    destinationLayer=null;destinationMarkers=new Map();
     markerSignature = ''; matchedIds = [];
     clearTimeout(tileTimer); clearTimeout(searchTimer); tileErrors = 0;
   }
@@ -401,9 +450,9 @@
     }
     if (map && map.getContainer() === container) { rebuildMarkers(); return; }
     if (map) teardown();
-    map = global.L.map(container, { center: ui.view.center, zoom: ui.view.zoom, minZoom: 1, maxZoom: 19, zoomControl: true, scrollWheelZoom: true, doubleClickZoom: true, touchZoom: true, keyboard: true, worldCopyJump: true, zoomSnap: 1 });
+    map = global.L.map(container, { center: ui.view.center, zoom: ui.view.zoom, minZoom: 0, maxZoom: 19, zoomControl: true, scrollWheelZoom: true, doubleClickZoom: true, touchZoom: true, keyboard: true, worldCopyJump: true, zoomSnap: 1 });
     tiles = global.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      minZoom: 1, maxZoom: 19, detectRetina: false, updateWhenIdle: true, keepBuffer: 1,
+      minZoom: 0, maxZoom: 19, detectRetina: false, updateWhenIdle: true, keepBuffer: 1,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors'
     }).addTo(map);
     tiles.on('tileerror', () => {
@@ -461,12 +510,37 @@
       const matching = snap.items.filter(item => snap.points.has(item.id) && matches(item, snap));
       const scopeCounts = {};
       snap.points.forEach((point, id) => { const scope = snap.index.get(id).scope || 'Anywhere'; scopeCounts[scope] = (scopeCounts[scope] || 0) + 1; });
-      return { zoom: map ? map.getZoom() : ui.view.zoom, visibleMarkerCount: matching.filter(item => visibleInMap(item.id, snap)).length, matchingMarkerCount: matching.length, locatedCount: snap.points.size, unplacedCount: snap.items.length - snap.points.size, activeKinds: Array.from(ui.kinds), sourceScope: 'all', sourceScopes: scopeCounts };
+      return { mode:ui.rankedDestinations?'ranked-destinations':ui.priorityIds?'priority-bundle':'catalog',destinationCount:destinationMarkers.size, zoom: map ? map.getZoom() : ui.view.zoom, visibleMarkerCount: matching.filter(item => visibleInMap(item.id, snap)).length, matchingMarkerCount: matching.length, locatedCount: snap.points.size, unplacedCount: snap.items.length - snap.points.size, activeKinds: Array.from(ui.kinds), sourceScope: 'all', sourceScopes: scopeCounts };
     },
     getSelection: () => Array.from(ui.selected),
     clearSelection: () => { ui.selected.clear(); updateSelectionIcons(); updatePanels(true); },
     resetMap: () => { if (map) map.setView([39, -98], 4); else ui.view = { center: [39, -98], zoom: 4 }; },
     setPlanDays: value => { if (DAYS[value]) { ui.days = value; updatePanels(true); } },
+    showRankedDestinations: (rows, source) => {
+      resetFilters();ui.rankedSource=source||null;ui.rankedDestinations=rows.filter(row=>Number.isFinite(row.destination.lat)&&Number.isFinite(row.destination.lon));
+      if(map){rebuildDestinations();fitPoints(ui.rankedDestinations.map(row=>row.destination),3);}
+      const filters=root&&root.querySelector('#map-filters');if(filters)filters.hidden=true;
+      const legend=document.getElementById('map-color-legend');if(legend)legend.hidden=true;
+      const bulk=root&&root.querySelector('.map-bulk-actions');if(bulk)bulk.hidden=true;
+      updatePanels(false);
+    },
+    showPriorityBundle: (ids, label) => {
+      resetFilters();
+      const snap = snapshot();
+      ui.priorityIds = new Set(unique(ids).filter(id => snap.index.has(id)));
+      ui.priorityLabel = label || 'selected destinations'; ui.focusIds = Array.from(ui.priorityIds);
+      ui.focusLabel = ui.priorityLabel; ui.listMode = 'cluster'; ui.limit = 20;
+      rebuildMarkers();
+      if (map) fitPoints(ui.focusIds.map(id=>snap.points.get(id)).filter(Boolean), 10);
+    },
+    showItems: (ids, label) => {
+      resetFilters();
+      const snap = snapshot();
+      ui.focusIds = unique(ids).filter(id => snap.index.has(id));
+      ui.focusLabel = label || 'Ideas at this destination'; ui.listMode = 'cluster'; ui.limit = 20;
+      if (map) fitPoints(ui.focusIds.map(id=>snap.points.get(id)).filter(Boolean), 10);
+      updatePanels(false);
+    },
     setRegion: id => {
       const snap = snapshot(); const region = snap.regionIndex.get(id);
       if (!region) return;

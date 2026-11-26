@@ -147,5 +147,12 @@ window.LIFE_LOCATION_CORRECTIONS = {
     "precision": "place area",
     "locationLabel": "Manzanar historic site area in Owens Valley, south of Independence",
     "regionId": "sierra"
+  },
+  "LA-0175": {
+    "lat": 34.14,
+    "lon": -116.05,
+    "precision": "city area",
+    "locationLabel": "Twentynine Palms gateway for Joshua Tree; park sectors require a separate drive",
+    "regionId": "los-angeles"
   }
 };
